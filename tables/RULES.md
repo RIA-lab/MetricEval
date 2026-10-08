@@ -47,6 +47,10 @@ truncation) is applied by the **coverage rule**, not by hand.
 * A single coverage threshold (>= 50 % of units and >= 20 units; `partial` flag below 80 %) is used for both
   testability and the main set, because an 80 % hard threshold would drop the interface terms (defined on 21 of
   28 zymogen pairs = 75 %) for an arbitrary reason.
+* `OK-PROVISIONAL` (interface terms in the M3 chemistry ladder) was resolved after the 1B hand-back by **testability**, not by
+  verdict: the term enters the main set when the pre-registered matched subset met its coverage floor (>= 30 pairs in >= 15
+  systems), whatever the outcome (`ops/make_tables.py`, commit `f4bfd0c`). The raw status stays in `A3`/`A5` `v1_status`; the
+  1B outcome is stated in A5 `reason`. AME in the M3 ladder stays `OK-KNOCKON` with no specificity verdict.
 
 ## Main metric set
 
