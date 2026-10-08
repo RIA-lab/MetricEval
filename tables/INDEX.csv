@@ -1,0 +1,50 @@
+table_id,path,section,paper_part,paper_slot,title,n_rows,generator,generator_sha256,rules_sha256,licence_flag,status
+A1,tables/audit/A1_metric_contracts.csv,audit,audit,audit,Metric input contracts,216,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+A2,tables/audit/A2_test_inventory.csv,audit,audit,audit,Test inventory,30,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+A3,tables/audit/A3_applicability.csv,audit,audit,audit,Metric x test applicability (long),6480,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+A4,tables/audit/A4_denominator_restatement.csv,audit,audit,audit,Denominator restatement on the eligible set,58,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+A5,tables/audit/A5_main_metric_set.csv,audit,audit,audit,Main metric set,191,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+T1,tables/main/T1_design_overview.csv,design,shared,main,Design overview,12,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+T2,tables/main/T2_datasets.csv,datasets,shared,main,Datasets,10,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+T3,tables/main/T3_part1A_structure_space.csv,1A,Part 1,main,Structure-space metrics: detection and specificity (main-set metrics),20,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+T4,tables/main/T4_part1B_prediction_based.csv,1B,Part 1,main,Prediction-based metrics: substrate discrimination and chemistry-ladder specificity,19,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+T5,tables/main/T5_part2A_real_dead_active.csv,2A,Part 2,main,Real dead vs active enzymes (zymogen pairs),15,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+T6,tables/main/T6_part2B_measured_effects.csv,2B,Part 2,main,Measured effects: BglB variants and plate designs,28,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,D2DCure_aggregate,complete
+S01,tables/supp/S01_metric_contracts.csv,audit,audit,supp,Metric input contracts (reader-facing),216,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S02,tables/supp/S02_applicability_by_class.csv,audit,audit,supp,Applicability by input class x test,340,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S03,tables/supp/S03_test_inventory.csv,audit,audit,supp,Test inventory and identifier crosswalk,30,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S04a,tables/supp/S04a_part1A_eligible_metrics.csv,1A,Part 1,supp,"1A per-metric, per-level results, eligible (site-scoped) metrics",256,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S04b,tables/supp/S04b_part1A_global_comparators.csv,1A,Part 1,supp,"1A per-metric, per-level results, whole-protein and sequence-only comparators",308,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S05,tables/supp/S05_N0_by_input_class.csv,1A,Part 1,supp,"N0 sanity-floor conditions by input class, with the cat->Gly reconciliation",53,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S06a,tables/supp/S06a_control_match_tiers.csv,1A,Part 1,supp,Control matching: loosest tier needed per axis,81,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S06b,tables/supp/S06b_control_arm_balance.csv,1A,Part 1,supp,Control matching: arm balance per axis,15,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S07,tables/supp/S07_survivors_by_status.csv,1A,Part 1,supp,Surviving specific cells with their applicability status,97,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S08,tables/supp/S08_not_measurable.csv,1A,Part 1,supp,"Measurements that cannot be made (retired, withdrawn, not measurable)",9,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S09,tables/supp/S09_denovo_created_control.csv,1A,Part 1,supp,De novo created-site control: burial equivalence,5,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S10,tables/supp/S10_motif_packing_sensitivity.csv,1A,Part 1,supp,"Sensitivity: motif size x packing x count gating (C axis, main-set metrics)",20,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S11,tables/supp/S11_equivalence_legacy_vs_main.csv,1A,Part 1,supp,Panel equivalence statistic: legacy panel vs main-set metrics,6,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S12,tables/supp/S12_ranking_cost.csv,1A,Part 1,supp,"Ranking statistic R along the lesion ladder, with applicability status",313,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S12b,tables/supp/S12b_effective_dimensionality.csv,1A,Part 1,supp,Effective dimensionality: legacy panel vs main-set metrics,4,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S13,tables/supp/S13_placer_isosteric.csv,1A,Part 1,supp,PLACER on the isosteric rung (crop-coverage confound),50,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S14,tables/supp/S14_substrate_swap_per_metric.csv,1B,Part 1,supp,"1B substrate swap, all 44 prediction-based metrics",242,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S14b,tables/supp/S14b_substrate_swap_size_strata.csv,1B,Part 1,supp,1B substrate swap stratified by ligand size and charge (Agent 1B),1136,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S15,tables/supp/S15_m3_ladder_per_level.csv,1B,Part 1,supp,"1B M3 chemistry ladder per level, all metrics",231,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S16a,tables/supp/S16a_ladder_pair_distances.csv,1B,Part 1,supp,"1B ladder: distance of substituted and control residues to the ligand, per pair",312,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S16b,tables/supp/S16b_ladder_distance_strata.csv,1B,Part 1,supp,1B ladder: specificity ratio in distance strata,203,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S16c,tables/supp/S16c_ladder_matched_subsets.csv,1B,Part 1,supp,1B ladder: caliper-matched subsets and the frozen-rule labels,348,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S16d,tables/supp/S16d_ladder_regression_adjusted.csv,1B,Part 1,supp,1B ladder: regression-adjusted ratios (distance and burial),116,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S16e,tables/supp/S16e_new_distance_matched_controls.csv,1B,Part 1,supp,1B ladder: the 54 new distance-matched controls selected and predicted,291,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S16f,tables/supp/S16f_replicate_noise_context.csv,1B,Part 1,supp,1B ladder: seed-202 replicate noise context,56,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S16g,tables/supp/S16g_canary_drift.csv,1B,Part 1,supp,1B: drift of the live Chai-1 engine against the August predictions,176,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S17,tables/supp/S17_zymogen_all_metrics.csv,2A,Part 2,supp,"2A zymogen separation, all scored metrics, with the P0b matched null",136,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S17b,tables/supp/S17b_pair_set_definitions.csv,2A,Part 2,supp,Pair-set definitions (55 / 49 / 45 / 28 / 21 / 96),6,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S18,tables/supp/S18_T2_restated.csv,2A,Part 2,supp,"2A zymogen pairs re-predicted, definedness-restated and AME-relabelled",33,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S19,tables/supp/S19_trapping_verification.csv,2A,Part 2,supp,Trapping-mutant verification (tier retired),6,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S20a,tables/supp/S20a_bglb_all_metrics.csv,2B,Part 2,supp,2B BglB: all analysed metrics,84,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,D2DCure_aggregate,complete
+S20b,tables/supp/S20b_bglb_sensitivities.csv,2B,Part 2,supp,2B BglB: sensitivity analyses,11,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,D2DCure_aggregate,complete
+S21,tables/supp/S21_bglb_m3_all_metrics.csv,2B,Part 2,supp,"2B BglB Stage B (Chai-1 + AME-vs-crystal), all metrics",28,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,D2DCure_aggregate,complete
+S22a,tables/supp/S22a_plates_enrichment.csv,2B,Part 2,supp,"2B plates: enrichment at every keep fraction, all metrics",816,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S22b,tables/supp/S22b_plates_ordering.csv,2B,Part 2,supp,"2B plates: ordering among the 16 actives, all metrics",81,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S23,tables/supp/S23_plates_m3_enrichment.csv,2B,Part 2,supp,"2B plates (Chai-1 + AME-vs-self): enrichment, all metrics",232,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete
+S25,tables/supp/S25_reference_rows.csv,2B,Part 2,supp,"Reference rows in full, across Part 2 tests",35,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,D2DCure_aggregate,complete
+S26,tables/supp/S26_gpu_ledger.csv,audit,audit,supp,GPU ledger of the experiment agents (wall time per shard and card type),81,ops/make_tables.py,5aa97f74c1ad9f55,c79a326260bc20f1,public,complete

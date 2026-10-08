@@ -1,0 +1,7 @@
+phase,metric_set,n_metrics,geomean_sr,ci90_lo,ci90_hi,median_sr,n_clusters,source_artifact,status,note
+P1,legacy panel (all metrics with a testable cell),103,0.9642,0.7479,1.2195,1.0,21,results/isosteric_equivalence_clustered.json,complete,includes ~34 composition metrics with SR = 1 by construction
+P2,legacy panel (all metrics with a testable cell),102,0.9575,0.8969,1.0839,1.0086,74,results/isosteric_equivalence_clustered.json,complete,includes ~34 composition metrics with SR = 1 by construction
+P2K,legacy panel (all metrics with a testable cell),102,0.9947,0.9374,1.1342,1.0384,74,results/isosteric_equivalence_clustered.json,complete,includes ~34 composition metrics with SR = 1 by construction
+P2S,legacy panel (all metrics with a testable cell),100,0.8522,0.7831,0.926,0.9269,75,results/isosteric_equivalence_clustered.json,complete,includes ~34 composition metrics with SR = 1 by construction
+P2K,main-set metrics only,27,1.0746,0.9584,1.1782,1.1406,74,tables/spec/derived/panel_equivalence_main.json,complete,metrics with a defined SR (both arms move); nested bootstrap by EC sub-subclass
+P2,main-set metrics only,27,1.0215,0.9087,1.1249,1.1096,74,tables/spec/derived/panel_equivalence_main_P2.json,complete,metrics with a defined SR (both arms move); nested bootstrap by EC sub-subclass

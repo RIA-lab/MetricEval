@@ -1,0 +1,130 @@
+{
+  "correction": "native_treated tier only; results/P6/activity_ranking.* averaged over all N0 levels (see results/P6_m3/m1_ranking_discrepancy.json)",
+  "question": "across designs with measured catalytic efficiency, does any in-silico metric track kcat/KM?",
+  "ruling": "results/P6/REPORT.md \u2014 descriptive only, no hypothesis test against activity and no headline null (Rule 2.4)",
+  "label_caution": "the source reports no_reported_activity, never inactive; 176 designs were not measured and found dead, they were not reported",
+  "n_plate_designs": 192,
+  "n_measured_active": 16,
+  "n_no_reported_activity": 176,
+  "n_active_with_metrics": 16,
+  "kcat_km_range": [
+    35.0,
+    53000.0
+  ],
+  "n_metrics_testable": 81,
+  "n_intervals_excluding_zero": 24,
+  "n_expected_by_chance": 8.1,
+  "n_surviving_length_control": 14,
+  "size_confound": "sequence length is a trivial baseline in this panel and most Rosetta terms are extensive; rho_given_length removes rank-length from both sides",
+  "strongest": [
+    {
+      "metric_name": "frac_I",
+      "n_designs": 16,
+      "spearman_rho": -0.7821,
+      "rho_lo90": -0.9494,
+      "rho_hi90": -0.5042,
+      "excludes_zero": true,
+      "rho_given_length": -0.6767,
+      "survives_length_control": true
+    },
+    {
+      "metric_name": "frac_A",
+      "n_designs": 16,
+      "spearman_rho": 0.776,
+      "rho_lo90": 0.4627,
+      "rho_hi90": 0.9348,
+      "excludes_zero": true,
+      "rho_given_length": 0.7251,
+      "survives_length_control": true
+    },
+    {
+      "metric_name": "rosetta_omega",
+      "n_designs": 16,
+      "spearman_rho": -0.7756,
+      "rho_lo90": -0.8904,
+      "rho_hi90": -0.5,
+      "excludes_zero": true,
+      "rho_given_length": -0.6761,
+      "survives_length_control": true
+    },
+    {
+      "metric_name": "frac_S",
+      "n_designs": 16,
+      "spearman_rho": -0.7312,
+      "rho_lo90": -0.9274,
+      "rho_hi90": -0.3647,
+      "excludes_zero": true,
+      "rho_given_length": -0.5415,
+      "survives_length_control": true
+    },
+    {
+      "metric_name": "catalytic_polar_contacts",
+      "n_designs": 16,
+      "spearman_rho": 0.6711,
+      "rho_lo90": 0.4115,
+      "rho_hi90": 0.8501,
+      "excludes_zero": true,
+      "rho_given_length": 0.5183,
+      "survives_length_control": true
+    },
+    {
+      "metric_name": "catalytic_polar_contacts_per_residue",
+      "n_designs": 16,
+      "spearman_rho": 0.6711,
+      "rho_lo90": 0.4178,
+      "rho_hi90": 0.8472,
+      "excludes_zero": true,
+      "rho_given_length": 0.5183,
+      "survives_length_control": true
+    },
+    {
+      "metric_name": "rosetta_fa_rep",
+      "n_designs": 16,
+      "spearman_rho": -0.6328,
+      "rho_lo90": -0.8949,
+      "rho_hi90": -0.2378,
+      "excludes_zero": true,
+      "rho_given_length": -0.4614,
+      "survives_length_control": false
+    },
+    {
+      "metric_name": "rosetta_catalytic_vdw_net",
+      "n_designs": 16,
+      "spearman_rho": -0.6299,
+      "rho_lo90": -0.8777,
+      "rho_hi90": -0.2414,
+      "excludes_zero": true,
+      "rho_given_length": -0.4743,
+      "survives_length_control": false
+    },
+    {
+      "metric_name": "rosetta_fa_intra_rep",
+      "n_designs": 16,
+      "spearman_rho": -0.624,
+      "rho_lo90": -0.8446,
+      "rho_hi90": -0.2638,
+      "excludes_zero": true,
+      "rho_given_length": -0.4495,
+      "survives_length_control": false
+    },
+    {
+      "metric_name": "frac_V",
+      "n_designs": 16,
+      "spearman_rho": -0.6201,
+      "rho_lo90": -0.934,
+      "rho_hi90": -0.1619,
+      "excludes_zero": true,
+      "rho_given_length": -0.5038,
+      "survives_length_control": true
+    }
+  ],
+  "seed": 20260807,
+  "n_boot": 5000,
+  "min_designs": 8,
+  "inputs": {
+    "scores": "results/scores.parquet",
+    "systems": "data/systems/p6_d3_v1/systems.csv"
+  },
+  "utc": "2026-10-08T01:36:05Z",
+  "code_sha": "7ee7c0065f0b792fdc9ac2639d7a8e69201438c0"
+}

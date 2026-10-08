@@ -1,0 +1,26 @@
+{
+  "phase": "P2",
+  "n_main_set_keys": 29,
+  "native_panel": {
+    "panel": "native values across systems",
+    "n_metrics": 29,
+    "n_systems_complete": 123,
+    "participation_ratio": 7.85,
+    "effective_rank_fraction": 0.271,
+    "var_explained_pc1": 0.207,
+    "n_pcs_for_90pct": 11,
+    "median_abs_offdiag_r": 0.143
+  },
+  "response_panel": {
+    "panel": "isosteric responses (catalytic arm)",
+    "n_metrics": 23,
+    "n_systems_complete": 124,
+    "participation_ratio": 10.5,
+    "effective_rank_fraction": 0.457,
+    "var_explained_pc1": 0.188,
+    "n_pcs_for_90pct": 13,
+    "median_abs_offdiag_r": 0.101
+  },
+  "legacy": "results/effective_dimensionality.json (native 97 metrics PR 12.12; response 76 metrics PR 14.2)",
+  "utc": "2026-10-08T06:14:29Z"
+}

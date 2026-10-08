@@ -1,0 +1,87 @@
+{
+  "rules_version": "1.0",
+  "date": "2026-10-07",
+  "principle": "Applicability depends on a metric's inputs, its definedness and the test design only -- never on whether the metric 'works'. tests/test_applicability.py shuffles verdicts and asserts the matrix is unchanged.",
+  "thresholds": {
+    "coverage_min_fraction": 0.5,
+    "coverage_min_units": 20,
+    "partial_below_fraction": 0.8,
+    "point_estimate_max_ci_width": 0.2,
+    "main_balance_tolerance": 0.2
+  },
+  "reference_rows": [
+    "seq_length", "frac_Y", "net_charge", "resolution_A",
+    "chai_plddt_mean", "chai_ptm_mean"
+  ],
+  "reference_rows_external": ["d_cat (BglB distance to catalytic residues; not a panel metric)"],
+  "reference_test_classes": ["real_m1", "real_m3", "rank_m1", "rank_m3"],
+  "status_codes": {
+    "OK": "eligible and scored",
+    "OK-KNOCKON": "AME in the M3 chemistry ladder: measures displacement of the REMAINING catalytic residues (the substituted residue is excluded from its own comparison)",
+    "OK-PROVISIONAL": "interface term in the M3 ladder; promoted or demoted by the rule frozen in PREREG_1B.md, never by the verdict",
+    "GLOBAL": "tested, but the metric has no site input (whole-protein / prediction-global / sequence-only): supplement comparator, or a Part 2 reference row",
+    "REF": "fixed reference row chosen a priori (rules.json reference_rows); a role, not a validity verdict; never counted as a metric under test",
+    "X-NOINPUT": "the metric's input cannot reach the perturbed quantity, or sees it only by arithmetic",
+    "X-BOOKKEEP": "counter, constant, identity-determined quantity, status echo or engine covariate",
+    "X-UNDEF": "undefined by mrx.metrics.definedness for this condition",
+    "X-UNDEF-COV": "defined on fewer than coverage_min_fraction of the test's units, or fewer than coverage_min_units units",
+    "X-ARM": "mode mismatch (M3 metric in an M1 test, or a metric never scored in that mode)",
+    "X-WITHDRAWN": "the test or level is withdrawn (G axis strain, E oxyanion proxy, retired trapping tier, P3 v1, N0 unrelated_protein)",
+    "X-NOCTRL": "the test has no matched X control, so a specificity statement is impossible",
+    "X-CONFOUND": "design-level confound that no configuration removes (PLACER crop coverage)",
+    "NOT-RUN": "eligible in principle but the experiment (or this metric class in it) was not run",
+    "DUP": "duplicate of another test's cell (N0 cat_to_gly == C-Gly rung): read once from the primary"
+  },
+  "precedence": [
+    "X-BOOKKEEP", "X-ARM", "X-NOINPUT", "X-WITHDRAWN", "X-NOCTRL",
+    "NOT-RUN", "DUP", "matrix", "REF-override", "X-UNDEF-COV"
+  ],
+  "test_classes": [
+    "detection_dup", "spec_C", "spec_E", "G", "sanity_n0",
+    "S_m3", "ladder_m3", "placer_c",
+    "real_m1", "real_m3", "rank_m1", "rank_m3"
+  ],
+  "input_classes": [
+    "seq_only", "bookkeeping", "struct_whole", "struct_site", "deposit_meta",
+    "pred_global", "pred_interface", "ame", "placer_csv", "placer_site"
+  ],
+  "matrix": {
+    "seq_only":       {"detection_dup": "X-NOINPUT", "spec_C": "X-NOINPUT", "spec_E": "X-NOINPUT", "G": "X-NOINPUT", "sanity_n0": "X-NOINPUT",
+                       "S_m3": "X-NOINPUT", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
+                       "real_m1": "GLOBAL", "real_m3": "X-ARM", "rank_m1": "GLOBAL", "rank_m3": "X-ARM"},
+    "bookkeeping":    {"detection_dup": "X-BOOKKEEP", "spec_C": "X-BOOKKEEP", "spec_E": "X-BOOKKEEP", "G": "X-BOOKKEEP", "sanity_n0": "X-BOOKKEEP",
+                       "S_m3": "X-BOOKKEEP", "ladder_m3": "X-BOOKKEEP", "placer_c": "X-BOOKKEEP",
+                       "real_m1": "X-BOOKKEEP", "real_m3": "X-BOOKKEEP", "rank_m1": "X-BOOKKEEP", "rank_m3": "X-BOOKKEEP"},
+    "struct_whole":   {"detection_dup": "GLOBAL", "spec_C": "GLOBAL", "spec_E": "GLOBAL", "G": "GLOBAL", "sanity_n0": "GLOBAL",
+                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
+                       "real_m1": "GLOBAL", "real_m3": "X-ARM", "rank_m1": "GLOBAL", "rank_m3": "X-ARM"},
+    "struct_site":    {"detection_dup": "OK", "spec_C": "OK", "spec_E": "OK", "G": "OK", "sanity_n0": "OK",
+                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
+                       "real_m1": "OK", "real_m3": "X-ARM", "rank_m1": "OK", "rank_m3": "X-ARM"},
+    "deposit_meta":   {"detection_dup": "X-NOINPUT", "spec_C": "X-NOINPUT", "spec_E": "X-NOINPUT", "G": "X-NOINPUT", "sanity_n0": "X-NOINPUT",
+                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
+                       "real_m1": "OK", "real_m3": "X-ARM", "rank_m1": "X-NOINPUT", "rank_m3": "X-ARM"},
+    "pred_global":    {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
+                       "S_m3": "GLOBAL", "ladder_m3": "GLOBAL", "placer_c": "X-ARM",
+                       "real_m1": "X-ARM", "real_m3": "GLOBAL", "rank_m1": "X-ARM", "rank_m3": "GLOBAL"},
+    "pred_interface": {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
+                       "S_m3": "OK", "ladder_m3": "OK-PROVISIONAL", "placer_c": "X-ARM",
+                       "real_m1": "X-ARM", "real_m3": "OK", "rank_m1": "X-ARM", "rank_m3": "OK"},
+    "ame":            {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
+                       "S_m3": "OK", "ladder_m3": "OK-KNOCKON", "placer_c": "X-ARM",
+                       "real_m1": "X-ARM", "real_m3": "OK", "rank_m1": "X-ARM", "rank_m3": "OK"},
+    "placer_csv":     {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
+                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "GLOBAL",
+                       "real_m1": "GLOBAL", "real_m3": "X-ARM", "rank_m1": "NOT-RUN", "rank_m3": "X-ARM"},
+    "placer_site":    {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
+                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-CONFOUND",
+                       "real_m1": "OK", "real_m3": "X-ARM", "rank_m1": "NOT-RUN", "rank_m3": "X-ARM"}
+  },
+  "main_set": {
+    "V1": "status in {OK, OK-KNOCKON, OK-PROVISIONAL promoted by 1B} in the primary Part 1 test of the metric's mode (P2K C ladder or P2KE E for M1; the M3 chemistry ladder for M3)",
+    "V2": "status OK, coverage >= coverage_min_fraction of units and >= coverage_min_units units (flag 'partial' below partial_below_fraction), in >= 1 test of 2A (P0 zymogen for M1; T2 zymogen for M3) AND >= 1 test of 2B (BglB; plates) of the same mode",
+    "main": "V1 and V2; only the _mean aggregator of multi-aggregator families; PLACER stays in the supplement",
+    "reference": "fixed list reference_rows, shown as reference rows in Part 2 main tables, never counted as metrics under test"
+  },
+  "primary_tests": {"C": "P2K_C", "E": "P2KE_E", "M3_ladder": "P5_CAXIS_NAT", "S": "P5_S_NAT", "2A_M1": "P0_ZYM", "2A_M3": "P5T2_ZYM"}
+}
