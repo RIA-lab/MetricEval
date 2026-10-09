@@ -1,0 +1,12 @@
+{
+  "name": "metriceval-paper-build",
+  "version": "1.0.0",
+  "description": "Builds paper/paper.pdf from the Markdown sections (pandoc + KaTeX + headless Chromium)",
+  "scripts": {
+    "build": "python3 build_pdf.py"
+  },
+  "dependencies": {
+    "katex": "^0.16.11"
+  },
+  "private": true
+}
