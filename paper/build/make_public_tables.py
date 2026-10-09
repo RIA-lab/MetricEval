@@ -155,7 +155,7 @@ def main():
     d2 = [r["public_id"] for r in rows_out if r["licence_flag"] != "public"]
     (PUBLIC / "README.md").write_text(README.format(
         n_main=n_main, n_supp=n_supp, d2=", ".join(d2),
-        s_first=ids["A5"], s_last=ids["A4"]), encoding="utf-8")
+        s_first=ids["A5"], s_last=ids["S03"]), encoding="utf-8")
     print(f"wrote {n_main} main + {n_supp} supplementary tables to {PUBLIC}")
     print("changed:", sum(r["changes_from_source"] != "none" for r in rows_out), "tables;",
           "D2DCure-flagged:", d2)
@@ -176,7 +176,7 @@ INDEX.csv        id, file, title, where the paper uses it, rows, columns, licenc
 ## Numbering
 Supplementary tables were renumbered S1, S2, S3 ... by first citation in the paper. `INDEX.csv` keeps the
 id under which each table was generated (`source_id`, for example `S17c`) and its file in `tables/`.
-S{s_first} to S{s_last} are the metric audit (the former A5, S01, A3, S02, A4 and S03).
+{s_first} to {s_last} are the metric audit (the former A5, S01, A3, S02, A4 and S03).
 
 ## What was changed relative to `tables/`
 * Files are renamed `S<n>_<name>.csv`; internal experiment labels (1A, 1B, 2A, 2B) are not used in the names.

@@ -13,7 +13,7 @@ INDEX.csv        id, file, title, where the paper uses it, rows, columns, licenc
 ## Numbering
 Supplementary tables were renumbered S1, S2, S3 ... by first citation in the paper. `INDEX.csv` keeps the
 id under which each table was generated (`source_id`, for example `S17c`) and its file in `tables/`.
-SS2 to SS6 are the metric audit (the former A5, S01, A3, S02, A4 and S03).
+S2 to S7 are the metric audit (the former A5, S01, A3, S02, A4 and S03).
 
 ## What was changed relative to `tables/`
 * Files are renamed `S<n>_<name>.csv`; internal experiment labels (1A, 1B, 2A, 2B) are not used in the names.
