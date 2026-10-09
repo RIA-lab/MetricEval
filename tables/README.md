@@ -14,6 +14,13 @@ supp/             S01 ... S25 plus S17c, S17d, S20c, S22c, S22d and S26 to S29 (
 spec/             hand-curated inputs: tests.csv (30 tests), metric_universe.txt (216 names), derived/ (small aggregates from the parquet; axis_ranking_meta.json and axisC/E_quantities.csv come from ops/axis_ranking.py (rank statistic R per axis); zymogen21_*, swap55_* and bglb432_* are the 21-pair (2A), 55-enzyme (1B) and 432-variant BglB (2B) evaluation-set analyses of ops/zymogen21_auroc.py, ops/swap_eval_auroc.py and ops/bglb_eval_rank.py; plates192_* is the AUROC of reported active against no reported activity on the 192 plated designs (ops/plates192_auroc.py); the plate rank correlations and hits per plate read the committed files of results/P6*/ directly)
 ```
 
+## Released tables: `public/`
+`public/` holds the tables that are released with the paper (9 main-text tables, 49 supplementary tables), renamed `S<n>_*.csv`
+with `S<n>` numbered by first citation in the paper, and described in `paper/supplementary.pdf`. It is derived from the files in this
+directory by `paper/build/make_public_tables.py` (hashes checked against `MANIFEST.json`); see `public/README.md` and `public/INDEX.csv`
+(which keeps the id under which each table was generated). The directories below are the generator output and carry the older ids
+(`S17c`, `S22d` ...) that the table-generation code and `INDEX.csv` here still use.
+
 ## How the tables map to the paper
 Methods 2.1-2.4 and Results 3.1-3.4 follow four tests: the activity discrimination test (3.1), the substrate discrimination test (3.2), the activity ranking test (3.3) and the detection ability test, under matched perturbation of structures and of predictions (3.4).
 T1 and T2 are the study map and the datasets (Methods Tables 1 and 2 are condensed from them). The id of a main table is the number of the paper's table: T3 = dead against active on the 21-pair
