@@ -17,7 +17,7 @@ Applicability is decided from inputs, definedness and test design -- **never fro
   (`src/mrx/perturb/engine.py` `scoring_scope`). They are *perturbed-site-scoped*: they know which residues
   they were handed, not which are catalytic. In E both arms are scored over the catalytic residues.
 * AME in the M3 chemistry ladder never sees the substituted side chain (it is excluded from its own comparison).
-* Interface terms (ipTM, aggregate score, per-chain pTM minimum, ligand clearance) are undefined without a ligand,
+* Interface terms (ipTM, per-chain pTM minimum, ligand clearance; also the Chai-1 combined score, kept in the supplement) are undefined without a ligand,
   and a catalytic residue is near the ligand by definition: they need a proximity-matched control.
 * `ops/p5_score_t2.py` never calls the definedness gate (42 of 324 T2 inputs have no ligand).
 

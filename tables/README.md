@@ -9,30 +9,32 @@ including a byte-identical re-run). Applicability of every metric to every test 
 INDEX.csv         every table: id, path, section, paper part, slot, rows, generator hash, licence flag, status
 MANIFEST.json     sha256 of every generated table, of rules.json and of the generator
 audit/            A1 metric contracts - A2 test inventory - A3 metric x test applicability - A4 denominator restatement - A5 main metric set
-main/             T1 design - T2 datasets - T3 (1A) - T4 (1B)  |  T5 (2A) - T6 (2B)      Part 1 : Part 2 = 39 : 43 rows
-supp/             S01 ... S26 (see INDEX.csv; S24 is not issued, see below)
-spec/             hand-curated inputs: tests.csv (30 tests), metric_universe.txt (216 names), derived/ (small aggregates from the parquet)
+main/             T1 study map - T2 datasets - T3 dead vs active (zymogen pairs) - T4 dead vs active (plated designs) - T5 substrate swap - T6 BglB variants - T7 plated designs - T8 specificity, axis C (chemistry ladder) - T9 specificity, axis E (second-shell removal)     Part 1 (T5, T8, T9) : Part 2 (T3, T4, T6, T7) = 94 : 120 rows (T3, T4, T6 and T7 are 30 rows each and T8 and T9 hold all ranked items (35 and 29 rows))
+supp/             S01 ... S25 plus S17c, S17d, S20c, S22c, S22d and S26 to S29 (see INDEX.csv and the table of contents in paper/supplementary.md)
+spec/             hand-curated inputs: tests.csv (30 tests), metric_universe.txt (216 names), derived/ (small aggregates from the parquet; axis_ranking_meta.json and axisC/E_quantities.csv come from ops/axis_ranking.py (rank statistic R per axis); zymogen21_*, swap55_* and bglb432_* are the 21-pair (2A), 55-enzyme (1B) and 432-variant BglB (2B) evaluation-set analyses of ops/zymogen21_auroc.py, ops/swap_eval_auroc.py and ops/bglb_eval_rank.py; plates192_* is the AUROC of reported active against no reported activity on the 192 plated designs (ops/plates192_auroc.py); the plate rank correlations and hits per plate read the committed files of results/P6*/ directly)
 ```
 
 ## How the tables map to the paper
-Methods 2.1-2.4 and Results 3.1-3.4 correspond to the four experiments. T1 and T2 are the study map and the datasets (Methods
-Tables 1 and 2 are condensed from them); T3 = 1A structure-space (Results 3.1), T4 = 1B prediction-based (3.2), T5 = 2A real dead
-versus active (3.3), T6 = 2B measured effects (3.4). Everything else is supplementary.
+Methods 2.1-2.4 and Results 3.1-3.4 follow four tests: the activity discrimination test (3.1), the substrate discrimination test (3.2), the activity ranking test (3.3) and the detection ability test, under matched perturbation of structures and of predictions (3.4).
+T1 and T2 are the study map and the datasets (Methods Tables 1 and 2 are condensed from them). The id of a main table is the number of the paper's table: T3 = dead against active on the 21-pair
+evaluation set, top 30 of 39 ranked items (the complete ranking of 158 metrics is S17c); T4 = dead against active on the 192 plated designs (16 reported active against 176 with no reported activity), top 30 of 36 items ranked by AUROC (all 128 metrics are S17d); T5 = substrate swap on the 55-enzyme evaluation set, 30 of the 33 scored prediction-based quantities ranked by AUROC (the Chai-1 combined score is omitted from the ranking; it is in S14);
+T6 = BglB variants on the 432-variant evaluation set, top 30 of 41 items ranked by Spearman correlation with the measured impairment (the complete ranking of 114 quantities is S20c); T7 = plated designs, top 30 of 36 items ranked by Spearman correlation with kcat/KM among the 16 designs that have a value (all 106 metrics are S22c; the hits-per-plate analysis of the 192 designs is S22d; descriptive only by the 2026-08-09 ruling); T8 = axis C, the chemistry ladder: all 35 items, grouped by the lesion at which a metric is first detected (isosteric, non-isosteric, Ala, Gly, never) and ranked by the rank statistic R within the group (R = probability that a metric changes more at the catalytic lesion than at the matched control; structure-space metrics on 195 pooled natural enzymes, prediction-based metrics on 59 enzymes with 286 pairs; S26 adds the 8 supplementary comparators and the per-step flags); T9 = axis E, second-shell removal: all 29 metrics grouped by the dose at which a metric is first detected and ranked by raw R within the group (no step is interpretable, so no reference level; S27 adds the comparators and flags); the former Tables 8 and 9 (specificity-ratio counts by family and step; the re-predicted ladder with three controls) are S28 and S29. Everything else is supplementary; the S numbers group the
+tables by analysis and were not renumbered when the Results were reordered (see `paper/supplementary.md`). The internal experiment labels 1A, 1B, 2A, 2B that remain in the test inventory (A2, S03) are explained there.
 
 ## Main-text rule
-Only metrics valid in BOTH Part 1 and Part 2 appear in T3-T6 (`audit/A5_main_metric_set.csv`, `role == main`): 34 keys, 29
-structure-space (15 site-scoped Rosetta, 8 catalytic geometry, 6 PROPKA) and 5 prediction-based (3 interface terms, 2 AME-family).
+Only metrics valid in BOTH Part 1 and Part 2 appear in T3-T9 (`audit/A5_main_metric_set.csv`, `role == main`): 33 keys, 29
+structure-space (15 site-scoped Rosetta, 8 catalytic geometry, 6 PROPKA) and 4 prediction-based (2 interface terms, 2 AME-family). The Chai-1 combined score (0.2 pTM + 0.8 ipTM − 100·clash flag, a rescaled ipTM) is scored and kept in the supplement (`role == supp_derived`; `main_set_exclusions` in `rules.json`).
 Whole-protein and sequence-only metrics are supplement comparators; in Part 2 they appear only as the six a-priori reference rows
 (`role == reference`). Main-set panel statistic (isosteric, P2K): geometric-mean SR 1.075 [0.958, 1.178] over the 27 metrics with a
 defined SR (`spec/derived/panel_equivalence_main.json`), against the legacy 102-metric 0.995 [0.937, 1.134].
 
 ## Status
-* Complete: all 49 tables (5 audit, 6 main, 38 supplement); `INDEX.csv` has no row that is not `complete`.
+* Complete: all 61 tables (5 audit, 9 main, 47 supplementary); `INDEX.csv` has no row that is not `complete`.
 * The 1B and 2B experiments have handed back (`results/P5_1B/`, `results/P6_m3/`, `results/D4_bglb/m3/`) and are folded in.
 * `OK-PROVISIONAL` in `A3_applicability.csv` / `A5` column `v1_status` is the raw rule status of the interface terms in the M3 chemistry
   ladder. It was resolved on testability, not on the verdict: each such metric is `role == main` and its `reason` states the 1B outcome.
-* S24 is deliberately not issued: the whole-protein / sequence-only comparators planned for it are `S04b` (Part 1) and `S25` (Part 2 reference rows). Ids are stable and were
-  not renumbered.
+* Supplementary ids run S01 to S25 without gaps, with S17c added for the 21-pair evaluation set; letters (S04a, S04b, ...) group tables of one analysis. `paper/supplementary.md` lists every table with a description.
+* The file names carry no internal jargon (no N0 / M3 / T2 / P0b); the internal test ids that remain in the `test_id` column are translated in `S03`.
 
 ## Licence and caveats
 * BglB tables are aggregates from D2DCure data (licence unstated): `licence_flag = D2DCure_aggregate`. No per-variant rows are

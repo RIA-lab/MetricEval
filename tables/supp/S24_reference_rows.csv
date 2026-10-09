@@ -1,0 +1,36 @@
+reference_item,metric,test_id,measure,keep_fraction,estimate,ci_lo,ci_hi,n,source_artifact,licence_flag
+resolution_A,resolution_A,P0_ZYM,AUROC (direction-free),,0.6062,0.5206,0.6916,49,results/P0/metric_separation.csv,public
+seq_length,seq_length,P0_ZYM,AUROC (direction-free),,0.5683,0.5123,0.6316,49,results/P0/metric_separation.csv,public
+net_charge,net_charge,P0_ZYM,AUROC (direction-free),,0.5202,0.501,0.5625,49,results/P0/metric_separation.csv,public
+frac_Y,frac_Y,P0_ZYM,AUROC (direction-free),,0.5133,0.5008,0.5437,49,results/P0/metric_separation.csv,public
+chai_plddt_mean,chai_plddt_mean,P5T2_ZYM,AUROC (direction-free),,0.7653,0.6811,0.8635,28,results/P5/t2_separation.csv,public
+chai_ptm_mean,chai_ptm_mean,P5T2_ZYM,AUROC (direction-free),,0.7066,0.6097,0.8112,28,results/P5/t2_separation.csv,public
+abs_dvol_A3,abs_dvol_A3,D4_BGLB_M1,"AUROC (signed, pre-directed)",,0.5513,0.4728,0.6278,432,results/D4_bglb/baseline_table.csv,D2DCure_aggregate
+neg_d_cat,neg_d_cat,D4_BGLB_M1,"AUROC (signed, pre-directed)",,0.7633,0.6872,0.8243,432,results/D4_bglb/baseline_table.csv,D2DCure_aggregate
+neg_rel_sasa,neg_rel_sasa,D4_BGLB_M1,"AUROC (signed, pre-directed)",,0.6831,0.6058,0.748,432,results/D4_bglb/baseline_table.csv,D2DCure_aggregate
+neg_blosum62,neg_blosum62,D4_BGLB_M1,"AUROC (signed, pre-directed)",,0.5892,0.5231,0.6529,432,results/D4_bglb/baseline_table.csv,D2DCure_aggregate
+csv_rosetta,csv_rosetta,D4_BGLB_M1,"AUROC (signed, pre-directed)",,0.6102,0.5193,0.7015,248,results/D4_bglb/baseline_table.csv,D2DCure_aggregate
+frac_Y (low kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.05,0.0,0.0,0.0,16,results/P6/enrichment.csv,public
+frac_Y (low kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.1,0.0,0.0,10.11,16,results/P6/enrichment.csv,public
+frac_Y (low kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.25,2.0,0.0,6.0,16,results/P6/enrichment.csv,public
+frac_Y (low kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.5,3.0,0.0,6.0,16,results/P6/enrichment.csv,public
+frac_Y (high kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.05,9.6,0.0,28.8,16,results/P6/enrichment.csv,public
+frac_Y (high kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.1,10.11,0.0,25.26,16,results/P6/enrichment.csv,public
+frac_Y (high kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.25,24.0,12.0,32.0,16,results/P6/enrichment.csv,public
+frac_Y (high kept),frac_Y,P6_PLATES_M1,expected hits per 96-well plate,0.5,13.0,7.95,19.0,16,results/P6/enrichment.csv,public
+net_charge (low kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.05,0.0,0.0,0.0,16,results/P6/enrichment.csv,public
+net_charge (low kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.1,0.0,0.0,10.11,16,results/P6/enrichment.csv,public
+net_charge (low kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.25,12.0,4.0,18.0,16,results/P6/enrichment.csv,public
+net_charge (low kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.5,7.0,3.0,12.0,16,results/P6/enrichment.csv,public
+net_charge (high kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.05,0.0,0.0,19.2,16,results/P6/enrichment.csv,public
+net_charge (high kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.1,15.16,0.0,25.26,16,results/P6/enrichment.csv,public
+net_charge (high kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.25,16.0,8.0,24.0,16,results/P6/enrichment.csv,public
+net_charge (high kept),net_charge,P6_PLATES_M1,expected hits per 96-well plate,0.5,9.0,5.0,14.0,16,results/P6/enrichment.csv,public
+seq_length (low kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.05,19.2,0.0,48.0,16,results/P6/enrichment.csv,public
+seq_length (low kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.1,25.26,10.11,40.42,16,results/P6/enrichment.csv,public
+seq_length (low kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.25,12.0,6.0,20.0,16,results/P6/enrichment.csv,public
+seq_length (low kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.5,12.0,7.0,18.0,16,results/P6/enrichment.csv,public
+seq_length (high kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.05,0.0,0.0,0.0,16,results/P6/enrichment.csv,public
+seq_length (high kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.1,0.0,0.0,0.0,16,results/P6/enrichment.csv,public
+seq_length (high kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.25,0.0,0.0,4.0,16,results/P6/enrichment.csv,public
+seq_length (high kept),seq_length,P6_PLATES_M1,expected hits per 96-well plate,0.5,3.0,1.0,9.0,16,results/P6/enrichment.csv,public

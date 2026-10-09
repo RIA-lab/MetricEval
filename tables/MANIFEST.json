@@ -1,9 +1,10 @@
 {
-  "code_sha": "0bbf28a5c5eb2e4eb24203978fc564fa3343b10a",
+  "code_sha": "f86b8299cdb937cb77a97f1aff3674651bfbb89e",
   "generator": "ops/make_tables.py",
-  "generator_sha256": "5aa97f74c1ad9f5545c75f6bc395e2ac8a125fc5d37ac94a7d060fe44d37bc34",
+  "generator_sha256": "c7f1b7fe7b53af2771fa54634071dd227dfe80a8f6a454ad07d81b755a653d36",
   "inputs": {
     "data/systems/p2_d0_v2/systems.csv": "6d8965e9f730c8cc160994ed9a05690a6947d37ba94658da726731c0f70e5902",
+    "data/systems/p6_d3_v1/systems.csv": "1bb500a5fbefd5ee3038d20c5564c087c3dedd2df0eebd1af534be9fb3643a1c",
     "results/D4_bglb/baseline_table.csv": "caac942505a81b160e0283f12c9e0e6dab97d10c77129a8ec9ce08dcd9fded11",
     "results/D4_bglb/m3/metric_table.csv": "11f56143c377ec0905b45d416a3a6e82e155ceb7d949501a613a780f8853e9f0",
     "results/D4_bglb/metric_table.csv": "708f0595c3b680e0a2de5b13d329d5d25d2893b477195f1f9aa536b378f474d2",
@@ -17,6 +18,7 @@
     "results/P2KE/blindness_map.csv": "5e6f4bf6ac795edc7877b46f4bce7f0836654db9be7293465b38db300ed81bc5",
     "results/P2_N0/n0_table.csv": "23422ed1a4fc042d41cc46093b5c6c899d05eb28aaaf3547d1ca735cf93a4e05",
     "results/P3v2/burial_equivalence.csv": "3812d780b81efbc9815454fae8c130d1580eb3204867d16cd7928076c9d26683",
+    "results/P5/caxis_deltas.csv": "d5873da0453739b3f225c426b7a18281749473f52631c6be8b259674a347fc5c",
     "results/P5/caxis_specificity_ratio.csv": "e8e5e81d8b2301a232ec21a19d461efd73c62cdc777b90b1ce447fcc89dbc0ff",
     "results/P5/t1_condition_effects.csv": "f052e9e22846f981ddc977d85b33956a328c4b9e11708d983850d531fcd3e0ed",
     "results/P5/t2_separation.csv": "9062158e52328fbe3462321eb91c1159ea9e757e168090c8c442308094d79f71",
@@ -31,18 +33,34 @@
     "results/P5_1B/s_axis_size_strata.csv": "69a23c1f1c1b1e6ceb573eddbc98d71d7af7d0a38d567bb39a39e9c36ee89b23",
     "results/P6/activity_ranking.csv": "3206b438ef88b7165311bab08dcb124833f2272be941e1bf31c206acae9e25f5",
     "results/P6/enrichment.csv": "a1bedeb03c0808fa1de869e0c65a3cfbd83e27713243c772d7e60641c3037f17",
+    "results/P6_m3/activity_ranking.csv": "aefe5ee084cd459dd19bef0cad6eb0cd0a07f09d9aac7027c39e8b753287b47b",
     "results/P6_m3/enrichment.csv": "30afc35a8b46c9c16c508614d73ad278be606b74fef36529b81c52a541e52b50",
+    "results/P6_m3/enrichment_summary.json": "0389a3d1fcc2f3fec2b0e0e48023e34a0a3f28eb9b8f85ef561a618cb39118c6",
     "results/P6_m3/gpu_ledger.csv": "face998b42b3bdc10fb043008ceda994834f686c64e6142a27c94916f334f284",
+    "results/P6_m3/metrics_wide.csv": "0551e0664e747c6883cc70c0dbeb96757c02ef826d8f7686c7c4a1af07852a5c",
     "results/SPECIFIC_CELLS.md": "0ae780c0d71f21a5bb465526dcca291d821b70761302c1ff00cd3ce2c424ac5a",
     "results/effective_dimensionality.json": "1d32993fe54d384a349a620ada4892440113d7931fe0df8e5355817bde35fdcb",
     "results/isoplacer/placer_specificity.csv": "d797fb44416f61692b2c76fc1c218084b462fe4a4c25faa173a6a588d9d069c2",
     "results/isosteric_equivalence_clustered.json": "25cc29eaa9351350728054f2781319b513c6ce2af3c2c4365a89362e01dcbe8d",
     "results/metric_glossary.csv": "f3fe8b95cba6d3b2a41fe78652bc1656f9467a7d7c00a614dadef0e533b10156",
     "results/ranking_cost.csv": "56f9c1b1929efa23e9ac619c8f657225284f85372d6ed15873ba85e9ddeead30",
-    "tables/rules.json": "c79a326260bc20f1d25e677f0808d5a38d568e9bca98f91f8f061c2399264feb",
+    "tables/rules.json": "537e4af386b6aa06f2cd64b042b0756eb083abf87d371f3c501164d96783d684",
+    "tables/spec/derived/axisC_quantities.csv": "0e1095caeada6db5ba5e3aa4e25809bb9d91a99fc13786ce3ee1708c9b17ba5c",
+    "tables/spec/derived/axisE_quantities.csv": "5c6d6de4a99d241e5b2bfef0d18530efd3b16f1ba73d480296932c72a1dddf64",
+    "tables/spec/derived/axis_ranking_meta.json": "9989fd86c431e590e321ce51c3eda8bc8e393200273b62d6cdd9f809dc9eb64d",
+    "tables/spec/derived/bglb432_meta.json": "e18c074b7a7f42ec4ed44cf22b6c03143262507231251bbf4c985e01adabd5cc",
+    "tables/spec/derived/bglb432_quantities.csv": "ca977f469bc6f02b5c0f807adff7da07c6c9694b9a076d3b1bec0a6fde7496d3",
     "tables/spec/derived/ctl_arm_balance.csv": "9a4196871f3409a834dc7c0958f436886635ae1f4c960bcea363b9776308b02b",
     "tables/spec/derived/ctl_worst_tier.csv": "372c1ea7ca374b296e3da32008a59b2af3860077476183daa37c84ed595865c9",
     "tables/spec/derived/dimensionality_main.json": "06219747afc7a128f1d8f6dfd899664e7b795a5a3decb79ccbcc79fe4f51edc5",
+    "tables/spec/derived/p6_activity_ranking_native.csv": "9b20a48548630921cb27d322c97b053de5220862d17bfe19a9170047d7a47546",
+    "tables/spec/derived/plates192_auroc.csv": "7a5713028f6e4995c24ac0c1c9a9403f3da83c755ee672b9efabdc4a5fbb3633",
+    "tables/spec/derived/plates192_meta.json": "7bdfd1e690f22c33a8cafac40f34690c07a593f74c226ba6d3ec5c43215593b2",
+    "tables/spec/derived/swap55_auroc.csv": "8f08b920cc1fda81fce8fc3147597d215d50eea867d4acaa9122e9c6c2e2b0c2",
+    "tables/spec/derived/swap55_meta.json": "9687c97e3e8eb539e3ac2540a77840ddbf34706e9775ca20fca10d32f40603b9",
+    "tables/spec/derived/swap55_ranked.csv": "0038815037bc8c7ca79f5ab565fdc0bca4e0a1e1abae3f4b85ac0f92e3d76a57",
+    "tables/spec/derived/zymogen21_auroc.csv": "48bf0d69d1e4d75a05df4d4730ca2bcfb7d8c2a0c231c2f893f33b694df0a072",
+    "tables/spec/derived/zymogen21_meta.json": "52417b201c2db4a99ffad95855e9f09ebe4d91927be508cd6991a166cfc76e90",
     "tables/spec/metric_universe.txt": "1e893d0d8ec48e034442995985c95fc70056d06a35475a93bc517471dd33ab7b",
     "tables/spec/tests.csv": "fb63a1999bc368e59544d9f52c50193c0c4f3faedfda9b577895de3b99924516"
   },
@@ -51,19 +69,22 @@
     "tables/audit/A2_test_inventory.csv": "e8f7e1e6ef0a6e68cd72968e325ddc5e8b78956c7cb3ac7ecd4eb6728a107762",
     "tables/audit/A3_applicability.csv": "faf2f50fdd6194ec45159d8f7e7ec4be0360e03a4704f5f80e2303b051364966",
     "tables/audit/A4_denominator_restatement.csv": "c8d3f2f24ec1b76c15133a2e3cc61066c2ac39f86473fc34d00d4ed14b493143",
-    "tables/audit/A5_main_metric_set.csv": "df2d75ef11df83cd07312c5ab99d4e17c58c8cfdb5fd78e820cccc09516c3d1a",
-    "tables/main/T1_design_overview.csv": "d487d729c7cffefb33e689dcee6e42b3de8d8ae53e1d57aa0945bfb08caa65f7",
-    "tables/main/T2_datasets.csv": "49c25c263840c457114f25b5ed753bc8dcf088f777ff7b931be9e2bd498b9cb9",
-    "tables/main/T3_part1A_structure_space.csv": "168ca4ac151b15d7abd9fedbbe02e9a331942bc809a12c48c991781a0e9d135d",
-    "tables/main/T4_part1B_prediction_based.csv": "1ba354c0097f693e2890bdda9b3751591ff58bc2f7b0d51cb42313a145ccd110",
-    "tables/main/T5_part2A_real_dead_active.csv": "cc4345b88f476503928924b369818f85c466065158fa3324de00e361422565df",
-    "tables/main/T6_part2B_measured_effects.csv": "f06bf5ec3929f1c6411ce2baf8f32701c4116230451b2ac0d93f9f3a0826dc0b",
+    "tables/audit/A5_main_metric_set.csv": "d07819860c299678c3ecc75c9b9eb2b96f256b1d6c59fbbbbf3d19df03c71a61",
+    "tables/main/T1_study_map.csv": "74660a5e5bd1189d94bdb0ef37e212439919591947755df2324ce94ccca67166",
+    "tables/main/T2_datasets.csv": "6d4aad08a746c14bc4b28d0e823516b88ddd6d10e26cc632b0d978a882ecadcb",
+    "tables/main/T3_dead_vs_active.csv": "42558b49034c0b3b1511aa34bfe2f70cd2fd86617ac1a2d5c36e54d88b1a1b93",
+    "tables/main/T4_plated_designs_auroc.csv": "495b5632fe36150bb16df53593d1d179f7cd52ab1c4de116ea1fcf04a2b6cccb",
+    "tables/main/T5_substrate_swap.csv": "e1bb63a8ff7a917ae8bb0c65eb3bab750e539ef6f1001b44e12a98fd529dd2bf",
+    "tables/main/T6_bglb_variants.csv": "1ff346768a8a1888b8ae019d7797a56092132db1d65a82992f6c1061259f50df",
+    "tables/main/T7_plated_designs.csv": "2f10f432170f56544a6d8ee9a1589c531d8c628e171be44841ad7d1a247f918d",
+    "tables/main/T8_specificity_axis_C.csv": "8687c60c80d920a03731bdec13704166cc68314fee49e85264abc4542bab1a25",
+    "tables/main/T9_specificity_axis_E.csv": "dcd217ab6a7c6d805067445b672cc312ed595dfd4e156f6c958f573e903a17a0",
     "tables/supp/S01_metric_contracts.csv": "71da58c6cea65e6866774a1d287b59f2307c07524ec6171f581ca23bb3536820",
     "tables/supp/S02_applicability_by_class.csv": "44032e18a399ea0d994e90c5879e1fffe6fcf2b63a3ba979ad009f6b4993af35",
     "tables/supp/S03_test_inventory.csv": "7074a6b33eb7653884736c2d1e61f958570c847198a46c644053a1d7f1faab18",
     "tables/supp/S04a_part1A_eligible_metrics.csv": "5f4ab1781c0a745bfa9c70f34fe653ef1320be1cbf8382b639d02937ee5c8606",
     "tables/supp/S04b_part1A_global_comparators.csv": "1e109e0b23bbd76ed36132a5f306f817f2df63bfd5744fc5c8554f5d130e615c",
-    "tables/supp/S05_N0_by_input_class.csv": "f2d8a3f49431883183dadde6708cd0acc17025280d5f2314d68ee9bfaaf0ad74",
+    "tables/supp/S05_sanity_floor_by_input_class.csv": "f2d8a3f49431883183dadde6708cd0acc17025280d5f2314d68ee9bfaaf0ad74",
     "tables/supp/S06a_control_match_tiers.csv": "4abf31276e97f77c54cec7c34c37e377e90e38c72687ba634d2ea808da4a72aa",
     "tables/supp/S06b_control_arm_balance.csv": "e5e3890c20144d63afbaf1451b36b72abfcc413ef71ac3e0c98c2a77a7e0c062",
     "tables/supp/S07_survivors_by_status.csv": "3b7102e505c71184a8e042bd192201dcc0b78e986ce1605fce0bd7dc9c8cf5fe",
@@ -71,33 +92,42 @@
     "tables/supp/S09_denovo_created_control.csv": "bc630fefe6ad75ad0014239231ad80d4309c253807b4a679702fe501b605dcd8",
     "tables/supp/S10_motif_packing_sensitivity.csv": "67e653c587fc75e594b72fa9ff0c0ef1762fb222a78ed11f94797855b4331530",
     "tables/supp/S11_equivalence_legacy_vs_main.csv": "9777d583c089e2c3e376653f07a4f385cb927ea0fb0ce2e159b5c042b09dafe2",
-    "tables/supp/S12_ranking_cost.csv": "bbcfc7ee1e59ff8d76c3e2cf39eb7e8bc071bc3bdb765481cdb3409f09dddfee",
+    "tables/supp/S12_ranking_statistic_by_lesion_step.csv": "bbcfc7ee1e59ff8d76c3e2cf39eb7e8bc071bc3bdb765481cdb3409f09dddfee",
     "tables/supp/S12b_effective_dimensionality.csv": "324c29c90bfc1630c9330e9ec61912fc668350354b9143c05eabc2c8877bab8d",
     "tables/supp/S13_placer_isosteric.csv": "2b4c32268694c8c616d020db70f1b2adf74b001e7e7a794c4a58f4c2b9073e73",
-    "tables/supp/S14_substrate_swap_per_metric.csv": "de0cba2b2fd7564f2560f1e02a0149b60f876e9544b2c8e46c64e4e36974b08e",
+    "tables/supp/S14_substrate_swap_per_metric.csv": "e60501e4424775f795a8ef9ca11f66413b2a2ca10a81475b902835fb2d2ae2a5",
     "tables/supp/S14b_substrate_swap_size_strata.csv": "2b4a56955243609bd14797268352402b6e4cff690393ceedbd0fec97086474cb",
-    "tables/supp/S15_m3_ladder_per_level.csv": "7147e2354ffbf9e062568132eb2b68b8b456e82c18a9adf2fa0b97a2e4e305fe",
+    "tables/supp/S15_ladder_re_predicted_per_level.csv": "7147e2354ffbf9e062568132eb2b68b8b456e82c18a9adf2fa0b97a2e4e305fe",
     "tables/supp/S16a_ladder_pair_distances.csv": "b3a8373f163a0976c6330503994a51c5fe74521f48eea70757812756dc36c350",
     "tables/supp/S16b_ladder_distance_strata.csv": "64ae6bbcb67ace8974cb9286fda9ff3a799ec9196b6fa1317fe098792fc84187",
     "tables/supp/S16c_ladder_matched_subsets.csv": "2c7c21bc1a7b0cade468d46235f9b206af9f35482255242f2b987a77e1b1c4dc",
     "tables/supp/S16d_ladder_regression_adjusted.csv": "2f6ef5cd651dfa2c2a1e9dbc1c6b8af20086035579367a8a9072eac5cf53e21d",
     "tables/supp/S16e_new_distance_matched_controls.csv": "1d3a5747a4d17d8f8d2308a7d91e081c52b5e9436e29cadcb476022c29bb19ef",
     "tables/supp/S16f_replicate_noise_context.csv": "ea39bb81f1ab3bba8ddde38feb30e8352304c5829b8ed7036da7d0bdcacd4449",
-    "tables/supp/S16g_canary_drift.csv": "f650ad5c0563f588ab29aacb0093e43735a173f91c398d39fbcadb6ef7b8474d",
+    "tables/supp/S16g_engine_drift_check.csv": "f650ad5c0563f588ab29aacb0093e43735a173f91c398d39fbcadb6ef7b8474d",
     "tables/supp/S17_zymogen_all_metrics.csv": "de326c1098c99efa82adfb3bcc04c67cf679f182930e793a61dedf30da8978c7",
-    "tables/supp/S17b_pair_set_definitions.csv": "0e933d6554e9e998cf13d5ee58010b02c339d18b1069f5e54c6ff44ae3e12c18",
-    "tables/supp/S18_T2_restated.csv": "3c6d9e94bb8cd3d4520e98e77988c021db6c284aa5efb98167f30dc06704ecd7",
+    "tables/supp/S17b_pair_set_definitions.csv": "f1c922c89717f7b53957f4ba06a1b9f9e2d95f98c4e9977ffb7fd7b1fe1861d2",
+    "tables/supp/S17c_zymogen_21pair_all_metrics.csv": "02390eb776b0b4fb7a6f6cb79d9b39bfa9ea5bc477d8b5594436db2defc01f3c",
+    "tables/supp/S17d_plates_all_metrics_auroc.csv": "fccbaabeec1e6c1336cad221607728d79fe4b8ca492c494beaad496ffb288f57",
+    "tables/supp/S18_zymogen_re_predicted_restated.csv": "3c6d9e94bb8cd3d4520e98e77988c021db6c284aa5efb98167f30dc06704ecd7",
     "tables/supp/S19_trapping_verification.csv": "68dcc8b61e08b4876f54ecdd0f96b973a4b1c454749791eb58b9d02370698389",
     "tables/supp/S20a_bglb_all_metrics.csv": "73242d3790c81df3343d83ece18d18a227185089c5e0eeab10614c6e573b1a0b",
     "tables/supp/S20b_bglb_sensitivities.csv": "a5118c67399cb70bd63ddff6281663b13fa7490fd57ffd66d5d0e9380404494a",
-    "tables/supp/S21_bglb_m3_all_metrics.csv": "0da8acfde2f8a2c35b304b074a8786898cba6557067ab8eb7213bf382d532b37",
+    "tables/supp/S20c_bglb_all_quantities_ranked.csv": "e7882f4848e44be1c22635ae11488103e23b55a23c7ff36214ce8885e8b044d7",
+    "tables/supp/S21_bglb_prediction_based_all_metrics.csv": "6a62b9e1c492ab2dd740118c70b468247ce37a79e0143dd93995fdba55e18f72",
     "tables/supp/S22a_plates_enrichment.csv": "b0ba164cd1846d7807f999eb3e9f2387b96c229f4a5a79f89350edfe3422e3ed",
     "tables/supp/S22b_plates_ordering.csv": "7d3ae24e3229a40ffd000f78dc8e8d81003f71a48d81b34304bdb0cfa4f0c14b",
-    "tables/supp/S23_plates_m3_enrichment.csv": "afe621be916699ae9a951f12ba5ae8613260d41f3018ee6e604e7ae66bcb727f",
-    "tables/supp/S25_reference_rows.csv": "0c67e7c28c574a276102cf563f74558a2c4e9d1a085b834726312b9928e198f6",
-    "tables/supp/S26_gpu_ledger.csv": "1d32fdd8ed442e9b46ec480623d7ca975315bd74c3dc0e7d68570e5347955255"
+    "tables/supp/S22c_plates_all_metrics_ranked.csv": "eeaa1ff7f06a681fda63cb164f21e35195853e732aba8f1eec91110d213e8d04",
+    "tables/supp/S22d_plates_hits_per_plate_ranked.csv": "dab5027abaf1023dd1b734665967ea2aeb0892a7b47ac38e5008801b4a1f956f",
+    "tables/supp/S23_plates_prediction_based_enrichment.csv": "8173f6f87c31f6929c05fd38523a1bc7c15c304caea3294c6e26ef6051c23d9a",
+    "tables/supp/S24_reference_rows.csv": "0c67e7c28c574a276102cf563f74558a2c4e9d1a085b834726312b9928e198f6",
+    "tables/supp/S25_gpu_ledger.csv": "1d32fdd8ed442e9b46ec480623d7ca975315bd74c3dc0e7d68570e5347955255",
+    "tables/supp/S26_axis_C_all_metrics_ranked.csv": "59fcc6d1a9ba756a61ddd10b56f6f2344727972099feda43d3be1e036d8dfaff",
+    "tables/supp/S27_axis_E_all_metrics_ranked.csv": "4a32515506564f017f9ce36ae982fa145532b58f9ca255988bd17c5f8dbc1e75",
+    "tables/supp/S28_specificity_by_family_and_step.csv": "168ca4ac151b15d7abd9fedbbe02e9a331942bc809a12c48c991781a0e9d135d",
+    "tables/supp/S29_predictor_ladder_three_controls.csv": "c107cb25258ec31f857d594aab45fb144099486e39cd517466192582b84638b8"
   },
-  "rules_sha256": "c79a326260bc20f1d25e677f0808d5a38d568e9bca98f91f8f061c2399264feb",
+  "rules_sha256": "537e4af386b6aa06f2cd64b042b0756eb083abf87d371f3c501164d96783d684",
   "tables": {
     "A1": {
       "n_rows": 216,
@@ -151,7 +181,7 @@
     },
     "S05": {
       "n_rows": 53,
-      "path": "tables/supp/S05_N0_by_input_class.csv",
+      "path": "tables/supp/S05_sanity_floor_by_input_class.csv",
       "status": "complete"
     },
     "S06a": {
@@ -191,7 +221,7 @@
     },
     "S12": {
       "n_rows": 313,
-      "path": "tables/supp/S12_ranking_cost.csv",
+      "path": "tables/supp/S12_ranking_statistic_by_lesion_step.csv",
       "status": "complete"
     },
     "S12b": {
@@ -216,7 +246,7 @@
     },
     "S15": {
       "n_rows": 231,
-      "path": "tables/supp/S15_m3_ladder_per_level.csv",
+      "path": "tables/supp/S15_ladder_re_predicted_per_level.csv",
       "status": "complete"
     },
     "S16a": {
@@ -251,7 +281,7 @@
     },
     "S16g": {
       "n_rows": 176,
-      "path": "tables/supp/S16g_canary_drift.csv",
+      "path": "tables/supp/S16g_engine_drift_check.csv",
       "status": "complete"
     },
     "S17": {
@@ -264,9 +294,19 @@
       "path": "tables/supp/S17b_pair_set_definitions.csv",
       "status": "complete"
     },
+    "S17c": {
+      "n_rows": 158,
+      "path": "tables/supp/S17c_zymogen_21pair_all_metrics.csv",
+      "status": "complete"
+    },
+    "S17d": {
+      "n_rows": 128,
+      "path": "tables/supp/S17d_plates_all_metrics_auroc.csv",
+      "status": "complete"
+    },
     "S18": {
       "n_rows": 33,
-      "path": "tables/supp/S18_T2_restated.csv",
+      "path": "tables/supp/S18_zymogen_re_predicted_restated.csv",
       "status": "complete"
     },
     "S19": {
@@ -284,9 +324,14 @@
       "path": "tables/supp/S20b_bglb_sensitivities.csv",
       "status": "complete"
     },
+    "S20c": {
+      "n_rows": 114,
+      "path": "tables/supp/S20c_bglb_all_quantities_ranked.csv",
+      "status": "complete"
+    },
     "S21": {
       "n_rows": 28,
-      "path": "tables/supp/S21_bglb_m3_all_metrics.csv",
+      "path": "tables/supp/S21_bglb_prediction_based_all_metrics.csv",
       "status": "complete"
     },
     "S22a": {
@@ -299,49 +344,94 @@
       "path": "tables/supp/S22b_plates_ordering.csv",
       "status": "complete"
     },
+    "S22c": {
+      "n_rows": 106,
+      "path": "tables/supp/S22c_plates_all_metrics_ranked.csv",
+      "status": "complete"
+    },
+    "S22d": {
+      "n_rows": 128,
+      "path": "tables/supp/S22d_plates_hits_per_plate_ranked.csv",
+      "status": "complete"
+    },
     "S23": {
       "n_rows": 232,
-      "path": "tables/supp/S23_plates_m3_enrichment.csv",
+      "path": "tables/supp/S23_plates_prediction_based_enrichment.csv",
+      "status": "complete"
+    },
+    "S24": {
+      "n_rows": 35,
+      "path": "tables/supp/S24_reference_rows.csv",
       "status": "complete"
     },
     "S25": {
-      "n_rows": 35,
-      "path": "tables/supp/S25_reference_rows.csv",
+      "n_rows": 81,
+      "path": "tables/supp/S25_gpu_ledger.csv",
       "status": "complete"
     },
     "S26": {
-      "n_rows": 81,
-      "path": "tables/supp/S26_gpu_ledger.csv",
+      "n_rows": 43,
+      "path": "tables/supp/S26_axis_C_all_metrics_ranked.csv",
+      "status": "complete"
+    },
+    "S27": {
+      "n_rows": 37,
+      "path": "tables/supp/S27_axis_E_all_metrics_ranked.csv",
+      "status": "complete"
+    },
+    "S28": {
+      "n_rows": 20,
+      "path": "tables/supp/S28_specificity_by_family_and_step.csv",
+      "status": "complete"
+    },
+    "S29": {
+      "n_rows": 6,
+      "path": "tables/supp/S29_predictor_ladder_three_controls.csv",
       "status": "complete"
     },
     "T1": {
       "n_rows": 12,
-      "path": "tables/main/T1_design_overview.csv",
+      "path": "tables/main/T1_study_map.csv",
       "status": "complete"
     },
     "T2": {
-      "n_rows": 10,
+      "n_rows": 11,
       "path": "tables/main/T2_datasets.csv",
       "status": "complete"
     },
     "T3": {
-      "n_rows": 20,
-      "path": "tables/main/T3_part1A_structure_space.csv",
+      "n_rows": 30,
+      "path": "tables/main/T3_dead_vs_active.csv",
       "status": "complete"
     },
     "T4": {
-      "n_rows": 19,
-      "path": "tables/main/T4_part1B_prediction_based.csv",
+      "n_rows": 30,
+      "path": "tables/main/T4_plated_designs_auroc.csv",
       "status": "complete"
     },
     "T5": {
-      "n_rows": 15,
-      "path": "tables/main/T5_part2A_real_dead_active.csv",
+      "n_rows": 30,
+      "path": "tables/main/T5_substrate_swap.csv",
       "status": "complete"
     },
     "T6": {
-      "n_rows": 28,
-      "path": "tables/main/T6_part2B_measured_effects.csv",
+      "n_rows": 30,
+      "path": "tables/main/T6_bglb_variants.csv",
+      "status": "complete"
+    },
+    "T7": {
+      "n_rows": 30,
+      "path": "tables/main/T7_plated_designs.csv",
+      "status": "complete"
+    },
+    "T8": {
+      "n_rows": 35,
+      "path": "tables/main/T8_specificity_axis_C.csv",
+      "status": "complete"
+    },
+    "T9": {
+      "n_rows": 29,
+      "path": "tables/main/T9_specificity_axis_E.csv",
       "status": "complete"
     }
   }

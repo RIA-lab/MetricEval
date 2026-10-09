@@ -1,0 +1,104 @@
+{
+  "best_of_m_null_p50": 0.5637,
+  "best_of_m_null_p95": 0.6061,
+  "bootstrap_unit": "system (the cognate and the wrong-ligand value of a system enter together)",
+  "eval_systems": [
+    "M0009_5a1i_a1",
+    "M0050_1dbt_a1",
+    "M0074_1bs1_a1",
+    "M0086_1bg0_a1",
+    "M0094_1wab_a1",
+    "M0109_1d3g_a1",
+    "M0135_1sdw_a1",
+    "M0151_1q0n_a1",
+    "M0154_1hy3_a1",
+    "M0157_1qh5_a1",
+    "M0188_1xel_a1",
+    "M0199_1gsa_a2",
+    "M0217_1sc9_a2",
+    "M0222_2qut_a1",
+    "M0226_1qrr_a1",
+    "M0227_1e6u_a1",
+    "M0229_2a84_a1",
+    "M0255_1mg5_a1",
+    "M0263_3kb9_a1",
+    "M0269_3dgb_a2",
+    "M0316_1j21_a1",
+    "M0330_2zr8_a1",
+    "M0345_3bpt_a1",
+    "M0364_2tps_a1",
+    "M0375_4ts9_a1",
+    "M0407_2o7r_a1",
+    "M0432_1bvv_a1",
+    "M0472_1s95_a1",
+    "M0504_1qhf_a1",
+    "M0524_1z4r_a1",
+    "M0541_1u3f_a1",
+    "M0572_1o9i_a1",
+    "M0642_1nsf_a1",
+    "M0648_1snn_a1",
+    "M0665_1ez1_a1",
+    "M0689_1r6w_a1",
+    "M0712_1xa8_a1",
+    "M0725_2acu_a1",
+    "M0732_1xs1_a1",
+    "M0812_1q91_a1",
+    "M0848_1elu_a1",
+    "M0867_1oe8_a1",
+    "M0883_2dln_a1",
+    "M0904_1qgx_a1",
+    "M0934_3cla_a1",
+    "M0940_4h2h_a1",
+    "M0942_2oln_a1",
+    "M0943_4njk_a1",
+    "M0956_2zr8_a1",
+    "M0959_3dg6_a1",
+    "M0963_4eay_a1",
+    "M0965_5vsm_a1",
+    "M0967_3uxj_a1",
+    "M0979_3mvf_a1",
+    "M0999_1t8u_a1"
+  ],
+  "excluded_systems": {
+    "M0024_1nzy_a2": [
+      "decoy: wrong_ligand_descriptor_unavailable"
+    ],
+    "M0112_3dfr_a1": [
+      "same_ec: a value is missing or undefined for at least one seed",
+      "same_ec: wrong_ligand_descriptor_unavailable"
+    ],
+    "M0388_5hrc_a1": [
+      "decoy: a value is missing or undefined for at least one seed",
+      "decoy: wrong_ligand_descriptor_unavailable"
+    ],
+    "M0795_1wnw_a2": [
+      "cognate: a value is missing or undefined for at least one seed",
+      "decoy: cognate_ligand_descriptor_unavailable",
+      "diff_ec: cognate_ligand_descriptor_unavailable",
+      "same_ec: cognate_ligand_descriptor_unavailable"
+    ]
+  },
+  "inputs_sha256": {
+    "results/P5/scores_m3.csv": "e785c40697f3792196d96be3730f95e94ae7e1be1bf889a6c22b606fb973a02b",
+    "results/P5_1B/s_axis_dropped_cells.csv": "458f4992b48c094cc85dbce66f87fa15c9ca021997f5e8888a0557e20dfa3457"
+  },
+  "n_all_natural_systems": 59,
+  "n_boot": 5000,
+  "n_eval_systems": 55,
+  "n_perm": 5000,
+  "n_quantities": 33,
+  "n_quantities_ranked": 30,
+  "null": "the four condition labels permuted within each system; mean of the three AUROCs; maximum over the ranked quantities",
+  "omitted_from_ranking": [
+    "chai_aggregate_score_max",
+    "chai_aggregate_score_mean",
+    "chai_aggregate_score_std"
+  ],
+  "seed": 20260806,
+  "seeds_used": [
+    101,
+    202,
+    303
+  ],
+  "utc": "2026-10-09T05:29:06Z"
+}

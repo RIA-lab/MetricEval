@@ -10,11 +10,22 @@
     "main_balance_tolerance": 0.2
   },
   "reference_rows": [
-    "seq_length", "frac_Y", "net_charge", "resolution_A",
-    "chai_plddt_mean", "chai_ptm_mean"
+    "seq_length",
+    "frac_Y",
+    "net_charge",
+    "resolution_A",
+    "chai_plddt_mean",
+    "chai_ptm_mean"
   ],
-  "reference_rows_external": ["d_cat (BglB distance to catalytic residues; not a panel metric)"],
-  "reference_test_classes": ["real_m1", "real_m3", "rank_m1", "rank_m3"],
+  "reference_rows_external": [
+    "d_cat (BglB distance to catalytic residues; not a panel metric)"
+  ],
+  "reference_test_classes": [
+    "real_m1",
+    "real_m3",
+    "rank_m1",
+    "rank_m3"
+  ],
   "status_codes": {
     "OK": "eligible and scored",
     "OK-KNOCKON": "AME in the M3 chemistry ladder: measures displacement of the REMAINING catalytic residues (the substituted residue is excluded from its own comparison)",
@@ -33,49 +44,184 @@
     "DUP": "duplicate of another test's cell (N0 cat_to_gly == C-Gly rung): read once from the primary"
   },
   "precedence": [
-    "X-BOOKKEEP", "X-ARM", "X-NOINPUT", "X-WITHDRAWN", "X-NOCTRL",
-    "NOT-RUN", "DUP", "matrix", "REF-override", "X-UNDEF-COV"
+    "X-BOOKKEEP",
+    "X-ARM",
+    "X-NOINPUT",
+    "X-WITHDRAWN",
+    "X-NOCTRL",
+    "NOT-RUN",
+    "DUP",
+    "matrix",
+    "REF-override",
+    "X-UNDEF-COV"
   ],
   "test_classes": [
-    "detection_dup", "spec_C", "spec_E", "G", "sanity_n0",
-    "S_m3", "ladder_m3", "placer_c",
-    "real_m1", "real_m3", "rank_m1", "rank_m3"
+    "detection_dup",
+    "spec_C",
+    "spec_E",
+    "G",
+    "sanity_n0",
+    "S_m3",
+    "ladder_m3",
+    "placer_c",
+    "real_m1",
+    "real_m3",
+    "rank_m1",
+    "rank_m3"
   ],
   "input_classes": [
-    "seq_only", "bookkeeping", "struct_whole", "struct_site", "deposit_meta",
-    "pred_global", "pred_interface", "ame", "placer_csv", "placer_site"
+    "seq_only",
+    "bookkeeping",
+    "struct_whole",
+    "struct_site",
+    "deposit_meta",
+    "pred_global",
+    "pred_interface",
+    "ame",
+    "placer_csv",
+    "placer_site"
   ],
   "matrix": {
-    "seq_only":       {"detection_dup": "X-NOINPUT", "spec_C": "X-NOINPUT", "spec_E": "X-NOINPUT", "G": "X-NOINPUT", "sanity_n0": "X-NOINPUT",
-                       "S_m3": "X-NOINPUT", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
-                       "real_m1": "GLOBAL", "real_m3": "X-ARM", "rank_m1": "GLOBAL", "rank_m3": "X-ARM"},
-    "bookkeeping":    {"detection_dup": "X-BOOKKEEP", "spec_C": "X-BOOKKEEP", "spec_E": "X-BOOKKEEP", "G": "X-BOOKKEEP", "sanity_n0": "X-BOOKKEEP",
-                       "S_m3": "X-BOOKKEEP", "ladder_m3": "X-BOOKKEEP", "placer_c": "X-BOOKKEEP",
-                       "real_m1": "X-BOOKKEEP", "real_m3": "X-BOOKKEEP", "rank_m1": "X-BOOKKEEP", "rank_m3": "X-BOOKKEEP"},
-    "struct_whole":   {"detection_dup": "GLOBAL", "spec_C": "GLOBAL", "spec_E": "GLOBAL", "G": "GLOBAL", "sanity_n0": "GLOBAL",
-                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
-                       "real_m1": "GLOBAL", "real_m3": "X-ARM", "rank_m1": "GLOBAL", "rank_m3": "X-ARM"},
-    "struct_site":    {"detection_dup": "OK", "spec_C": "OK", "spec_E": "OK", "G": "OK", "sanity_n0": "OK",
-                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
-                       "real_m1": "OK", "real_m3": "X-ARM", "rank_m1": "OK", "rank_m3": "X-ARM"},
-    "deposit_meta":   {"detection_dup": "X-NOINPUT", "spec_C": "X-NOINPUT", "spec_E": "X-NOINPUT", "G": "X-NOINPUT", "sanity_n0": "X-NOINPUT",
-                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-ARM",
-                       "real_m1": "OK", "real_m3": "X-ARM", "rank_m1": "X-NOINPUT", "rank_m3": "X-ARM"},
-    "pred_global":    {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
-                       "S_m3": "GLOBAL", "ladder_m3": "GLOBAL", "placer_c": "X-ARM",
-                       "real_m1": "X-ARM", "real_m3": "GLOBAL", "rank_m1": "X-ARM", "rank_m3": "GLOBAL"},
-    "pred_interface": {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
-                       "S_m3": "OK", "ladder_m3": "OK-PROVISIONAL", "placer_c": "X-ARM",
-                       "real_m1": "X-ARM", "real_m3": "OK", "rank_m1": "X-ARM", "rank_m3": "OK"},
-    "ame":            {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
-                       "S_m3": "OK", "ladder_m3": "OK-KNOCKON", "placer_c": "X-ARM",
-                       "real_m1": "X-ARM", "real_m3": "OK", "rank_m1": "X-ARM", "rank_m3": "OK"},
-    "placer_csv":     {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
-                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "GLOBAL",
-                       "real_m1": "GLOBAL", "real_m3": "X-ARM", "rank_m1": "NOT-RUN", "rank_m3": "X-ARM"},
-    "placer_site":    {"detection_dup": "X-ARM", "spec_C": "X-ARM", "spec_E": "X-ARM", "G": "X-ARM", "sanity_n0": "X-ARM",
-                       "S_m3": "X-ARM", "ladder_m3": "X-ARM", "placer_c": "X-CONFOUND",
-                       "real_m1": "OK", "real_m3": "X-ARM", "rank_m1": "NOT-RUN", "rank_m3": "X-ARM"}
+    "seq_only": {
+      "detection_dup": "X-NOINPUT",
+      "spec_C": "X-NOINPUT",
+      "spec_E": "X-NOINPUT",
+      "G": "X-NOINPUT",
+      "sanity_n0": "X-NOINPUT",
+      "S_m3": "X-NOINPUT",
+      "ladder_m3": "X-ARM",
+      "placer_c": "X-ARM",
+      "real_m1": "GLOBAL",
+      "real_m3": "X-ARM",
+      "rank_m1": "GLOBAL",
+      "rank_m3": "X-ARM"
+    },
+    "bookkeeping": {
+      "detection_dup": "X-BOOKKEEP",
+      "spec_C": "X-BOOKKEEP",
+      "spec_E": "X-BOOKKEEP",
+      "G": "X-BOOKKEEP",
+      "sanity_n0": "X-BOOKKEEP",
+      "S_m3": "X-BOOKKEEP",
+      "ladder_m3": "X-BOOKKEEP",
+      "placer_c": "X-BOOKKEEP",
+      "real_m1": "X-BOOKKEEP",
+      "real_m3": "X-BOOKKEEP",
+      "rank_m1": "X-BOOKKEEP",
+      "rank_m3": "X-BOOKKEEP"
+    },
+    "struct_whole": {
+      "detection_dup": "GLOBAL",
+      "spec_C": "GLOBAL",
+      "spec_E": "GLOBAL",
+      "G": "GLOBAL",
+      "sanity_n0": "GLOBAL",
+      "S_m3": "X-ARM",
+      "ladder_m3": "X-ARM",
+      "placer_c": "X-ARM",
+      "real_m1": "GLOBAL",
+      "real_m3": "X-ARM",
+      "rank_m1": "GLOBAL",
+      "rank_m3": "X-ARM"
+    },
+    "struct_site": {
+      "detection_dup": "OK",
+      "spec_C": "OK",
+      "spec_E": "OK",
+      "G": "OK",
+      "sanity_n0": "OK",
+      "S_m3": "X-ARM",
+      "ladder_m3": "X-ARM",
+      "placer_c": "X-ARM",
+      "real_m1": "OK",
+      "real_m3": "X-ARM",
+      "rank_m1": "OK",
+      "rank_m3": "X-ARM"
+    },
+    "deposit_meta": {
+      "detection_dup": "X-NOINPUT",
+      "spec_C": "X-NOINPUT",
+      "spec_E": "X-NOINPUT",
+      "G": "X-NOINPUT",
+      "sanity_n0": "X-NOINPUT",
+      "S_m3": "X-ARM",
+      "ladder_m3": "X-ARM",
+      "placer_c": "X-ARM",
+      "real_m1": "OK",
+      "real_m3": "X-ARM",
+      "rank_m1": "X-NOINPUT",
+      "rank_m3": "X-ARM"
+    },
+    "pred_global": {
+      "detection_dup": "X-ARM",
+      "spec_C": "X-ARM",
+      "spec_E": "X-ARM",
+      "G": "X-ARM",
+      "sanity_n0": "X-ARM",
+      "S_m3": "GLOBAL",
+      "ladder_m3": "GLOBAL",
+      "placer_c": "X-ARM",
+      "real_m1": "X-ARM",
+      "real_m3": "GLOBAL",
+      "rank_m1": "X-ARM",
+      "rank_m3": "GLOBAL"
+    },
+    "pred_interface": {
+      "detection_dup": "X-ARM",
+      "spec_C": "X-ARM",
+      "spec_E": "X-ARM",
+      "G": "X-ARM",
+      "sanity_n0": "X-ARM",
+      "S_m3": "OK",
+      "ladder_m3": "OK-PROVISIONAL",
+      "placer_c": "X-ARM",
+      "real_m1": "X-ARM",
+      "real_m3": "OK",
+      "rank_m1": "X-ARM",
+      "rank_m3": "OK"
+    },
+    "ame": {
+      "detection_dup": "X-ARM",
+      "spec_C": "X-ARM",
+      "spec_E": "X-ARM",
+      "G": "X-ARM",
+      "sanity_n0": "X-ARM",
+      "S_m3": "OK",
+      "ladder_m3": "OK-KNOCKON",
+      "placer_c": "X-ARM",
+      "real_m1": "X-ARM",
+      "real_m3": "OK",
+      "rank_m1": "X-ARM",
+      "rank_m3": "OK"
+    },
+    "placer_csv": {
+      "detection_dup": "X-ARM",
+      "spec_C": "X-ARM",
+      "spec_E": "X-ARM",
+      "G": "X-ARM",
+      "sanity_n0": "X-ARM",
+      "S_m3": "X-ARM",
+      "ladder_m3": "X-ARM",
+      "placer_c": "GLOBAL",
+      "real_m1": "GLOBAL",
+      "real_m3": "X-ARM",
+      "rank_m1": "NOT-RUN",
+      "rank_m3": "X-ARM"
+    },
+    "placer_site": {
+      "detection_dup": "X-ARM",
+      "spec_C": "X-ARM",
+      "spec_E": "X-ARM",
+      "G": "X-ARM",
+      "sanity_n0": "X-ARM",
+      "S_m3": "X-ARM",
+      "ladder_m3": "X-ARM",
+      "placer_c": "X-CONFOUND",
+      "real_m1": "OK",
+      "real_m3": "X-ARM",
+      "rank_m1": "NOT-RUN",
+      "rank_m3": "X-ARM"
+    }
   },
   "main_set": {
     "V1": "status in {OK, OK-KNOCKON, OK-PROVISIONAL promoted by 1B} in the primary Part 1 test of the metric's mode (P2K C ladder or P2KE E for M1; the M3 chemistry ladder for M3)",
@@ -83,5 +229,15 @@
     "main": "V1 and V2; only the _mean aggregator of multi-aggregator families; PLACER stays in the supplement",
     "reference": "fixed list reference_rows, shown as reference rows in Part 2 main tables, never counted as metrics under test"
   },
-  "primary_tests": {"C": "P2K_C", "E": "P2KE_E", "M3_ladder": "P5_CAXIS_NAT", "S": "P5_S_NAT", "2A_M1": "P0_ZYM", "2A_M3": "P5T2_ZYM"}
+  "main_set_exclusions": {
+    "chai_aggregate_score": "derived score, not an independent metric: Chai-1's combined score is 0.2 pTM + 0.8 ipTM - 100 x (inter-chain clash flag), a rescaled ipTM; kept in the supplement (decision of 2026-10-09)"
+  },
+  "primary_tests": {
+    "C": "P2K_C",
+    "E": "P2KE_E",
+    "M3_ladder": "P5_CAXIS_NAT",
+    "S": "P5_S_NAT",
+    "2A_M1": "P0_ZYM",
+    "2A_M3": "P5T2_ZYM"
+  }
 }

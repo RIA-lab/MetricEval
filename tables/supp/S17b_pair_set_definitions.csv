@@ -1,7 +1,7 @@
 pair_set,n,definition,source_artifact,used_for
 zymogen candidate rows,55,all zymogen-mature rows in the pair table before scoring filters,results/P0/zymogen_pairs.csv,candidate list
-P0 scored pairs,49,pairs on which structure-space metrics were scored and separated,results/P0/zymogen_only_separation.json,T5 and S17 (49 = max n_pairs)
+P0 scored pairs (wider set),49,pairs on which structure-space metrics were scored and separated,results/P0/zymogen_only_separation.json,S17 (49 = max n_pairs)
 P0 PLACER pairs,45,pairs with PLACER predictions,results/P0b/REPORT (REPORTP0B.md),S13
-T2 zymogen pairs,28,pairs re-predicted with Chai-1 (3 seeds each); trapping tier (26) retired,results/P5/t2_systems.csv,T5 M3 reference rows; S18
-T2 pairs with a shared ligand,21,pairs whose two sides share a ligand: interface terms are defined only here (7 apo pairs excluded),results/P5/t2_systems.csv (shared_ligands),S18
+T2 zymogen pairs,28,pairs re-predicted with Chai-1 (3 seeds each); trapping tier (26) retired,results/P5/t2_systems.csv,S18
+evaluation set: pairs sharing a ligand,21,"zymogen-mature pairs whose two forms share a ligand (7 apo pairs excluded): the pairs on which every main-set metric, structure-space and prediction-based, has a value on both forms",results/P5/t2_systems.csv (shared_ligands),T3 (top 30) and S17c (all metrics)
 P0b same-state null pairs,96,"pairs of structures in the same functional state, resolution-matched to the contrast",results/P0b/same_state_pairs.csv,S17 (p0b columns)

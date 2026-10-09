@@ -1,0 +1,31 @@
+metric_name,n_systems,mean_auroc,higher_in,above_best_of_m_threshold
+chai_iptm_mean,55,0.6974,cognate,1
+chai_iptm_max,55,0.6894,cognate,1
+chai_iptm_std,55,0.6861,wrong ligand,1
+chai_ptm_std,55,0.6369,wrong ligand,1
+ame_crystal_clash_max,55,0.6274,wrong ligand,1
+chai_ptm_mean,55,0.623,cognate,1
+chai_ptm_max,55,0.6192,cognate,1
+chai_per_chain_ptm_min_std,55,0.6191,wrong ligand,1
+ame_crystal_rmsd_std,55,0.5601,wrong ligand,0
+chai_per_chain_ptm_min_mean,55,0.5599,cognate,0
+chai_per_chain_ptm_min_max,55,0.5559,cognate,0
+ame_crystal_rmsd_max,55,0.5386,wrong ligand,0
+ame_crystal_rmsd_min,55,0.5284,wrong ligand,0
+ame_crystal_rmsd_naive_min,55,0.5283,wrong ligand,0
+ame_crystal_rmsd_mean,55,0.5268,wrong ligand,0
+chai_plddt_std_across_models,55,0.5228,mixed,0
+chai_per_chain_ptm_protein_mean,55,0.5206,cognate,0
+chai_per_chain_ptm_protein_max,55,0.5204,cognate,0
+chai_plddt_best_model,55,0.5196,cognate,0
+chai_plddt_mean,55,0.5178,cognate,0
+chai_per_chain_ptm_protein_std,55,0.5084,wrong ligand,0
+ame_crystal_n_sym_swaps,55,0.5062,cognate,0
+chai_plddt_min,55,0.5031,cognate,0
+ame_crystal_pass,55,0.5003,mixed,0
+ame_crystal_n_backbone_aligned,55,0.5,mixed,0
+ame_crystal_n_catalytic_atoms,55,0.5,mixed,0
+ame_crystal_n_models,55,0.5,mixed,0
+chai_has_inter_chain_clashes_max,55,0.5,mixed,0
+chai_has_inter_chain_clashes_mean,55,0.5,mixed,0
+chai_has_inter_chain_clashes_std,55,0.5,mixed,0

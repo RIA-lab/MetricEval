@@ -1,0 +1,129 @@
+metric_name,source,n_designs,n_active,auroc,auroc_lo,auroc_hi,auroc_directed,higher_in,in_main_table_set
+rosetta_cat_fa_intra_rep,structure-space,192,16,0.8018,0.6385,0.8929,0.1982,no reported activity,1
+frac_G,structure-space,192,16,0.7926,0.6157,0.8698,0.2074,no reported activity,0
+rosetta_ref,structure-space,192,16,0.7876,0.6708,0.8914,0.2124,no reported activity,0
+frac_E,structure-space,192,16,0.7848,0.6559,0.865,0.7848,active,0
+glu_fraction,structure-space,192,16,0.7848,0.6559,0.865,0.7848,active,0
+rosetta_cat_fa_rep,structure-space,192,16,0.7765,0.5714,0.918,0.2235,no reported activity,1
+rosetta_catalytic_vdw_rep,structure-space,192,16,0.7765,0.5714,0.918,0.2235,no reported activity,0
+rosetta_catalytic_vdw_rep_per_res,structure-space,192,16,0.7765,0.5714,0.918,0.2235,no reported activity,0
+rosetta_omega,structure-space,192,16,0.7756,0.5483,0.8883,0.2244,no reported activity,0
+frac_D,structure-space,192,16,0.7635,0.5868,0.924,0.2365,no reported activity,0
+frac_Y,structure-space,192,16,0.747,0.5537,0.8635,0.747,active,1
+rosetta_p_aa_pp,structure-space,192,16,0.7415,0.5409,0.8514,0.7415,active,0
+frac_aromatic,structure-space,192,16,0.7354,0.5384,0.8619,0.7354,active,0
+chai_ptm_max,prediction-based,192,16,0.7276,0.5511,0.8538,0.7276,active,0
+chai_plddt_best_model,prediction-based,192,16,0.7273,0.5318,0.8655,0.7273,active,0
+chai_plddt_mean,prediction-based,192,16,0.7273,0.5304,0.8626,0.7273,active,1
+chai_ptm_mean,prediction-based,192,16,0.7244,0.5434,0.8452,0.7244,active,1
+rosetta_fa_rep,structure-space,192,16,0.7244,0.5973,0.8204,0.2756,no reported activity,0
+mean_hydropathy,structure-space,192,16,0.7212,0.5283,0.8284,0.2788,no reported activity,0
+chai_per_chain_ptm_min_max,prediction-based,192,16,0.7131,0.5615,0.8356,0.7131,active,0
+chai_aggregate_score_max,prediction-based,192,16,0.7109,0.5314,0.8538,0.7109,active,0
+rosetta_cat_total,structure-space,192,16,0.7092,0.5232,0.8182,0.2908,no reported activity,1
+rosetta_cat_total_mean,structure-space,192,16,0.7092,0.5232,0.8182,0.2908,no reported activity,0
+chai_iptm_max,prediction-based,192,16,0.7063,0.5309,0.851,0.7063,active,0
+rosetta_cat_fa_dun,structure-space,192,16,0.7054,0.5836,0.879,0.2946,no reported activity,1
+chai_aggregate_score_mean,prediction-based,192,16,0.6978,0.5208,0.8435,0.6978,active,0
+chai_plddt_min,prediction-based,192,16,0.6978,0.5157,0.8395,0.6978,active,0
+chai_per_chain_ptm_min_mean,prediction-based,192,16,0.6971,0.5432,0.8272,0.6971,active,1
+chai_iptm_mean,prediction-based,192,16,0.6953,0.5193,0.8424,0.6953,active,1
+ame_self_rmsd_mean,prediction-based,192,16,0.6918,0.5155,0.845,0.3082,no reported activity,0
+ame_self_rmsd_max,prediction-based,192,16,0.6879,0.5155,0.8435,0.3121,no reported activity,0
+ame_self_rmsd_min,prediction-based,192,16,0.6793,0.5135,0.8349,0.3207,no reported activity,0
+ame_self_rmsd_naive_min,prediction-based,192,16,0.6793,0.5135,0.8349,0.3207,no reported activity,0
+rosetta_n_residues,structure-space,192,16,0.6783,0.509,0.8553,0.3217,no reported activity,0
+seq_length,structure-space,192,16,0.6783,0.509,0.8553,0.3217,no reported activity,1
+rosetta_cat_worst_residue,structure-space,192,16,0.6761,0.5196,0.7839,0.3239,no reported activity,1
+frac_V,structure-space,192,16,0.6752,0.5183,0.8175,0.3248,no reported activity,0
+rosetta_fa_atr,structure-space,192,16,0.6729,0.5096,0.85,0.6729,active,0
+frac_charged,structure-space,192,16,0.6713,0.5112,0.8287,0.6713,active,0
+rosetta_cat_fa_atr,structure-space,192,16,0.6683,0.5668,0.8212,0.6683,active,1
+rosetta_catalytic_vdw_atr,structure-space,192,16,0.6683,0.5668,0.8212,0.6683,active,0
+rosetta_lk_ball_wtd,structure-space,192,16,0.6676,0.5079,0.847,0.6676,active,0
+rosetta_cat_lk_ball_wtd,structure-space,192,16,0.6628,0.5421,0.821,0.6628,active,1
+rosetta_fa_intra_rep,structure-space,192,16,0.6623,0.5077,0.849,0.3377,no reported activity,0
+ame_self_clash_max,prediction-based,192,16,0.6559,0.5198,0.7805,0.6559,active,0
+rosetta_hbond_bb_sc,structure-space,192,16,0.6534,0.5072,0.8304,0.6534,active,0
+catalytic_sasa_total,structure-space,192,16,0.6522,0.5362,0.8884,0.6522,active,1
+rosetta_fa_elec,structure-space,192,16,0.6516,0.5076,0.8461,0.6516,active,0
+catalytic_rel_sasa_mean,structure-space,192,16,0.6504,0.5344,0.8865,0.6504,active,1
+catalytic_sasa_mean,structure-space,192,16,0.6504,0.5344,0.8865,0.6504,active,0
+chai_plddt_std_across_models,prediction-based,192,16,0.6499,0.5086,0.8017,0.3501,no reported activity,0
+chai_per_chain_ptm_protein_mean,prediction-based,192,16,0.646,0.5181,0.7959,0.646,active,0
+frac_F,structure-space,192,16,0.6447,0.5143,0.7705,0.6447,active,0
+chai_per_chain_ptm_protein_max,prediction-based,192,16,0.6424,0.517,0.7959,0.6424,active,0
+rosetta_cat_fa_elec,structure-space,192,16,0.6413,0.5074,0.7881,0.3587,no reported activity,1
+rosetta_total_score,structure-space,192,16,0.6396,0.5057,0.7991,0.6396,active,0
+chai_per_chain_ptm_min_std,prediction-based,192,16,0.6371,0.5077,0.8904,0.6371,active,0
+catalytic_pairwise_dist_max,structure-space,192,16,0.6351,0.5098,0.7701,0.6351,active,1
+rosetta_fa_sol,structure-space,192,16,0.6243,0.5062,0.8494,0.3757,no reported activity,0
+catalytic_rel_sasa_max,structure-space,192,16,0.6239,0.5236,0.8393,0.6239,active,1
+ame_self_rmsd_std,prediction-based,192,16,0.6218,0.5086,0.7532,0.3782,no reported activity,0
+chai_per_chain_ptm_protein_std,prediction-based,192,16,0.6204,0.5078,0.7643,0.3796,no reported activity,0
+frac_K,structure-space,192,16,0.6202,0.5075,0.8802,0.6202,active,0
+lys_fraction,structure-space,192,16,0.6202,0.5075,0.8802,0.6202,active,0
+frac_L,structure-space,192,16,0.62,0.5066,0.776,0.38,no reported activity,0
+catalytic_polar_dist_mean,structure-space,182,16,0.6162,0.5119,0.785,0.6162,active,0
+catalytic_pairwise_dist_mean,structure-space,192,16,0.611,0.5114,0.773,0.611,active,1
+catalytic_radius_of_gyration,structure-space,192,16,0.611,0.5088,0.7735,0.611,active,1
+rosetta_fa_dun,structure-space,192,16,0.609,0.5056,0.8571,0.391,no reported activity,0
+total_sasa,structure-space,192,16,0.6055,0.5055,0.8366,0.3945,no reported activity,0
+rosetta_cat_hbond_sc,structure-space,192,16,0.6051,0.5067,0.7294,0.3949,no reported activity,1
+rosetta_cat_fa_sol,structure-space,192,16,0.6025,0.5109,0.7073,0.3975,no reported activity,1
+rosetta_cat_p_aa_pp,structure-space,192,16,0.6017,0.5062,0.7302,0.6017,active,1
+frac_I,structure-space,192,16,0.5982,0.5055,0.7377,0.4018,no reported activity,0
+frac_S,structure-space,192,16,0.595,0.5072,0.8514,0.405,no reported activity,0
+frac_A,structure-space,192,16,0.5898,0.5054,0.7748,0.5898,active,0
+catalytic_polar_contacts,structure-space,192,16,0.5877,0.5048,0.7388,0.5877,active,1
+catalytic_polar_contacts_per_residue,structure-space,192,16,0.5874,0.5045,0.7391,0.5874,active,0
+rosetta_cat_omega,structure-space,192,16,0.5843,0.5049,0.8146,0.5843,active,1
+frac_H,structure-space,192,16,0.573,0.5045,0.8209,0.427,no reported activity,0
+net_charge,structure-space,192,16,0.5648,0.5053,0.8277,0.5648,active,1
+propka_catalytic_pka_max,structure-space,192,16,0.5618,0.5049,0.7811,0.4382,no reported activity,1
+rosetta_hbond_sc,structure-space,192,16,0.5618,0.5062,0.841,0.5618,active,0
+propka_catalytic_pka_range,structure-space,192,16,0.5545,0.5043,0.7675,0.4455,no reported activity,1
+ame_self_pass,prediction-based,192,16,0.554,0.504,0.6883,0.554,active,0
+chai_iptm_std,prediction-based,192,16,0.5487,0.5034,0.7693,0.4513,no reported activity,0
+rosetta_rama_prepro,structure-space,192,16,0.5462,0.5032,0.7766,0.4538,no reported activity,0
+frac_W,structure-space,192,16,0.5458,0.5064,0.8184,0.4542,no reported activity,0
+chai_aggregate_score_std,prediction-based,192,16,0.544,0.5036,0.7721,0.456,no reported activity,0
+frac_ivywrel,structure-space,192,16,0.5428,0.5047,0.8004,0.5428,active,0
+rosetta_catalytic_vdw_net,structure-space,192,16,0.5408,0.503,0.7962,0.5408,active,1
+frac_R,structure-space,192,16,0.5343,0.5036,0.8559,0.4657,no reported activity,0
+rosetta_score_per_residue,structure-space,192,16,0.5341,0.5036,0.7819,0.5341,active,0
+frac_N,structure-space,192,16,0.5334,0.5036,0.7958,0.4666,no reported activity,0
+catalytic_frac_buried,structure-space,192,16,0.5291,0.5021,0.6994,0.4709,no reported activity,1
+propka_catalytic_pka_mean,structure-space,192,16,0.5259,0.5034,0.7126,0.4741,no reported activity,1
+propka_catalytic_shift_mean,structure-space,192,16,0.5257,0.5034,0.7126,0.4743,no reported activity,1
+rosetta_cat_hbond_bb_sc,structure-space,192,16,0.5257,0.5036,0.6964,0.4743,no reported activity,1
+propka_catalytic_pka_min,structure-space,192,16,0.5206,0.5023,0.6667,0.5206,active,1
+propka_catalytic_shift_absmax,structure-space,192,16,0.5206,0.5023,0.6667,0.4794,no reported activity,1
+frac_P,structure-space,192,16,0.5186,0.5042,0.7561,0.4814,no reported activity,0
+net_charge_per_residue,structure-space,192,16,0.5144,0.5037,0.7802,0.4856,no reported activity,0
+rosetta_cat_rama_prepro,structure-space,192,16,0.5064,0.5028,0.7257,0.5064,active,1
+frac_Q,structure-space,192,16,0.5041,0.5044,0.7482,0.5041,active,0
+frac_T,structure-space,192,16,0.5039,0.5021,0.6633,0.4961,no reported activity,0
+chai_ptm_std,prediction-based,192,16,0.5036,0.503,0.8231,0.4964,no reported activity,0
+catalytic_n_atoms,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+catalytic_n_atoms_used,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+n_catalytic_expected,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+n_catalytic_found,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+n_catalytic_identity_match,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+n_catalytic_in_spec,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+n_catalytic_observed,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+propka_n_catalytic_requested,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+propka_n_catalytic_resolved,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+rosetta_cat_ref,structure-space,192,16,0.5028,0.5,0.5131,0.4972,no reported activity,0
+rosetta_n_catalytic_mapped,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+rosetta_n_catalytic_requested,structure-space,192,16,0.5028,0.5,0.5131,0.5028,active,0
+catalytic_polar_dist_min,structure-space,182,16,0.5006,0.5025,0.713,0.5006,active,0
+catalytic_n_no_sidechain,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+frac_C,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+frac_M,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+frac_catalytic_found,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+frac_catalytic_present,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+n_catalytic_substituted,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+propka_status_ok,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+rosetta_seed,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
+rosetta_status_ok,structure-space,192,16,0.5,0.5,0.5,0.5,tie,0
