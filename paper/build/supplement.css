@@ -1,0 +1,24 @@
+/* Supplementary Information: entries describe tables, they do not print them */
+.doc-title + .subtitle { font-family: "Liberation Sans", "DejaVu Sans", sans-serif; font-size: 13pt; margin-top: 3mm; color: var(--ink); text-align: left; }
+.title-block { margin-bottom: 4mm; }
+h2 { margin-top: 5mm; }
+h3 {
+  font-size: 10pt; margin: 6mm 0 1.6mm; padding-top: 1.4mm;
+  border-top: 0.5pt solid var(--rule);
+}
+.tmeta {
+  background: var(--soft); border-left: 2pt solid #9a9a94; padding: 1.4mm 2.4mm; margin: 0 0 2mm;
+  font-size: 8.4pt; line-height: 1.34; text-align: left; hyphens: manual; break-inside: avoid;
+}
+.tmeta p { margin: 0 0 0.9mm; }
+.tmeta p:last-child { margin-bottom: 0; }
+.tmeta code { font-size: 0.92em; }
+p { orphans: 3; widows: 3; }
+.defs table, .excerpt table { font-size: 7.4pt; table-layout: fixed; }
+.defs td:first-child { overflow-wrap: anywhere; }
+.defs code, .excerpt code { font-size: 0.95em; overflow-wrap: anywhere; hyphens: none; }
+.excerpt table { margin-bottom: 3mm; }
+.excerpt thead th { font-weight: 400; }
+.toc td, .toc th { padding: 0.6mm 1.2mm; }
+pre { font-size: 8pt; line-height: 1.3; background: var(--soft); padding: 2mm 3mm; margin: 0 0 3mm; break-inside: avoid; }
+ul { margin-bottom: 2mm; }

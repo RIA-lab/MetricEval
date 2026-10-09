@@ -1,3 +1,7 @@
 node_modules/
 paper.html
 paper.build.md
+supplementary.html
+supplement_pages.json
+paper_pages.json
+__pycache__/

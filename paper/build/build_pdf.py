@@ -13,18 +13,19 @@ Pipeline: Markdown -> pandoc (HTML, KaTeX math) -> headless Chromium (PDF).
 Needs: pandoc, python3, and a Chromium/Chrome binary (set CHROME to override).
 """
 import html
-import os
+import json
 import re
-import shutil
-import subprocess
 import sys
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-PAPER = HERE.parent
+from common import (HERE, LINK_HOST, MATH_RE, PAPER, link_ids, page_texts, pandoc_html,
+                    print_pdf, relativize_links)
+
 OUT_PDF = PAPER / "paper.pdf"
 OUT_HTML = HERE / "paper.html"
 OUT_MD = HERE / "paper.build.md"
+SUPP_PAGES = HERE / "supplement_pages.json"   # written by build_supplement.py
+PAPER_PAGES = HERE / "paper_pages.json"       # read by build_supplement.py
 
 # Sections to include with their content, in paper order.
 BODY_FILES = ["methods.md", "results.md"]
@@ -41,16 +42,6 @@ SENTENCE_PATCHES = [
      "Numbers in square brackets are references, listed in the References."),
 ]
 
-CHROME_CANDIDATES = [
-    os.environ.get("CHROME", ""),
-    "/opt/pw-browsers/chromium/chrome-linux/chrome",
-    "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
-    shutil.which("chromium") or "",
-    shutil.which("chromium-browser") or "",
-    shutil.which("google-chrome") or "",
-]
-
-MATH_RE = re.compile(r"\$\$.*?\$\$|(?<!\$)\$(?!\$)[^$\n]+?\$(?!\$)", re.S)
 CITE_RE = re.compile(r"\[(\d+(?:,\s*\d+)*)\]")
 REF_LINE_RE = re.compile(r"^\[(\d+)\]\s+(.*?)\s*<!--\s*bib:\s*(\S+)\s*-->\s*$")
 REFS_BLOCK_RE = re.compile(r"<!--\s*refs:start\s*-->(.*?)<!--\s*refs:end\s*-->", re.S)
@@ -108,8 +99,8 @@ def prepare_blocks(text):
             ncol = tbl[0].strip().strip("|").count("|") + 1
             if len(hint) != ncol:
                 sys.exit(f"cols hint {hint} does not match {ncol} columns: {tbl[0][:60]}")
-            if ncol >= WIDE_COLS:   # keep headers such as "Rank in group" from breaking per letter
-                hint = [max(w, 1.0) for w in hint]
+            # keep headers such as "Rank in group" from breaking letter by letter
+            hint = [max(w, 1.0 if ncol >= WIDE_COLS else 0.9) for w in hint]
             tbl[1] = "|" + "|".join("-" * max(3, round(w * 10)) for w in hint) + "|"
             b = "\n".join(tbl)
             hint = None
@@ -215,14 +206,26 @@ def check_bib(keys):
         print(f"warning: not in references.bib: {missing}", file=sys.stderr)
 
 
-def find_chrome():
-    for c in CHROME_CANDIDATES:
-        if c and Path(c).exists():
-            return c
-    sys.exit("no Chromium/Chrome found; set CHROME=/path/to/chrome")
+def heading_pages(pdf_path, headings):
+    """First page on which each numbered heading (2, 2.1, 2.1.1, 3, ...) appears."""
+    texts = page_texts(pdf_path)
+    pages = {}
+    for num in headings:
+        pat = re.compile(r"^\s*" + re.escape(num) + r"\s+[A-Z]", re.M)
+        for i, t in enumerate(texts, 1):
+            if pat.search(t):
+                pages[num] = i
+                break
+    return pages
 
 
 def main():
+    supp_pages = json.loads(SUPP_PAGES.read_text()) if SUPP_PAGES.exists() else {}
+
+    def supplement_href(n):
+        page = supp_pages.get(f"S{n}")
+        return f"{LINK_HOST}supplementary.pdf" + (f"#page={page}" if page else "")
+
     key_to_global, order = {}, []
     sections = []
     for name in BODY_FILES:
@@ -233,6 +236,7 @@ def main():
         body = prepare_blocks(body)
         body = renumber(body, local, key_to_global, order)
         body = body.replace("](fig1_study_map.png)", "](../fig1_study_map.png)")
+        body = link_ids(body, supplement_href)
         sections.append(body)
     check_bib([k for k, _ in order])
 
@@ -250,42 +254,18 @@ def main():
     )
     OUT_MD.write_text(md + "\n", encoding="utf-8")
 
-    subprocess.run(
-        [
-            "pandoc", str(OUT_MD),
-            "-f", "markdown-implicit_figures-smart-auto_identifiers-citations",
-            "-t", "html5",
-            "--columns=20",
-            "--template", str(HERE / "template.html"),
-            "--katex=node_modules/katex/dist/",
-            "--metadata", "pagetitle=MetricEval: Methods and Results (draft)",
-            "-o", str(OUT_HTML),
-        ],
-        check=True,
-    )
-
+    pandoc_html(OUT_MD, OUT_HTML, HERE / "template.html", "MetricEval: Methods and Results (draft)")
     h = OUT_HTML.read_text(encoding="utf-8")
     h = re.sub(r"<caption>\s*" + TOP_MARK + r"\s*", '<caption class="top">', h)
     OUT_HTML.write_text(h, encoding="utf-8")
 
-    chrome = find_chrome()
-    subprocess.run(
-        [
-            chrome, "--headless=new", "--no-sandbox", "--disable-gpu",
-            "--no-pdf-header-footer", "--virtual-time-budget=30000",
-            f"--print-to-pdf={OUT_PDF}", OUT_HTML.as_uri(),
-        ],
-        check=True, stderr=subprocess.DEVNULL,
-    )
-
-    dom = subprocess.run(
-        [chrome, "--headless=new", "--no-sandbox", "--disable-gpu",
-         "--virtual-time-budget=30000", "--dump-dom", OUT_HTML.as_uri()],
-        check=True, capture_output=True, text=True,
-    ).stdout
-    errs = len(re.findall(r"katex-error", dom))
-    print(f"wrote {OUT_PDF} ({OUT_PDF.stat().st_size // 1024} KiB); "
-          f"{len(order)} references; KaTeX errors: {errs}")
+    errs = print_pdf(OUT_HTML, OUT_PDF)
+    n_links = relativize_links(OUT_PDF)
+    numbers = sorted({m.group(1) for sec in sections for m in re.finditer(r"^#{1,3} (\d+(?:\.\d+)*) ", sec, re.M)})
+    pages = heading_pages(OUT_PDF, numbers)
+    PAPER_PAGES.write_text(json.dumps(pages, indent=1), encoding="utf-8")
+    print(f"wrote {OUT_PDF} ({OUT_PDF.stat().st_size // 1024} KiB); {len(order)} references; "
+          f"{n_links} links to the supplement; KaTeX errors: {errs}")
     if errs:
         sys.exit(1)
 

@@ -118,3 +118,6 @@ table caption.top { caption-side: top; padding: 3mm 0 1.4mm; }
   }
 }
 .landscape { page: wide; }
+
+/* links to supplementary tables and between the two PDFs */
+a[href^="#"], a[href^="https://pdflink.invalid"] { color: #1d4f91; }
