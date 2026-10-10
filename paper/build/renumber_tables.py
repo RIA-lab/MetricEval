@@ -11,6 +11,15 @@ table_ids.csv, which make_public_tables.py and build_supplement.py read.
 
 Run it once. After it has run the Markdown files carry the new ids and the
 frozen mapping lives in table_ids.csv.
+
+    python3 renumber_tables.py --again           # dry run: first-citation order of the CURRENT S numbers
+    python3 renumber_tables.py --again --apply   # renumber again after the text changed
+
+--again is for when text edits have changed the order of first citation: it
+maps the current S numbers to new ones in citation order, rewrites the Markdown
+(ranges such as S2-S7 are expanded first and collapsed again) and the new_id
+column of table_ids.csv. The old ids in table_ids.csv, which the build scripts
+key on, do not change.
 """
 import csv
 import re
@@ -76,7 +85,75 @@ def collapse_runs(text):
     return re.sub(r"\bTable (S\d+–S\d+)", r"Tables \1", new)
 
 
+CUR_RE = re.compile(r"(?<![\w/.-])S(\d{1,2})(?![\w-])")
+RANGE_RE = re.compile(r"\bS(\d+)–S(\d+)\b")
+
+
+def expand_ranges(text):
+    """'Tables S2–S7' -> 'Tables S2, S3, S4, S5, S6 and S7' (outside comments)."""
+    def sub(m):
+        a, b = int(m.group(1)), int(m.group(2))
+        items = [f"S{i}" for i in range(a, b + 1)]
+        return ", ".join(items[:-1]) + " and " + items[-1]
+    parts, pos = [], 0
+    for c in COMMENT_RE.finditer(text):
+        parts.append(RANGE_RE.sub(sub, text[pos:c.start()]))
+        parts.append(c.group(0))
+        pos = c.end()
+    parts.append(RANGE_RE.sub(sub, text[pos:]))
+    return "".join(parts)
+
+
+def again(apply):
+    rows = list(csv.DictReader(open(HERE / "table_ids.csv", encoding="utf-8")))
+    cur = {r["new_id"] for r in rows}
+    texts = {n: expand_ranges((PAPER / n).read_text(encoding="utf-8")) for n in DOCS}
+    order, where = [], {}
+    for name in DOCS:
+        t = texts[name]
+        masked = COMMENT_RE.sub(lambda m: " " * len(m.group(0)), t)
+        for m in CUR_RE.finditer(masked):
+            sid = f"S{m.group(1)}"
+            if sid in cur and sid not in where:
+                order.append(sid)
+                where[sid] = f"{name}:{t.count(chr(10), 0, m.start()) + 1}"
+    order += sorted(cur - set(order), key=lambda x: int(x[1:]))
+    mapping = {c: f"S{i}" for i, c in enumerate(order, 1)}
+    moved = {c: n for c, n in mapping.items() if c != n}
+    print(f"{len(order)} tables; {len(moved)} change number: " + ", ".join(f"{c}->{n}" for c, n in moved.items()))
+    if not apply:
+        return
+    for name, t in texts.items():
+        masked = COMMENT_RE.sub(lambda m: " " * len(m.group(0)), t)
+        out, last = [], 0
+        for m in CUR_RE.finditer(masked):
+            sid = f"S{m.group(1)}"
+            if sid in mapping:
+                out.append(t[last:m.start()])
+                out.append(mapping[sid])
+                last = m.end()
+        out.append(t[last:])
+        new = "".join(out)
+        parts, pos = [], 0
+        for c in COMMENT_RE.finditer(new):
+            parts.append(collapse_runs(new[pos:c.start()]))
+            parts.append(c.group(0))
+            pos = c.end()
+        parts.append(collapse_runs(new[pos:]))
+        (PAPER / name).write_text("".join(parts), encoding="utf-8")
+    first = {mapping[c]: where.get(c, "uncited") for c in order}
+    old_of = {r["new_id"]: r["old_id"] for r in rows}
+    with open(HERE / "table_ids.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["old_id", "new_id", "first_cited"])
+        for c in order:
+            w.writerow([old_of[c], mapping[c], first[mapping[c]]])
+    print("rewrote", ", ".join(DOCS), "and table_ids.csv")
+
+
 def main():
+    if "--again" in sys.argv:
+        return again("--apply" in sys.argv)
     apply = "--apply" in sys.argv
     texts = {n: (PAPER / n).read_text(encoding="utf-8") for n in DOCS}
     public = public_old_ids()
