@@ -38,6 +38,32 @@ def main():
         if re.search(pat, m, re.M):
             problems.append(f"methods.md contains {label}")
 
+    # section numbers of the Methods: 2.1 is the overview, 2.2 to 2.5 the tests; references must exist
+    heads = re.findall(r"^#{2,3} (2(?:\.\d+)*) (.*)$", m, re.M)
+    nums_h = [h for h, _ in heads]
+    want = ["2.1", "2.2", "2.2.1", "2.2.2", "2.3", "2.4", "2.4.1", "2.4.2", "2.5", "2.5.1", "2.5.2"]
+    if nums_h != want:
+        problems.append(f"methods.md headings are {nums_h}, expected {want}")
+    if not heads or heads[0][1] != "Experiment overview":
+        problems.append("methods.md: 2.1 is not 'Experiment overview'")
+    ref = re.compile(r"(?<![\d.])(2\.[1-5](?:\.[12])?)(?!\d)(?!\.\d)(?! ?Å)")
+    for n in ("methods.md", "results.md", "discussion.md"):
+        body = text[n] if n != "methods.md" else re.sub(r"^#{2,3} .*$", "", text[n], flags=re.M)
+        for mm in ref.finditer(body):
+            if mm.group(1) not in nums_h:
+                problems.append(f"{n}: reference to section {mm.group(1)}, which does not exist")
+    # a Results subsection points to the Methods subsection of the same test (3.a.b -> 2.(a+1).b)
+    cur = None
+    for line in text["results.md"].split("\n"):
+        h = re.match(r"^#{2,3} (3(?:\.\d+)*) ", line)
+        if h:
+            cur = h.group(1)
+        for mm in re.finditer(r"Methods (2\.\d(?:\.\d)?)", line):
+            a = cur.split(".")
+            want = ".".join(["2", str(int(a[1]) + 1)] + a[2:])
+            if mm.group(1) != want:
+                problems.append(f"results.md {cur}: 'Methods {mm.group(1)}' but this test is Methods {want}")
+
     # captions
     caps = []
     for n in DOCS:

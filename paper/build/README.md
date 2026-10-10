@@ -10,6 +10,7 @@ npm install                       # once: KaTeX
 python3 renumber_tables.py        # ran once; the numbering by first citation is frozen in table_ids.csv
 python3 renumber_tables.py --again --apply   # only after text edits changed the order of first citation
 python3 renumber_main_tables.py   # ran once: Results Tables 3-9 became 5-11 when the Methods got Tables 1-4
+python3 renumber_methods_sections.py   # ran once: 2.1 became the experiment overview, the tests moved to 2.2-2.5
 python3 make_public_tables.py     # tables/ -> tables/public/ (hash-checked, renamed, cross-references renumbered)
 python3 build_all.py              # supplementary.pdf and paper.pdf, repeated until cross-link pages are stable
 python3 build_latex.py            # paper/latex/ and paper/latex_source.zip (compiled once with latexmk to check)
