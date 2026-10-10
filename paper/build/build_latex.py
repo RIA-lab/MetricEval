@@ -4,15 +4,15 @@
 Writes paper/latex/ (paper.tex, supplementary.tex, references.bib, paper.bbl,
 README.txt) and paper/latex_source.zip (sources only).
 
-  * paper.tex          the title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and the
-                       references; the Abstract is a heading only, as in paper.pdf.
+  * paper.tex          the title, the Abstract, 1 Introduction, 2 Methods, 3 Results,
+                       4 Discussion and the references, as in paper.pdf.
   * supplementary.tex  the description of the supplementary tables (as supplementary.pdf).
   * references.bib     the entries cited, in the order of first citation. paper.tex lists
                        them with \\nocite in that order, so that the BibTeX (unsrt) numbers
                        equal the numbers of paper.pdf.
 
 The text is the same Markdown as for the PDFs (introduction.md, methods.md, results.md,
-discussion.md and the generated supplementary.md text); pandoc writes the LaTeX, latex_filter.lua maps
+discussion.md, abstract.md and the generated supplementary.md text); pandoc writes the LaTeX, latex_filter.lua maps
 figures and boxes, latex_preamble.tex adds packages. Both documents are compiled
 with latexmk in a scratch directory to check them; the compiled PDFs are not part
 of the release (paper.pdf and supplementary.pdf are).
@@ -41,8 +41,8 @@ README = """\
 LaTeX source of the paper and of its Supplementary Information
 ===============================================================
 
-  paper.tex            title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and the
-                       references; the Abstract is a reserved heading only
+  paper.tex            title, Abstract, 1 Introduction, 2 Methods, 3 Results, 4 Discussion
+                       and the references
   supplementary.tex    describes the 49 supplementary tables and the seven data tables of the Results
   references.bib       entries cited in paper.tex
   paper.bbl            BibTeX output for paper.tex (so that paper.tex compiles without BibTeX)
@@ -113,7 +113,8 @@ def paper_markdown():
         body = cites_to_latex(body, local, order)
         body = bp.link_ids(body, lambda n: None)          # table ids stay plain text
         sections.append(body)
-    md = "\n\n".join(["# Abstract {.unnumbered}", *sections,
+    abstract = bp.prepare_blocks((PAPER / "abstract.md").read_text(encoding="utf-8"))
+    md = "\n\n".join([abstract, *sections,
                       "```{=latex}\n\\bibliographystyle{unsrt}\n\\bibliography{references}\n```"])
     return md, order
 

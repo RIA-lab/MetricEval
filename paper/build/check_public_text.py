@@ -54,7 +54,7 @@ def md_visible(path):
 
 def main():
     findings = []
-    for name in ("introduction.md", "methods.md", "results.md", "discussion.md", "supplementary.md"):
+    for name in ("abstract.md", "introduction.md", "methods.md", "results.md", "discussion.md", "supplementary.md"):
         p = PAPER / name
         if p.exists():
             scan_text(name, md_visible(p), findings)

@@ -150,6 +150,83 @@ against catalysis?}
 \section*{Abstract}
 \addcontentsline{toc}{section}{Abstract}
 
+As designs outnumber
+what a laboratory
+can test, in-silico
+metrics decide which
+enzymes are built,
+yet it is not known
+whether they respond
+to catalysis or to
+something simpler,
+such as proximity to
+the active site. We
+tested 33 metrics,
+alongside trivial
+references, for what
+a metric that tracks
+catalysis should do:
+separate active from
+inactive enzymes,
+tell a cognate
+substrate from a
+wrong one, rank
+enzymes by activity,
+and register damage
+to the catalytic
+residues more than
+the same damage
+elsewhere. No metric
+separated natural
+dead enzymes from
+their active forms
+beyond chance,
+although the pLDDT
+of the whole
+prediction did
+(AUROC 0.79), and on
+192 designs the
+tyrosine fraction
+came close to the
+best metric (0.75
+against 0.80). ipTM
+separated the
+cognate ligand from
+a wrong one (0.70),
+but the RMSD of the
+catalytic atoms
+barely did. The
+distance from the
+mutated residue to
+the catalytic
+residues tracked the
+loss of activity of
+enzyme variants as
+well as the best
+metric (ρ = 0.46
+against 0.48), and
+the metric most
+responsive to
+catalytic damage
+fell from 0.75 to
+0.59 (0.5 = no
+preference) when the
+control lay at the
+same distance from
+the ligand. The
+metrics register
+damage close to the
+active site; we
+could not show that
+they register
+whether it is
+catalytic, which a
+filter needs to
+choose between
+designs that differ
+in chemistry, not
+position.
+
 \section{1
 Introduction}
 

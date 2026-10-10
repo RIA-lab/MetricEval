@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Build paper/paper.pdf from the Markdown sections.
 
-Included: the title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and one
-merged, globally numbered reference list (numbered by first citation, in the order
-of the sections). The Abstract is a reserved, empty heading until it is written.
+Included: the title, the Abstract (abstract.md), 1 Introduction, 2 Methods, 3 Results,
+4 Discussion and one merged, globally numbered reference list (numbered by first
+citation, in the order of the sections).
 
 Pipeline: Markdown -> pandoc (HTML, KaTeX math) -> headless Chromium (PDF).
 
@@ -228,6 +228,7 @@ def main():
         page = supp_pages.get(f"S{n}")
         return f"{LINK_HOST}supplementary.pdf" + (f"#page={page}" if page else "")
 
+    abstract = prepare_blocks((PAPER / "abstract.md").read_text(encoding="utf-8"))   # no citations
     key_to_global, order = {}, []
     sections = {}
     for name in BODY_FILES:
@@ -245,7 +246,7 @@ def main():
     md = "\n\n".join(
         [
             f'<div class="title-block"><h1 class="doc-title">{TITLE}</h1></div>',
-            "# Abstract {.unnumbered .reserved}",
+            abstract,
             *sections.values(),
             "# References {.unnumbered}",
             f'<div class="refs">\n{reference_html(order)}\n</div>',

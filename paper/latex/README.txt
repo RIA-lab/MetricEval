@@ -1,8 +1,8 @@
 LaTeX source of the paper and of its Supplementary Information
 ===============================================================
 
-  paper.tex            title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and the
-                       references; the Abstract is a reserved heading only
+  paper.tex            title, Abstract, 1 Introduction, 2 Methods, 3 Results, 4 Discussion
+                       and the references
   supplementary.tex    describes the 49 supplementary tables and the seven data tables of the Results
   references.bib       entries cited in paper.tex
   paper.bbl            BibTeX output for paper.tex (so that paper.tex compiles without BibTeX)

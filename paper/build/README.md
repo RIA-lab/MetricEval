@@ -1,6 +1,6 @@
 # Building the PDFs and the LaTeX source
 
-`paper/paper.pdf` (title, Introduction, Methods, Results, Discussion, references; the Abstract is a reserved heading), `paper/supplementary.pdf` (description of every table) and
+`paper/paper.pdf` (title, Abstract, Introduction, Methods, Results, Discussion, references), `paper/supplementary.pdf` (description of every table) and
 `paper/latex_source.zip` (the LaTeX source of both) are built from the Markdown sources in `paper/` and the CSV
 files in `tables/`. Only `tables/public/` is released (as the root of the public repository); it holds no internal
 codes, and `check_public_text.py` fails if any appears in the text, the tables, the PDFs or the LaTeX.
@@ -36,7 +36,7 @@ framed, longtable, booktabs, hyperref.
 | `make_figure1.py` | redraws Figure 1 (HTML to PNG with Chromium) |
 | `public_tables_crosswalk.csv` | private: generated id and file of every public table (not released) |
 | `build_supplement.py` | writes `paper/supplementary.md` and `supplementary.pdf` (`--check` validates the spec against the CSVs) |
-| `build_pdf.py` | writes `paper/paper.pdf` from `introduction.md`, `methods.md`, `results.md`, `discussion.md` (S numbers in the text become links into the supplement; the references are merged and numbered by first citation) |
+| `build_pdf.py` | writes `paper/paper.pdf` from `abstract.md`, `introduction.md`, `methods.md`, `results.md`, `discussion.md` (S numbers in the text become links into the supplement; the references are merged and numbered by first citation) |
 | `common.py`, `template*.html`, `paper.css`, `supplement.css` | shared helpers (the title of the paper is `TITLE` in `common.py`) and styling |
 
 Links between the two PDFs are relative (`supplementary.pdf#page=N`, `paper.pdf#page=N`), so keep both files in one folder.
