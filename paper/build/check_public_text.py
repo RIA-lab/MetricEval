@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Fail if internal codes appear in public content.
 
+Also checks the references between tables: no old table id (T1 to T4), no unresolved {placeholder},
+no "Table N" beyond the paper's last numbered table, and every "S<n> (column <name>)" must name a
+column of that supplementary table.
+
 Scans, when present: the Markdown sources (visible text, HTML comments excluded),
 the generated supplementary.md, every file in tables/public (file names, headers,
 cells, README, INDEX), the text of paper.pdf and supplementary.pdf, and the
@@ -24,7 +28,7 @@ csv.field_size_limit(10**9)
 PATTERNS = {
     "axis C/E/G": r"\b[Aa]xis[ _][CEG]\b|axis_[CEG]|_axis\b|\b[Aa]xes [CE]\b|\bC-axis\b|\b[CEG] axis\b",
     "Part 1/2": r"\bParts? ?[12]\b",
-    "internal documents": r"PREREG|RESEARCH_PLAN|CLAUDE|REPORT_|REPORT\.md|PROVENANCE",
+    "internal documents": r"PREREG|RESEARCH_PLAN|CLAUDE|REPORT_|REPORT\.md|PROVENANCE|rules\.json|scores\.parquet|ADDENDUM",
     "private paths": r"(?<![\w/.])(?:ops|results|src|data|chai_lab|tables)/[\w.*-]",
     "ruling / user": r"human ruling|\bruling\b|user's|at the user|user asked|\bAgent \d",
     "analysis codes": r"\bP(?:0b?|1|2K?E?S?|3[vV]2|3|5T2|5_1B|5|6(?:_m3)?)\b|\bD4(?:_\w+)?\b|P6_PLATES|\bN0\b|\bisoplacer\b",
@@ -52,8 +56,60 @@ def md_visible(path):
     return re.sub(r"<!--.*?-->", " ", t, flags=re.S)
 
 
+TABLE_LAST = 11
+
+
+def supp_headers():
+    out = {}
+    for p in (PUBLIC / "supplementary").glob("S*.csv"):
+        m = re.match(r"(S\d+)_", p.name)
+        with open(p, newline="", encoding="utf-8") as f:
+            out[m.group(1)] = next(csv.reader(f))
+    return out
+
+
+def check_references(findings):
+    """Pointers between the public tables and to the paper's tables must resolve."""
+    if not PUBLIC.exists():
+        return
+    heads = supp_headers()
+    cells = []
+    for p in sorted(PUBLIC.rglob("*.csv")):
+        rel = str(p.relative_to(PUBLIC))
+        with open(p, newline="", encoding="utf-8") as f:
+            rows = list(csv.reader(f))
+        seen = set()
+        for r in rows[1:]:
+            for c in r:
+                if c and c not in seen:
+                    seen.add(c)
+                    cells.append((rel, c))
+    for rel, c in cells:
+        for m in re.finditer(r"\bT([1-4])\b", c):
+            findings.append(("stale table id", rel, c[max(0, m.start() - 40):m.end() + 30]))
+        for m in re.finditer(r"\{\w+\}", c):
+            findings.append(("unresolved placeholder", rel, c[max(0, m.start() - 40):m.end() + 30]))
+        for m in re.finditer(r"\bTable (\d+)\b", c):
+            if int(m.group(1)) > TABLE_LAST:
+                findings.append(("table number out of range", rel, c[max(0, m.start() - 40):m.end() + 30]))
+        for m in re.finditer(r"\b(S\d+) \(column (\w+)\)", c):
+            if m.group(1) not in heads or m.group(2) not in heads[m.group(1)]:
+                findings.append(("column not in the cited table", rel, m.group(0)))
+    idx = PUBLIC / "INDEX.csv"
+    if idx.exists():
+        with open(idx, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                for k in ("title", "supports"):
+                    for m in re.finditer(r"\{\w+\}", r[k]):
+                        findings.append(("unresolved placeholder", "INDEX.csv", r[k][:80]))
+                    for m in re.finditer(r"\bTable (\d+)\b", r[k]):
+                        if int(m.group(1)) > TABLE_LAST:
+                            findings.append(("table number out of range", "INDEX.csv", r[k][:80]))
+
+
 def main():
     findings = []
+    check_references(findings)
     for name in ("abstract.md", "introduction.md", "methods.md", "results.md", "discussion.md", "supplementary.md"):
         p = PAPER / name
         if p.exists():

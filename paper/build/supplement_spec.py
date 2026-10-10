@@ -55,7 +55,7 @@ TABLES = {
     topic=AUDIT,
     title="Main metric set: the role of every distinct metric, and why",
     supports="Methods, Table 1 and 'Which metrics are reported'; the main set of 33 metrics used in Tables 5 to 11",
-    row="one distinct metric (a canonical key; literal aliases are merged), 191 in all",
+    row="one distinct metric (a canonical key; aliases and per-model summaries of one score are merged), 191 in all",
     contents=("The audit that fixes which metrics the paper reports. For each distinct metric it gives the applicability status "
               "in the detection test of the catalytic lesion, in the dead-against-active tests and in the activity-ranking tests, "
               "and the resulting role: main (33, valid and tested in the deliberate-change tests and in the tests on real proteins), "
@@ -99,7 +99,7 @@ TABLES = {
 "A3": dict(
     topic=AUDIT,
     title="Applicability of every metric in every test (long format)",
-    supports="Methods, 'Which metrics are reported'; every Results subsection",
+    supports="Methods, 'Which metrics are reported'",
     row="one named quantity in one test (216 quantities x 30 tests = 6,480 rows)",
     contents=("Whether each quantity can be tested in each of the 30 tests, and if not why. Status counts: OK 468, GLOBAL 339, REF 15, "
               "OK-KNOCKON 6, OK-PROVISIONAL 10 (testable); X-ARM 2,296, X-BOOKKEEP 1,920, X-NOINPUT 576, X-WITHDRAWN 381, X-UNDEF-COV 203, "
@@ -111,7 +111,7 @@ TABLES = {
              ("defined_k / defined_N / fraction / partial", "number of units on which the metric is defined, of how many, their ratio, and whether coverage is partial")],
     excerpt=["metric_name", "test", "status", "reason"],
     where={"status": "OK"},
-    notes=["Released as a CSV only: with 6,480 rows it is not printed. {S05} is its summary by class of metric.",
+    notes=["Released as a CSV only: with 6,480 rows it is not printed. {S02} is its summary by class of metric.",
            "Of the 79 cells with status NOT-RUN, 50 are PLACER metrics that were not computed in the BglB and plated-design analyses. The other 29 are prediction-based metrics in the ladder with ligand-distance-matched controls: this analysis was carried out (results in {S16c} and {S16d}) but its cells keep the label NOT-RUN."]),
 
 "S02": dict(
@@ -173,7 +173,7 @@ TABLES = {
              ("applicability_status", "applicability status")],
     excerpt=["metric_name", "in_main_set", "n_pairs", "auroc", "auroc_lo", "auroc_hi"],
     notes=["Structure-space and PLACER metrics only; the 4 prediction-based metrics were scored on the 28 re-predicted pairs ({S18}).",
-           "Results are descriptive of a wider set; the evaluation set is the 21 pairs of {S12}."]),
+           "Results are descriptive of a wider set; the evaluation set is the 21 pairs of {S17c}."]),
 
 "S18": dict(
     topic=ACT,
@@ -210,7 +210,7 @@ TABLES = {
     supports="Results 3.1.1 (retired tier); Methods 2.2.1",
     row="one verdict category (6 rows)",
     contents=("The 30 trapping-mutant pairs verified against the primary literature: 15 confirmed reduced, 4 confirmed inactive, "
-              "4 active and 7 not stated; 26 of the 30 (86.7%, 95% interval 70.3 to 94.7%) are not confirmed dead. Every deposited "
+              "4 active and 7 not stated; 26 of the 30 (86.7%, 95% Wilson interval 70.3 to 94.7%) are not confirmed dead. Every deposited "
               "construct carries an engineered substitution. The tier is retired."),
     columns=[("verdict", "confirmed_reduced, confirmed_inactive, active, not_stated, and the summary rows"),
              ("n_pairs / denominator", "number of pairs and the total (30)"), ("note", "interval of the mislabelling rate")],
@@ -236,14 +236,14 @@ TABLES = {
 
 "S24": dict(
     topic=ACT,
-    title="Reference rows in full, across the activity tests",
-    supports="Results 3.1 and 3.3; Tables 5, 6, 8 and 9; Methods 2.2 and 2.4",
+    title="Reference rows on the wider sets, BglB baselines and hits per plate of reference rows",
+    supports="Results 3.1 and 3.3; Methods 2.2 and 2.4",
     row="one reference item for one measure (35 in all)",
-    contents=("The rows that need no catalytic information, reported in full with intervals: crystallographic resolution, sequence "
-              "length, net charge and tyrosine fraction (AUROC on the 49 zymogen pairs) and pLDDT and pTM (AUROC on the 28 re-predicted pairs); the five declared BglB baselines "
+    contents=("Reference rows (items that need no catalytic information) on sets other than the evaluation sets of Tables 5 and 6, with intervals: "
+              "crystallographic resolution, sequence length, net charge and tyrosine fraction (AUROC on the 49 zymogen pairs) and pLDDT and pTM (AUROC on the 28 re-predicted pairs; the values on the 21-pair evaluation set are in {S17c}); the five declared BglB baselines "
               "(side-chain volume change, negative distance to the catalytic residues, burial, BLOSUM62 and the Rosetta score of the BglB data; "
-              "signed AUROC on 432 variants); and expected hits per 96-well plate at each keep fraction for tyrosine fraction, net charge "
-              "and sequence length on the plates."),
+              "signed AUROC of the binary contrast on the 432-variant set; their rank correlations and the BglB reference rows are in {S20c}); and expected hits per 96-well plate at each keep fraction for tyrosine fraction, net charge "
+              "and sequence length on the plates (the AUROC and correlation of the reference rows on the designs are in {S17d} and {S22c})."),
     columns=[("reference_item / metric", "the reference row (and the end kept for plate rows)"),
              ("measure", "AUROC (direction-free), AUROC (signed, pre-directed) or expected hits per 96-well plate"),
              ("keep_fraction", "fraction of designs kept (plate rows only)"),
@@ -260,7 +260,7 @@ TABLES = {
     contents=("Every metric scored on the 192 plated designs, ranked by the direction-free AUROC of the 16 active designs against "
               "the 176 no active designs, with 95% interval over the 136 backbone clusters. The best-of-128 threshold (permuting "
               "labels among designs) is marked: ten metrics exceed it. They are two main-set metrics (the intra-residue repulsion, 0.80, and the "
-              "repulsion of the catalytic residues, 0.78), an alias of the latter, and sequence-composition and whole-protein comparators."),
+              "repulsion of the catalytic residues, 0.78), two aliases or per-residue variants of the latter, four sequence-composition rows, one whole-protein term (omega) and the Rosetta reference energy."),
     columns=[("rank / rank_in_table_6 / in_table_6", "rank among 128, rank among the 36 items of Table 6 and membership of Table 6"),
              ("metric_name / canonical_key / source / input_class / role", "the metric, its source, class and role"),
              ("n_designs / n_active", "192 and 16"),
@@ -365,10 +365,11 @@ TABLES = {
     topic=RANK,
     title="BglB: prediction-based metrics (Chai-1 with the assay substrate)",
     supports="Results 3.3.1; Methods 2.4.1",
-    row="one prediction-based metric analysed on the 432 BglB variants (28 in all)",
-    contents=("The same columns as {S20a} for the metrics computed from Chai-1 predictions of each variant with the assay substrate "
-              "(pNPG, no metal); active-site accuracy is measured against the wild-type crystal, which carries a covalent glucosyl "
-              "intermediate. Twelve rows are main-set metrics; the largest correlation is 0.17."),
+    row="one prediction-based quantity or sequence-only reference row analysed on the 432 BglB variants (28 in all: 25 prediction-based, 3 sequence-only)",
+    contents=("The same columns as {S20a} for the quantities computed from Chai-1 predictions of each variant with the assay substrate "
+              "(pNPG, no metal), and for the three sequence-only reference rows; active-site accuracy is measured against the wild-type crystal, which carries a covalent glucosyl "
+              "intermediate. Here rho is the correlation of the signed change, as in {S20a}. Twelve rows are main-set metrics; the largest signed correlation is 0.17 "
+              "(AME RMSD, naive minimum) and the largest magnitude is 0.25 (ipTM, -0.25); the size-of-change correlation of Table 8 is in {S20c} (ipTM 0.33)."),
     columns=[("metric / canonical_key / input_class / in_main_set", "the metric, its class and main-set membership"),
              ("rho / rho_lo / rho_hi", "Spearman correlation with 95% interval over positions"),
              ("auc_signed / auc_dirfree / auc_mag (+ _lo, _hi)", "AUROC of the binary contrast"),
@@ -447,7 +448,7 @@ TABLES = {
     title="Plated designs: enrichment for prediction-based metrics",
     supports="Results 3.3.2; Methods 2.4.2",
     row="one prediction-based metric, one direction and one keep fraction (232 rows)",
-    contents=("The same as {S22a} for the 29 prediction-based metrics (Chai-1 with the transition-state analogue and zinc; active-site accuracy "
+    contents=("The same as {S22a} for the 26 prediction-based metrics and the three sequence-only reference rows (Chai-1 with the transition-state analogue and zinc; active-site accuracy "
               "against the design's own model)."),
     columns=[("metric / canonical_key / input_class / in_main_set", "the metric"),
              ("direction / keep_fraction / n_kept / n_active_kept", "as in {S22a}"),
@@ -499,8 +500,8 @@ TABLES = {
     topic=DET,
     title="Catalytic lesion: every metric scored (Table 10 plus supplementary comparators and per-step flags)",
     supports="Results 3.4.1; the complete version of Table 10",
-    row="one metric scored on the catalytic-lesion ladder (43 in all)",
-    contents=("Table 10 with the 8 supplementary comparators and every flag that decides whether a step counts. Metrics are grouped by the "
+    row="one metric scored on the catalytic-lesion ladder (43 rows, 41 distinct metrics)",
+    contents=("Table 10 with 8 further rows (6 supplementary comparators and 2 aliases of ranked metrics) and every flag that decides whether a step counts. Metrics are grouped by the "
               "lesion step at which they are first detected and ranked by the mean of the rank statistic R over the counted steps. For each step "
               "(isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 A3) it gives R with interval, the number of informative proteins and "
               "the flags that the metric responds, that the control response is above its noise and that the metric is specific; the number of "
@@ -575,7 +576,7 @@ TABLES = {
     row="one prediction-based metric in one arm and subset (56 rows)",
     contents=("Noise context from the second-seed replicate on 30 natural pairs: the median absolute change in each arm against the seed "
               "noise of the metric, for the nine prediction-based metrics, on all pairs and on the original matched subset."),
-    columns=[("source / metric_name / subset / arm", "natural or de novo, the metric, all_pairs or M0_matched, and catalytic or control"),
+    columns=[("source / metric_name / subset / arm", "natural or de novo, the metric, all_pairs or original_matched, and catalytic or control"),
              ("k_pairs / N_pairs / k_systems / N_systems", "pairs and systems"),
              ("median_abs_delta / median_sigma_native / frac_abs_delta_gt_sigma_native", "median absolute change, the metric's seed noise and the share of pairs whose change exceeds it")],
     excerpt=["metric_name", "subset", "arm", "median_abs_delta", "median_sigma_native", "frac_abs_delta_gt_sigma_native"],
@@ -604,7 +605,7 @@ TABLES = {
     supports="Methods 2.5.1; Results 3.4",
     row="one comparator metric at one lesion step or dose (308 rows)",
     contents=("The same cells as {S04a} for the whole-protein and sequence-only metrics, which are not in the main set. Composition "
-              "metrics have a ratio of 1 by construction, and whole-protein energies move with the lesion."),
+              "metrics have no ratio in 147 of their 203 cells and, in the other 56, a ratio between 0.5 and 2.7 (9 cells equal 1); whole-protein energies move with the lesion."),
     columns=[("canonical_key / metric_name / input_class", "the comparator"), ("lesion_test / level / n_systems", "as in {S04a}"),
              ("delta_*, sr_*, responds, specific, verdict", "as in {S04a}")],
     excerpt=["canonical_key", "lesion_test", "level", "n_systems", "sr_median", "verdict"],
@@ -729,7 +730,7 @@ TABLES = {
     supports="Results 3.4.1; Methods 2.5.1 (equivalence to 1)",
     row="one analysis and set of metrics (6 rows)",
     contents=("The geometric-mean specificity ratio of the panel with a 90% interval (nested bootstrap that recomputes every metric inside "
-              "each draw), for the earlier whole panel (100 to 103 metrics, including composition metrics that have a ratio of 1 by arithmetic) and "
+              "each draw), for the earlier whole panel (100 to 103 metrics, including composition metrics, most of which have no ratio or a ratio close to 1) and "
               "for the 27 main-set metrics with a defined ratio (isosteric step: 1.075 [0.958, 1.178])."),
     columns=[("analysis_set / metric_set / n_metrics", "the analysis, the set of metrics and its size"),
              ("geomean_sr / ci90_lo / ci90_hi / median_sr", "geometric-mean ratio, 90% interval and median"), ("n_clusters / status / note", "resampling clusters, status and remarks")],
@@ -740,8 +741,8 @@ TABLES = {
     title="Re-predicted ladder: specificity ratio per step for all metrics",
     supports="Methods 2.5.1; Results 3.4.1",
     row="one metric at one step for one source (231 rows)",
-    contents=("The re-predicted catalytic-lesion ladder per step (ALL steps pooled, isosteric, non-isosteric, Ala, Gly) for all 44 metrics, natural "
-              "and de novo: pairs and systems, specificity ratio (median and mean) with intervals, and the verdict of the earlier rule."),
+    contents=("The re-predicted catalytic-lesion ladder per step (ALL steps pooled, isosteric, non-isosteric, Ala, Gly) for all 44 named quantities (24 distinct metrics; 33 quantities each for natural "
+              "and for de novo enzymes): pairs and systems, specificity ratio (median and mean) with intervals, and the verdict of the earlier rule."),
     columns=[("source / metric_name / canonical_key / input_class / ame_flavour", "the metric"), ("level / n_pairs / n_systems", "step and size"),
              ("sr_median / sr_lo / sr_hi", "ratio of medians with interval"), ("sr_mean / sr_mean_lo / sr_mean_hi", "ratio of means with interval"),
              ("verdict_earlier_rule / applicability_status", "verdict of the earlier rule and applicability status")],
@@ -754,7 +755,7 @@ TABLES = {
     supports="Results 3.4.1",
     row="one set of metrics and one panel (4 rows)",
     contents=("The participation ratio and related measures of the effective number of independent metrics, for the earlier whole panel and for "
-              "the 29 structure-space main-set metrics, for native values (7.85 of 29) and for isosteric responses (10.5)."),
+              "the 29 structure-space main-set metrics, for native values (7.85 of 29) and for isosteric responses (10.5 of 23)."),
     columns=[("metric_set / panel / n_metrics / n_systems_complete", "the set, the panel and sizes"),
              ("participation_ratio / effective_rank_fraction", "effective number of independent metrics and its share"),
              ("var_explained_pc1 / n_pcs_for_90pct / median_abs_offdiag_r", "variance in the first component, components for 90% and median absolute correlation between metrics")],
@@ -803,8 +804,8 @@ TABLES = {
     topic=DET,
     title="Second-shell lesion: every metric scored (Table 11 plus supplementary comparators and per-dose flags)",
     supports="Results 3.4.2; the complete version of Table 11",
-    row="one metric scored on second-shell removal (37 in all)",
-    contents=("Table 11 with the 8 supplementary comparators and the flags at each dose (1, 2 and 4 residues removed): R with interval, the number "
+    row="one metric scored on second-shell removal (37 rows, 35 distinct metrics)",
+    contents=("Table 11 with 8 further rows (6 supplementary comparators and 2 aliases of ranked metrics) and the flags at each dose (1, 2 and 4 residues removed): R with interval, the number "
               "of informative proteins, and whether the metric responds, whether the control response is above its noise and whether it is "
               "specific. No step counts for any metric, so no rank on this test is interpretable and no reference level is computed."),
     columns=[("detection_group / rank_in_group / rank / rank_in_table_11", "group by first dose detected, rank in the group, overall rank and rank among the 29 items of Table 11"),

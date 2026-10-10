@@ -45,8 +45,18 @@ HEADER_FIXES = {
     "S27": {"rank_in_table_9": "rank_in_table_11"},
 }
 CELL_FIXES = {  # (table, column, old text, new text)
+    # the 8 backbone clusters that hold an active design: Table 9 of the paper (the old Table 6)
     ("S22c", "cluster_def", "Table 6", "Table 9"),
-    ("S22d", "cluster_def", "Table 6", "Table 9"),
+    # hits per plate: the 136 backbone clusters of the 192 designs are resampled in Table 6 of the paper
+    # (no fix: the old number is the paper's number)
+    # the notes of the main tables name the column of the supplementary table that carries the ranks 31 and up;
+    # the generator still names these columns after the old table numbers
+    ("T3", "note", "column rank_in_table_3", "column rank_in_table_5"),
+    ("T4", "note", "column rank_in_table_4", "column rank_in_table_6"),
+    ("T6", "note", "column rank_in_table_5", "column rank_in_table_8"),
+    # S9: the top 30 are Table 5 of the paper; the PLACER pairs are rows of S7, not of the isosteric-lesion table
+    ("S17b", "used_for", "T3 (top 30)", "T5 (top 30)"),
+    ("S17b", "used_for", "S49", "S7"),
 }
 KEEP_VERBATIM = {"input_id", "prediction", "base_system", "canonical_key", "metric_name", "metric", "members", "rep_metric",
                  "alias_of", "item"}
@@ -245,6 +255,7 @@ def main():
         else:
             sp = spec.TABLES[old]
             title, supports, topic = sp["title"], sp["supports"], sp["topic"]
+            supports = re.sub(r"\{(\w+)\}", lambda m: ids.get(m.group(1), m.group(0)), supports)
         rows_out.append({
             "public_id": new, "kind": kind, "file": f"{kind}/{fname}", "title": title,
             "supports": supports, "topic": topic, "rows": len(body), "columns": len(new_header),

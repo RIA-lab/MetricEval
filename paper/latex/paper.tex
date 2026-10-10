@@ -207,14 +207,18 @@ purpose, so that
 catalysis can be
 told apart from
 proximity to the
-active site. Every
-test ranks the
+active site. The
+tests rank the
 metrics beside
 trivial references,
-such as the distance
-to the catalytic
-residues. In
-activity
+such as sequence
+length,
+whole-prediction
+confidence and, in
+activity ranking,
+the distance to the
+catalytic residues.
+In activity
 discrimination,
 pLDDT was best on
 natural enzymes,
@@ -235,8 +239,10 @@ correlation of 0.48,
 and the per-chain
 pTM minimum in
 detection ability,
-with a probability
-of 0.75 of changing
+with a mean
+probability of 0.75,
+over the counted
+steps, of changing
 more at the
 catalytic residues
 than at the control.
@@ -251,13 +257,14 @@ now produces far
 more candidates than
 can be tested. A
 single design
-problem yields tens
-of thousands to
-millions of designs:
-130,000 backbones
-for a cysteine
-hydrolase designed
-with RFdiffusion3
+problem yields from
+over a hundred
+thousand to millions
+of designs: 130,000
+backbones for a
+cysteine hydrolase
+designed with
+RFdiffusion3
 \cite{butcher2025},
 several hundred
 thousand sequences
@@ -272,8 +279,8 @@ workflow
 \cite{listov2025}.
 The experiment, one
 or two 96-well
-plates, takes up
-about a hundred, and
+plates, takes up a
+hundred or two, and
 an in-silico filter
 decides which.
 Richter and
@@ -516,15 +523,18 @@ which is what allows
 catalysis to be told
 apart from proximity
 to the active site.
-Every test ranks the
+The tests rank the
 metrics alongside
 trivial references,
-such as the distance
-to the catalytic
-residues, so that a
-metric is credited
-only if it does
-better than
+such as sequence
+length,
+whole-prediction
+confidence and, in
+activity ranking,
+the distance to the
+catalytic residues,
+so that each metric
+can be compared with
 something simple.
 
 In activity
@@ -569,15 +579,17 @@ beat it. In
 detection ability,
 the per-chain pTM
 minimum had the
-highest R (0.75; 0.5
-means no preference
-for the catalytic
-site) and an R of
-0.59 when the
-control lay at the
-same distance from
-the ligand (Results
-3.1 to 3.4).
+highest mean R over
+the counted steps
+(0.75; 0.5 means no
+preference for the
+catalytic site) and
+an R of 0.59 when
+the control lay at
+the same distance
+from the ligand
+(Results 3.1 to
+3.4).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -889,17 +901,15 @@ backbone, best of
 the models) &
 predictor output and
 a reference
-structure; the
-criteria of the
-Atomic Motif Enzyme
-benchmark of
+structure; adapted
+from the criteria of
+the Atomic Motif
+Enzyme benchmark of
 RFdiffusion2
-\cite{ahern2026}, as
-implemented in this
-project (equations
-in 2.3) & the
-catalytic atoms; the
-ligand \\
+\cite{ahern2026}
+(equations in 2.3) &
+the catalytic atoms;
+the ligand \\
 Reference rows (6;
 never counted as
 metrics under test)
@@ -925,9 +935,12 @@ contains 216 named
 quantities, which
 collapse to 191
 distinct metrics
-once literal aliases
-are merged; 63 of
-them are bookkeeping
+once aliases and the
+per-model summaries
+of one score (mean,
+maximum, spread) are
+merged; 63 of them
+are bookkeeping
 counters and
 constants on which
 no test can be run.
@@ -1379,12 +1392,19 @@ whole-protein,
 sequence-only and
 PLACER
 \cite{anishchenko2025}
-comparators). The
-reference rows are
-reported in full,
-with intervals, for
-every activity test
-in Table S12.
+comparators). Table
+S11 gives the
+reference rows of
+this test with
+intervals, and Table
+S12 gives them on
+the wider sets of 49
+and 28 pairs, with
+the five BglB
+baselines and the
+hits per plate of
+three reference
+rows.
 
 \textbf{Ranking
 criteria.} Let \(P\)
@@ -1549,12 +1569,7 @@ set: we report
 whether any main-set
 metric exceeds the
 best-of-39
-threshold, and no
-point estimate is
-offered as a
-headline when its
-interval is wider
-than 0.2.
+threshold.
 
 \subsubsection{2.2.2
 Discriminate de novo
@@ -1926,7 +1941,8 @@ and the M-CSA
 entries with the
 cognate reaction
 ligand present (150
-of 434) are the
+of the 434 selected
+entries) are the
 natural enzymes for
 which this holds.
 Natural enzymes
@@ -1971,8 +1987,10 @@ AUROCs are in S14.
 The 30 listed
 quantities are the
 four main-set
-metrics of Table 1,
-13 whole-prediction
+metrics of Table 1
+(12 rows, one per
+summary), 13
+whole-prediction
 confidence summaries
 (pLDDT, pTM, the
 per-chain pTM of the
@@ -2017,20 +2035,23 @@ of Chai-1
 
 \textbf{AME RMSD}
 (active-site
-accuracy; the
-criterion of the
-Atomic Motif Enzyme
-benchmark
-\cite{ahern2026}). A
-model is superposed
-on the reference
-structure by the
-Kabsch algorithm on
-the C\(\alpha\)
-atoms of all
-residues shared with
-the reference (the
-whole shared
+accuracy; adapted
+from the criterion
+of the Atomic Motif
+Enzyme benchmark
+\cite{ahern2026},
+which superposes on
+the backbone of the
+catalytic residues).
+A model is
+superposed on the
+reference structure
+by the Kabsch
+algorithm on the
+C\(\alpha\) atoms of
+all residues shared
+with the reference
+(the whole shared
 backbone, and not
 the catalytic
 residues alone,
@@ -2727,16 +2748,22 @@ labels, and each
 institution left out
 in turn) are
 summarised in Table
-S18, the 28
+S18, the 25
 prediction-based
-metrics, with their
-own correlation and
-AUROC columns, are
-in Table S19, and
-the declared
-baselines are
-reported in full in
-Table S12.
+metrics and three
+sequence-only
+reference rows, with
+the correlation of
+the signed change
+and AUROC columns,
+are in Table S19,
+and the declared
+baselines are in
+Table S16 (rank
+correlation) and
+Table S12 (AUROC of
+the binary
+contrast).
 
 \subsubsection{2.4.2
 Ranking de novo
@@ -2921,20 +2948,23 @@ hypergeometric with
 16 active designs
 among 192,
 
-\begin{equation*}\Pr(k \ge h) \;=\; \sum_{j \ge h}\frac{\binom{16}{j}\binom{176}{48-j}}{\binom{192}{48}} , \tag{17}\end{equation*}
+\begin{equation*}\Pr(k > h) \;=\; \sum_{j > h}\frac{\binom{16}{j}\binom{176}{48-j}}{\binom{192}{48}} , \tag{17}\end{equation*}
 
 so that 95\% of
 random choices hold
 at most 14.0 hits
 per plate (\(h = 7\)
-actives), a random
-choice holds more
+actives, the
+smallest \(h\) with
+\(\Pr(k > h) \le 0.05\)),
+a random choice
+holds more with
+probability
+\(\Pr(k > 7) = 0.022\)
+and either end of a
+random item does
 with probability
-0.022 and either end
-of a random item
-does with
-probability 0.044
-(S20). The
+0.044 (S20). The
 correlation of every
 structure-space
 metric and
@@ -3297,14 +3327,14 @@ for
 \endlastfoot
 M-CSA source
 \cite{ribeiro2018} &
-434 curated entries
-(release
-2026-07-31), 2,563
-catalytic residues &
-the curated
-mechanisms and
-catalytic residues
-of the Mechanism and
+434 entries of the
+M-CSA snapshot of
+2026-07-31 selected
+for this study & the
+curated mechanisms
+and catalytic
+residues of the
+Mechanism and
 Catalytic Site
 Atlas; structures
 come from the
@@ -3340,10 +3370,11 @@ to the 143 & active
 sites from UniProt
 \cite{uniprot2023}
 and M-CSA; one
-enzyme shares PDB
-entry 1LJL with a
-main enzyme and is
-counted once;
+enzyme is the same
+protein as a main
+enzyme (PDB entries
+1JF8 and 1LJL) and
+is counted once;
 controls matched on
 residue type and
 burial only \\
@@ -3383,8 +3414,13 @@ the control of a
 design is
 constructed, so
 designs are not
-pooled (Tables S29
-and S30) \\
+pooled (the designs
+are the de novo
+sensitivity set of
+Table S29, and Table
+S30 holds the
+natural enzymes
+only) \\
 Shortened-motif set
 & the 143 enzymes
 with at most 3
@@ -3485,8 +3521,11 @@ structure-space and
 main-set metrics and
 the 2 reference rows
 (pLDDT, pTM); the 8
+further rows (6
 supplementary
-comparators and the
+comparators and 2
+aliases of ranked
+metrics) and the
 per-step flags are
 in Table S28.
 
@@ -3807,21 +3846,24 @@ and
 
 \begin{equation*}\big\lvert d^{\mathrm{cat}}_{\mathrm{lig}} - d^{\mathrm{ctl}}_{\mathrm{lig}}\big\rvert \le 2\ \text{Å}, \qquad \big\lvert \mathrm{relSASA}^{\mathrm{cat}} - \mathrm{relSASA}^{\mathrm{ctl}}\big\rvert \le 0.10, \tag{23}\end{equation*}
 
-extended by 54 pairs
+extended by the 51
+natural pairs (and 3
+pairs of designed
+systems) that were
 given a new
 in-caliper control
-(53 new predictions)
-wherever one
+(53 new predictions
+in all) wherever one
 existed, pooled over
 the four steps (68
-to 69 pairs in 21 to
-22 systems in Table
-10). For the
-original control the
-median distance to
-the ligand was 13.4
-Å against 3.1 Å for
-the catalytic
+to 69 natural pairs
+in 21 to 22 systems
+in Table 10). For
+the original control
+the median distance
+to the ligand was
+13.4 Å against 3.1 Å
+for the catalytic
 residue. The
 distance of the
 substituted and the
@@ -3990,8 +4032,11 @@ that a site-scoped
 item never knows
 which residues are
 catalytic). The 8
+further rows (6
 supplementary
-comparators and the
+comparators and 2
+aliases of ranked
+metrics) and the
 per-dose flags are
 in Table S44.
 
@@ -4280,7 +4325,7 @@ level for reading
 the ranking). The
 nine lowest-ranked
 items (AUROC 0.50 to
-0.52) and all 158
+0.51) and all 158
 metrics scored on
 these pairs are in
 Table S11. Source:
@@ -4364,7 +4409,7 @@ dead \\
 \emph{Crystallographic
 resolution} &
 Reference row &
-structure & 0.58
+deposit & 0.58
 {[}0.50, 0.72{]} &
 dead \\
 6 & Fraction buried
@@ -4557,9 +4602,12 @@ not confirmed dead),
 a tier that was
 retired: Table S10.
 The reference rows
-in full, with
-intervals: Table
-S12.
+of Table 5 are in
+Table S11; the
+reference rows on
+the wider sets of 49
+and 28 pairs are in
+Table S12.
 
 \subsubsection{3.1.2
 Discriminate de novo
@@ -4971,8 +5019,9 @@ all), with the
 best-of-128
 threshold: Table
 S13. The reference
-rows in full: Table
-S12. The descriptive
+rows of this table
+are in Table S13.
+The descriptive
 ranking of the
 metrics among the 16
 active designs is in
@@ -6097,17 +6146,27 @@ direction-free and
 magnitude AUROC and
 the comparison with
 every baseline:
-Table S17. The 28
+Table S17. The 25
 prediction-based
-metrics: Table S19.
-The main analysis
-and its ten
+metrics and three
+sequence-only
+reference rows, with
+the correlation of
+the signed change:
+Table S19. The main
+analysis and its ten
 sensitivity
 analyses: Table S18.
 The five declared
 baselines and the
-reference rows in
-full: Table S12.
+reference rows with
+their rank
+correlation: Table
+S16; the AUROC of
+the binary contrast
+of the five
+baselines: Table
+S12.
 
 \subsubsection{3.3.2
 Ranking de novo
@@ -6527,9 +6586,11 @@ both directions:
 Table S23 (102
 structure-space
 metrics) and Table
-S24 (29
+S24 (26
 prediction-based
-metrics).
+metrics and three
+sequence-only
+reference rows).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -6563,29 +6624,32 @@ Detecting catalytic
 lesion}
 
 \textbf{Experiment.}
-One catalytic
-residue is replaced
-in four steps of
-increasing change in
-side-chain volume
-(isosteric 15 Å³,
-non-isosteric 36 Å³,
-to Ala 53 Å³, to Gly
-81 Å³), in the
-crystal structure by
-a rotamer-space edit
-and repack, or in
-the sequence of the
+The catalytic
+residues are
+replaced in four
+steps of increasing
+change in side-chain
+volume (isosteric 15
+Å³, non-isosteric 36
+Å³, to Ala 53 Å³, to
+Gly 81 Å³), all at
+once in the crystal
+structure by a
+rotamer-space edit
+and repack, or one
+residue per
+prediction in the
+sequence of the
 re-predicted complex
 with Chai-1
 \cite{chai2024}; the
 control makes the
 identical
-substitution at a
+substitutions at
 matched buried
 non-catalytic
-position of the same
-protein.
+positions of the
+same protein.
 
 \textbf{Dataset.}
 For the 29
@@ -6609,11 +6673,12 @@ and M-CSA; controls
 matched on residue
 type and burial
 only; the one pilot
-enzyme that shares a
-PDB entry with the
-main set is counted
-once), 195 enzymes
-in all. For the four
+enzyme that is the
+same protein as a
+main enzyme is
+counted once), 195
+enzymes in all. For
+the four
 prediction-based
 main-set metrics and
 the two reference
@@ -6633,8 +6698,13 @@ of the ladder, whose
 control is
 constructed, are
 analysed separately
-(Tables S29 and S30)
-(Methods 2.5.1).
+(the designs are the
+de novo sensitivity
+set of Table S29,
+and Table S30 holds
+the natural enzymes
+only) (Methods
+2.5.1).
 
 \textbf{Ranking
 criteria.} The 35
@@ -6806,7 +6876,7 @@ natural enzymes (143
 main + 52 pilot; the
 number of enzymes in
 which a metric moves
-at all ranges from 1
+at all ranges from 0
 to 150 per metric
 and step);
 prediction-based
@@ -6832,13 +6902,16 @@ distance-matched R
 is given for the
 prediction-based
 metrics. The 8
+further rows (6
 supplementary
-comparators, the
-number of steps
-counted, the onset
-of specificity and
-all per-step flags
-are in Table S28.
+comparators and 2
+aliases of ranked
+metrics), the number
+of steps counted,
+the onset of
+specificity and all
+per-step flags are
+in Table S28.
 Source:
 main/T10\_specificity\_catalytic\_lesion.csv.}\tabularnewline
 \toprule\noalign{}
@@ -7144,13 +7217,17 @@ detail.}
 \tightlist
 \item
   \emph{Ranking.}
-  All 43 metrics
+  All 43 quantities
   scored for the
   catalytic lesion,
-  with the 8
+  the 35 ranked
+  items and 8
+  further rows (6
   supplementary
-  comparators, R and
-  the response,
+  comparators and 2
+  aliases of ranked
+  metrics), with R
+  and the response,
   control-noise and
   specificity flags
   at each step, and
@@ -7384,8 +7461,11 @@ the removal and at
 which the control
 response is above
 the metric's noise.
-The 8 supplementary
-comparators and the
+The 8 further rows
+(6 supplementary
+comparators and 2
+aliases of ranked
+metrics) and the
 per-dose flags are
 in Table S44.
 Source:
@@ -7660,11 +7740,15 @@ Rosetta energy & --
 
 \textbf{More
 detail.} The 37
-metrics scored for
-the second-shell
-lesion, with the 8
+quantities scored
+for the second-shell
+lesion, the 29
+ranked items and 8
+further rows (6
 supplementary
-comparators and the
+comparators and 2
+aliases of ranked
+metrics), with the
 response and
 control-noise flags
 at each dose: Table
@@ -7756,12 +7840,13 @@ intervenes, which is
 what allows
 catalysis to be told
 apart from
-proximity. In every
-test a metric has to
-beat a trivial
-reference before it
-counts as having
-detected anything. A
+proximity. The tests
+set the metrics
+beside trivial
+references, so that
+each metric can be
+compared with
+something simple. A
 metric that tracks
 catalysis should do
 well in all four.
@@ -7808,12 +7893,12 @@ gave 0.46; no metric
 beat it. In
 detection ability,
 the per-chain pTM
-minimum responded
-most to catalytic
-damage (R = 0.75)
-and gave 0.59 when
-the control lay at
-the same distance
+minimum had the
+highest mean R over
+the counted steps
+(0.75) and gave 0.59
+when the control lay
+at the same distance
 from the ligand. The
 192 designs, of
 which 16 are active,

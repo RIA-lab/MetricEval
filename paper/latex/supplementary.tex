@@ -170,13 +170,13 @@ paper the table
 backs. \emph{Cited
 in} lists the
 sections of the
-Methods, Results and
-Discussion that cite
-it (a link opens the
-paper at that
-section). \emph{A
-row is} says what
-one row represents.
+Methods and Results
+that cite it (a link
+opens the paper at
+that section).
+\emph{A row is} says
+what one row
+represents.
 \emph{Key columns}
 explains the columns
 that matter; the
@@ -388,10 +388,13 @@ and reason are in
 recur.}
 \texttt{canonical\_key}
 is the distinct
-metric after literal
-aliases are merged
+metric after aliases
+and the per-model
+summaries of one
+score are merged
 (\texttt{metric\_name}
-may be an alias);
+may be an alias or a
+summary);
 \texttt{in\_main\_set}
 is 1 for the 33
 reported metrics;
@@ -726,9 +729,11 @@ Table 5) & Activity
 discrimination (3.1)
 & 158 × 27 \\
 \protect\hyperlink{S12}{S12}
-& Reference rows in
-full, across the
-activity tests &
+& Reference rows on
+the wider sets, BglB
+baselines and hits
+per plate of
+reference rows &
 Activity
 discrimination (3.1)
 & 35 × 9 \\
@@ -1044,7 +1049,9 @@ in.} Methods 2.1.
 \textbf{A row is}
 one distinct metric
 (a canonical key;
-literal aliases are
+aliases and
+per-model summaries
+of one score are
 merged), 191 in all.
 
 \end{shaded}
@@ -1483,8 +1490,7 @@ columns · public
 \textbf{Supports.}
 Methods, `Which
 metrics are
-reported'; every
-Results subsection.
+reported'.
 \textbf{Cited in.}
 Methods 2.1.
 
@@ -1636,7 +1642,7 @@ status = OK).
   only: with 6,480
   rows it is not
   printed.
-  \protect\hyperlink{S25}{S25}
+  \protect\hyperlink{S4}{S4}
   is its summary by
   class of metric.
 \item
@@ -2348,7 +2354,7 @@ repeated above.
   wider set; the
   evaluation set is
   the 21 pairs of
-  \protect\hyperlink{S36}{S36}.
+  \protect\hyperlink{S11}{S11}.
 \end{itemize}
 
 \hypertarget{S8}{%
@@ -2627,7 +2633,7 @@ it \\
 \texttt{S7\ (49\ =\ max\ n\_pairs)} \\
 \texttt{pairs\ with\ PLACER}
 & \texttt{45} &
-\texttt{S49} \\
+\texttt{S7} \\
 \end{longtable}
 
 }
@@ -2671,7 +2677,7 @@ confirmed reduced, 4
 confirmed inactive,
 4 active and 7 not
 stated; 26 of the 30
-(86.7\%, 95\%
+(86.7\%, 95\% Wilson
 interval 70.3 to
 94.7\%) are not
 confirmed dead.
@@ -2963,9 +2969,11 @@ repeated above.
 \hypertarget{S12}{%
 \subsubsection{Table
 S12. Reference rows
-in full, across the
-activity
-tests}\label{S12}}
+on the wider sets,
+BglB baselines and
+hits per plate of
+reference
+rows}\label{S12}}
 
 \begin{shaded}\small
 
@@ -2981,12 +2989,11 @@ rows)
 
 \textbf{Supports.}
 Results 3.1 and 3.3;
-Tables 5, 6, 8 and
-9; Methods 2.2 and
-2.4. \textbf{Cited
-in.} Methods 2.2.1,
+Methods 2.2 and 2.4.
+\textbf{Cited in.}
+Methods 2.2.1,
 2.4.1; Results
-3.1.1, 3.1.2, 3.3.1.
+3.1.1, 3.3.1.
 
 \textbf{A row is}
 one reference item
@@ -2995,11 +3002,14 @@ in all).
 
 \end{shaded}
 
-The rows that need
-no catalytic
-information,
-reported in full
-with intervals:
+Reference rows
+(items that need no
+catalytic
+information) on sets
+other than the
+evaluation sets of
+Tables 5 and 6, with
+intervals:
 crystallographic
 resolution, sequence
 length, net charge
@@ -3008,7 +3018,11 @@ fraction (AUROC on
 the 49 zymogen
 pairs) and pLDDT and
 pTM (AUROC on the 28
-re-predicted pairs);
+re-predicted pairs;
+the values on the
+21-pair evaluation
+set are in
+\protect\hyperlink{S11}{S11});
 the five declared
 BglB baselines
 (side-chain volume
@@ -3018,15 +3032,28 @@ catalytic residues,
 burial, BLOSUM62 and
 the Rosetta score of
 the BglB data;
-signed AUROC on 432
-variants); and
-expected hits per
-96-well plate at
+signed AUROC of the
+binary contrast on
+the 432-variant set;
+their rank
+correlations and the
+BglB reference rows
+are in
+\protect\hyperlink{S16}{S16});
+and expected hits
+per 96-well plate at
 each keep fraction
 for tyrosine
 fraction, net charge
 and sequence length
-on the plates.
+on the plates (the
+AUROC and
+correlation of the
+reference rows on
+the designs are in
+\protect\hyperlink{S13}{S13}
+and
+\protect\hyperlink{S21}{S21}).
 
 \textbf{Key
 columns.}
@@ -3204,11 +3231,16 @@ main-set metrics
 repulsion, 0.80, and
 the repulsion of the
 catalytic residues,
-0.78), an alias of
-the latter, and
+0.78), two aliases
+or per-residue
+variants of the
+latter, four
 sequence-composition
-and whole-protein
-comparators.
+rows, one
+whole-protein term
+(omega) and the
+Rosetta reference
+energy.
 
 \textbf{Key
 columns.}
@@ -4481,31 +4513,52 @@ Results 3.3.1.
 
 \textbf{A row is}
 one prediction-based
-metric analysed on
-the 432 BglB
-variants (28 in
-all).
+quantity or
+sequence-only
+reference row
+analysed on the 432
+BglB variants (28 in
+all: 25
+prediction-based, 3
+sequence-only).
 
 \end{shaded}
 
 The same columns as
 \protect\hyperlink{S17}{S17}
-for the metrics
+for the quantities
 computed from Chai-1
 predictions of each
 variant with the
 assay substrate
-(pNPG, no metal);
+(pNPG, no metal),
+and for the three
+sequence-only
+reference rows;
 active-site accuracy
 is measured against
 the wild-type
 crystal, which
 carries a covalent
 glucosyl
-intermediate. Twelve
-rows are main-set
-metrics; the largest
-correlation is 0.17.
+intermediate. Here
+rho is the
+correlation of the
+signed change, as in
+\protect\hyperlink{S17}{S17}.
+Twelve rows are
+main-set metrics;
+the largest signed
+correlation is 0.17
+(AME RMSD, naive
+minimum) and the
+largest magnitude is
+0.25 (ipTM, -0.25);
+the size-of-change
+correlation of Table
+8 is in
+\protect\hyperlink{S16}{S16}
+(ipTM 0.33).
 
 \textbf{Key
 columns.}
@@ -5400,10 +5453,13 @@ rows).
 
 The same as
 \protect\hyperlink{S23}{S23}
-for the 29
+for the 26
 prediction-based
-metrics (Chai-1 with
-the transition-state
+metrics and the
+three sequence-only
+reference rows
+(Chai-1 with the
+transition-state
 analogue and zinc;
 active-site accuracy
 against the design's
@@ -6012,17 +6068,21 @@ Results 3.4.1.
 \textbf{A row is}
 one metric scored on
 the catalytic-lesion
-ladder (43 in all).
+ladder (43 rows, 41
+distinct metrics).
 
 \end{shaded}
 
-Table 10 with the 8
+Table 10 with 8
+further rows (6
 supplementary
-comparators and
-every flag that
-decides whether a
-step counts. Metrics
-are grouped by the
+comparators and 2
+aliases of ranked
+metrics) and every
+flag that decides
+whether a step
+counts. Metrics are
+grouped by the
 lesion step at which
 they are first
 detected and ranked
@@ -6836,8 +6896,8 @@ Meaning
 natural or de novo,
 the metric,
 all\_pairs or
-M0\_matched, and
-catalytic or
+original\_matched,
+and catalytic or
 control \\
 \texttt{k\_pairs} /
 \texttt{N\_pairs} /
@@ -7153,8 +7213,12 @@ sequence-only
 metrics, which are
 not in the main set.
 Composition metrics
-have a ratio of 1 by
-construction, and
+have no ratio in 147
+of their 203 cells
+and, in the other
+56, a ratio between
+0.5 and 2.7 (9 cells
+equal 1);
 whole-protein
 energies move with
 the lesion.
@@ -8527,10 +8591,11 @@ each draw), for the
 earlier whole panel
 (100 to 103 metrics,
 including
-composition metrics
-that have a ratio of
-1 by arithmetic) and
-for the 27 main-set
+composition metrics,
+most of which have
+no ratio or a ratio
+close to 1) and for
+the 27 main-set
 metrics with a
 defined ratio
 (isosteric step:
@@ -8677,13 +8742,16 @@ steps pooled,
 isosteric,
 non-isosteric, Ala,
 Gly) for all 44
-metrics, natural and
-de novo: pairs and
-systems, specificity
-ratio (median and
-mean) with
-intervals, and the
-verdict of the
+named quantities (24
+distinct metrics; 33
+quantities each for
+natural and for de
+novo enzymes): pairs
+and systems,
+specificity ratio
+(median and mean)
+with intervals, and
+the verdict of the
 earlier rule.
 
 \textbf{Key
@@ -8836,13 +8904,17 @@ Results 3.4.2.
 \textbf{A row is}
 one metric scored on
 second-shell removal
-(37 in all).
+(37 rows, 35
+distinct metrics).
 
 \end{shaded}
 
-Table 11 with the 8
+Table 11 with 8
+further rows (6
 supplementary
-comparators and the
+comparators and 2
+aliases of ranked
+metrics) and the
 flags at each dose
 (1, 2 and 4 residues
 removed): R with
@@ -9180,7 +9252,7 @@ main-set metrics,
 for native values
 (7.85 of 29) and for
 isosteric responses
-(10.5).
+(10.5 of 23).
 
 \textbf{Key
 columns.}
