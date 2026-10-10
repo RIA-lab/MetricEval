@@ -2,10 +2,11 @@
 """Build paper/supplementary.md and paper/supplementary.pdf.
 
 The Supplementary PDF does not reprint the tables. For every table it gives the
-path of the CSV in tables/public/, its size, what a row is, what the key
+path of the CSV in the released directory, its size, what a row is, what the key
 columns mean, a three-row excerpt, where the paper cites it, and caveats. The
 descriptions are in supplement_spec.py; sizes, excerpts and citations are read
 from the released CSV files and from the Markdown sources, so they cannot drift.
+Paths are given relative to the released directory (main/..., supplementary/...).
 
     python3 build_supplement.py            # writes ../supplementary.md and ../supplementary.pdf
     python3 build_supplement.py --check    # validate the spec against the CSV files only
@@ -32,8 +33,8 @@ OUT_HTML = HERE / "supplementary.html"
 SUPP_PAGES = HERE / "supplement_pages.json"
 PAPER_PAGES = HERE / "paper_pages.json"
 DOCS = [("methods.md", "Methods"), ("results.md", "Results"), ("discussion.md", "Discussion")]
-PROV = ["test_id", "claim_type", "source_artifacts", "source_sha256", "unit", "n_units", "n_clusters",
-        "cluster_def", "k", "N", "k_of_N", "denominator_def", "headline_ok", "status", "licence_flag"]
+PROV = ["claim_type", "unit", "n_units", "n_clusters", "cluster_def", "k", "N", "k_of_N",
+        "denominator_def", "headline_ok", "status", "licence_flag"]
 csv.field_size_limit(10**9)
 
 
@@ -158,7 +159,7 @@ def entry_md(old, new, sp, row, cites, paper_pages, fx):
     lic_txt = ("public" if lic == "public"
                else "D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)")
     md = [f"### Table {new}. {sp['title'].format_map(fx)} {{#{new}}}", ""]
-    meta = [f"**File.** `tables/public/{row['file']}` · {int(row['rows']):,} rows × {row['columns']} columns · {lic_txt}",
+    meta = [f"**File.** `{row['file']}` · {int(row['rows']):,} rows × {row['columns']} columns · {lic_txt}",
             f"**Supports.** {sp['supports'].format_map(fx)}. **Cited in.** {cited_text(cites, paper_pages)}.",
             f"**A row is** {sp['row'].format_map(fx)}."]
     md += ["::: {.tmeta}", "", "\n\n".join(meta), "", ":::", "", sp["contents"].format_map(fx), ""]
@@ -189,77 +190,48 @@ def front_matter(ids, index, fx):
 
 # 1 About these tables
 
-This document describes the {n_supp} supplementary tables (S1 to S{n_supp}) and the nine main-text tables (T1 to T9) of the paper. It does not reprint them. Every table is released as a CSV file in `tables/public/` of the project repository; each entry below gives the path, the number of rows and columns, what a row is, what the key columns mean, a three-row excerpt, the places in the paper that cite the table, and caveats. Supplementary tables are numbered in the order in which the Methods and Results first cite them; the numbers under which the tables were generated are in Appendix B.
+This document describes the {n_supp} supplementary tables (S1 to S{n_supp}) and the nine main-text tables (T1 to T9) of the paper. It does not reprint them. Every table is released as a CSV file; each entry below gives the path, the number of rows and columns, what a row is, what the key columns mean, a three-row excerpt, the places in the paper that cite the table, and caveats. Supplementary tables are numbered in the order in which the Methods and Results first cite them.
 
 ```
-tables/public/
-  README.md          what is released, what was changed, licence
-  INDEX.csv          one row per table: id, file, title, rows, columns, licence flag, sha256
-  main/              T1 ... T9     Tables 1 to 9 of the paper
-  supplementary/     S1 ... S{n_supp}    supplementary tables, one CSV per table
+README.md          what is released, what was changed, licence
+INDEX.csv          one row per table: id, file, title, rows, columns, licence flag, sha256
+main/              T1 ... T9     Tables 1 to 9 of the paper
+supplementary/     S1 ... S{n_supp}    supplementary tables, one CSV per table
 ```
 
 **How to read an entry.** *File* is the path of the CSV, its size and its licence flag. *Supports* is the part of the paper the table backs. *Cited in* lists the sections of the Methods, Results and Discussion that cite it (a link opens the paper at that section). *A row is* says what one row represents. *Key columns* explains the columns that matter; the shared provenance block (below) is not repeated. The *excerpt* shows real rows from the file.
 
 # 2 Conventions shared by the tables
 
-**Shared provenance columns.** The result tables (T3 to T9 and the supplementary tables whose entry says so) carry the same block of up to 15 columns, so that a row can be traced to its source and its denominator: `test_id` (the test, translated in {s03}), `claim_type`, `source_artifacts` and `source_sha256` (the result files the row was read from, with the first 16 hex digits of their hash), `unit` and `n_units` (what was counted and how many), `n_clusters` and `cluster_def` (the resampling unit: enzyme sub-subclass for natural enzymes, campaign and plate well or backbone cluster for designs, position for BglB), `k`, `N` and `k_of_N` (a count with its denominator), `denominator_def`, `headline_ok` (1 if the row may be quoted as a headline result; 0 for per-metric detail, descriptive analyses, reference rows and wrong-ligand AUROCs), `status` and `licence_flag`.
+**Shared provenance columns.** The result tables (T3 to T9 and the supplementary tables whose entry says so) carry the same block of up to 12 columns, so that a row can be traced to its denominator: `claim_type`, `unit` and `n_units` (what was counted and how many), `n_clusters` and `cluster_def` (the resampling unit: enzyme sub-subclass for natural enzymes, campaign and plate well or backbone cluster for designs, position for BglB), `k`, `N` and `k_of_N` (a count with its denominator), `denominator_def`, `headline_ok` (1 if the row may be quoted as a headline result; 0 for per-metric detail, descriptive analyses, reference rows and wrong-ligand AUROCs), `status` and `licence_flag`.
 
 **Claim types.** `detection` (can the metric see damage), `specificity` (catalytic against matched control), `equivalence` (panel ratio against 1), `discrimination` (a real contrast, dead against active), `ranking` (against a measured label), `enrichment`, `baseline` (a reference row), `design`, `audit`, `not_measurable`.
 
-**Applicability status** (in {a3}, {s02} and the `status_a3` columns). `OK` can be tested; `OK-KNOCKON` tested but reported as displacement of the other catalytic residues, with no specificity verdict; `OK-PROVISIONAL` the raw status of the interface terms in the re-predicted ladder, resolved by testability; `GLOBAL` tested but has no site input, so it is a comparator; `REF` a fixed reference row; `X-BOOKKEEP` a counter or constant; `X-NOINPUT` the input cannot reach the changed quantity; `X-ARM` the metric belongs to the other mode (structure space or prediction) than the test; `X-UNDEF-COV` defined on too few units; `X-WITHDRAWN` the test was withdrawn; `X-NOCTRL` no matched control exists; `X-CONFOUND` the control is confounded; `NOT-RUN`; `DUP` identical to another test and read once.
+**Applicability status** (in {a3}, {s02} and the `applicability_status` columns). `OK` can be tested; `OK-KNOCKON` tested but reported as displacement of the other catalytic residues, with no specificity verdict; `OK-PROVISIONAL` the raw status of the interface terms in the re-predicted ladder, resolved by testability; `GLOBAL` tested but has no site input, so it is a comparator; `REF` a fixed reference row; `X-BOOKKEEP` a counter or constant; `X-NOINPUT` the input cannot reach the changed quantity; `X-ARM` the metric belongs to the other kind (structure space or prediction) than the test; `X-UNDEF-COV` defined on too few units; `X-WITHDRAWN` the test was withdrawn; `X-NOCTRL` no matched control exists; `X-CONFOUND` the control is confounded; `NOT-RUN`; `DUP` identical to another test and read once.
 
 **Verdicts in the specificity tables.** `specific` (response significant, interval of the specificity ratio above 1, control adequate); `non_specific` (responds, not more than the control); `blind` (does not respond); `invariant` (does not change); and counts-floor labels for cells with too few units.
 
-**Names that recur.** `canonical_key` is the distinct metric after literal aliases are merged (`metric_name` may be an alias); `in_main_set` is 1 for the 33 reported metrics; `role` is `main`, `reference` or a supplement role (see {a5}); `source` is structure-space, prediction-based, PLACER, baseline, natural or denovo as the table says; `level` or `rung` is the lesion step (isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 Å³ median side-chain volume change; `second_shell_1/2/4` is the second-shell dose); `ame_flavour` is `crystal` (against the deposited structure) or `self_design` (against a design's own model) and the two are never pooled; `sr_*` is a specificity ratio with its interval; `auroc` is direction-free unless a column says `signed` or `directed`; `rho` is a Spearman correlation.
+**Names that recur.** `canonical_key` is the distinct metric after literal aliases are merged (`metric_name` may be an alias); `in_main_set` is 1 for the 33 reported metrics; `role` is `main`, `reference` or a supplement role (see {a5}); `source` is structure-space, prediction-based, PLACER, baseline, natural or denovo as the table says; `lesion_test` is the catalytic lesion or the second-shell lesion; `level` or `lesion_step` is the lesion step (isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 Å³ median side-chain volume change; `second_shell_1/2/4` is the second-shell dose); `ame_flavour` is `crystal` (against the deposited structure) or `self_design` (against a design's own model) and the two are never pooled; `sr_*` is a specificity ratio with its interval; `auroc` is direction-free unless a column says `signed` or `directed`; `rho` is a Spearman correlation.
 
-**Internal codes.** Some tables carry the codes of the analysis plan. They are translated here and in {s03}.
-
-{codes_tables(fx)}
+**Test names.** Tables that refer to a test use the names of {s03}, a name followed by its class in square brackets, for example `main set [catalytic lesion, structure-space]`.
 
 **Licence.** Tables flagged `D2DCure_aggregate` in `INDEX.csv` are built from the D2DCure BglB data, whose licence is unstated; they hold metric-level aggregates only, no per-variant row. All other tables are `public`.
 
-**Reproducibility.** The tables were generated by script from committed result files, with seeds and input hashes recorded, and verified against a manifest; `INDEX.csv` gives the sha256 of every released file. The `source_artifact(s)` and `evidence_path` columns point into the private project and do not resolve in a standalone copy.
+**Reproducibility.** The tables were generated by script from result files with seeds and input hashes recorded; `INDEX.csv` gives the sha256 of every released file.
 """
-
-
-def codes_tables(fx):
-    phases = [
-        ("P0", "zymogen-mature pairs, wider set of 49 (structure-space)"),
-        ("P0b", "same-state null pairs"),
-        ("P5T2", "zymogen-mature pairs re-predicted with Chai-1"),
-        ("P5", "substrate swap and re-predicted chemistry ladder, natural enzymes and de novo designs"),
-        ("P5_1B", "re-predicted ladder with distance-matched controls"),
-        ("D4", "BglB single-point variants"),
-        ("P6", "plated designs"),
-        ("N0", "sanity floors (detection floor, scrambled sequence, unrelated protein, ligand removed)"),
-        ("isoplacer", "PLACER on the isosteric step"),
-    ] + spec.PHASES
-    tests = [
-        ("spec_C / spec_E / G", "matched perturbation of structures: chemistry ladder / second shell / deformation (retired)"),
-        ("S_m3 / ladder_m3", "substrate swap / chemistry ladder in the predictor (prediction-based)"),
-        ("real_m1 / real_m3", "dead against active: structure-space / prediction-based"),
-        ("rank_m1 / rank_m3", "activity ranking: structure-space / prediction-based"),
-        ("sanity_n0 / detection_dup / placer_c", "sanity floors / detection floor identical to the Gly step / PLACER on the isosteric step"),
-        ("M1 / M3", "mode of the metric: structure-space / prediction-based"),
-        ("C / E / G", "axis: " + "; ".join(f"{a} {b}" for a, b in spec.AXES).format_map(fx)),
-    ]
-    t1 = pipe_table(["Code", "Analysis"], [[f"`{c}`", d] for c, d in phases], [2, 9])
-    t2 = pipe_table(["Code", "Meaning"], [[f"`{c}`" if " / " not in c else code_names(c), d] for c, d in tests], [3, 8])
-    return "::: {.defs}\n\n" + t1 + "\n\n" + t2 + "\n\n:::"
 
 
 LOOKUP = [
     ("Which 33 metrics are reported, and why the rest are not", "{A5}, {S01}; then {A3} and {S02} for the reason in each test"),
     ("What a metric reads, and over which residues it is scored", "{S01}"),
-    ("The 30 tests and the crosswalk from internal names", "{S03}"),
+    ("The 30 tests, with comparator, control type and role", "{S03}"),
     ("The specificity ratio of one metric at one lesion step", "{S04a} (comparators: {S04b})"),
     ("Whether the controls were good", "{S06a}, {S06b} (structure space); {S16a}, {S16b}, {S16c}, {S16d}, {S16e} (predictor ladder)"),
     ("How fragile the structure-space specificity result is", "{S10}, {S11}, {S28}"),
     ("How a metric responds to the substrate swap, and the role of ligand size", "Table 5, {S14}, {S14b}"),
     ("The distance control for the interface terms", "Table 8, {S29}, {S16a}, {S16b}, {S16c}, {S16d}"),
     ("Every metric on the 21-pair evaluation set (complete Table 3)", "{S17c}"),
-    ("Every metric on the 192 plated designs, reported active against no reported activity (complete Table 4)", "{S17d}"),
+    ("Every metric on the 192 plated designs, active against no active (complete Table 4)", "{S17d}"),
     ("Every quantity analysed on the 432 BglB variants (complete Table 6)", "{S20c}"),
     ("Every metric on the 16 plated designs with a measured activity (complete Table 7)", "{S22c}"),
     ("Hits per plate when a metric fills a 96-well plate", "{S22d}"),
@@ -277,13 +249,9 @@ MAIN_MORE = {
 }
 
 DATA_NOTES = [
-    "Generator labels. Some tables still carry internal labels (1A, 1B, 2A, 2B) in their titles in `tables/INDEX.csv`, and the generator named the columns `rank_in_table_5` / `in_table_5` ({S20c}) and `rank_in_table_6` / `in_table_6` ({S22c}) after an earlier numbering of the paper's tables; the public copies use the paper's current numbers (Table 6 and Table 7).",
-    "Stale role in the test inventory. {S03} gives the role `not_run` to three experiments that were run: the ladder with distance-matched controls, the BglB prediction-based metrics and the plates prediction-based metrics (28 and 29 metrics were scored; results in {S16c}, {S21} and {S23}). In {A3}, 29 cells of the ladder with distance-matched controls carry the status NOT-RUN for the same reason.",
     "Two sets of numbers for natural enzymes in the substrate swap: {S14} uses all 59 natural enzymes, Table 5 uses the evaluation set of 55.",
     "Two forms of the rank statistic R: {S12} is R on the 143 main enzymes with 90% intervals; Table 8 and {S26} are the pooled analysis on 195 enzymes with 95% intervals and the counted-step rule. Values for the same metric differ.",
-    "{S22b} keeps `legacy_*` columns of an earlier analysis for traceability; they are not valid and should be ignored.",
-    "The codes of the BglB sensitivity analyses in {S20b} (S1near, S1distal, S2 ... S6) are those of the analysis plan; the meaning given in the entry is inferred from the sizes in the table.",
-    "Not released: the working copies of the audit tables (A1, A2; {S01} and {S03} are their reader-facing versions) and the GPU ledger of the Chai-1 runs (cluster job and lease identifiers, no scientific content).",
+    "Among the 29 prediction-based metrics of the ladder with ligand-distance-matched controls, the cells of {A3} keep the label NOT-RUN although the analysis was carried out (results in {S16c} and {S16d}).",
 ]
 
 
@@ -293,25 +261,20 @@ def back_matter(ids, index, fx, paper_pages):
     rows = []
     for tid in [f"T{i}" for i in range(1, 10)]:
         r = index[tid]
-        rows.append([f"**{tid}**", f"`tables/public/{r['file']}`", f"{int(r['rows'])} × {r['columns']}",
+        rows.append([f"**{tid}**", f"`{r['file']}`", f"{int(r['rows'])} × {r['columns']}",
                      MAIN_MORE[tid].format_map(fx)])
     md += [pipe_table(["Table", "File", "Rows × columns", "More detail in"], rows, [1, 6, 1.6, 3]), ""]
-    md += ["# Appendix B. Numbers of the supplementary tables", "",
-           "Supplementary tables are numbered by first citation in the paper. The identifier under which each table was generated, and its file in `tables/`, are given for traceability.", ""]
-    rows = []
-    for new in sorted(index, key=lambda k: (index[k]["kind"] != "supplementary", int(re.sub(r"\D", "", k)))):
-        r = index[new]
-        if r["kind"] != "supplementary":
-            continue
-        rows.append([f"[{new}](#{new})", f"`{r['source_id']}`", f"`{r['source_file']}`"])
-    md += [pipe_table(["Table", "Generated as", "File in `tables/`"], rows, [1, 1.4, 7]), ""]
-    md += ["# Appendix C. Notes on the data", ""]
+    md += ["# Appendix B. Notes on the data", ""]
     md += [f"- {n.format_map(fx)}" for n in DATA_NOTES]
     return "\n".join(md)
 
 
-def render(ids, index, supp_pages, paper_pages):
+def render(ids, index, supp_pages, paper_pages, latex=False):
+    """latex=True: no page numbers (they belong to the HTML-printed PDF) and no links into the paper."""
+    if latex:
+        supp_pages, paper_pages = {}, {}
     fx = IdMap(ids)
+    rev = {new: old for old, new in ids.items()}
     cites = cited_in(ids)
     parts = [front_matter(ids, index, fx)]
 
@@ -323,13 +286,15 @@ def render(ids, index, supp_pages, paper_pages):
     for new in sorted((k for k in index if index[k]["kind"] == "supplementary"), key=lambda k: int(k[1:])):
         r = index[new]
         page = supp_pages.get(new, "")
-        toc_rows.append([f"[{new}](#{new})", r["title"], r["topic"], f"{int(r['rows']):,} × {r['columns']}", str(page)])
-    parts.append("# 4 Table of contents\n\n::: {.defs .toc}\n\n" + pipe_table(
-        ["Table", "Title", "Topic", "Rows × cols", "Page"], toc_rows, [0.9, 6.2, 2.4, 1.5, 0.7]) + "\n\n:::\n")
+        row = [f"[{new}](#{new})", r["title"], r["topic"], f"{int(r['rows']):,} × {r['columns']}"]
+        toc_rows.append(row if latex else row + [str(page)])
+    toc_head, toc_w = (["Table", "Title", "Topic", "Rows × cols"], [0.9, 6.2, 2.4, 1.5]) if latex else \
+        (["Table", "Title", "Topic", "Rows × cols", "Page"], [0.9, 6.2, 2.4, 1.5, 0.7])
+    parts.append("# 4 Table of contents\n\n::: {.defs .toc}\n\n" + pipe_table(toc_head, toc_rows, toc_w) + "\n\n:::\n")
 
     parts.append("# 5 Supplementary tables\n")
     for new in sorted((k for k in index if index[k]["kind"] == "supplementary"), key=lambda k: int(k[1:])):
-        old = index[new]["source_id"]
+        old = rev[new]
         parts.append(entry_md(old, new, spec.TABLES[old], index[new], cites[new], paper_pages, fx))
     parts.append(back_matter(ids, index, fx, paper_pages))
 
