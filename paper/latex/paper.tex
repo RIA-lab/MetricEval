@@ -1,0 +1,8121 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  10pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Extra preamble for the pandoc LaTeX template (pdflatex).
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{cite}                 % numeric citations, ranges compressed: [3--5]
+\usepackage{caption}
+\captionsetup{font=small,labelsep=period,justification=raggedright,singlelinecheck=false}
+\usepackage{etoolbox}
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.95}
+\AtBeginEnvironment{longtable}{\small}
+\setlength{\emergencystretch}{3em}
+% allow line breaks after underscores (column names in \texttt)
+\DeclareRobustCommand{\_}{\textunderscore\hspace{0pt}}
+% characters used in the text that the utf8 input encoding does not define
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{03C1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{03B2}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{0394}{\ensuremath{\Delta}}
+\DeclareUnicodeCharacter{03C3}{\ensuremath{\sigma}}
+\DeclareUnicodeCharacter{03BA}{\ensuremath{\kappa}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{00B3}{\ensuremath{{}^{3}}}
+\DeclareUnicodeCharacter{2011}{\mbox{-}}
+\DeclareUnicodeCharacter{202F}{\,}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={{[}Title{]}},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{{[}Title{]}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\nocite{alford2017,
+  chaudhury2010,
+  lee1971,
+  mitternacht2016,
+  tien2013,
+  olsson2011,
+  sondergaard2011,
+  chai2024,
+  evans2021,
+  jumper2021,
+  ahern2026,
+  burley2025,
+  berman2000,
+  uniprot2023,
+  dana2019,
+  ribeiro2018,
+  anishchenko2025,
+  hanley1982,
+  mann1947,
+  efron1979,
+  field2007,
+  westfall1993,
+  kim2026,
+  carlin2016,
+  carlin2017,
+  henikoff1992,
+  spearman1904}
+
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+\section{1
+Introduction}
+
+\section{2 Methods}
+
+\textbf{How this
+section is
+organised.} Section
+2 has four
+subsections that
+correspond one to
+one to those of the
+Results, down to the
+sub-subsections (2.1
+→ 3.1, 2.2 → 3.2,
+2.3 → 3.3, 2.4 →
+3.4; 2.1.1 → 3.1.1,
+and so on): the
+activity
+discrimination test
+(2.1), the substrate
+discrimination test
+(2.2), the activity
+ranking test (2.3)
+and the detection
+ability test (2.4).
+Each describes the
+\textbf{experiment},
+the \textbf{dataset}
+(cases, selection,
+why it was chosen),
+the \textbf{metrics
+scored}, the
+\textbf{ranking
+criteria} with their
+equations, and the
+\textbf{limits}.
+Before 2.1 come the
+study map (Figure 1,
+Tables 1 and 2), the
+terms (Box 1), the
+metrics (Box 2) and
+the notation (Box
+3). Two tests use
+real proteins as
+they are (2.1, 2.3);
+two introduce a
+deliberate change
+(2.2, 2.4). Numbers
+in square brackets
+are references (see
+References). Tables
+with an S number are
+supplementary
+tables: each is
+described in the
+separate
+Supplementary PDF
+and released as a
+CSV file
+(\texttt{main/} and
+\texttt{supplementary/}).
+
+\subsection{The
+study at a glance}
+
+We ask one question:
+\textbf{do the
+in-silico metrics
+used to filter
+designed enzymes
+respond to
+catalysis, or to
+something simpler,
+such as how close a
+change is to the
+active site?} A
+metric that detects
+catalysis should
+move more when a
+catalytic residue is
+damaged than when
+the same damage is
+made elsewhere in
+the same protein.
+Figure 1 shows how
+the study tests
+this, in four tests.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig1_study_map.png}
+\par\smallskip
+
+{\small
+
+\textbf{Figure 1.
+The study map.} The
+four tests, what is
+changed or
+contrasted in each,
+what the metric is
+compared with, which
+metrics are used,
+and which claim the
+test supports.
+Numbers are taken
+from Tables 1 and 2.
+
+}
+
+\end{figure}
+
+The four tests
+support three kinds
+of claim:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Discrimination}
+  (2.1 and 2.2).
+  Does a metric
+  differ between two
+  states that should
+  differ? In 2.1 the
+  states are a
+  catalytically dead
+  enzyme and its
+  active form (real
+  structures); in
+  2.2 they are the
+  cognate ligand and
+  a wrong ligand
+  given to a
+  structure
+  predictor. We
+  compare each state
+  with the other
+  and, in 2.1, with
+  reference rows
+  that need no
+  catalytic
+  information.
+\item
+  \textbf{Ranking}
+  (2.3). Does a
+  metric track
+  measured activity?
+  We compare metric
+  values with
+  measured kinetics
+  and with declared
+  trivial baselines.
+\item
+  \textbf{Detection
+  ability} (2.4).
+  Does a metric
+  respond more to
+  damage at a
+  catalytic residue
+  than to the
+  identical damage
+  at a matched
+  non-catalytic site
+  of the same
+  protein? We damage
+  the protein on
+  purpose and
+  compare the two
+  responses.
+\end{itemize}
+
+Two kinds of metric
+are tested.
+\textbf{Structure-space
+metrics} read atomic
+coordinates; they
+are tested in 2.1,
+2.3 and 2.4.
+\textbf{Prediction-based
+metrics} read the
+output of a
+structure predictor
+that is given a
+sequence and a
+ligand; they are
+tested in 2.2 and
+2.4, and again in
+2.1 and 2.3. The
+metrics valid and
+tested in all four
+tests are the ones
+this paper reports
+(Box 2).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1120}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1760}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2400}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2080}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1280}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1360}}@{}}
+\caption*{\textbf{Table
+1. The experiments
+in detail.} Each row
+is one experiment:
+the Results
+subsection that
+reports it, what is
+changed or
+contrasted, what the
+metric is compared
+with, which metrics
+are scored, and how
+many units there
+are.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Experiment
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+What is changed or
+contrasted
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Compared with
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Metrics
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Units
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Results
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Experiment
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+What is changed or
+contrasted
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Compared with
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Metrics
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Units
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+3.1 & Zymogen versus
+mature enzyme,
+evaluation set &
+real dead and active
+forms & reference
+rows and a
+best-of-39 threshold
+& 29 structure-space
+& 21 pairs \\
+3.1 & Same 21 pairs,
+re-predicted &
+predictions of the
+dead and active
+forms & the same & 4
+prediction-based &
+21 pairs \\
+3.1 & Plated
+designs, evaluation
+set & 192 designs:
+16 active, 176 no
+active & reference
+rows and a
+best-of-36 threshold
+& 29 structure-space
+and 2
+prediction-based &
+192 designs \\
+3.2 & Substrate
+swap, evaluation set
+& the ligand given
+to the predictor:
+cognate, same class,
+different class,
+decoy & the cognate
+ligand; a best-of-30
+threshold & 30
+prediction-based
+quantities (4
+main-set metrics,
+see 2.2) & 55
+enzymes \\
+3.3 & BglB variants,
+evaluation set &
+real substitutions
+with measured
+kinetics & five
+declared baselines,
+reference rows and a
+best-of-41 threshold
+& 29 structure-space
+(28 defined) & 432
+variants at 175
+positions \\
+3.3 & BglB variants,
+re-predicted &
+predictions of the
+variants & the same
+& 4 prediction-based
+& same \\
+3.3 & Plated
+designs, evaluation
+set & 192 designs,
+16 with measured
+activity & reference
+rows & 29
+structure-space and
+2 prediction-based &
+16 designs with a
+measured activity \\
+3.4 & Catalytic
+lesion, in
+structures &
+catalytic residues
+replaced in four
+steps: isosteric,
+non-isosteric, to
+Ala, to Gly & the
+identical
+substitution at
+matched
+non-catalytic sites;
+a best-of-33
+threshold & 29
+structure-space &
+195 enzymes (143
+main + 52 pilot) \\
+3.4 & Second-shell
+lesion, in
+structures & 1, 2 or
+4 second-shell
+residues removed &
+matched control &
+same 29 & up to 193
+enzymes \\
+3.4 & Detection
+floor & all
+catalytic residues
+replaced by Gly (the
+same lesion as the
+Gly step) & the
+untouched structure,
+put through the same
+treatment & same 29
+& 143 enzymes \\
+3.4 & Catalytic
+lesion, re-predicted
+& one catalytic
+residue substituted
+per prediction &
+matched control,
+then a
+distance-matched
+control, then a
+regression
+adjustment & 4
+prediction-based &
+59 enzymes, 286
+pairs \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1732}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1417}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2835}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1890}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2126}}@{}}
+\caption*{\textbf{Table
+2. Datasets.} Which
+data each Results
+subsection uses, and
+what the labels
+are.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dataset
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Used in
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Composition
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Labels
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Notes
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dataset
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Used in
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Composition
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Labels
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Notes
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Zymogen--mature
+pairs, evaluation
+set & 3.1 & 21 pairs
+from 21 proteins (9
+serine, 8 cysteine,
+4 aspartic
+peptidases); the two
+forms share a
+ligand; both
+re-predicted with
+Chai-1 & dead
+(zymogen) or active
+(mature) & subset of
+the 49-pair wider
+set and of the 28
+re-predicted
+pairs \\
+Zymogen--mature
+pairs, wider set &
+3.1 (Supplement) &
+49 pairs scored (55
+candidates);
+structure-space
+metrics only; 28 of
+them re-predicted &
+as above &
+trapping-mutant
+pairs were examined
+and retired \\
+Substrate-swap
+enzymes, evaluation
+set & 3.2 & 55 M-CSA
+enzymes, stratified
+by enzyme class (of
+59; 4 excluded
+because a supplied
+ligand is missing
+from a prediction) &
+none & 28 of the 59
+are also in the
+143-enzyme set; the
+30 de novo designs
+are in S1 \\
+BglB variants & 3.3
+& β-glucosidase B:
+655 single-point
+variants at 207
+positions; 432
+analysed at 175
+positions & log10
+kcat/KM relative to
+wild type: 166
+impaired, 254
+wild-type-like & one
+enzyme;
+variant-level data
+are not
+redistributed \\
+Plated designs &
+3.1, 3.3 & 192
+designs on two
+96-well plates, in
+136 backbone
+clusters & 16 with
+measured kcat/KM
+(active); 176 no
+active (not
+confirmed inactive)
+& 10 of the 16
+active designs lie
+in two backbone
+clusters \\
+143-enzyme set & 3.4
+& enzymes from the
+Mechanism and
+Catalytic Site Atlas
+(M-CSA), 77 enzyme
+sub-subclasses,
+median 6 catalytic
+residues; 2 carry a
+bound ligand & none
+& the primary set;
+pooled with the
+pilot set in each
+lesion test (Results
+3.4) \\
+Shortened-motif set
+& 3.4 (sensitivity)
+& the same 143
+enzymes with at most
+3 catalytic residues
+kept & none & tests
+whether motif size
+matters \\
+Pilot set & 3.4
+(pooled with the 143
+enzymes) & 53
+enzymes (annotation
+from UniProt active
+sites and M-CSA,
+mixed; 35
+peptidases; 34 with
+a ligand) & none &
+not a subset of the
+143-enzyme set;
+shares one PDB
+entry, so 52 are
+added to the 143 in
+both lesion tests;
+looser controls \\
+Curated designs &
+3.4 (sensitivity),
+3.2 (S1) & 30 de
+novo
+metallohydrolase
+designs with a
+three-histidine zinc
+site;
+transition-state
+analogue supplied &
+16 active, 3
+inactive, others
+unlabelled & 23 of
+the 30 are on the
+plates \\
+Ladder pairs & 3.4 &
+74 systems (59
+natural, 15
+designs); 312
+catalytic/control
+pairs, of which the
+286 natural pairs
+are analysed in
+Table 8 & none & one
+residue per
+prediction \\
+\end{longtable}
+
+\begin{shaded}
+
+\textbf{Box 1 ---
+Terms used
+throughout.}
+\textbf{Lesion}: a
+deliberate change to
+a protein (a
+substitution, a
+removal, or a swap
+of the ligand given
+to a predictor).
+\textbf{Response
+(Δ)}: how much a
+metric changes
+because of a lesion,
+measured against the
+same protein put
+through the same
+treatment without
+it. \textbf{Matched
+control}: the
+identical lesion
+applied at a
+non-catalytic site
+of the same protein,
+matched on residue
+type and burial
+(and, where stated,
+packing, secondary
+structure and
+distance to the
+ligand).
+\textbf{Specificity
+ratio (SR)}: the
+response at the
+catalytic site
+divided by the
+response at the
+control; SR = 1
+means the metric
+cannot tell the two
+apart (2.4).
+\textbf{Discrimination
+(AUROC)}: the
+probability that a
+randomly chosen
+member of one class
+scores higher than a
+member of the other,
+where 0.5 means no
+discrimination; we
+report the
+direction-free form
+max(A, 1 − A), which
+cannot fall below
+0.5 (equations in
+2.1).
+\textbf{Ranking}:
+whether a metric
+orders designs or
+variants by measured
+activity (Spearman
+ρ, equations in 2.3,
+or expected hits per
+plate). \textbf{Rank
+statistic R}: the
+probability that a
+metric changes more
+at the catalytic
+lesion than at the
+matched control
+(equations in 2.4).
+\textbf{Reference
+row or baseline}: a
+quantity that needs
+no catalytic
+information
+(resolution,
+sequence length,
+tyrosine fraction,
+the distance to the
+catalytic residues)
+which any useful
+metric must beat.
+
+\end{shaded}
+
+\begin{shaded}
+
+\textbf{Box 2 ---
+The 33 reported
+metrics and the
+reference rows.} In
+a structure,
+``perturbed
+residues'' are the
+residues that were
+changed; in the
+control arm they are
+the control
+residues, so a
+site-scoped metric
+never knows which
+residues are
+catalytic --- it
+only knows which
+residues it was
+handed. In 2.1 and
+2.3 the scored
+residues are the
+catalytic residues.
+The third column
+says where each
+definition comes
+from.
+
+\end{shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3226}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3548}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Metrics
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Reads, and where it
+is defined
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Scored over
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Rosetta energy,
+site-scoped (15) &
+attraction,
+repulsion,
+intra-residue
+repulsion,
+solvation, lk-ball
+solvation,
+electrostatics,
+hydrogen bonds
+(backbone--side-chain,
+side-chain--side-chain),
+rotamer (Dunbrack),
+Ramachandran,
+amino-acid
+propensity, omega
+torsion, net van der
+Waals (repulsion
+plus attraction),
+site total, worst
+single residue &
+coordinates; the
+per-residue terms of
+the REF2015 energy
+function
+\cite{alford2017}
+computed with
+PyRosetta
+\cite{chaudhury2010}
+and summed over the
+scored residues
+(site total: the sum
+of the residue
+totals; worst
+residue: the largest
+residue total) & the
+perturbed
+residues \\
+Catalytic geometry
+(8) & fraction
+buried, relative
+solvent-accessible
+area (mean, max),
+total
+solvent-accessible
+area, pairwise
+distance (mean,
+max), radius of
+gyration, polar
+contacts &
+coordinates; SASA by
+the Lee--Richards
+algorithm
+\cite{lee1971} in
+FreeSASA
+\cite{mitternacht2016}
+(probe 1.4 Å, waters
+excluded), relative
+to the maximum
+accessibility of the
+residue type
+\cite{tien2013};
+fraction buried is
+the share of the
+scored residues with
+relative SASA below
+0.10; distances and
+radius of gyration
+are over all pairs,
+or all atoms, of the
+side-chain heavy
+atoms of the scored
+residues (backbone
+atoms for Gly); a
+polar contact is a
+pair of polar
+side-chain atoms of
+two scored residues
+within 3.5 Å & the
+perturbed
+residues \\
+Catalytic pKa (6) &
+PROPKA pKa (min,
+max, mean, range)
+and pKa shift (mean,
+max absolute) &
+coordinates; PROPKA3
+\cite{olsson2011,sondergaard2011}
+pKa of the scored
+ionisable residues;
+the shift is the pKa
+minus the pKa of the
+model compound & the
+perturbed
+residues \\
+Interface confidence
+(2) & ipTM;
+per-chain pTM
+minimum & predictor
+output of Chai-1
+\cite{chai2024};
+ipTM as introduced
+for
+AlphaFold-Multimer
+\cite{evans2021};
+the pTM of each
+chain, from the
+TM-score head of
+AlphaFold
+\cite{jumper2021} &
+the protein--ligand
+interface \\
+Active-site accuracy
+(2) & AME RMSD
+(catalytic-atom RMSD
+to a reference
+structure after
+backbone
+superposition, best
+of the predicted
+models); ligand
+clearance (closest
+approach of the
+ligand to the
+backbone, best of
+the models) &
+predictor output and
+a reference
+structure; the
+criteria of the
+Atomic Motif Enzyme
+benchmark of
+RFdiffusion2
+\cite{ahern2026}, as
+implemented in this
+project (equations
+in 2.2) & the
+catalytic atoms; the
+ligand \\
+Reference rows (6;
+never counted as
+metrics under test)
+& resolution,
+sequence length, net
+charge, tyrosine
+fraction, pLDDT, pTM
+& deposit, sequence
+or predictor; net
+charge is (K + R) −
+(D + E) counted in
+the sequence; pLDDT
+and pTM from
+AlphaFold
+\cite{jumper2021} &
+whole protein \\
+\end{longtable}
+
+\textbf{Which
+metrics are
+reported.} The panel
+contains 216 named
+quantities, which
+collapse to 191
+distinct metrics
+once literal aliases
+are merged; 63 of
+them are bookkeeping
+counters and
+constants on which
+no test can be run.
+Whether a metric can
+be tested in a given
+experiment is
+decided from three
+things only --- what
+the metric reads,
+whether it is
+defined under the
+experimental
+condition, and the
+design of the
+experiment --- never
+from the result. A
+metric with no
+residue-set input
+(whole-protein
+energies, sequence
+composition,
+whole-prediction
+confidence) cannot
+respond
+\emph{specifically}
+to catalytic
+residues, and a
+metric whose input
+cannot reach the
+perturbed quantity
+cannot register the
+lesion at all
+(sequence
+composition under a
+rotamer change, for
+example). Such
+metrics are kept as
+comparators in the
+Supplement. One
+further quantity is
+kept out of the main
+set although it
+passes these tests:
+the Chai-1 combined
+score, which Chai-1
+uses to rank its own
+models and which
+equals
+\(0.2\,\mathrm{pTM} + 0.8\,\mathrm{ipTM} - 100 \times (\text{inter-chain clash flag})\)
+(from the Chai-1
+code), so that it is
+a rescaled ipTM and
+not an independent
+metric (it is still
+scored, and its
+results are in the
+Supplement). The
+main text reports
+the \textbf{33
+metrics that are
+valid and tested in
+all four tests} (Box
+2), so that one set
+of metrics runs
+through the whole
+paper, plus six
+reference rows
+chosen before any
+result was seen. The
+role of each of the
+191 distinct metrics
+(main, reference,
+supplement or
+excluded) and the
+reason for it are in
+Table S2; what each
+of the 216 named
+quantities reads,
+and over which
+residues it is
+scored, is in Table
+S3; whether each can
+be tested in each of
+the 30 tests, and if
+not why, is in
+Tables S4 (one row
+per metric and test)
+and S5 (counts by
+class of metric);
+the counts of the
+earlier whole-panel
+analysis restated on
+the eligible metrics
+only are in Table
+S6; and the list of
+the tests, with
+comparator, control
+type and role, is in
+Table S7.
+
+\begin{shaded}
+
+\textbf{Box 3 ---
+Notation of the
+equations.} Every
+table of the Results
+ranks a set of
+\emph{items} (the
+metrics, the
+reference rows and,
+in 2.3, the declared
+baselines). \(m\) is
+an item and \(M\)
+the number of items
+ranked in one table;
+\(x_u(m)\) is the
+value of item \(m\)
+on unit \(u\) (a
+structure, a
+prediction, a
+variant or a
+design).
+\(N_{\mathrm{boot}} = 5{,}000\)
+is the number of
+bootstrap draws and
+\(N_{\mathrm{perm}} = 5{,}000\)
+the number of
+permutations, unless
+a different number
+is stated;
+\(q_{\alpha}\) is
+the
+\(\alpha\)-quantile
+of a set of values.
+\(\mathbf{1}(\cdot)\)
+is 1 if its argument
+is true and 0
+otherwise. In 2.1
+and 2.2, \(A_m\) is
+the AUROC of item
+\(m\) and
+\(A^{*}_m\) its
+direction-free form;
+in 2.3, \(\rho_m\)
+is the Spearman
+correlation and
+\(I_v\) the measured
+impairment of
+variant \(v\); in
+2.4, \(\Delta\) is
+the response to a
+lesion, \(R_{m,s}\)
+the rank statistic
+of item \(m\) at
+step \(s\) and
+\(\bar R_m\) its
+mean over the
+counted steps.
+\(T^{(r)}\) is the
+largest statistic
+among the \(M\)
+items in permutation
+\(r\) (the
+max-statistic of
+2.1), and
+\(q_{0.95}(T)\) is
+the best-of-\(M\)
+threshold.
+
+\end{shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2.1
+Activity
+discrimination test:
+do the metrics
+separate a dead
+enzyme from an
+active one? →
+Results 3.1}
+
+\textbf{Experiment.}
+Every metric is
+scored on real
+proteins in which
+one state is
+catalytically dead
+and the other
+active, and the
+metrics are ranked
+by how well their
+values separate the
+two states. Two
+datasets are used,
+each with its own
+table and its own n:
+21 zymogen--mature
+pairs (2.1.1, Table
+3) and 192 plated
+designs, of which 16
+are active (2.1.2,
+Table 4). The
+procedure is the
+same for both:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  assemble the
+  structures and
+  label each one
+  (dead or active;
+  active or no
+  active);
+\item
+  compute every item
+  on every
+  structure: the
+  structure-space
+  metrics on the
+  deposited
+  coordinates, the
+  prediction-based
+  metrics on a
+  Chai-1
+  \cite{chai2024}
+  prediction of the
+  structure together
+  with its ligand;
+\item
+  compute the AUROC
+  of every item and
+  a bootstrap
+  interval that
+  resamples the
+  clustering unit;
+\item
+  rank the items by
+  the direction-free
+  AUROC and compare
+  the top of the
+  ranking with the
+  best-of-\(M\)
+  permutation
+  threshold.
+\end{enumerate}
+
+\textbf{Illustration.}
+A zymogen is an
+inactive precursor
+that already
+contains the
+catalytic residues
+of the mature
+enzyme. A metric
+that detected
+catalytic competence
+would separate the
+two structures; a
+metric that only
+reads the geometry
+of the catalytic
+residues would not,
+because that
+geometry is almost
+the same in both.
+
+\subsubsection{2.1.1
+Discriminate natural
+active and dead
+enzymes → Results
+3.1.1}
+
+\textbf{Dataset.}
+Pairs of structures
+of the same protein,
+the zymogen (dead)
+and the mature
+enzyme (active). The
+structures were
+downloaded from the
+RCSB Protein Data
+Bank
+\cite{burley2025,berman2000};
+the proteins and the
+propeptide
+boundaries come from
+UniProt
+\cite{uniprot2023}.
+The pairs were
+assembled in four
+steps, and the
+evaluation set is
+the last:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3214}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4643}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Step
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Cases
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rule
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+UniProt discovery &
+reviewed proteins of
+EC 3.4.* with a
+propeptide feature
+and PDB structures &
+a protein is
+shortlisted when its
+PDB chain ranges
+give both a
+candidate zymogen
+and a candidate
+mature X-ray
+entry \\
+Shortlisted proteins
+& 100 & the proteins
+that pass the rule
+above \\
+PDB entities
+classified & 5,717
+(1,182 zymogen,
+4,528 mature, 7
+indeterminate) &
+each entity is
+called zymogen or
+mature from its
+SIFTS
+\cite{dana2019}
+alignment to the
+UniProt chain and
+propeptide
+boundaries, never
+from the entry
+title \\
+Candidate pairs & 55
+pairs of 55 proteins
+& one zymogen and
+one mature entity
+per protein; both
+X-ray, no engineered
+mutation, resolution
+at most 2.5 Å \\
+Scored pairs (wider
+set) & 49 &
+structure-space
+metrics scored on
+both forms (S8);
+trapping-mutant
+pairs were examined
+and retired \\
+Re-predicted pairs &
+28 & both forms
+predicted with
+Chai-1, three seeds
+each (S9) \\
+\textbf{Evaluation
+set} & \textbf{21} &
+the two forms share
+a ligand; the 7 apo
+pairs are
+excluded \\
+\end{longtable}
+
+The 21 pairs are 21
+proteins, all
+peptidases (9
+serine, 8 cysteine
+and 4 aspartic; EC
+3.4.21, 3.4.22,
+3.4.23), with shared
+ligands such as
+inhibitors and metal
+ions. In the wider
+set of 49 pairs the
+median
+catalytic-constellation
+RMSD between the two
+forms is 0.207 Å
+(0.484 Å after
+backbone
+superposition), so
+the chemistry of the
+site is intact in
+the dead form. The
+definitions of the
+six pair sets used
+in 3.1 (55, 49, 45,
+28, 21 and 96 pairs)
+and the table that
+uses each are in
+Table S10.
+
+\textbf{Why this
+dataset.} A zymogen
+and its mature
+enzyme hold the
+catalytic residues
+constant while the
+enzyme is dead in
+one form and active
+in the other, so
+they are a
+\emph{real}
+negative: the labels
+are correct by
+definition. They
+answer the objection
+that a metric may
+only recognise
+synthetic negatives.
+The 21-pair subset
+is the evaluation
+set because it is
+the only one on
+which every main-set
+metric,
+structure-space and
+prediction-based,
+and every reference
+row has a value on
+both forms of every
+pair, so that one n
+applies to every row
+of Table 3. The
+pairs were selected
+by ligand sharing
+and not by any
+metric value; the
+choice was made
+after the 49-pair
+and 28-pair analyses
+had been read, and
+those analyses are
+in the Supplement
+(S8, S9). A second
+class of dead
+enzymes,
+substrate-trapping
+mutants, was
+verified against the
+primary literature
+(26 of 30 were not
+confirmed dead) and
+retired (S11).
+
+\textbf{Metrics
+scored.} The 33
+main-set metrics
+(Box 2) and the 6
+reference rows, 39
+items in all, are
+computed on both
+forms of each pair.
+The 29
+structure-space
+metrics are computed
+on the deposited
+coordinates over the
+catalytic residues,
+taken from M-CSA
+\cite{ribeiro2018}
+and UniProt
+\cite{uniprot2023}
+annotation. For the
+4 prediction-based
+metrics both forms
+of each pair were
+re-predicted with
+Chai-1 together with
+the shared ligand
+(three seeds,
+averaged), and
+active-site accuracy
+is measured against
+each form's own
+deposited structure.
+Table S12 lists
+every metric scored
+on the 21 pairs
+(158, including
+whole-protein,
+sequence-only and
+PLACER
+\cite{anishchenko2025}
+comparators). The
+reference rows are
+reported in full,
+with intervals, for
+every activity test
+in Table S13.
+
+\textbf{Ranking
+criteria.} Let \(P\)
+be the dead forms
+and \(Q\) the active
+forms,
+\(|P| = |Q| = n = 21\).
+The AUROC of item
+\(m\) is the
+probability that a
+randomly chosen dead
+form has a larger
+value than a
+randomly chosen
+active form, ties
+counting one half
+\cite{hanley1982}:
+
+\begin{equation*}A_m \;=\; \frac{1}{|P|\,|Q|}\sum_{p \in P}\sum_{q \in Q}\Big[\,\mathbf{1}\big(x_p(m) > x_q(m)\big) + \tfrac{1}{2}\,\mathbf{1}\big(x_p(m) = x_q(m)\big)\Big] \tag{1}\end{equation*}
+
+This equals the
+Mann--Whitney
+statistic \(U\)
+divided by
+\(|P|\,|Q|\)
+\cite{mann1947}.
+\(A_m = 0.5\) means
+that the item does
+not separate the two
+forms, \(A_m = 1\)
+that every dead form
+is above every
+active form and
+\(A_m = 0\) that
+every dead form is
+below every active
+form. We ask whether
+an item separates
+the forms, not in
+which direction, so
+items are ranked by
+
+\begin{equation*}A^{*}_m \;=\; \max\!\big(A_m,\; 1 - A_m\big) \;\ge\; 0.5 , \tag{2}\end{equation*}
+
+and the directed
+\(A_m\) is kept so
+that the direction
+is visible (``higher
+in'' in Table 3 is
+the form in which
+the item takes
+larger values: dead
+if \(A_m > 0.5\)).
+Because \(A^{*}_m\)
+cannot fall below
+0.5, the lower end
+of its interval is
+close to 0.5 for
+almost every item
+and is not
+informative by
+itself.
+
+The interval is a
+percentile bootstrap
+that resamples
+\textbf{pairs} with
+replacement, so that
+both forms of a
+drawn pair enter
+together
+\cite{efron1979,field2007}.
+With
+\(b = 1,\dots,N_{\mathrm{boot}}\)
+draws (5,000, seed
+20260806),
+\(A^{*(b)}_m\) is
+recomputed on each
+resampled set and
+
+\begin{equation*}\Big[\,q_{0.025}\big(A^{*(1)}_m,\dots,A^{*(N_{\mathrm{boot}})}_m\big),\;\; q_{0.975}\big(A^{*(1)}_m,\dots,A^{*(N_{\mathrm{boot}})}_m\big)\Big] \tag{3}\end{equation*}
+
+is the 95\%
+interval. A pair is
+also a protein, so
+the design-level and
+the cluster-level N
+are both 21.
+
+Table 3 ranks
+\(M = 39\) items,
+and the top of such
+a ranking looks good
+by chance. To say
+how good, the labels
+are permuted. Within
+a pair the two forms
+are exchangeable if
+the item is
+unrelated to the
+label, so in
+replicate
+\(r = 1,\dots,N_{\mathrm{perm}}\)
+we draw
+\(s_i^{(r)} \sim \mathrm{Bernoulli}(1/2)\)
+for every pair
+\(i\), swap the dead
+and active labels of
+the pair when
+\(s_i^{(r)} = 1\),
+and recompute
+\(A^{*(r)}_m\) for
+every item. The same
+swaps serve all
+items, which keeps
+the correlation
+between metrics. The
+largest value over
+the items in each
+replicate,
+
+\begin{equation*}T^{(r)} \;=\; \max_{m = 1,\dots,M} A^{*(r)}_{m}, \tag{4}\end{equation*}
+
+has the distribution
+of the best AUROC of
+\(M\) unrelated
+items. Its median
+and its 95th
+percentile
+\(q_{0.95}(T)\) are
+the
+\textbf{best-of-39
+threshold} (median
+0.63, 95th
+percentile 0.68): an
+observed \(A^{*}_m\)
+above it is higher
+than the best of 39
+unrelated items in
+95\% of simulations.
+Taking the maximum
+over items is the
+max-statistic form
+of permutation
+control of multiple
+comparisons
+\cite{westfall1993}.
+The threshold is a
+reference level for
+reading the ranking.
+For the complete
+table of all 158
+metrics (S12) the
+same procedure gives
+the best-of-158
+threshold. In Table
+3 the AUROCs above
+the threshold are in
+bold. No threshold
+is adopted for this
+set: we report
+whether any main-set
+metric exceeds the
+best-of-39
+threshold, and no
+point estimate is
+offered as a
+headline when its
+interval is wider
+than 0.2.
+
+\textbf{Limits.}
+
+\begin{itemize}
+\tightlist
+\item
+  21 pairs is a
+  small set, and the
+  interval of any
+  single AUROC is
+  wide (the
+  best-of-39
+  threshold has a
+  median of 0.63).
+\item
+  All 21 proteins
+  are peptidases
+  whose
+  zymogen-to-enzyme
+  activation is a
+  well-characterised
+  event; the set
+  says nothing about
+  other enzyme
+  classes.
+\item
+  The pairs share a
+  ligand by
+  construction, so
+  they are more
+  likely to have a
+  ligand-bound
+  mature structure
+  than a typical
+  deposit.
+\item
+  A zymogen
+  construct carries
+  a propeptide, so
+  the dead form is
+  on average longer
+  and its predicted
+  confidence lower;
+  protein-level
+  quantities can
+  separate the forms
+  without reading
+  catalysis.
+\item
+  The same-state
+  null and the
+  confound floor of
+  the earlier
+  analysis were
+  computed for the
+  49 pairs and are
+  not restated on
+  21; the reference
+  rows on the same
+  pairs take their
+  place (the AUROC
+  of every metric
+  against the
+  same-state null on
+  the 49 pairs is in
+  Table S8).
+\end{itemize}
+
+\subsubsection{2.1.2
+Discriminate de novo
+designed active and
+no active enzymes →
+Results 3.1.2}
+
+\textbf{Dataset.} A
+deposited
+metallohydrolase
+design campaign
+\cite{kim2026}: 192
+designs on two
+96-well plates (two
+campaigns of 96
+designs, the two
+96-design zinc
+campaigns that are
+also reported with
+RFdiffusion2
+\cite{ahern2026}).
+Of the 192,
+\textbf{16 have a
+reported kcat/KM}
+(\emph{active}) and
+\textbf{176 are no
+active}. The designs
+lie in \textbf{136
+backbone clusters},
+and the 16 active
+designs lie in 8 of
+them (5 in each of
+two clusters and one
+in each of six
+others). The
+catalytic motif is
+the three histidines
+that coordinate the
+zinc, derived
+geometrically and
+checked against 23
+curated annotations
+(23 of 23 agree).
+For the predictions
+the ligand is the
+design's
+transition-state
+analogue together
+with the zinc. One
+set serves every row
+of Table 4: every
+item is scored on
+all 192 designs.
+
+\textbf{Why this
+dataset.} These are
+the deposited de
+novo enzyme designs
+for which models and
+measured activity
+are both available,
+so they let the
+metrics be tested on
+designs and not only
+on natural enzymes.
+A design absent from
+the table of
+characterised hits
+was not reported as
+active, and the
+comparison is active
+against no active.
+The plate analyses
+were planned as
+descriptive, without
+an AUROC, before the
+data were analysed;
+the descriptive
+analyses (rank
+correlation among
+the 16, hits per
+plate) are reported
+in 2.3.2 and the
+AUROC, added later,
+in this subsection.
+
+\textbf{Metrics
+scored.} The 36
+items are the 29
+structure-space
+main-set metrics,
+the two
+prediction-based
+main-set metrics
+that the plates
+define (ipTM and the
+per-chain pTM
+minimum) and five
+reference rows
+(tyrosine fraction,
+net charge, sequence
+length, pLDDT and
+pTM; designs have no
+crystallographic
+resolution). An item
+must have a value on
+at least 80\% of the
+designs. The AME
+RMSD and the ligand
+clearance are
+measured on the
+plates against each
+design's own model,
+which is a different
+metric from AME
+against a deposited
+structure (the two
+flavours are never
+pooled), so they are
+in the Supplement
+and not among the
+ranked items. Table
+S14 lists every
+metric scored on the
+designs (128).
+
+\textbf{Ranking
+criteria.} The
+statistic is Eq. (1)
+and (2) with \(P\)
+the 16 active
+designs and \(Q\)
+the 176 no active
+designs, over the
+192 designs;
+``higher in'' in
+Table 4 is the group
+in which the item
+takes larger values.
+The interval
+resamples the
+\(G = 136\)
+\textbf{backbone
+clusters} with
+replacement, all
+designs of a drawn
+cluster entering
+together, so that
+designs built on one
+backbone are not
+counted as
+independent (5,000
+draws, seed
+20260807; a draw
+with no active
+design has no AUROC
+and is dropped):
+
+\begin{equation*}\Big[\,q_{0.025}\big(A^{*(b)}_m\big),\;\; q_{0.975}\big(A^{*(b)}_m\big)\Big], \qquad A^{*(b)}_m = \max\!\big(A^{(b)}_m,\, 1 - A^{(b)}_m\big), \tag{5}\end{equation*}
+
+with \(A^{(b)}_m\)
+from Eq. (1) on the
+designs of the drawn
+clusters. The
+design-level N is
+192 and the
+cluster-level N is
+136, with 16 actives
+in 8 clusters. The
+chance reference is
+the permutation of
+Eq. (4) with the
+activity labels
+permuted among the
+192 designs instead
+of swapped within
+pairs, \(M = 36\)
+items and 5,000
+permutations: the
+\textbf{best-of-36
+threshold} (median
+0.66, 95th
+percentile 0.73),
+and the best-of-128
+threshold (0.75) for
+the 128 metrics of
+Table S14. Because
+10 of the 16 active
+designs lie in two
+backbone clusters,
+designs are not
+exchangeable and the
+threshold
+understates the
+chance range. Table
+4 marks the AUROCs
+above the best-of-36
+threshold in bold.
+
+\textbf{Limits.}
+
+\begin{itemize}
+\tightlist
+\item
+  The 176 no active
+  designs are not
+  confirmed
+  inactive, so the
+  AUROC compares
+  active designs
+  with the rest of
+  the plate.
+\item
+  Ten of the 16
+  active designs lie
+  in two backbone
+  clusters, so the
+  effective number
+  of independent
+  actives is small,
+  the intervals are
+  wide and the
+  best-of-36
+  threshold
+  understates the
+  chance range.
+\item
+  The designs differ
+  in length and
+  size; sequence
+  length is a
+  reference row.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2.2
+Substrate
+discrimination test:
+do prediction-based
+metrics know which
+ligand they were
+given? → Results
+3.2}
+
+\textbf{Experiment.}
+A structure
+predictor (Chai-1
+\cite{chai2024}) is
+given a protein
+together with its
+own substrate, and
+then together with a
+wrong one, and the
+prediction-based
+quantities are
+ranked by how well
+they separate the
+cognate prediction
+from a wrong-ligand
+prediction of the
+same enzyme. Chai-1
+is run on the
+sequence, the ligand
+(as a chemical
+structure) and,
+where relevant, the
+catalytic metal,
+with default
+settings and a fixed
+seed; each
+prediction yields
+five models and
+their confidence
+scores. Only the
+ligand supplied
+changes. The protein
+is untouched, and
+four conditions are
+built for every
+enzyme:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{cognate}:
+  the substrate of
+  the enzyme (three
+  seeds, 101, 202
+  and 303; the
+  cognate condition
+  has two further
+  seeds that serve
+  as the noise floor
+  and are not used
+  in the
+  evaluation);
+\item
+  \textbf{same
+  class}: a
+  different
+  substrate of an
+  enzyme of the same
+  enzyme class;
+\item
+  \textbf{different
+  class}: a
+  substrate of an
+  enzyme of a
+  different class;
+\item
+  \textbf{decoy}: a
+  ligand taken from
+  an unrelated
+  structure.
+\end{enumerate}
+
+Wrong ligands have
+three seeds each,
+and the catalytic
+metal is kept in
+every condition. The
+apo condition (no
+ligand) is excluded
+for interface and
+ligand-dependent
+terms, because
+without a ligand
+there is no
+interface to be
+confident about.
+
+\textbf{Illustration.}
+Chai-1 predicts a
+hydrolase together
+with its own
+substrate, and again
+together with a
+substrate of a
+different enzyme
+class. If ipTM falls
+when the wrong
+substrate is given,
+the metric ``knows''
+which substrate
+belongs to the
+protein; the AUROC
+measures how
+reliably it does.
+
+\textbf{Dataset.}
+Natural enzymes of
+M-CSA
+\cite{ribeiro2018}
+with a bound cognate
+ligand: 59 enzymes
+enter the
+experiment, and the
+\textbf{evaluation
+set is the 55
+natural enzymes} on
+which every scored
+quantity has a
+defined value in the
+cognate condition
+and in all three
+wrong-ligand
+conditions, and on
+which every ligand
+that was supplied
+was present in the
+prediction. The four
+exclusions are
+enzymes whose
+cognate or wrong
+ligand contains a
+heme-type group that
+cannot be built into
+a chemical
+structure, so the
+predictor drops it
+and the prediction
+is effectively apo
+for that cell. The
+rule is about the
+availability of
+values and not about
+any result. The
+experiment is
+balanced: seeds 101,
+202 and 303 in every
+condition.
+Twenty-eight of the
+59 enzymes are also
+in the 143-enzyme
+set of 2.4.
+
+\textbf{Why this
+dataset.} A wrong
+ligand can only be
+defined for an
+enzyme whose
+substrate is known,
+and the M-CSA
+entries with the
+cognate reaction
+ligand present (150
+of 434) are the
+natural enzymes for
+which this holds.
+Natural enzymes
+carry the main
+analysis because
+their active-site
+accuracy is measured
+against the
+deposited structure;
+the 30 de novo
+designs, whose
+active-site accuracy
+is measured against
+the design's own
+model and is never
+pooled with it, are
+in S1. The choice of
+the 55 systems was
+made after the
+earlier all-system
+analysis had been
+read.
+
+\textbf{Metrics
+scored.} Every
+prediction is scored
+on 33
+prediction-based
+quantities, of which
+Table 5 ranks 30.
+The three summaries
+of the Chai-1
+combined score are
+scored but not
+listed, because the
+combined score is
+not a main-set
+metric (see ``Which
+metrics are
+reported''); their
+AUROCs are in S1.
+The 30 listed
+quantities are the
+four main-set
+metrics of Box 2, 13
+whole-prediction
+confidence summaries
+(pLDDT, pTM, the
+per-chain pTM of the
+protein chain and
+the inter-chain
+clash flag, two of
+which, the mean
+pLDDT and mean pTM,
+are the reference
+rows), the AME pass
+bit, and four
+bookkeeping counters
+(models, aligned and
+catalytic atoms,
+symmetry swaps) that
+serve as negative
+controls. Each score
+\(s_k\) is returned
+for each of the
+\(K = 5\) models,
+and every score is
+summarised over the
+models as
+
+\begin{equation*}\bar s = \frac{1}{K}\sum_{k=1}^{K} s_k, \qquad s_{\max} = \max_{k} s_k, \qquad s_{\mathrm{SD}} = \sqrt{\frac{1}{K-1}\sum_{k=1}^{K}\big(s_k - \bar s\big)^{2}}, \tag{6}\end{equation*}
+
+and the RMSD also as
+the minimum over the
+models, so that one
+metric appears in
+several rows of
+Table 5, one per
+summary. Two
+quantities need a
+definition of their
+own (the other
+summaries of
+whole-prediction
+confidence are those
+of Chai-1
+\cite{chai2024}).
+
+\textbf{AME RMSD}
+(active-site
+accuracy; the
+criterion of the
+Atomic Motif Enzyme
+benchmark
+\cite{ahern2026}). A
+model is superposed
+on the reference
+structure by the
+Kabsch algorithm on
+the C\(\alpha\)
+atoms of all
+residues shared with
+the reference (the
+whole shared
+backbone, and not
+the catalytic
+residues alone,
+which would let the
+site translate
+freely inside the
+fold and deflate the
+RMSD). The RMSD of
+the catalytic atoms
+is then
+
+\begin{equation*}\mathrm{RMSD}_k \;=\; \sqrt{\frac{1}{L}\sum_{l=1}^{L}\big\lVert \mathbf{y}_l - \mathbf{x}_{l}^{(k)}\big\rVert^{2}}, \qquad \mathrm{AME\ RMSD} = \min_{k} \mathrm{RMSD}_k, \tag{7}\end{equation*}
+
+where
+\(l = 1,\dots,L\)
+runs over the heavy
+atoms of the
+catalytic residues
+that keep their
+residue type in the
+prediction,
+\(\mathbf{y}_l\) is
+the atom in the
+reference,
+\(\mathbf{x}^{(k)}_l\)
+the superposed atom
+of model \(k\), and
+symmetry-equivalent
+atoms (the two
+oxygens of a
+carboxylate, for
+example) are
+assigned to give the
+smaller RMSD. The
+reference is the
+deposited structure
+for natural enzymes
+and the design's own
+model for designs;
+the two flavours are
+never pooled. The
+variant without
+symmetry resolution
+is also listed (``no
+symmetry
+resolution'' in
+Table 5).
+
+\textbf{Ligand
+clearance} is the
+closest approach of
+the ligand to the
+protein backbone
+atoms N, C\(\alpha\)
+and C, best case
+over the models:
+
+\begin{equation*}C_k \;=\; \min_{a \in \text{ligand}}\ \min_{b \in \{\mathrm{N},\,\mathrm{C}\alpha,\,\mathrm{C}\}} \big\lVert \mathbf{x}_a^{(k)} - \mathbf{x}_b^{(k)}\big\rVert, \qquad \mathrm{clearance} = \max_{k} C_k , \tag{8}\end{equation*}
+
+so that a larger
+value means more
+room for the ligand
+(the AME criterion
+is \(C > 1.5\) Å).
+Interface confidence
+(ipTM, per-chain pTM
+minimum) and ligand
+clearance need a
+ligand and are
+undefined without
+one.
+
+\textbf{Ranking
+criteria.} For each
+quantity \(m\) and
+each kind of wrong
+ligand
+\(c \in \{\text{same class},\ \text{different class},\ \text{decoy}\}\),
+the AUROC of Eq. (1)
+is computed with the
+cognate predictions
+as the positive
+class and the
+wrong-ligand
+predictions of kind
+\(c\) as the
+negative class, one
+value per system
+(the mean over its
+three seeds), and
+made direction-free
+as in Eq. (2);
+quantities are
+ranked by the mean
+of the three,
+
+\begin{equation*}\bar A_m \;=\; \frac{1}{3}\sum_{c}\, A^{*}_{m,c}. \tag{9}\end{equation*}
+
+Each \(A^{*}_{m,c}\)
+has the percentile
+bootstrap interval
+of Eq. (3) that
+resamples systems
+(5,000 draws, seed
+20260806); ``higher
+in'' is the
+condition in which
+the quantity takes
+larger values. The
+chance reference is
+the max-statistic
+permutation of Eq.
+(4): in each of
+5,000 replicates the
+four condition
+labels (cognate,
+same class,
+different class,
+decoy) are permuted
+at random within
+every system, the
+three AUROCs and
+their mean are
+recomputed for every
+quantity, and
+\(T^{(r)} = \max_{m} \bar A^{(r)}_m\)
+over the \(M = 30\)
+ranked quantities;
+its median and 95th
+percentile are the
+\textbf{best-of-30
+threshold} (median
+0.56, 95th
+percentile 0.61)
+\cite{westfall1993}.
+Table 5 marks in
+bold the mean AUROCs
+above it. No
+threshold is
+adopted; we report
+which quantities
+exceed it.
+
+To check whether a
+ligand-size effect
+explains the
+discrimination, the
+cells (a cognate
+ligand and one wrong
+ligand of an enzyme)
+are stratified by
+the difference in
+heavy-atom count,
+\(\Delta h = h_{\text{cognate}} - h_{\text{wrong}}\),
+and in charge, and
+the paired win
+fraction of the
+quantity is reported
+(S15):
+
+\begin{equation*}W \;=\; \frac{1}{n_{\mathrm{cells}}}\sum_{\mathrm{cells}}\Big[\mathbf{1}\big(x_{\mathrm{cognate}} > x_{\mathrm{wrong}}\big) + \tfrac12\,\mathbf{1}\big(x_{\mathrm{cognate}} = x_{\mathrm{wrong}}\big)\Big]. \tag{10}\end{equation*}
+
+\textbf{Limits.}
+
+\begin{itemize}
+\tightlist
+\item
+  55 natural
+  enzymes; the AUROC
+  does not separate
+  catalytic identity
+  from ligand size
+  or from the mere
+  presence of a
+  different ligand,
+  and the
+  ligand-size strata
+  (S15) are the
+  check.
+\item
+  The wrong ligands
+  are chosen by us,
+  so the AUROCs
+  describe
+  sensitivity to the
+  ligand supplied
+  and not a ranking
+  of designs.
+\item
+  Chai-1 is not
+  bitwise
+  reproducible; we
+  report the drift
+  of a re-run
+  against the
+  earlier
+  predictions (Table
+  S16).
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2.3
+Activity ranking
+test: do the metrics
+track measured
+activity? → Results
+3.3}
+
+\textbf{Experiment.}
+We ask whether the
+order of real
+variants (or real
+designs) by a metric
+agrees with their
+order by measured
+activity, and
+whether the metric
+does better than
+simply knowing how
+close the change is
+to the active site.
+This is a ranking
+claim, so the
+statistic is a rank
+correlation; the
+AUROC of the binary
+contrast (impaired
+against
+wild-type-like
+variants) is given
+for BglB in the
+Supplement (S17).
+Two datasets are
+used, each with its
+own table and its
+own n: 432 BglB
+variants (2.3.1,
+Table 6) and the 16
+plated designs that
+have a measured
+activity (2.3.2,
+Table 7).
+
+\textbf{Illustration.}
+Line the variants up
+by how strongly the
+assay found each one
+impaired, and line
+them up again by how
+much a metric
+changes for each
+one. If the two
+orders agree, the
+metric ranks the
+variants as the
+assay does; the rank
+correlation measures
+how well. The
+baselines ask
+whether knowing only
+the distance from
+the mutated residue
+to the catalytic
+glutamates ranks
+them as well.
+
+\subsubsection{2.3.1
+Ranking natural
+enzyme activity →
+Results 3.3.1}
+
+\textbf{Dataset.}
+β-glucosidase B
+(BglB) from
+\emph{Paenibacillus
+polymyxa},
+characterised by the
+D2DCure consortium
+\cite{carlin2016}
+(data retrieved from
+d2dcure.com on
+2026-08-06; the
+licence is unstated,
+so variant-level
+data are not
+redistributed).
+Variant numbering is
+offset by three from
+the numbering of the
+crystal structure
+(RCSB PDB entry 2JIE
+\cite{burley2025,berman2000};
+structure position =
+variant position +
+3). The catalytic
+residues are Glu167
+(proton donor) and
+Glu356 (nucleophile)
+in structure
+numbering, taken
+from the UniProt
+\cite{uniprot2023}
+active-site
+features, the
+conserved motifs
+TINEP and ITENG, and
+the covalent link to
+the glucosyl
+intermediate in the
+deposited structure.
+The funnel to the
+evaluation set is:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2075}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3396}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4528}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Step
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Cases
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rule
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Measured rows &
+1,288 rows, of which
+272 are wild-type
+replicates measured
+at eight
+institutions & the
+D2DCure file
+(latin-1 encoded) \\
+Single-point
+variants & 655 at
+207 positions & the
+variants of the
+characterisation
+data \\
+Set aside & 108
+destabilised, 83
+non-expressed, 32
+with insufficient
+data & a variant is
+\textbf{folded} if
+it was expressed and
+is not destabilised
+(T50 or Tm less than
+2 standard
+deviations below
+wild type); the
+kinetics of the
+others cannot be
+attributed to the
+catalytic site \\
+Folded variants with
+kinetics & 432 at
+175 positions: 166
+impaired, 254
+wild-type-like, 12
+improved &
+\textbf{impaired} if
+kcat/KM is at least
+2 standard
+deviations (a
+3.8-fold loss or
+more) below wild
+type,
+\textbf{wild-type-like}
+if within 2 standard
+deviations,
+\textbf{improved}
+above \\
+\textbf{Evaluation
+set} & \textbf{432
+variants} & one set
+serves every row of
+Table 6; a
+structure-space
+metric has a value
+for 431 of the 432
+variants and a
+prediction-based
+metric for all 432;
+the dataset's own
+Rosetta score exists
+for 248 \\
+\end{longtable}
+
+The spread of the
+wild-type replicates
+(0.293 log10) is the
+noise floor, and
+each variant is
+compared with the
+wild type of the
+same institution.
+The binary contrast
+of the Supplement
+(S17) uses the 420
+variants that are
+impaired or
+wild-type-like.
+Substrate: the
+prediction-based
+metrics use the
+assay substrate
+4-nitrophenyl
+β-D-glucopyranoside
+(pNPG), the reporter
+substrate of the
+published BglB
+assays
+\cite{carlin2016,carlin2017},
+and no metal,
+because BglB is
+metal-independent.
+
+\textbf{Why this
+dataset.} BglB is
+the powered
+calibration set of
+natural-enzyme
+variants: hundreds
+of single-point
+variants of one
+enzyme with
+kinetics, expression
+and thermal
+stability (T50, Tm)
+measured in one
+consortium, so that
+a ranking claim can
+be tested at a scale
+that no set of
+designs offers, and
+so that a loss of
+activity from a
+failure to fold (a
+destabilised or
+non-expressed
+variant) can be
+separated from a
+loss at the
+catalytic site. The
+analysis plan was
+committed and dated
+before any mutant
+structure was built
+and before any
+metric was joined to
+a label.
+
+\textbf{Metrics
+scored.} Each
+variant is built in
+silico with the same
+rotamer-space
+substitution, repack
+and minimisation as
+in 2.4 (the wild
+type goes through
+the identical
+treatment with five
+seeds), and the
+metrics are computed
+over the two
+catalytic glutamates
+for every variant.
+The prediction-based
+metrics are computed
+on Chai-1
+predictions of each
+variant and of the
+wild type with the
+assay substrate; AME
+is measured against
+the wild-type
+crystal, which
+carries a covalent
+glucosyl
+intermediate and not
+the substrate. The
+41 ranked items of
+Table 6 are the 28
+structure-space
+main-set metrics
+that BglB defines
+(the omega term does
+not change under a
+side-chain
+substitution on a
+fixed backbone), the
+4 prediction-based
+main-set metrics,
+four reference rows
+(tyrosine fraction,
+net charge, pLDDT
+and pTM; the
+sequence length is
+constant over single
+substitutions and
+cannot be ranked)
+and five
+\textbf{declared
+baselines}, fixed
+before any metric
+was joined to a
+label, each pointed
+so that a larger
+value means more
+impaired: the
+absolute change in
+side-chain volume;
+the negative
+distance from the
+mutated residue to
+the nearest
+catalytic residue in
+the wild-type
+structure (the
+\emph{distance
+baseline}); the
+negative relative
+solvent-accessible
+area of the mutated
+residue (burial);
+the negative
+BLOSUM62 score of
+the substitution
+\cite{henikoff1992};
+and the Rosetta
+score that comes
+with the dataset
+(available for 248
+of the variants, so
+compared on that
+subset).
+
+\textbf{Ranking
+criteria.} The
+measured
+\textbf{impairment}
+of variant \(v\) is
+the log-ratio of its
+kcat/KM to the
+wild-type value of
+the same
+institution,
+
+\begin{equation*}I_v \;=\; \log_{10}\frac{\kappa_{\mathrm{wt}}}{\kappa_{v}}, \tag{11}\end{equation*}
+
+larger for a more
+impaired variant
+(\(\kappa\) is
+kcat/KM). A metric
+enters as the size
+of its change, the
+absolute difference
+between the variant
+and the treated
+unsubstituted
+protein,
+\(\lvert\Delta_v(m)\rvert = \lvert m(v) - m(\mathrm{wt})\rvert\),
+and a declared
+baseline enters as
+its own score. The
+direction is fixed
+in advance (a larger
+change in a more
+impaired variant),
+so the directed
+Spearman correlation
+is reported and a
+negative value is
+kept as it is. With
+\(r_v\) the rank of
+the item's score and
+\(s_v\) the rank of
+\(I_v\) among the
+\(n = 432\) variants
+(ties take the
+average rank), the
+Spearman rank
+correlation is the
+Pearson correlation
+of the ranks
+\cite{spearman1904}:
+
+\begin{equation*}\rho_m \;=\; \frac{\sum_{v}(r_v-\bar r)(s_v-\bar s)}{\sqrt{\sum_{v}(r_v-\bar r)^2\;\sum_{v}(s_v-\bar s)^2}} \tag{12}\end{equation*}
+
+\(\rho = 1\) means
+that the item orders
+the variants exactly
+as the assay does,
+\(\rho = 0\) that
+the two orders are
+unrelated, and
+\(\rho = -1\) that
+they are opposite.
+The 95\% interval is
+a percentile
+bootstrap (Eq. 3
+with \(\rho\) in
+place of \(A^{*}\))
+that resamples the
+175
+\textbf{positions}
+with replacement
+(5,000 draws, seed
+20260807), because
+variants at one
+position are not
+independent; the
+design-level N is
+432 and the
+cluster-level N is
+175. To say whether
+an item is better
+than the distance
+baseline, the
+difference is
+computed on the same
+draws,
+
+\begin{equation*}D_m^{(b)} \;=\; \rho_m^{(b)} - \rho_{\mathrm{dist}}^{(b)}, \tag{13}\end{equation*}
+
+and the item
+\textbf{beats} the
+baseline only if the
+95\% interval of
+\(D_m\),
+\(q_{0.025}(D_m^{(b)})\)
+to
+\(q_{0.975}(D_m^{(b)})\),
+lies above 0. Table
+6 ranks \(M = 41\)
+items by \(\rho_m\),
+and the top of such
+a ranking looks good
+by chance, so the
+measured impairments
+are permuted among
+whole positions that
+have the same number
+of variants (a block
+permutation, so that
+the variants at one
+position keep their
+impairments
+together, as in the
+bootstrap),
+\(\rho^{(r)}_m\) is
+recomputed for every
+item with the same
+permutation, and
+
+\begin{equation*}T^{(r)} \;=\; \max_{m = 1,\dots,M} \rho^{(r)}_{m}, \qquad r = 1,\dots,N_{\mathrm{perm}} . \tag{14}\end{equation*}
+
+The median and the
+95th percentile of
+\(T\) are the
+\textbf{best-of-41
+threshold}: the
+correlation that the
+best of 41 unrelated
+items would exceed
+in 5\% of
+permutations (median
+0.24, 95th
+percentile 0.32; for
+the complete table
+S17, over all 114
+analysed quantities,
+0.32). The same
+procedure applies to
+the declared
+baselines, whose raw
+score takes the
+place of
+\(\lvert\Delta\rvert\).
+It is a reference
+level for reading
+the ranking; a
+\(\rho\) above it is
+in bold in Table 6.
+The signed
+correlation of the
+pre-specified plan
+(S18) and the AUROC
+of the binary
+contrast (S17) are
+given beside it. The
+ten sensitivity
+analyses (variants
+near to and distal
+from the catalytic
+residues, restricted
+subsets of variants
+or metrics, other
+thresholds for the
+labels, and each
+institution left out
+in turn) are
+summarised in Table
+S19, the 28
+prediction-based
+metrics, with their
+own correlation and
+AUROC columns, are
+in Table S20, and
+the declared
+baselines are
+reported in full in
+Table S13.
+
+\textbf{Limits.}
+
+\begin{itemize}
+\tightlist
+\item
+  One enzyme: the
+  result is about
+  BglB and says
+  nothing about
+  other folds or
+  reactions.
+\item
+  The BglB wild-type
+  reference for
+  prediction-based
+  accuracy is a
+  covalent-intermediate
+  crystal.
+\item
+  Destabilised,
+  non-expressed and
+  insufficient-data
+  variants are set
+  aside, so the
+  ranking describes
+  folded variants
+  only.
+\end{itemize}
+
+\subsubsection{2.3.2
+Ranking de novo
+designed enzyme
+activity → Results
+3.3.2}
+
+\textbf{Dataset.}
+The 192-design
+campaign of 2.1.2
+\cite{kim2026}. Only
+the 16 designs with
+a reported kcat/KM
+have a measured
+activity that an
+item can be
+correlated with, so
+the
+\textbf{evaluation
+set is those 16
+designs} and one n
+serves every row of
+Table 7. They lie in
+8 of the 136
+backbone clusters,
+so the effective
+number of
+independent designs
+is smaller than 16.
+The 192-design plate
+is used for the
+AUROC of 2.1.2
+(Table 4) and for
+the filter-style
+analysis (S21).
+
+\textbf{Why this
+dataset.} The same
+designs as 2.1.2, so
+that the
+discrimination
+(active against the
+rest of the plate)
+and the ranking
+(among the actives)
+are two readings of
+one campaign. The
+question a designer
+asks of a metric is
+whether it would
+have enriched the
+hits on a plate, and
+this is a deposited
+design campaign on
+which that can be
+asked. The plate
+analyses of this
+subsection are
+\textbf{descriptive}
+and were planned
+before these data
+were analysed; the
+AUROC, added later,
+is reported in
+2.1.2.
+
+\textbf{Metrics
+scored.} The 36
+items of Table 7 are
+those of Table 4:
+the 29
+structure-space
+main-set metrics,
+the two
+prediction-based
+main-set metrics
+that the plates
+define (ipTM and the
+per-chain pTM
+minimum) and five
+reference rows
+(tyrosine fraction,
+net charge, sequence
+length, pLDDT and
+pTM). Designs are
+scored as deposited,
+and their
+predictions use the
+design's
+transition-state-analogue
+ligand and zinc,
+with accuracy
+measured against the
+design's own model.
+AME and the ligand
+clearance are in the
+Supplement (S22) and
+not among the ranked
+items, as in 2.1.2.
+
+\textbf{Ranking
+criteria.} The
+correlation is Eq.
+(12) between the
+native value of the
+item on the design
+and
+\(\log_{10}\mathrm{kcat/KM}\)
+of the \(n = 16\)
+designs that have a
+reported value; no
+direction is fixed
+in advance, so items
+are ranked by
+\(\lvert\rho_m\rvert\)
+and the sign is
+reported (``higher
+value means higher
+or lower
+activity''). The
+interval is a 90\%
+percentile bootstrap
+that resamples
+designs (2,000
+draws). Beside it,
+the correlation is
+also computed with
+the sequence length
+partialled out of
+both sides (S23,
+S22): with the ranks
+\(r_x\), \(r_y\) and
+\(r_z\) of the item,
+of the activity and
+of the length,
+centred, the
+residual of each
+rank on \(r_z\) is
+taken and the
+Pearson correlation
+of the residuals is
+the partial
+correlation,
+
+\begin{equation*}e_x = r_x - \frac{r_z^{\top} r_x}{r_z^{\top} r_z}\, r_z, \qquad e_y = r_y - \frac{r_z^{\top} r_y}{r_z^{\top} r_z}\, r_z, \qquad \rho_{xy\cdot z} = \mathrm{corr}(e_x, e_y). \tag{15}\end{equation*}
+
+A \(\rho\) is in
+bold in Table 7 when
+its 90\% interval
+excludes 0, and
+about 10\% of
+unrelated items are
+expected to show
+this by chance (0.1
+× 36 = 3.6 of the
+36). The
+filter-style
+analysis fills a
+96-well plate only
+from the quarter of
+the 192 designs that
+the item ranks
+highest, or lowest:
+with
+\(n_{\mathrm{keep}} = 48\)
+designs kept, of
+which \(k\) are
+active, the expected
+hits per plate are
+
+\begin{equation*}\text{hits per plate} \;=\; 96\,\frac{k}{n_{\mathrm{keep}}} \;=\; 2k , \tag{16}\end{equation*}
+
+against
+\(96 \times 16/192 = 8.0\)
+for an unfiltered
+plate. The band of a
+random filter is the
+distribution of
+\(k\) when 48
+designs are chosen
+at random,
+hypergeometric with
+16 active designs
+among 192,
+
+\begin{equation*}\Pr(k \ge h) \;=\; \sum_{j \ge h}\frac{\binom{16}{j}\binom{176}{48-j}}{\binom{192}{48}} , \tag{17}\end{equation*}
+
+so that 95\% of
+random choices hold
+at most 14.0 hits
+per plate (\(h = 7\)
+actives), a random
+choice holds more
+with probability
+0.022 and either end
+of a random item
+does with
+probability 0.044
+(S21). The
+correlation of every
+structure-space
+metric and
+comparator, with and
+without the sequence
+length partialled
+out, is in Table
+S23, and the
+enrichment at keep
+fractions of 5, 10,
+25 and 50\% in both
+directions is in
+Table S24
+(structure-space
+metrics) and Table
+S25
+(prediction-based
+metrics).
+
+\textbf{Limits.}
+
+\begin{itemize}
+\tightlist
+\item
+  16 active designs
+  across the plates,
+  in 8 backbone
+  clusters, so
+  intervals resample
+  designs and the
+  effective number
+  of independent
+  actives is smaller
+  than 16.
+\item
+  The analysis is
+  descriptive: an
+  interval that
+  excludes 0 is
+  reported as such.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2.4
+Detection ability
+test: do the metrics
+respond more to a
+catalytic lesion
+than to a matched
+control? → Results
+3.4}
+
+\textbf{Experiment.}
+We damage the
+catalytic residues
+of natural enzymes,
+in the structure for
+the structure-space
+metrics and in the
+sequence of a
+re-predicted complex
+for the
+prediction-based
+metrics, and ask
+whether each metric
+moves more than it
+does when the same
+damage is made at a
+matched
+non-catalytic site
+of the same protein.
+Two kinds of lesion
+are applied, each
+with its own
+datasets and table:
+the catalytic lesion
+(the chemistry
+ladder, 2.4.1, Table
+8) and the
+second-shell lesion
+(2.4.2, Table 9).
+
+\textbf{Illustration.}
+In a serine protease
+the catalytic triad
+is Asp, His and Ser.
+The \emph{Ala step}
+builds a structure
+in which those three
+residues are
+replaced by Ala. The
+\emph{control}
+builds a structure
+in which three
+buried,
+non-catalytic
+residues of the same
+original types are
+replaced by Ala,
+with the same
+repacking. A metric
+is \emph{specific}
+if it changes
+clearly more in the
+first structure than
+in the second.
+
+\textbf{Change.}
+Every change is made
+in side-chain
+rotamer space on the
+fixed backbone,
+followed by an 8 Å
+fixed-backbone
+repack with the
+changed residues
+held and constrained
+minimisation
+(PyRosetta
+\cite{chaudhury2010});
+protonation is
+fixed. The
+\textbf{chemistry
+ladder} replaces
+each catalytic
+residue in one of
+four steps of
+increasing change in
+side-chain volume:
+\textbf{isosteric}
+(for example
+Ser→Cys, Asp→Asn,
+Thr→Val; median
+change 15.3 Å³),
+\textbf{non-isosteric}
+(36.4 Å³),
+\textbf{to Ala}
+(53.2 Å³) and
+\textbf{to Gly}
+(80.5 Å³).
+\textbf{Second-shell
+removal} mutates 1,
+2 or 4 residues in
+the shell around the
+catalytic residues.
+The
+\textbf{detection
+floor} replaces all
+catalytic residues
+by Gly at once,
+which is the same
+lesion as the Gly
+step, and asks
+whether the metric
+notices. Table S26
+gives the result of
+the detection floor
+and of the other
+sanity-floor
+conditions by class
+of metric, and
+checks that the
+detection floor and
+the Gly step are
+identical. For the
+prediction-based
+metrics the same
+four steps of the
+chemistry ladder are
+applied in the
+\textbf{sequence}:
+one catalytic
+residue is
+substituted per
+prediction and the
+complex is
+re-predicted with
+Chai-1
+\cite{chai2024} (one
+seed, 101).
+
+\textbf{Comparator.}
+Two comparisons are
+made, and they
+answer different
+questions.
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Against the
+  structure's own
+  reference.} Every
+  perturbed
+  structure and its
+  reference go
+  through the
+  identical
+  treatment, because
+  26 of 103 metrics
+  move under the
+  treatment alone;
+  each arm is
+  compared with its
+  own treated
+  reference.
+\item
+  \emph{Against the
+  matched control.}
+  The control makes
+  the
+  \textbf{identical
+  substitution}
+  (same original and
+  same new residue
+  type) at buried,
+  non-catalytic
+  positions of the
+  same protein,
+  matched on burial
+  (within 0.10
+  relative
+  solvent-accessible
+  area) and, in the
+  primary analysis,
+  on local packing,
+  secondary
+  structure and
+  distance to the
+  ligand where
+  available. When no
+  exact match
+  exists, the
+  matcher relaxes
+  its criteria in a
+  fixed order and
+  records the
+  loosest tier used
+  (the loosest tier
+  needed for each
+  lesion test is in
+  Table S27). Only
+  comparisons where
+  both arms change
+  the same number of
+  residues are
+  counted (the
+  balance of the
+  numbers of
+  residues changed
+  in the two arms is
+  in Table S28). For
+  the re-predicted
+  ladder each
+  substitution is
+  paired with the
+  identical
+  substitution at a
+  buried
+  non-catalytic
+  position (same
+  original and same
+  new residue,
+  matched on
+  burial), and the
+  change is measured
+  against the
+  unperturbed
+  prediction of the
+  same system at the
+  same seed.
+\end{itemize}
+
+\textbf{Response.}
+For an item \(m\),
+an enzyme \(i\) and
+an arm
+\(a \in \{\mathrm{cat}, \mathrm{ctl}\}\)
+(the catalytic arm
+and the control
+arm), the response
+at step \(s\) is the
+change of the item
+from its own treated
+reference,
+
+\begin{equation*}\Delta^{a}_{i}(m, s) \;=\; m\big(\text{changed}^{a}_{i,s}\big) - m\big(\text{reference}^{a}_{i}\big) , \tag{18}\end{equation*}
+
+summarised as the
+median over enzymes.
+For the
+structure-space
+metrics the
+site-scoped items
+are computed over
+the changed residues
+in each arm (the
+catalytic residues
+in the catalytic
+arm, the control
+residues in the
+control arm); for
+second-shell removal
+both arms are scored
+over the catalytic
+residues. For the
+prediction-based
+metrics, both pair
+members are scored
+over the catalytic
+set \emph{minus} the
+substituted
+position, so the
+active-site accuracy
+reports only the
+displacement of the
+remaining catalytic
+residues. An item
+\textbf{responds} at
+a step when the 95\%
+interval of its
+median response
+excludes zero.
+
+\subsubsection{2.4.1
+Detecting catalytic
+lesion → Results
+3.4.1}
+
+\textbf{Dataset.}
+The datasets of this
+test are:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2407}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4259}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dataset
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Cases
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+How it was built,
+and what it is used
+for
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+M-CSA source
+\cite{ribeiro2018} &
+434 curated entries
+(release
+2026-07-31), 2,563
+catalytic residues &
+the curated
+mechanisms and
+catalytic residues
+of the Mechanism and
+Catalytic Site
+Atlas; structures
+come from the
+Protein Data Bank
+\cite{burley2025,berman2000} \\
+143-enzyme set
+(primary) &
+\textbf{143
+enzymes}, 77 enzyme
+sub-subclasses,
+median 6 catalytic
+residues, 2 with a
+bound ligand & at
+most 25 per
+top-level EC class
+(25, 25, 25, 25, 25
+and 18 enzymes), at
+least 2 resolved
+catalytic residues,
+ranked within a
+class by quality,
+catalytic-residue
+count and
+resolution;
+packing-matched,
+count-gated
+controls \\
+Pilot set & 53
+enzymes (35
+peptidases, 34 with
+a ligand), 52 added
+to the 143 & active
+sites from UniProt
+\cite{uniprot2023}
+and M-CSA; one
+enzyme shares PDB
+entry 1LJL with a
+main enzyme and is
+counted once;
+controls matched on
+residue type and
+burial only \\
+\textbf{Structure-space
+evaluation set} &
+\textbf{195 enzymes}
+(143 + 52) & the 29
+structure-space
+main-set metrics;
+the main set alone
+is kept beside the
+pooled score (Table
+S29) \\
+\textbf{Prediction-based
+evaluation set} &
+\textbf{59 natural
+enzymes, 286
+catalytic/control
+pairs} & the natural
+arm of the
+re-predicted ladder
+(the 59 natural
+enzymes of 2.2, 28
+of which are in the
+143); the two
+reference rows pLDDT
+and pTM are scored
+on the same pairs \\
+Excluded from
+pooling & 30 de novo
+designs; 15 designed
+systems of the
+ladder (74 systems,
+312 pairs with the
+59 natural ones) &
+the control of a
+design is
+constructed, so
+designs are not
+pooled (Tables S30
+and S31) \\
+Shortened-motif set
+& the 143 enzymes
+with at most 3
+catalytic residues
+kept & a sensitivity
+analysis of the
+specificity ratio
+(S32) \\
+\end{longtable}
+
+\textbf{Why this
+dataset.} A lesion
+at a catalytic
+residue is
+meaningful only for
+enzymes whose
+catalytic residues
+are curated, and
+M-CSA is the curated
+source. The
+143-enzyme set was
+expanded from the
+53-enzyme pilot for
+EC balance and not
+for N: the pilot was
+66\% peptidase, and
+with a flat result
+more systems buy
+precision on zero
+while broader
+coverage buys
+generality. The
+chemistry ladder
+isolates chemical
+identity at
+near-constant
+geometry, and its
+isosteric step is
+the hardest
+synthetic negative;
+the matched control,
+which is mandatory
+at every level,
+tests whether a
+metric knows that
+the lesion is at the
+catalytic site and
+not merely that a
+buried residue was
+changed. The pilot
+enzymes are pooled
+because the
+evaluation of a
+ranking needs as
+many enzymes as
+possible in each
+test; the effect of
+pooling is reported
+(adding the 52 pilot
+enzymes changes the
+mean R of a metric
+by at most 0.06,
+median 0.02, Table
+S29). The
+prediction-based arm
+uses the natural
+enzymes of the
+substrate-swap set,
+which have a cognate
+ligand, because the
+interface metrics
+are undefined
+without one.
+
+\textbf{Metrics
+scored.} The 29
+structure-space
+metrics (Box 2) are
+computed on every
+structure. The four
+prediction-based
+main-set metrics
+(Box 2, defined in
+2.2) are computed on
+each re-predicted
+complex. The seed
+noise of the ladder
+is estimated from a
+replicate with a
+second seed on 30
+natural pairs (Table
+S33). The 35 ranked
+items of Table 8 are
+the 29
+structure-space and
+4 prediction-based
+main-set metrics and
+the 2 reference rows
+(pLDDT, pTM); the 8
+supplementary
+comparators and the
+per-step flags are
+in Table S29.
+
+\textbf{Ranking
+criteria.} The
+\textbf{rank
+statistic R} is the
+probability form of
+the comparison
+between the two
+arms. It is the
+quantity that a
+shortlist depends
+on, because
+pipelines rank
+candidates and do
+not use magnitudes;
+Results 3.4 uses it
+to rank the metrics
+for each lesion. For
+an item \(m\), a
+step \(s\) and the
+\(n_s\) enzymes that
+carry both arms and
+in which at least
+one arm moves,
+
+\begin{equation*}R_{m,s} \;=\; \frac{1}{n_s}\sum_{i=1}^{n_s}\Big[\mathbf{1}\big(\lvert\Delta^{\mathrm{cat}}_{i}\rvert > \lvert\Delta^{\mathrm{ctl}}_{i}\rvert\big) + \tfrac{1}{2}\,\mathbf{1}\big(\lvert\Delta^{\mathrm{cat}}_{i}\rvert = \lvert\Delta^{\mathrm{ctl}}_{i}\rvert\big)\Big] \tag{19}\end{equation*}
+
+(an enzyme in which
+both changes are
+exactly zero carries
+no ranking
+information and is
+dropped; a step
+needs at least five
+enzymes).
+\(R = 0.5\) means no
+specificity,
+\(R > 0.5\) that the
+item moves more at
+the catalytic
+lesion, \(R < 0.5\)
+that it moves more
+at the control;
+unlike a
+direction-free
+AUROC, it has a
+floor of 0 and not
+of 0.5.
+
+\emph{Which steps
+count.} Where the
+control arm does not
+move beyond the
+item's own noise,
+\(R\) measures
+whether the item
+moves at all and not
+whether it is
+specific, and where
+the catalytic
+response is not
+distinguishable from
+zero there is
+nothing to rank. A
+structure-space step
+therefore enters the
+set \(S_m\) of
+counted steps only
+if the item responds
+at that step (the
+interval of its
+median change
+excludes zero) and
+its control response
+is above its noise,
+as established on
+the 143 main
+enzymes. The
+prediction-based
+cells carry no such
+flag, because the
+control response of
+the predictor is
+noise-limited and is
+read through the
+distance-matched
+subset instead; they
+all count. The score
+of an item is the
+mean over the
+counted steps,
+
+\begin{equation*}\bar R_m \;=\; \frac{1}{\lvert S_m\rvert}\sum_{s \in S_m} R_{m,s} , \tag{20}\end{equation*}
+
+and an item with no
+counted step has no
+mean. The number of
+steps counted for
+each item,
+\(\lvert S_m\rvert\)
+out of the steps
+with a value, is in
+Table S29.
+
+\emph{Interval.} A
+95\% percentile
+bootstrap interval
+of \(\bar R_m\) (Eq.
+3 with \(\bar R_m\)
+in place of
+\(A^{*}\); 5,000
+draws) that
+resamples enzyme
+sub-subclasses, the
+first three EC
+fields, a stated
+proxy for
+superfamily, and for
+the predictor the
+systems; the same
+drawn clusters serve
+every step of an
+item.
+
+\emph{Chance
+reference.} As in
+2.1, the top of a
+ranking of \(M\)
+items looks good by
+chance. The labels
+catalytic and
+control are swapped
+at random within
+each enzyme
+(\(s_i^{(r)} \sim \mathrm{Bernoulli}(1/2)\),
+\(N_{\mathrm{perm}} = 5{,}000\)
+replicates, the same
+swaps for every
+item),
+\(\bar R^{(r)}_m\)
+is recomputed for
+every ranked item,
+and
+\(T^{(r)} = \max_m \bar R^{(r)}_m\)
+(Eq. 4) has the
+distribution of the
+best score of \(M\)
+unrelated items; its
+median and 95th
+percentile are the
+\textbf{best-of-33
+threshold}
+(\(M = 33\) items
+that have a counted
+step; median 0.57,
+95th percentile
+0.62), a reference
+level for reading
+the ranking
+\cite{westfall1993}.
+A mean above it is
+in bold in Table 8.
+
+\emph{Onsets and
+grouping.} The
+metrics are also
+differentiated by
+the lesion they can
+detect. The steps
+are ordered
+isosteric
+\textless{}
+non-isosteric
+\textless{} Ala
+\textless{} Gly
+(15.3, 36.4, 53.2
+and 80.5 Å³). The
+\textbf{onset of
+detection} is the
+smallest step at
+which the item
+responds (Eq. 18;
+for the
+structure-space
+metrics the response
+analysis of the 143
+main enzymes, 2,000
+draws, seed
+20260807; for the
+prediction-based
+metrics the signed
+changes of the
+natural pairs,
+bootstrap over
+systems),
+
+\begin{equation*}s_{\mathrm{det}}(m) \;=\; \min\{\,s : m \text{ responds at } s\,\}, \tag{21}\end{equation*}
+
+with ``Never'' if
+there is none. Rows
+of Table 8 are
+grouped by
+\(s_{\mathrm{det}}\)
+(the first column),
+ranked by
+\(\bar R_m\) within
+each group, and a
+metric with no
+counted step closes
+its group. The
+\textbf{onset of
+specificity} is the
+smallest step at
+which the item is
+specific under the
+specificity-ratio
+rule
+(structure-space
+metrics only;
+reported in Table
+S29); the ratio and
+the rule are
+
+\begin{equation*}\mathrm{SR}_{m,s} \;=\; \frac{\operatorname{median}_i \lvert\Delta^{\mathrm{cat}}_{i}\rvert}{\operatorname{median}_i \lvert\Delta^{\mathrm{ctl}}_{i}\rvert}, \tag{22}\end{equation*}
+
+and an item is
+called
+\textbf{specific}
+only when all five
+conditions hold: (1)
+the catalytic
+response is
+significant; (2) the
+interval of SR
+excludes 1; (3) the
+control arm
+contributes at least
+half as many
+observations as the
+catalytic arm; (4)
+the control response
+exceeds 1\% of the
+item's own native
+standard deviation,
+because a ratio
+whose denominator is
+below the item's
+noise is not
+specificity; (5)
+both arms changed
+equal numbers of
+residues (2,000
+draws, seed
+20260807; counts are
+given as distinct
+metrics, with
+literal duplicates
+collapsed). The
+specificity ratio,
+its interval and the
+verdict (specific,
+non-specific, blind
+or invariant) of
+every eligible
+metric at every step
+are in Table S34,
+and those of the
+whole-protein and
+sequence-only
+comparators in Table
+S35; the 97 cells
+that survive the
+controls are listed
+in Table S36; and
+the per-step form of
+R on the 143 main
+enzymes alone, with
+90\% intervals and
+the comparators, is
+in Table S37.
+
+\emph{Distance-matched
+R for the
+predictor.}
+Catalytic residues
+touch the ligand by
+definition, so an
+interface item would
+respond more to a
+catalytic
+substitution than to
+a distant control
+even if it knew
+nothing about
+catalysis. The
+following plan was
+fixed before any
+distance was
+computed. For every
+pair the minimum
+distance
+\(d_{\mathrm{lig}}\)
+from the substituted
+side chain to the
+ligand is measured,
+and \(R\) of Eq.
+(19) is also
+computed on the
+\textbf{caliper-matched
+subset}: pairs with
+the same residue
+types, the control
+not adjacent to a
+catalytic residue,
+and
+
+\begin{equation*}\big\lvert d^{\mathrm{cat}}_{\mathrm{lig}} - d^{\mathrm{ctl}}_{\mathrm{lig}}\big\rvert \le 2\ \text{Å}, \qquad \big\lvert \mathrm{relSASA}^{\mathrm{cat}} - \mathrm{relSASA}^{\mathrm{ctl}}\big\rvert \le 0.10, \tag{23}\end{equation*}
+
+extended by 54 pairs
+given a new
+in-caliper control
+(53 new predictions)
+wherever one
+existed, pooled over
+the four steps (68
+to 69 pairs in 21 to
+22 systems in Table
+8). For the original
+control the median
+distance to the
+ligand was 13.4 Å
+against 3.1 Å for
+the catalytic
+residue. The
+distance of the
+substituted and the
+control residue to
+the ligand for every
+pair is in Table
+S38, the candidate
+controls for the
+pairs that had none
+in the caliper, and
+why one was or was
+not selected, in
+Table S39, and the
+ratio in thirds of
+the distance to the
+ligand in Table S40.
+
+\emph{The
+specificity-ratio
+analysis of the
+predictor (Table
+S31).} The earlier
+analysis reports the
+ratio of the mean
+change at the
+catalytic residue to
+the mean change at
+the control (a
+median-based form is
+also given), with a
+bootstrap over
+systems (5,000
+draws, seed
+20260806), under
+three successively
+stricter controls:
+(i) the original
+control, on the
+isosteric step only;
+(ii) the
+caliper-matched
+subset of Eq. (23),
+with all four steps
+pooled (Table S41);
+(iii) a regression
+adjustment on all
+pairs and steps
+(Table S42),
+
+\begin{equation*}\mathrm{SR} = \frac{\overline{\lvert\Delta\rvert}_{\mathrm{cat}}}{\overline{\lvert\Delta\rvert}_{\mathrm{ctl}}}, \qquad \log\big(\lvert\Delta\rvert + \varepsilon\big) = \beta_0 + \beta_{\mathrm{arm}}\,\mathbf{1}(\text{catalytic}) + \beta_d\, d_{\mathrm{lig}} + \beta_s\, \mathrm{relSASA} + \text{error}, \tag{24}\end{equation*}
+
+where
+\(\varepsilon\) is a
+small
+metric-specific
+constant that keeps
+zero changes finite
+and the adjusted
+ratio is
+\(\exp(\beta_{\mathrm{arm}})\),
+with a bootstrap
+over systems. The
+\textbf{decision
+rule for the
+predictor} was fixed
+before the analysis:
+an interface item
+counts as specific
+only if the lower
+90\% bound of its
+mean-based SR in the
+matched subset
+exceeds 1.2, with at
+least 30 pairs in at
+least 15 systems;
+the active-site
+accuracy is reported
+as knock-on
+displacement with no
+specificity verdict,
+because the
+substituted residue
+is excluded from its
+own comparison. The
+whole
+structure-space
+panel is summarised
+in the Supplement by
+the geometric-mean
+SR over the metrics
+with a defined
+ratio, with a nested
+bootstrap (3,000
+draws) that
+recomputes every
+metric inside each
+draw, so that
+correlation between
+metrics is carried
+through; equivalence
+to 1 is judged
+against a ±25\% band
+(S43). The
+re-predicted ladder
+at each step, for
+all metrics, natural
+and de novo, is in
+Table S44.
+
+\textbf{Limits.}
+
+\begin{itemize}
+\tightlist
+\item
+  The
+  structure-space
+  match is on
+  burial, packing
+  and local
+  environment, not
+  on distance to the
+  catalytic site;
+  its quality is
+  reported in Tables
+  S27 and S28.
+\item
+  The effective
+  number of
+  independent
+  metrics is smaller
+  than the count
+  (participation
+  ratio 7.9 for the
+  metrics' native
+  values and 10.5
+  for their
+  isosteric
+  responses, out of
+  29; Table S45).
+\item
+  Two supplementary
+  designs show how
+  far the
+  structure-space
+  result depends on
+  the control: the
+  same experiment
+  without packing
+  matching and
+  arm-count gating,
+  and the 30 de novo
+  designs with a
+  constructed
+  control (Table
+  S32; the burial of
+  the constructed
+  control is
+  compared with that
+  of the catalytic
+  residues in Table
+  S46).
+\item
+  The pilot enzymes
+  pooled here have
+  controls matched
+  on residue type
+  and burial only;
+  the score of the
+  main set alone is
+  in Table S29.
+\item
+  Experiments that
+  could not be made
+  are listed in
+  Table S47: a
+  deformation
+  experiment (most
+  apparent specific
+  cells tracked the
+  clash burden
+  present before
+  repacking),
+  oxyanion-hole
+  removal (the step
+  that had been run
+  located no bound
+  ligand in any of
+  the 143 structures
+  and removed a
+  proxy residue
+  instead, so it did
+  not test the named
+  change) and metal
+  removal (no cell
+  could be scored on
+  any metric). The
+  PLACER ensemble
+  metrics on the
+  isosteric step are
+  not interpretable,
+  because the
+  control arm is
+  covered less than
+  the catalytic arm,
+  and are in Table
+  S48.
+\item
+  Ladder: one seed
+  per prediction (a
+  replicate with a
+  second seed on 30
+  natural pairs
+  estimates the seed
+  noise); the
+  distance-matched
+  subset is a
+  subpopulation,
+  because 213 of 312
+  pairs have no
+  in-caliper
+  candidate anywhere
+  in their protein.
+\end{itemize}
+
+\subsubsection{2.4.2
+Detecting second
+shell lesion →
+Results 3.4.2}
+
+\textbf{Dataset.}
+The 143 main enzymes
+of 2.4.1 pooled with
+the 52 pilot enzymes
+that are not in the
+main set, with a
+control arm for up
+to 193 of them;
+structure-space
+metrics are scored
+on this lesion. The
+number of enzymes in
+which an item moves
+at all, and so
+carries information,
+ranges from 0 to 182
+per item and dose.
+
+\textbf{Why this
+dataset.} The
+second-shell lesion
+asks whether the
+metrics see past the
+first shell:
+second-shell
+residues around the
+catalytic residues
+are removed in
+graded doses of 1, 2
+and 4 residues, and
+the control removes
+the same number of
+residues around a
+matched
+non-catalytic site.
+The same enzymes as
+the catalytic lesion
+are used, so that
+the two lesions can
+be read on one panel
+and one population,
+and the same pooling
+applies.
+
+\textbf{Metrics
+scored.} The 29
+structure-space
+main-set metrics,
+scored over the
+catalytic residues
+in both arms (so
+that a site-scoped
+item never knows
+which residues are
+catalytic). The 8
+supplementary
+comparators and the
+per-dose flags are
+in Table S49.
+
+\textbf{Ranking
+criteria.} The doses
+are
+\(d \in \{1, 2, 4\}\)
+residues removed in
+place of the steps
+of Eq. (19), and the
+rank statistic is
+
+\begin{equation*}R_{m,d} \;=\; \frac{1}{n_d}\sum_{i=1}^{n_d}\Big[\mathbf{1}\big(\lvert\Delta^{\mathrm{cat}}_{i}\rvert > \lvert\Delta^{\mathrm{ctl}}_{i}\rvert\big) + \tfrac{1}{2}\,\mathbf{1}\big(\lvert\Delta^{\mathrm{cat}}_{i}\rvert = \lvert\Delta^{\mathrm{ctl}}_{i}\rvert\big)\Big], \qquad \bar R_m = \frac{1}{3}\sum_{d} R_{m,d} . \tag{25}\end{equation*}
+
+with the same
+bootstrap over
+enzyme
+sub-subclasses, the
+same onset of
+detection (Eq. 21,
+over doses) and the
+same grouping as for
+the catalytic
+lesion. The doses
+with a response and
+with a control
+response above the
+item's noise are
+counted for each
+item, and a dose
+enters a counted set
+only where both
+hold, as in 2.4.1;
+here no cell
+qualifies for any
+item, so the ranking
+uses the raw
+\(R_{m,d}\) of every
+dose with at least
+five informative
+enzymes, raw values
+are reported, and no
+best-of-\(M\)
+threshold is used.
+Table 9 ranks the
+items within each
+detection group by
+raw \(\bar R_m\) and
+gives, for each
+item, the number of
+doses (of 3) at
+which it responds
+and at which the
+control response is
+above its noise.
+
+\textbf{Limits.}
+
+\begin{itemize}
+\tightlist
+\item
+  Because both arms
+  are scored over
+  the catalytic
+  residues, removing
+  second-shell
+  residues around
+  those residues
+  moves a
+  catalytic-scoped
+  item more than
+  removing residues
+  elsewhere whatever
+  the item knows
+  about catalysis; a
+  high raw R on this
+  test measures
+  location.
+\item
+  No item responds
+  with a control
+  response above its
+  noise at any dose,
+  so no rank on this
+  test is
+  interpretable
+  (Table 9 carries
+  no reference
+  level).
+\item
+  The pilot enzymes
+  pooled here have
+  controls matched
+  on residue type
+  and burial only.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Provenance
+and data
+availability.} Every
+number in this paper
+is read from a table
+generated by script
+from committed
+result files, with
+seeds and input
+hashes recorded.
+Each experiment's
+analysis plan was
+committed and dated
+before the analysis
+it governs, and
+amendments are
+listed with the date
+they were made. The
+Supplement gives,
+for every metric and
+every experiment,
+whether the metric
+was applicable and
+why; the full
+per-metric tables
+behind Tables 3--9;
+and the experiments
+that could not be
+made. All tables are
+released as CSV
+files (main-text
+tables in
+\texttt{main/},
+supplementary tables
+in
+\texttt{supplementary/});
+the Supplementary
+PDF describes every
+table and gives the
+path of its file.
+Structures and
+predictor weights
+are third-party and
+are not
+redistributed; their
+hashes are. BglB
+variant-level data
+are not
+redistributed
+because their
+licence is unstated;
+only aggregates are
+reported.
+
+\section{3 Results}
+
+Each subsection
+follows one order:
+the experiment, the
+dataset, the
+criteria by which
+the metrics are
+ranked, and the
+result table. Counts
+of metrics are of
+distinct metrics in
+the main set of 33
+(29 structure-space,
+4 prediction-based;
+Box 2 of the
+Methods), and
+intervals are 95\%
+bootstrap intervals
+that resample the
+unit named in each
+subsection, unless
+stated otherwise.
+Numbers in square
+brackets are
+references, listed
+in the References.
+Complete per-metric
+tables and further
+analyses are in the
+supplementary tables
+(S numbers), which
+are described in the
+Supplementary PDF
+and released as CSV
+files
+(\texttt{main/} and
+\texttt{supplementary/}).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3.1
+Activity
+discrimination test}
+
+\textbf{Experiment.}
+Metrics are scored
+on real proteins in
+which one state is
+catalytically dead
+and the other
+active, and each
+metric is ranked by
+how well its value
+separates the two
+states (Methods
+2.1). Two datasets
+are used, each with
+its own table.
+
+\subsubsection{3.1.1
+Discriminate natural
+active and dead
+enzymes}
+
+\textbf{Dataset.} 21
+zymogen--mature
+pairs from 21
+peptidases (9
+serine, 8 cysteine,
+4 aspartic),
+downloaded from the
+RCSB Protein Data
+Bank
+\cite{burley2025,berman2000}.
+The zymogen is the
+dead form and the
+mature enzyme the
+active form, and the
+two forms share a
+ligand. Catalytic
+residues come from
+M-CSA
+\cite{ribeiro2018}
+and UniProt
+\cite{uniprot2023}
+annotation;
+prediction-based
+quantities are
+Chai-1
+\cite{chai2024}
+predictions of both
+forms with the
+shared ligand. Every
+item is scored on
+all 21 pairs
+(Methods 2.1.1).
+
+\textbf{Ranking
+criteria.} The 33
+main-set metrics and
+6 reference rows are
+ranked by the
+direction-free AUROC
+\cite{hanley1982,mann1947}
+of dead against
+active (0.5 = no
+separation), with a
+95\% bootstrap
+interval that
+resamples pairs.
+``Higher in'' is the
+form in which the
+metric takes larger
+values. An AUROC in
+bold exceeds the
+best-of-39 threshold
+\cite{westfall1993},
+the 95th percentile
+of the best AUROC
+among 39 unrelated
+items under random
+label swaps within
+pairs (median 0.63,
+95th percentile
+0.68).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0709}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2992}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1890}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1260}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2047}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1102}}@{}}
+\caption*{\textbf{Table
+3. Separation of
+real dead from
+active enzymes on
+the 21-pair
+evaluation set (top
+30 of 39 ranked
+items).} The 39
+items are the 33
+main-set metrics and
+the 6 reference rows
+(italic), ranked by
+the direction-free
+AUROC of dead
+against active
+(floor 0.5) over 21
+pairs from 21
+proteins; every row
+has n = 21 pairs.
+Intervals are 95\%
+bootstrap intervals
+that resample pairs.
+``Higher in'' is the
+form in which the
+metric takes larger
+values. An AUROC in
+bold exceeds the
+best-of-39
+threshold, the 95th
+percentile of the
+best AUROC among 39
+unrelated metrics in
+label-swap
+simulations (median
+0.63, 95th
+percentile 0.68;
+defined in the
+Methods; a reference
+level for reading
+the ranking). The
+nine lowest-ranked
+items (AUROC 0.50 to
+0.52) and all 158
+metrics scored on
+these pairs are in
+Table S12. Source:
+main/T3\_dead\_vs\_active.csv.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+AUROC {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher in
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+AUROC {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher in
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & \emph{pLDDT}
+\cite{jumper2021} &
+Reference row &
+prediction &
+\textbf{0.79
+{[}0.68, 0.90{]}} &
+active \\
+2 & \emph{pTM}
+\cite{jumper2021} &
+Reference row &
+prediction &
+\textbf{0.75
+{[}0.62, 0.87{]}} &
+active \\
+3 & Intra-residue
+repulsion (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.61
+{[}0.52, 0.72{]} &
+dead \\
+4 & Repulsion
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.60
+{[}0.51, 0.72{]} &
+dead \\
+5 &
+\emph{Crystallographic
+resolution} &
+Reference row &
+structure & 0.58
+{[}0.50, 0.72{]} &
+dead \\
+6 & Fraction buried
+& Geometry &
+structure & 0.57
+{[}0.50, 0.69{]} &
+dead \\
+7 & Attraction
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.56
+{[}0.51, 0.64{]} &
+active \\
+8 & lk-ball
+solvation (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.56
+{[}0.50, 0.66{]} &
+dead \\
+9 & Ramachandran
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.56
+{[}0.51, 0.63{]} &
+dead \\
+10 & \emph{Sequence
+length} & Reference
+row & structure &
+0.56 {[}0.50,
+0.65{]} & dead \\
+11 & Relative SASA,
+mean & Geometry &
+structure & 0.55
+{[}0.50, 0.66{]} &
+active \\
+12 & Total SASA &
+Geometry & structure
+& 0.55 {[}0.50,
+0.67{]} & active \\
+13 & Rotamer,
+Dunbrack (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.55
+{[}0.50, 0.66{]} &
+dead \\
+14 & Pairwise
+distance, max &
+Geometry & structure
+& 0.54 {[}0.50,
+0.64{]} & dead \\
+15 & ipTM (Chai-1)
+\cite{chai2024,evans2021}
+& Interface
+confidence &
+prediction & 0.54
+{[}0.50, 0.61{]} &
+active \\
+16 & pKa, range
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+0.54 {[}0.50,
+0.69{]} & dead \\
+17 & Polar contacts
+& Geometry &
+structure & 0.54
+{[}0.50, 0.59{]} &
+dead \\
+18 & Ligand
+clearance
+\cite{ahern2026} &
+Active-site accuracy
+& prediction & 0.54
+{[}0.50, 0.65{]} &
+dead \\
+19 & Net van der
+Waals (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.54
+{[}0.50, 0.61{]} &
+active \\
+20 & Relative SASA,
+max & Geometry &
+structure & 0.53
+{[}0.50, 0.65{]} &
+active \\
+21 & Radius of
+gyration & Geometry
+& structure & 0.53
+{[}0.50, 0.64{]} &
+dead \\
+22 & AME RMSD
+\cite{ahern2026} &
+Active-site accuracy
+& prediction & 0.53
+{[}0.50, 0.66{]} &
+active \\
+23 & Pairwise
+distance, mean &
+Geometry & structure
+& 0.53 {[}0.50,
+0.64{]} & dead \\
+24 & Solvation
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.53
+{[}0.50, 0.60{]} &
+dead \\
+25 & Omega torsion
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.53
+{[}0.50, 0.63{]} &
+dead \\
+26 & pKa, min
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+0.52 {[}0.50,
+0.65{]} & active \\
+27 & Amino-acid
+propensity (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.52
+{[}0.50, 0.59{]} &
+active \\
+28 & Electrostatics
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.52
+{[}0.50, 0.58{]} &
+active \\
+29 & pKa, max
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+0.52 {[}0.50,
+0.67{]} & dead \\
+30 & H-bond,
+backbone to side
+chain (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.52
+{[}0.50, 0.58{]} &
+dead \\
+\end{longtable}
+
+\textbf{More
+detail.} Every
+metric scored on the
+21 pairs, 158 in
+all, with the
+best-of-158
+threshold: Table
+S12. The wider set
+of 49 pairs (136
+metrics) with the
+AUROC against the
+same-state null:
+Table S8. The
+definitions of the
+six pair sets and
+where each is used:
+Table S10. The 28
+pairs re-predicted
+with Chai-1,
+restated with the
+definedness gate:
+Table S9. The check
+of the
+substrate-trapping
+mutants against the
+literature (26 of 30
+not confirmed dead),
+a tier that was
+retired: Table S11.
+The reference rows
+in full, with
+intervals: Table
+S13.
+
+\subsubsection{3.1.2
+Discriminate de novo
+designed active and
+no active enzymes}
+
+\textbf{Dataset.}
+192 designs from a
+deposited
+metallohydrolase
+design campaign
+\cite{kim2026}: 16
+have a reported
+kcat/KM
+(\emph{active}) and
+176 are \emph{no
+active}. The
+comparison is active
+against no active
+designs. The designs
+lie in 136 backbone
+clusters, the 16
+active designs in 8
+of them (10 of the
+16 in two clusters).
+Structure-space
+metrics are computed
+on the designs as
+deposited and
+prediction-based
+quantities on Chai-1
+\cite{chai2024}
+predictions with the
+design's
+transition-state-analogue
+ligand and zinc.
+Every item is scored
+on all 192 designs
+(Methods 2.1.2).
+
+\textbf{Ranking
+criteria.} The 36
+items are 29
+structure-space and
+2 prediction-based
+main-set metrics and
+5 reference rows
+(tyrosine fraction,
+net charge, sequence
+length, pLDDT, pTM).
+They are ranked by
+the direction-free
+AUROC
+\cite{hanley1982,mann1947}
+of active against no
+active designs (0.5
+= no separation),
+with a 95\%
+bootstrap interval
+that resamples the
+136 backbone
+clusters
+\cite{field2007}.
+``Higher in'' is the
+group in which the
+metric takes larger
+values. An AUROC in
+bold exceeds the
+best-of-36 threshold
+\cite{westfall1993},
+the 95th percentile
+of the best AUROC
+among 36 items when
+the activity labels
+are permuted among
+designs (median
+0.66, 95th
+percentile 0.73);
+the permutation
+treats designs as
+exchangeable, which
+understates the
+chance range when
+the actives are
+clumped in few
+clusters. AME is
+measured on the
+plates against each
+design's own model
+(a different metric
+from AME against a
+deposited structure)
+and is given in
+Table S14.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0709}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2598}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1732}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1181}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1969}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1811}}@{}}
+\caption*{\textbf{Table
+4. Separation of
+active from no
+active designs on
+the 192-design
+evaluation set (top
+30 of 36 ranked
+items).} The 36
+items are 29
+structure-space and
+2 prediction-based
+main-set metrics and
+5 reference rows
+(italic), ranked by
+the direction-free
+AUROC (floor 0.5) of
+the 16 active
+designs against the
+176 no active
+designs; every row
+has n = 192 designs
+(16 active).
+Intervals are 95\%
+bootstrap intervals
+that resample the
+136 backbone
+clusters. ``Higher
+in'' is the group in
+which the metric
+takes larger values:
+``active'' (the 16
+designs with a
+reported kcat/KM) or
+``no active'' (the
+other 176 designs).
+An AUROC in bold
+exceeds the
+best-of-36
+threshold, the 95th
+percentile of the
+best AUROC among 36
+unrelated items when
+the activity labels
+are permuted among
+designs (median
+0.66, 95th
+percentile 0.73; a
+reference level for
+reading the
+ranking). Items 31
+to 36 and all 128
+metrics scored on
+the designs are in
+Table S14. Source:
+main/T4\_plated\_designs\_auroc.csv.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+AUROC {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher in
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+AUROC {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher in
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Intra-residue
+repulsion (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.80
+{[}0.64, 0.89{]}} &
+no active \\
+2 & Repulsion
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.78
+{[}0.57, 0.92{]}} &
+no active \\
+3 & \emph{Tyrosine
+fraction} &
+Reference row &
+structure &
+\textbf{0.75
+{[}0.55, 0.86{]}} &
+active \\
+4 & \emph{pLDDT}
+\cite{jumper2021} &
+Reference row &
+prediction & 0.73
+{[}0.53, 0.86{]} &
+active \\
+5 & \emph{pTM}
+\cite{jumper2021} &
+Reference row &
+prediction & 0.72
+{[}0.54, 0.85{]} &
+active \\
+6 & Site total
+(Rosetta)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.71
+{[}0.52, 0.82{]} &
+no active \\
+7 & Rotamer,
+Dunbrack (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.71
+{[}0.58, 0.88{]} &
+no active \\
+8 & Per-chain pTM
+minimum (Chai-1)
+\cite{chai2024,jumper2021}
+& Interface
+confidence &
+prediction & 0.70
+{[}0.54, 0.83{]} &
+active \\
+9 & ipTM (Chai-1)
+\cite{chai2024,evans2021}
+& Interface
+confidence &
+prediction & 0.70
+{[}0.52, 0.84{]} &
+active \\
+10 & \emph{Sequence
+length} & Reference
+row & structure &
+0.68 {[}0.51,
+0.86{]} & no
+active \\
+11 & Worst residue
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.68
+{[}0.52, 0.78{]} &
+no active \\
+12 & Attraction
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.67
+{[}0.57, 0.82{]} &
+active \\
+13 & lk-ball
+solvation (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.66
+{[}0.54, 0.82{]} &
+active \\
+14 & Total SASA &
+Geometry & structure
+& 0.65 {[}0.54,
+0.89{]} & active \\
+15 & Relative SASA,
+mean & Geometry &
+structure & 0.65
+{[}0.53, 0.89{]} &
+active \\
+16 & Electrostatics
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.64
+{[}0.51, 0.79{]} &
+no active \\
+17 & Pairwise
+distance, max &
+Geometry & structure
+& 0.64 {[}0.51,
+0.77{]} & active \\
+18 & Relative SASA,
+max & Geometry &
+structure & 0.62
+{[}0.52, 0.84{]} &
+active \\
+19 & Pairwise
+distance, mean &
+Geometry & structure
+& 0.61 {[}0.51,
+0.77{]} & active \\
+20 & Radius of
+gyration & Geometry
+& structure & 0.61
+{[}0.51, 0.77{]} &
+active \\
+21 & H-bond, side
+chain (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.61
+{[}0.51, 0.73{]} &
+no active \\
+22 & Solvation
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.60
+{[}0.51, 0.71{]} &
+no active \\
+23 & Amino-acid
+propensity (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.60
+{[}0.51, 0.73{]} &
+active \\
+24 & Polar contacts
+& Geometry &
+structure & 0.59
+{[}0.50, 0.74{]} &
+active \\
+25 & Omega torsion
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.58
+{[}0.50, 0.81{]} &
+active \\
+26 & \emph{Net
+charge} & Reference
+row & structure &
+0.56 {[}0.51,
+0.83{]} & active \\
+27 & pKa, max
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+0.56 {[}0.50,
+0.78{]} & no
+active \\
+28 & pKa, range
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+0.55 {[}0.50,
+0.77{]} & no
+active \\
+29 & Net van der
+Waals (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.54
+{[}0.50, 0.80{]} &
+active \\
+30 & Fraction buried
+& Geometry &
+structure & 0.53
+{[}0.50, 0.70{]} &
+no active \\
+\end{longtable}
+
+\textbf{More
+detail.} Items 31 to
+36 and every other
+metric scored on the
+192 designs (128 in
+all), with the
+best-of-128
+threshold: Table
+S14. The reference
+rows in full: Table
+S13. The descriptive
+ranking of the
+metrics among the 16
+active designs is in
+3.3.2.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3.2
+Substrate
+discrimination test}
+
+\textbf{Experiment.}
+Each enzyme is
+predicted with
+Chai-1
+\cite{chai2024} in
+four conditions that
+differ only in the
+ligand supplied: its
+cognate ligand, a
+wrong ligand of the
+same enzyme class, a
+wrong ligand of a
+different class, and
+a decoy ligand taken
+from an unrelated
+structure. Each
+prediction-based
+quantity is ranked
+by how well it
+separates the
+cognate prediction
+from a wrong-ligand
+prediction of the
+same enzyme (Methods
+2.2).
+
+\textbf{Dataset.} 55
+natural enzymes of
+M-CSA
+\cite{ribeiro2018},
+of the 59 in the
+experiment: on
+these, every scored
+quantity has a
+defined value in all
+four conditions and
+every supplied
+ligand was present
+in the prediction
+(four enzymes are
+excluded because a
+heme-type ligand
+could not be built
+into a chemical
+structure and the
+predictor dropped
+it; the analysis on
+all 59 is in Table
+S1). One n, 55
+enzymes, applies to
+every row (Methods
+2.2).
+
+\textbf{Ranking
+criteria.} Chai-1
+returns five models
+per prediction, and
+each score is
+summarised over them
+as a mean, a maximum
+or a spread
+(standard deviation
+across models), and
+for the AME RMSD
+also as a minimum,
+so one metric
+appears in several
+rows. The 30 scored
+quantities are the
+four
+prediction-based
+main-set metrics
+(ipTM, per-chain pTM
+minimum, ligand
+clearance, AME
+RMSD),
+whole-prediction
+confidence scores
+(including the
+reference rows pLDDT
+and pTM), the AME
+pass bit and four
+bookkeeping
+counters. Each is
+ranked by the mean
+of three
+direction-free
+AUROCs
+\cite{hanley1982,mann1947},
+one per kind of
+wrong ligand (same
+class, different
+class, decoy), each
+with a 95\% interval
+that resamples
+enzymes. ``Higher
+in'' is the
+condition in which
+the quantity takes
+larger values. A
+mean in bold exceeds
+the best-of-30
+threshold
+\cite{westfall1993},
+the 95th percentile
+of the best AUROC
+among 30 quantities
+when the four ligand
+conditions are
+permuted within each
+enzyme (median 0.56,
+95th percentile
+0.61).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0573}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1656}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1019}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1529}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1274}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1274}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1274}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0573}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0828}}@{}}
+\caption*{\textbf{Table
+5. The substrate
+swap on the
+55-enzyme evaluation
+set, 30 scored
+prediction-based
+quantities ranked by
+AUROC.}
+Direction-free AUROC
+(floor 0.5) of the
+cognate prediction
+against a
+wrong-ligand
+prediction of the
+same enzyme, in
+three columns by
+kind of wrong
+ligand, with 95\%
+intervals that
+resample enzymes;
+the value of an
+enzyme in a
+condition is the
+mean over seeds 101,
+202 and 303. Rows
+are ranked by the
+mean of the three
+AUROCs; a mean in
+bold exceeds the
+best-of-30 threshold
+(median 0.56, 95th
+percentile 0.61;
+permutation of the
+four ligand
+conditions within
+each enzyme, defined
+in the Methods; a
+reference level for
+reading the
+ranking). Chai-1
+predicts five models
+for every
+prediction, and each
+score is summarised
+over them (mean,
+maximum, spread as
+the standard
+deviation across
+models, and for the
+AME RMSD also the
+minimum), so one
+metric appears in
+several rows, one
+per summary.
+Reference rows are
+in italic. Source:
+main/T5\_substrate\_swap.csv.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Quantity
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Summary over the
+five models
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Same class
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Different class
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Decoy
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mean
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher in
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Quantity
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Summary over the
+five models
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Same class
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Different class
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Decoy
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mean
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher in
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & ipTM
+\cite{chai2024,evans2021}
+& mean & Interface
+confidence (main
+set) & 0.69 {[}0.60,
+0.78{]} & 0.75
+{[}0.66, 0.84{]} &
+0.65 {[}0.55,
+0.76{]} &
+\textbf{0.70} &
+cognate \\
+2 & ipTM
+\cite{chai2024,evans2021}
+& maximum &
+Interface confidence
+(main set) & 0.68
+{[}0.59, 0.77{]} &
+0.74 {[}0.65,
+0.83{]} & 0.65
+{[}0.54, 0.74{]} &
+\textbf{0.69} &
+cognate \\
+3 & ipTM
+\cite{chai2024,evans2021}
+& spread (SD) &
+Interface confidence
+(main set) & 0.70
+{[}0.60, 0.79{]} &
+0.69 {[}0.60,
+0.77{]} & 0.67
+{[}0.59, 0.75{]} &
+\textbf{0.69} &
+wrong ligand \\
+4 & pTM
+\cite{jumper2021} &
+spread (SD) &
+Whole-prediction
+confidence & 0.62
+{[}0.55, 0.70{]} &
+0.64 {[}0.58,
+0.71{]} & 0.64
+{[}0.57, 0.71{]} &
+\textbf{0.64} &
+wrong ligand \\
+5 & Ligand clearance
+\cite{ahern2026} &
+best model &
+Active-site accuracy
+(main set) & 0.61
+{[}0.52, 0.69{]} &
+0.65 {[}0.57,
+0.74{]} & 0.62
+{[}0.53, 0.71{]} &
+\textbf{0.63} &
+wrong ligand \\
+6 & \emph{pTM}
+\cite{jumper2021} &
+mean & Reference row
+& 0.60 {[}0.56,
+0.66{]} & 0.63
+{[}0.58, 0.69{]} &
+0.64 {[}0.58,
+0.70{]} &
+\textbf{0.62} &
+cognate \\
+7 & pTM
+\cite{jumper2021} &
+maximum &
+Whole-prediction
+confidence & 0.60
+{[}0.56, 0.66{]} &
+0.63 {[}0.58,
+0.69{]} & 0.63
+{[}0.58, 0.70{]} &
+\textbf{0.62} &
+cognate \\
+8 & Per-chain pTM
+minimum
+\cite{chai2024,jumper2021}
+& spread (SD) &
+Interface confidence
+(main set) & 0.58
+{[}0.51, 0.68{]} &
+0.58 {[}0.51,
+0.68{]} & 0.69
+{[}0.59, 0.79{]} &
+\textbf{0.62} &
+wrong ligand \\
+9 & AME RMSD
+\cite{ahern2026} &
+spread (SD) &
+Active-site accuracy
+(main set) & 0.55
+{[}0.51, 0.60{]} &
+0.56 {[}0.51,
+0.62{]} & 0.57
+{[}0.52, 0.63{]} &
+0.56 & wrong
+ligand \\
+10 & Per-chain pTM
+minimum
+\cite{chai2024,jumper2021}
+& mean & Interface
+confidence (main
+set) & 0.58 {[}0.51,
+0.67{]} & 0.60
+{[}0.51, 0.71{]} &
+0.50 {[}0.50,
+0.62{]} & 0.56 &
+cognate \\
+11 & Per-chain pTM
+minimum
+\cite{chai2024,jumper2021}
+& maximum &
+Interface confidence
+(main set) & 0.58
+{[}0.51, 0.67{]} &
+0.59 {[}0.51,
+0.71{]} & 0.50
+{[}0.50, 0.62{]} &
+0.56 & cognate \\
+12 & AME RMSD
+\cite{ahern2026} &
+maximum &
+Active-site accuracy
+(main set) & 0.53
+{[}0.50, 0.57{]} &
+0.54 {[}0.51,
+0.58{]} & 0.54
+{[}0.51, 0.59{]} &
+0.54 & wrong
+ligand \\
+13 & AME RMSD
+\cite{ahern2026} &
+minimum &
+Active-site accuracy
+(main set) & 0.53
+{[}0.50, 0.56{]} &
+0.54 {[}0.51,
+0.57{]} & 0.52
+{[}0.50, 0.57{]} &
+0.53 & wrong
+ligand \\
+14 & AME RMSD, no
+symmetry resolution
+\cite{ahern2026} &
+minimum &
+Active-site accuracy
+(main set) & 0.52
+{[}0.50, 0.56{]} &
+0.54 {[}0.51,
+0.57{]} & 0.53
+{[}0.50, 0.57{]} &
+0.53 & wrong
+ligand \\
+15 & AME RMSD
+\cite{ahern2026} &
+mean & Active-site
+accuracy (main set)
+& 0.53 {[}0.50,
+0.56{]} & 0.53
+{[}0.51, 0.57{]} &
+0.52 {[}0.50,
+0.57{]} & 0.53 &
+wrong ligand \\
+16 & pLDDT
+\cite{jumper2021} &
+spread (SD) &
+Whole-prediction
+confidence & 0.51
+{[}0.50, 0.55{]} &
+0.52 {[}0.50,
+0.57{]} & 0.54
+{[}0.50, 0.60{]} &
+0.52 & mixed \\
+17 & Per-chain pTM
+of the protein
+\cite{chai2024,jumper2021}
+& mean &
+Whole-prediction
+confidence & 0.52
+{[}0.50, 0.54{]} &
+0.52 {[}0.50,
+0.54{]} & 0.53
+{[}0.51, 0.56{]} &
+0.52 & cognate \\
+18 & Per-chain pTM
+of the protein
+\cite{chai2024,jumper2021}
+& maximum &
+Whole-prediction
+confidence & 0.52
+{[}0.50, 0.54{]} &
+0.52 {[}0.50,
+0.55{]} & 0.53
+{[}0.51, 0.55{]} &
+0.52 & cognate \\
+19 & pLDDT
+\cite{jumper2021} &
+best model &
+Whole-prediction
+confidence & 0.52
+{[}0.50, 0.54{]} &
+0.53 {[}0.51,
+0.55{]} & 0.51
+{[}0.50, 0.54{]} &
+0.52 & cognate \\
+20 & \emph{pLDDT}
+\cite{jumper2021} &
+mean & Reference row
+& 0.52 {[}0.50,
+0.54{]} & 0.53
+{[}0.51, 0.55{]} &
+0.51 {[}0.50,
+0.54{]} & 0.52 &
+cognate \\
+21 & Per-chain pTM
+of the protein
+\cite{chai2024,jumper2021}
+& spread (SD) &
+Whole-prediction
+confidence & 0.50
+{[}0.50, 0.55{]} &
+0.52 {[}0.50,
+0.56{]} & 0.50
+{[}0.50, 0.55{]} &
+0.51 & wrong
+ligand \\
+22 & Symmetry swaps
+(count) & single
+value & Bookkeeping
+counter & 0.51
+{[}0.50, 0.54{]} &
+0.51 {[}0.50,
+0.53{]} & 0.50
+{[}0.50, 0.52{]} &
+0.51 & cognate \\
+23 & pLDDT
+\cite{jumper2021} &
+lowest residue &
+Whole-prediction
+confidence & 0.50
+{[}0.50, 0.52{]} &
+0.50 {[}0.50,
+0.53{]} & 0.50
+{[}0.50, 0.53{]} &
+0.50 & cognate \\
+24 & AME pass bit
+\cite{ahern2026} &
+single value &
+Active-site accuracy
+(pass bit) & 0.50
+{[}0.50, 0.50{]} &
+0.50 {[}0.50,
+0.53{]} & 0.50
+{[}0.50, 0.53{]} &
+0.50 & mixed \\
+25 & Backbone atoms
+aligned (count) &
+single value &
+Bookkeeping counter
+& 0.50 {[}0.50,
+0.50{]} & 0.50
+{[}0.50, 0.50{]} &
+0.50 {[}0.50,
+0.50{]} & 0.50 &
+mixed \\
+26 & Catalytic atoms
+(count) & single
+value & Bookkeeping
+counter & 0.50
+{[}0.50, 0.50{]} &
+0.50 {[}0.50,
+0.50{]} & 0.50
+{[}0.50, 0.50{]} &
+0.50 & mixed \\
+27 & Models
+predicted (count) &
+single value &
+Bookkeeping counter
+& 0.50 {[}0.50,
+0.50{]} & 0.50
+{[}0.50, 0.50{]} &
+0.50 {[}0.50,
+0.50{]} & 0.50 &
+mixed \\
+28 & Inter-chain
+clash flag
+\cite{chai2024} &
+maximum &
+Whole-prediction
+confidence & 0.50
+{[}0.50, 0.50{]} &
+0.50 {[}0.50,
+0.50{]} & 0.50
+{[}0.50, 0.50{]} &
+0.50 & mixed \\
+29 & Inter-chain
+clash flag
+\cite{chai2024} &
+mean &
+Whole-prediction
+confidence & 0.50
+{[}0.50, 0.50{]} &
+0.50 {[}0.50,
+0.50{]} & 0.50
+{[}0.50, 0.50{]} &
+0.50 & mixed \\
+30 & Inter-chain
+clash flag
+\cite{chai2024} &
+spread (SD) &
+Whole-prediction
+confidence & 0.50
+{[}0.50, 0.50{]} &
+0.50 {[}0.50,
+0.50{]} & 0.50
+{[}0.50, 0.50{]} &
+0.50 & mixed \\
+\end{longtable}
+
+\textbf{More
+detail.} The
+analysis on all 59
+natural enzymes
+(five-seed cognate
+mean) and on the 30
+de novo designs, for
+all 33 scored
+prediction-based
+quantities including
+the Chai-1 combined
+score, with the
+paired change in
+units of seed noise:
+Table S1. The same
+comparison
+stratified by the
+difference in ligand
+size and charge,
+with paired win
+fractions: Table
+S15. The drift of
+the current Chai-1
+engine against the
+earlier predictions
+on a re-run shard:
+Table S16.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3.3
+Activity ranking
+test}
+
+\textbf{Experiment.}
+Metrics are scored
+on real proteins
+whose activity was
+measured, and each
+metric is ranked by
+the rank correlation
+between its value
+and the measured
+activity (Methods
+2.3). Two datasets
+are used, each with
+its own table.
+
+\subsubsection{3.3.1
+Ranking natural
+enzyme activity}
+
+\textbf{Dataset.}
+BglB, a
+β-glucosidase from
+\emph{Paenibacillus
+polymyxa}, with
+single-point
+variants
+characterised by the
+D2DCure consortium
+\cite{carlin2016}
+(data retrieved from
+d2dcure.com on
+2026-08-06): 655
+variants at 207
+positions, of which
+the \textbf{432
+variants at 175
+positions that are
+folded (expressed
+and not
+destabilised) and
+have kinetics} are
+the evaluation set.
+The measured value
+is the
+\emph{impairment},
+the log10 of the
+loss of kcat/KM
+relative to the wild
+type (larger = more
+impaired). Each
+variant is built in
+the computer on the
+crystal structure of
+the wild type (RCSB
+PDB entry 2JIE
+\cite{burley2025,berman2000},
+which carries a
+covalent glucosyl
+intermediate) and
+structure-space
+metrics are computed
+over the two
+catalytic glutamates
+(Glu167 and Glu356,
+from the UniProt
+\cite{uniprot2023}
+active-site
+features) before and
+after the
+substitution;
+prediction-based
+metrics are computed
+on Chai-1
+\cite{chai2024}
+predictions of the
+variant with the
+assay substrate
+(pNPG) (Methods
+2.3.1).
+
+\textbf{Ranking
+criteria.} The 41
+items are the 28
+structure-space
+main-set metrics
+that BglB defines
+(the omega term does
+not change under a
+side-chain
+substitution on a
+fixed backbone), the
+4 prediction-based
+main-set metrics, 4
+reference rows
+(tyrosine fraction,
+net charge, pLDDT,
+pTM) and 5 baselines
+declared before any
+metric was joined to
+a label: the
+distance from the
+mutated residue to
+the nearest
+catalytic residue,
+the burial of the
+mutated residue, the
+BLOSUM62 score of
+the substitution,
+the change in
+side-chain volume
+and the Rosetta
+score that comes
+with the BglB data
+(248 of the 432
+variants). Each is
+ranked by the
+Spearman rank
+correlation ρ
+\cite{spearman1904}
+with the measured
+impairment, with a
+95\% bootstrap
+interval that
+resamples the 175
+positions
+\cite{field2007}.
+For a metric the
+score is the size of
+its change (the
+absolute difference
+between the variant
+and the
+unsubstituted
+protein), with the
+direction fixed in
+advance (larger in
+more impaired
+variants); for a
+baseline it is the
+baseline itself,
+pointed so that a
+larger value means
+more impaired. A ρ
+in bold exceeds the
+best-of-41 threshold
+\cite{westfall1993},
+the 95th percentile
+of the best ρ among
+41 items when the
+measured impairments
+are permuted among
+whole positions
+(median 0.24, 95th
+percentile 0.32).
+The last column says
+whether the item
+beats the distance
+baseline: the
+interval of the
+difference between
+its ρ and the
+baseline's, on the
+same bootstrap
+draws, lies above 0.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0714}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2937}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1825}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1190}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2063}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1270}}@{}}
+\caption*{\textbf{Table
+6. BglB variants:
+top 30 of 41 ranked
+items on the
+432-variant
+evaluation set.}
+Spearman rank
+correlation ρ
+between each item
+and the measured
+impairment of the
+432 variants, with a
+95\% interval that
+resamples the 175
+positions. For a
+metric the score is
+the size of its
+change, for a
+baseline its own
+score, with the
+direction fixed in
+advance (a larger
+change in more
+impaired variants);
+a negative ρ is
+reported as it is.
+The 41 items are the
+32 main-set metrics
+that BglB defines,
+four reference rows
+and five declared
+baselines; reference
+rows and baselines
+are in italic. A
+value in bold
+exceeds the
+best-of-41 threshold
+(median 0.24, 95th
+percentile 0.32;
+permutation of the
+measured impairments
+among whole
+positions; a
+reference level for
+reading the
+ranking).
+Structure-space rows
+have 431 variants
+with a value,
+prediction-based
+rows 432 and the
+Rosetta score of the
+BglB data 248. Items
+31 to 41, and all
+114 quantities
+analysed, are in
+Table S17. Source:
+main/T6\_bglb\_variants.csv.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Spearman ρ {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Beats the distance
+baseline
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Spearman ρ {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Beats the distance
+baseline
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & pKa, range
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+\textbf{0.48
+{[}0.35, 0.59{]}} &
+no \\
+2 & pKa, min
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+\textbf{0.46
+{[}0.32, 0.57{]}} &
+no \\
+3 & pKa shift, max
+absolute (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+\textbf{0.46
+{[}0.32, 0.58{]}} &
+no \\
+4 & pKa, max
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+\textbf{0.46
+{[}0.32, 0.58{]}} &
+no \\
+5 & \emph{Distance
+to the catalytic
+residues} &
+Reference row & -- &
+\textbf{0.46
+{[}0.32, 0.57{]}} &
+-- \\
+6 & Intra-residue
+repulsion (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.45
+{[}0.30, 0.57{]}} &
+no \\
+7 & Relative SASA,
+mean & Geometry &
+structure &
+\textbf{0.45
+{[}0.32, 0.57{]}} &
+no \\
+8 & pKa shift, mean
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+\textbf{0.45
+{[}0.31, 0.57{]}} &
+no \\
+9 & pKa, mean
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+\textbf{0.45
+{[}0.31, 0.57{]}} &
+no \\
+10 & Total SASA &
+Geometry & structure
+& \textbf{0.45
+{[}0.31, 0.57{]}} &
+no \\
+11 & Repulsion
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.45
+{[}0.31, 0.57{]}} &
+no \\
+12 & Pairwise
+distance, max &
+Geometry & structure
+& \textbf{0.45
+{[}0.30, 0.56{]}} &
+no \\
+13 & Attraction
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.44
+{[}0.30, 0.56{]}} &
+no \\
+14 & Rotamer,
+Dunbrack (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.44
+{[}0.29, 0.56{]}} &
+no \\
+15 & lk-ball
+solvation (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.44
+{[}0.31, 0.54{]}} &
+no \\
+16 & Radius of
+gyration & Geometry
+& structure &
+\textbf{0.43
+{[}0.28, 0.56{]}} &
+no \\
+17 & Net van der
+Waals (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.43
+{[}0.28, 0.55{]}} &
+no \\
+18 & Relative SASA,
+max & Geometry &
+structure &
+\textbf{0.43
+{[}0.29, 0.54{]}} &
+no \\
+19 & Pairwise
+distance, mean &
+Geometry & structure
+& \textbf{0.43
+{[}0.28, 0.55{]}} &
+no \\
+20 & Electrostatics
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.43
+{[}0.28, 0.55{]}} &
+no \\
+21 & Site total
+(Rosetta)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.42
+{[}0.27, 0.55{]}} &
+no \\
+22 & Worst residue
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.42
+{[}0.26, 0.55{]}} &
+no \\
+23 & Solvation
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.41
+{[}0.27, 0.54{]}} &
+no \\
+24 & H-bond, side
+chain (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.35
+{[}0.19, 0.49{]}} &
+no \\
+25 & \emph{Burial of
+the mutated residue}
+& Reference row & --
+& \textbf{0.33
+{[}0.21, 0.43{]}} &
+-- \\
+26 & ipTM (Chai-1)
+\cite{chai2024,evans2021}
+& Interface
+confidence &
+prediction &
+\textbf{0.33
+{[}0.19, 0.45{]}} &
+no \\
+27 & Per-chain pTM
+minimum (Chai-1)
+\cite{chai2024,jumper2021}
+& Interface
+confidence &
+prediction & 0.28
+{[}0.15, 0.41{]} &
+no \\
+28 & \emph{pTM}
+\cite{jumper2021} &
+Reference row &
+prediction & 0.26
+{[}0.12, 0.38{]} &
+no \\
+29 & \emph{Rosetta
+score in the BglB
+data set} &
+Reference row & -- &
+0.21 {[}0.06,
+0.35{]} & -- \\
+30 & Fraction buried
+& Geometry &
+structure & 0.19
+{[}0.06, 0.30{]} &
+no \\
+\end{longtable}
+
+\textbf{More
+detail.} All 114
+quantities analysed,
+ranked, with the
+AUROC of the binary
+contrast (impaired
+against
+wild-type-like)
+beside each rank
+correlation: Table
+S17. The 84
+structure-space and
+comparator metrics
+with the signed,
+direction-free and
+magnitude AUROC and
+the comparison with
+every baseline:
+Table S18. The 28
+prediction-based
+metrics: Table S20.
+The main analysis
+and its ten
+sensitivity
+analyses: Table S19.
+The five declared
+baselines and the
+reference rows in
+full: Table S13.
+
+\subsubsection{3.3.2
+Ranking de novo
+designed enzyme
+activity}
+
+\textbf{Dataset.}
+The 192-design
+campaign of 3.1.2
+\cite{kim2026}. The
+16 designs with a
+reported kcat/KM
+have a measured
+activity and form
+the evaluation set,
+so every row has n =
+16; they lie in 8 of
+the 136 backbone
+clusters (Methods
+2.3.2).
+
+\textbf{Ranking
+criteria.} The 36
+items are those of
+Table 4. Each is
+ranked by the size
+of the Spearman
+correlation ρ
+\cite{spearman1904}
+between its value on
+the design as
+deposited and log10
+kcat/KM, with a 90\%
+bootstrap interval
+over designs. The
+sign of ρ is
+reported (``higher
+value means higher
+or lower
+activity''), and the
+last column gives ρ
+with the sequence
+length partialled
+out of both sides. A
+ρ in bold has an
+interval that
+excludes 0, which
+about 3.6 of the 36
+items would show for
+unrelated metrics.
+The analysis is
+descriptive (Methods
+2.3.2).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0652}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2464}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1449}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1014}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1884}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1377}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1159}}@{}}
+\caption*{\textbf{Table
+7. Plated designs:
+top 30 of 36 ranked
+items on the 16
+designs that have a
+reported kcat/KM.}
+Spearman rank
+correlation ρ
+between each metric
+(native value on the
+design) and log10
+kcat/KM, with a 90\%
+interval that
+resamples designs;
+items are ranked by
+the size of ρ. A
+value in bold has an
+interval that
+excludes 0 (about
+3.6 of the 36 items
+would show this for
+unrelated metrics).
+The last column
+gives ρ with the
+sequence length
+partialled out of
+both sides. The 36
+items are 29
+structure-space and
+2 prediction-based
+main-set metrics and
+5 reference rows
+(italic).
+Descriptive
+analysis. Items 31
+to 36, and all 106
+metrics with a
+correlation, are in
+Table S22; the
+hits-per-plate
+analysis of the 192
+designs is in Table
+S21. Source:
+main/T7\_plated\_designs.csv.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Spearman ρ {[}90\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher value means
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+ρ, length partialled
+out
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Spearman ρ {[}90\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Higher value means
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+ρ, length partialled
+out
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Polar contacts &
+Geometry & structure
+& \textbf{0.67
+{[}0.41, 0.85{]}} &
+higher activity &
+0.52 \\
+2 & Net van der
+Waals (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{−0.63
+{[}−0.88, −0.24{]}}
+& lower activity &
+−0.47 \\
+3 & \emph{pLDDT}
+\cite{jumper2021} &
+Reference row &
+prediction &
+\textbf{0.60
+{[}0.24, 0.83{]}} &
+higher activity &
+0.36 \\
+4 & \emph{Sequence
+length} & Reference
+row & structure &
+\textbf{−0.58
+{[}−0.82, −0.23{]}}
+& lower activity &
+-- \\
+5 & Solvation
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.57
+{[}0.15, 0.85{]}} &
+higher activity &
+0.54 \\
+6 & Amino-acid
+propensity (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure &
+\textbf{0.54
+{[}0.08, 0.81{]}} &
+higher activity &
+0.64 \\
+7 & \emph{Net
+charge} & Reference
+row & structure &
+0.46 {[}−0.02,
+0.80{]} & higher
+activity & 0.22 \\
+8 & Pairwise
+distance, mean &
+Geometry & structure
+& −0.43 {[}−0.71,
+0.02{]} & lower
+activity & −0.29 \\
+9 & Site total
+(Rosetta)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.42
+{[}−0.69, 0.01{]} &
+lower activity &
+−0.37 \\
+10 & Radius of
+gyration & Geometry
+& structure & −0.41
+{[}−0.69, 0.03{]} &
+lower activity &
+−0.29 \\
+11 & H-bond, side
+chain (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.40
+{[}−0.74, 0.05{]} &
+lower activity &
+−0.14 \\
+12 & Ramachandran
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.38
+{[}−0.82, 0.15{]} &
+lower activity &
+−0.09 \\
+13 & Repulsion
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.33
+{[}−0.73, 0.17{]} &
+lower activity &
+0.21 \\
+14 & pKa, mean
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+−0.30 {[}−0.57,
+0.09{]} & lower
+activity & 0.09 \\
+15 & pKa shift, mean
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+−0.30 {[}−0.56,
+0.09{]} & lower
+activity & 0.09 \\
+16 & Relative SASA,
+mean & Geometry &
+structure & −0.25
+{[}−0.76, 0.31{]} &
+lower activity &
+−0.35 \\
+17 & Total SASA &
+Geometry & structure
+& −0.25 {[}−0.76,
+0.30{]} & lower
+activity & −0.35 \\
+18 & Relative SASA,
+max & Geometry &
+structure & −0.25
+{[}−0.76, 0.28{]} &
+lower activity &
+−0.34 \\
+19 & Attraction
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.25
+{[}−0.66, 0.25{]} &
+lower activity &
+−0.20 \\
+20 & Pairwise
+distance, max &
+Geometry & structure
+& 0.23 {[}−0.26,
+0.64{]} & higher
+activity & 0.26 \\
+21 & Intra-residue
+repulsion (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.23
+{[}−0.65, 0.30{]} &
+lower activity &
+−0.46 \\
+22 & lk-ball
+solvation (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.21
+{[}−0.53, 0.19{]} &
+lower activity &
+0.08 \\
+23 & Electrostatics
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+structure & −0.19
+{[}−0.58, 0.25{]} &
+lower activity &
+−0.61 \\
+24 & Per-chain pTM
+minimum (Chai-1)
+\cite{chai2024,jumper2021}
+& Interface
+confidence &
+prediction & 0.18
+{[}−0.35, 0.66{]} &
+higher activity &
+−0.00 \\
+25 & Rotamer,
+Dunbrack (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.18
+{[}−0.31, 0.57{]} &
+higher activity &
+0.11 \\
+26 & H-bond,
+backbone to side
+chain (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+structure & 0.17
+{[}−0.21, 0.52{]} &
+higher activity &
+0.32 \\
+27 & pKa, max
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+−0.16 {[}−0.49,
+0.26{]} & lower
+activity & 0.16 \\
+28 & \emph{pTM}
+\cite{jumper2021} &
+Reference row &
+prediction & −0.15
+{[}−0.64, 0.41{]} &
+lower activity &
+−0.26 \\
+29 & \emph{Tyrosine
+fraction} &
+Reference row &
+structure & −0.14
+{[}−0.68, 0.40{]} &
+lower activity &
+0.00 \\
+30 & pKa, range
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & structure &
+−0.13 {[}−0.53,
+0.31{]} & lower
+activity & −0.07 \\
+\end{longtable}
+
+\textbf{More
+detail.} The
+correlation with
+kcat/KM of all 106
+metrics that have
+one, with the length
+control: Table S22.
+The correlations of
+the structure-space
+metrics and
+comparators, with
+and without the
+length control:
+Table S23. The hits
+per plate of all 128
+metrics when each
+fills a 96-well
+plate from the
+quarter of the 192
+designs that it
+ranks highest or
+lowest: Table S21.
+The enrichment at
+keep fractions of 5,
+10, 25 and 50\% in
+both directions:
+Table S24 (102
+structure-space
+metrics) and Table
+S25 (29
+prediction-based
+metrics).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3.4
+Detection ability
+test}
+
+\textbf{Experiment.}
+Each metric is
+ranked by whether it
+changes more under a
+lesion at a
+catalytic residue
+than under the
+identical lesion at
+a matched
+non-catalytic
+control position of
+the same protein
+(Methods 2.4). Two
+kinds of lesion are
+tested, each with
+its own datasets and
+table: the catalytic
+lesion (3.4.1) and
+the second-shell
+lesion (3.4.2).
+
+\subsubsection{3.4.1
+Detecting catalytic
+lesion}
+
+\textbf{Experiment.}
+One catalytic
+residue is replaced
+in four steps of
+increasing change in
+side-chain volume
+(isosteric 15 Å³,
+non-isosteric 36 Å³,
+to Ala 53 Å³, to Gly
+81 Å³), in the
+crystal structure by
+a rotamer-space edit
+and repack, or in
+the sequence of the
+re-predicted complex
+with Chai-1
+\cite{chai2024}; the
+control makes the
+identical
+substitution at a
+matched buried
+non-catalytic
+position of the same
+protein.
+
+\textbf{Dataset.}
+For the 29
+structure-space
+main-set metrics:
+the 143 M-CSA
+enzymes
+\cite{ribeiro2018}
+(77 enzyme
+sub-subclasses;
+packing-matched,
+count-gated
+controls) pooled
+with the 52 enzymes
+of the 53-enzyme
+pilot set that are
+not in it (active
+sites from UniProt
+\cite{uniprot2023}
+and M-CSA; controls
+matched on residue
+type and burial
+only; the one pilot
+enzyme that shares a
+PDB entry with the
+main set is counted
+once), 195 enzymes
+in all. For the four
+prediction-based
+main-set metrics and
+the two reference
+rows (pLDDT and
+pTM): the natural
+arm of the
+re-predicted ladder,
+the 59 natural
+enzymes of the
+substrate-swap set
+with 286
+catalytic/control
+pairs. The 30 de
+novo designs and the
+15 designed systems
+of the ladder, whose
+control is
+constructed, are
+analysed separately
+(Tables S30 and S31)
+(Methods 2.4.1).
+
+\textbf{Ranking
+criteria.} The 35
+items are the 29
+structure-space and
+4 prediction-based
+main-set metrics and
+the 2 reference rows
+(italic). The rank
+statistic R is the
+probability that a
+metric changes more
+at the catalytic
+lesion than at the
+matched control of
+the same protein
+(0.5 = no
+specificity; above
+0.5, more change at
+the catalytic
+lesion). The change
+of a metric is the
+absolute difference
+between the
+perturbed and the
+unperturbed
+structure (or
+prediction), a tie
+counts one half, and
+proteins in which
+neither arm moves
+are dropped. A step
+counts toward a
+structure-space
+metric only if the
+metric responds to
+the lesion (the
+interval of its
+median change
+excludes zero) and
+the control response
+is above the
+metric's own noise;
+a step that is not
+counted is in
+parentheses, and
+``--'' is a step
+with fewer than five
+informative
+proteins. The mean R
+over the counted
+steps has a 95\%
+bootstrap interval
+that resamples
+enzyme
+sub-subclasses
+(systems for the
+predictor). Rows are
+grouped by the
+lesion at which the
+metric is first
+detected (the
+smallest step at
+which it responds;
+``Never'' if at
+none) and ranked by
+mean R within each
+group; a metric with
+no counted step has
+no mean and closes
+its group. A mean in
+bold exceeds the
+best-of-33 threshold
+\cite{westfall1993},
+the 95th percentile
+of the best R among
+33 items when the
+catalytic and
+control labels are
+swapped within each
+protein (median
+0.57, 95th
+percentile 0.62).
+The distance-matched
+R (prediction-based
+metrics only) is
+computed on the
+pairs whose control
+lies at the same
+distance from the
+ligand as the
+catalytic residue
+(within 2 Å and
+within 0.10 in
+relative
+solvent-accessible
+area), pooled over
+the four steps (68
+to 69 pairs in 21 to
+22 systems); the
+original control of
+the predictor sat a
+median 13.4 Å from
+the ligand, the
+catalytic residue
+3.1 Å (the distances
+for every pair are
+in Table S38 and the
+caliper-matched
+subsets in Table
+S41). The number of
+steps counted for
+each metric and the
+smallest step at
+which a
+structure-space
+metric is specific
+(it responds, the
+specificity ratio is
+above 1, the control
+response is above
+the noise and both
+arms changed equal
+numbers of residues)
+are in Table S29.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1007}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0647}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2590}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2158}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1727}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1871}}@{}}
+\caption*{\textbf{Table
+8. Catalytic lesion
+(chemistry ladder):
+the 35 ranked items
+grouped by the
+lesion at which they
+are first detected
+and ranked by R
+within the group.}
+Rank statistic R,
+the probability that
+a metric changes
+more at the
+catalytic lesion
+than at the matched
+control (0.5 = no
+specificity), at the
+four steps and as
+the mean over the
+steps counted, with
+a 95\% interval that
+resamples enzyme
+sub-subclasses
+(systems for the
+predictor).
+``Detected from'' is
+the smallest lesion
+step (isosteric 15
+Å³, non-isosteric 36
+Å³, Ala 53 Å³, Gly
+81 Å³) at which the
+metric responds.
+Structure-space
+metrics: up to 195
+natural enzymes (143
+main + 52 pilot; the
+number of enzymes in
+which a metric moves
+at all ranges from 1
+to 150 per metric
+and step);
+prediction-based
+metrics (ipTM,
+per-chain pTM
+minimum, ligand
+clearance, AME RMSD)
+and the reference
+rows pLDDT and pTM
+(italic): 59 natural
+enzymes, 286 pairs.
+A step in
+parentheses is not
+counted. A mean in
+bold exceeds the
+best-of-33 threshold
+(median 0.57, 95th
+percentile 0.62; a
+reference level for
+reading the
+ranking). The
+distance-matched R
+is given for the
+prediction-based
+metrics. The 8
+supplementary
+comparators, the
+number of steps
+counted, the onset
+of specificity and
+all per-step flags
+are in Table S29.
+Source:
+main/T8\_specificity\_catalytic\_lesion.csv.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Detected from
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank in group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+R at isosteric /
+non-isosteric / Ala
+/ Gly
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mean R {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+R, distance-matched
+{[}95\% interval{]}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Detected from
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank in group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+R at isosteric /
+non-isosteric / Ala
+/ Gly
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mean R {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+R, distance-matched
+{[}95\% interval{]}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Isosteric & 1 &
+Per-chain pTM
+minimum (Chai-1)
+\cite{chai2024,jumper2021}
+& 0.81 / 0.73 / 0.75
+/ 0.72 &
+\textbf{0.75
+{[}0.68, 0.82{]}} &
+0.59 {[}0.42,
+0.76{]} \\
+Isosteric & 2 & pKa,
+range (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& 0.70 / 0.67 / -- /
+-- & \textbf{0.68
+{[}0.58, 0.78{]}} &
+-- \\
+Isosteric & 3 & ipTM
+(Chai-1)
+\cite{chai2024,evans2021}
+& 0.71 / 0.71 / 0.69
+/ 0.58 &
+\textbf{0.67
+{[}0.60, 0.75{]}} &
+0.35 {[}0.24,
+0.50{]} \\
+Isosteric & 4 &
+Solvation (Rosetta,
+site)
+\cite{alford2017} &
+0.59 / 0.73 / 0.60 /
+0.62 & \textbf{0.63
+{[}0.57, 0.70{]}} &
+-- \\
+Isosteric & 5 &
+Relative SASA, mean
+& 0.48 / 0.55 / 0.73
+/ 0.69 & 0.61
+{[}0.56, 0.67{]} &
+-- \\
+Isosteric & 6 & pKa,
+min (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& 0.54 / 0.67 / -- /
+-- & 0.61 {[}0.53,
+0.67{]} & -- \\
+Isosteric & 7 &
+Repulsion (Rosetta,
+site)
+\cite{alford2017} &
+0.48 / 0.55 / 0.64 /
+0.62 & 0.57 {[}0.52,
+0.62{]} & -- \\
+Isosteric & 8 & pKa
+shift, mean (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& 0.46 / 0.67 / -- /
+-- & 0.56 {[}0.47,
+0.66{]} & -- \\
+Isosteric & 9 &
+\emph{pTM}
+\cite{jumper2021} &
+0.60 / 0.48 / 0.60 /
+0.58 & 0.56 {[}0.49,
+0.64{]} & 0.45
+{[}0.30, 0.60{]} \\
+Isosteric & 10 &
+Relative SASA, max &
+0.49 / (0.50) / 0.56
+/ 0.55 & 0.53
+{[}0.48, 0.59{]} &
+-- \\
+Isosteric & 11 &
+Attraction (Rosetta,
+site)
+\cite{alford2017} &
+0.53 / 0.58 / 0.55 /
+0.46 & 0.53 {[}0.46,
+0.60{]} & -- \\
+Isosteric & 12 &
+\emph{pLDDT}
+\cite{jumper2021} &
+0.62 / 0.37 / 0.55 /
+0.58 & 0.53 {[}0.46,
+0.60{]} & 0.49
+{[}0.34, 0.63{]} \\
+Isosteric & 13 &
+Ramachandran
+(Rosetta, site)
+\cite{alford2017} &
+0.43 / 0.55 / 0.55 /
+0.56 & 0.52 {[}0.47,
+0.59{]} & -- \\
+Isosteric & 14 &
+Intra-residue
+repulsion (Rosetta,
+site)
+\cite{alford2017} &
+0.48 / 0.59 / 0.48 /
+0.52 & 0.52 {[}0.47,
+0.57{]} & -- \\
+Isosteric & 15 &
+Rotamer, Dunbrack
+(Rosetta, site)
+\cite{alford2017} &
+0.45 / 0.47 / 0.58 /
+0.58 & 0.52 {[}0.46,
+0.57{]} & -- \\
+Isosteric & 16 &
+Radius of gyration &
+0.42 / 0.48 / 0.62 /
+-- & 0.51 {[}0.45,
+0.57{]} & -- \\
+Isosteric & 17 &
+Amino-acid
+propensity (Rosetta,
+site)
+\cite{alford2017} &
+0.45 / (0.57) / 0.52
+/ 0.53 & 0.50
+{[}0.45, 0.55{]} &
+-- \\
+Isosteric & 18 &
+pKa, max (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& 0.43 / 0.56 / -- /
+-- & 0.49 {[}0.39,
+0.61{]} & -- \\
+Isosteric & 19 &
+Worst residue
+(Rosetta, site)
+\cite{alford2017} &
+0.45 / 0.46 / 0.54 /
+(0.43) & 0.48
+{[}0.44, 0.53{]} &
+-- \\
+Isosteric & 20 & Net
+van der Waals
+(Rosetta, site)
+\cite{alford2017} &
+0.45 / 0.55 / 0.47 /
+0.39 & 0.46 {[}0.39,
+0.52{]} & -- \\
+Isosteric & 21 &
+H-bond, side chain
+(Rosetta, site)
+\cite{alford2017} &
+0.47 / 0.42 / 0.43 /
+0.42 & 0.43 {[}0.35,
+0.52{]} & -- \\
+Isosteric & 22 &
+Site total (Rosetta)
+\cite{alford2017} &
+0.41 / 0.58 / 0.41 /
+0.29 & 0.42 {[}0.37,
+0.47{]} & -- \\
+Isosteric & 23 &
+Pairwise distance,
+mean & 0.43 / 0.49 /
+0.32 / -- & 0.41
+{[}0.34, 0.50{]} &
+-- \\
+Isosteric & 24 &
+pKa, mean (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& 0.40 / (0.47) / --
+/ -- & 0.40 {[}0.28,
+0.54{]} & -- \\
+Isosteric & 25 &
+H-bond, backbone to
+side chain (Rosetta,
+site)
+\cite{alford2017} &
+0.26 / 0.29 / 0.31 /
+0.29 & 0.29 {[}0.19,
+0.39{]} & -- \\
+Isosteric & 26 &
+Electrostatics
+(Rosetta, site)
+\cite{alford2017} &
+0.26 / 0.20 / 0.24 /
+0.26 & 0.24 {[}0.18,
+0.30{]} & -- \\
+Isosteric & -- &
+Polar contacts &
+(0.93) / (0.97) /
+(0.96) / (0.96) & --
+& -- \\
+Non-isosteric & 1 &
+AME RMSD
+\cite{ahern2026} &
+0.61 / 0.73 / 0.68 /
+0.72 & \textbf{0.68
+{[}0.62, 0.75{]}} &
+0.45 {[}0.33,
+0.57{]} \\
+Non-isosteric & 2 &
+lk-ball solvation
+(Rosetta, site)
+\cite{alford2017} &
+(0.56) / 0.53 / 0.59
+/ 0.65 & 0.59
+{[}0.51, 0.67{]} &
+-- \\
+Non-isosteric & 3 &
+Total SASA & (0.46)
+/ 0.51 / (0.49) /
+0.58 & 0.55 {[}0.48,
+0.60{]} & -- \\
+Non-isosteric & 4 &
+pKa shift, max
+absolute (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& (0.53) / 0.53 / --
+/ -- & 0.53 {[}0.42,
+0.65{]} & -- \\
+Ala & 1 & Fraction
+buried & (0.54) /
+(0.56) / 0.70 / 0.63
+& \textbf{0.66
+{[}0.59, 0.74{]}} &
+-- \\
+Gly & 1 & Omega
+torsion (Rosetta,
+site)
+\cite{alford2017} &
+(0.46) / -- / (0.58)
+/ 0.52 & 0.52
+{[}0.45, 0.60{]} &
+-- \\
+Never & 1 & Ligand
+clearance
+\cite{ahern2026} &
+0.57 / 0.63 / 0.57 /
+0.63 & 0.60 {[}0.54,
+0.66{]} & 0.57
+{[}0.44, 0.70{]} \\
+Never & -- &
+Pairwise distance,
+max & (0.30) /
+(0.36) / (0.19) / --
+& -- & -- \\
+\end{longtable}
+
+\textbf{More
+detail.}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Ranking.}
+  All 43 metrics
+  scored for the
+  catalytic lesion,
+  with the 8
+  supplementary
+  comparators, R and
+  the response,
+  control-noise and
+  specificity flags
+  at each step, and
+  the mean R of the
+  143 main enzymes
+  alone: Table S29.
+  The counts of
+  eligible,
+  responding and
+  specific
+  structure-space
+  metrics by family
+  and step, with the
+  panel statistic
+  and the four
+  sensitivity sets:
+  Table S30.
+\item
+  \emph{Specificity
+  ratio.} The ratio,
+  its interval and
+  the verdict of
+  every eligible
+  metric at every
+  step: Table S34
+  (comparators:
+  Table S35); the 97
+  cells that survive
+  the controls:
+  Table S36; R per
+  step on the 143
+  main enzymes with
+  90\% intervals:
+  Table S37; the
+  robustness to
+  motif size,
+  packing matching
+  and count gating:
+  Table S32; the
+  panel statistic
+  against the
+  earlier
+  whole-panel
+  analysis: Table
+  S43; the effective
+  number of
+  independent
+  metrics: Table
+  S45.
+\item
+  \emph{Controls and
+  floors.} The
+  loosest matching
+  tier needed, and
+  the balance of
+  residues changed
+  in the two arms:
+  Tables S27 and
+  S28; the burial of
+  the constructed
+  control in the de
+  novo designs:
+  Table S46; the
+  sanity floors:
+  Table S26.
+\item
+  \emph{Predictor
+  ladder.} Every
+  metric at every
+  step: Table S44;
+  the three controls
+  and the
+  pre-specified
+  rule: Table S31;
+  the distance of
+  each pair to the
+  ligand: Table S38;
+  the ratio in
+  distance strata:
+  Table S40; the
+  caliper-matched
+  subsets: Table
+  S41; the
+  regression
+  adjustment: Table
+  S42; the 54 pairs
+  given a new
+  distance-matched
+  control: Table
+  S39; the seed
+  noise: Table S33.
+\item
+  \emph{Not made.}
+  Experiments that
+  could not be made
+  or were retired:
+  Table S47; PLACER
+  on the isosteric
+  step: Table S48.
+\end{itemize}
+
+\subsubsection{3.4.2
+Detecting second
+shell lesion}
+
+\textbf{Experiment.}
+One, two or four
+residues of the
+second shell around
+the catalytic
+residues are mutated
+and the structure is
+repacked
+(second-shell
+removal); the
+control does the
+same for the same
+number of residues
+around matched
+non-catalytic
+positions, and both
+arms are scored over
+the catalytic
+residues.
+
+\textbf{Dataset.}
+The 143 M-CSA
+enzymes
+\cite{ribeiro2018}
+pooled with the 52
+pilot enzymes that
+are not in it, with
+a control arm for up
+to 193 of them; the
+number of enzymes in
+which a metric moves
+at all ranges from 0
+to 182 per metric
+and dose.
+Structure-space
+metrics are scored
+on this lesion
+(Methods 2.4.2).
+
+\textbf{Ranking
+criteria.} The 29
+structure-space
+main-set metrics are
+ranked as in Table
+8, with R at the
+three doses (1, 2
+and 4 residues
+removed) and its
+mean over the doses;
+``Detected from'' is
+the smallest number
+of residues removed
+at which the metric
+responds (``Never''
+if none), and rows
+within a group are
+ranked by raw R. A
+metric with no R in
+at least five
+proteins has ``--''.
+Raw values are
+reported (see the
+caption); the last
+column counts, for
+each metric, the
+doses (of 3) at
+which it responds to
+the removal and at
+which the control
+response is above
+the metric's noise.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0851}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0638}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2128}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1277}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1915}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1631}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1560}}@{}}
+\caption*{\textbf{Table
+9. Second-shell
+lesion: the 29
+structure-space
+main-set metrics
+grouped by the dose
+at which they are
+first detected and
+ranked by raw R
+within the group.}
+Rank statistic R,
+the probability that
+a metric changes
+more when
+second-shell
+residues are removed
+around the catalytic
+residues than around
+a matched control
+(0.5 = no
+specificity), at the
+three doses and as
+the mean over the
+doses, with a 95\%
+interval that
+resamples enzyme
+sub-subclasses.
+``Detected from'' is
+the smallest number
+of residues removed
+at which the metric
+responds (``Never''
+if none); a metric
+with no R in at
+least five proteins
+has ``--''. No cell
+qualifies as
+interpretable, so
+raw values are
+reported: the last
+column counts, for
+each metric, the
+doses (of 3) at
+which it responds to
+the removal and at
+which the control
+response is above
+the metric's noise.
+The 8 supplementary
+comparators and the
+per-dose flags are
+in Table S49.
+Source:
+main/T9\_specificity\_second\_shell\_lesion.csv.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Detected from
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank in group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+R at 1 / 2 / 4
+residues removed
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mean R {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Doses with a
+response / with a
+control above noise
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Detected from
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rank in group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+R at 1 / 2 / 4
+residues removed
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Mean R {[}95\%
+interval{]}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Doses with a
+response / with a
+control above noise
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+4 residues & 1 & pKa
+shift, mean (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & 0.74 / 0.72
+/ 0.64 & 0.70
+{[}0.64, 0.75{]} & 1
+/ 0 \\
+4 residues & 2 &
+pKa, mean (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & 0.73 / 0.71
+/ 0.64 & 0.69
+{[}0.63, 0.75{]} & 1
+/ 0 \\
+Never & 1 & Fraction
+buried & Geometry &
+0.91 / 0.79 / 0.65 &
+0.78 {[}0.68,
+0.87{]} & 0 / 0 \\
+Never & 2 & Rotamer,
+Dunbrack (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.79 / 0.76 / 0.69 &
+0.75 {[}0.69,
+0.79{]} & 0 / 0 \\
+Never & 3 & pKa, max
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & 0.75 / 0.72
+/ 0.68 & 0.71
+{[}0.66, 0.77{]} & 0
+/ 0 \\
+Never & 4 & Pairwise
+distance, mean &
+Geometry & 0.76 /
+0.75 / 0.63 & 0.71
+{[}0.65, 0.77{]} & 0
+/ 0 \\
+Never & 5 & Radius
+of gyration &
+Geometry & 0.77 /
+0.71 / 0.64 & 0.71
+{[}0.64, 0.76{]} & 0
+/ 0 \\
+Never & 6 & pKa,
+range (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & 0.74 / 0.72
+/ 0.65 & 0.71
+{[}0.65, 0.76{]} & 0
+/ 0 \\
+Never & 7 & lk-ball
+solvation (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.72 / 0.73 / 0.66 &
+0.70 {[}0.66,
+0.75{]} & 0 / 1 \\
+Never & 8 & Total
+SASA & Geometry &
+0.73 / 0.71 / 0.66 &
+0.70 {[}0.65,
+0.75{]} & 0 / 0 \\
+Never & 9 &
+Intra-residue
+repulsion (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.72 / 0.73 / 0.64 &
+0.70 {[}0.64,
+0.75{]} & 0 / 0 \\
+Never & 10 & pKa
+shift, max absolute
+(PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & 0.75 / 0.68
+/ 0.66 & 0.70
+{[}0.64, 0.75{]} & 0
+/ 1 \\
+Never & 11 &
+Relative SASA, mean
+& Geometry & 0.73 /
+0.71 / 0.64 & 0.70
+{[}0.64, 0.74{]} & 0
+/ 0 \\
+Never & 12 &
+Attraction (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.73 / 0.69 / 0.61 &
+0.67 {[}0.63,
+0.72{]} & 0 / 0 \\
+Never & 13 &
+Relative SASA, max &
+Geometry & 0.69 /
+0.69 / 0.64 & 0.67
+{[}0.61, 0.73{]} & 0
+/ 0 \\
+Never & 14 &
+Electrostatics
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+0.74 / 0.70 / 0.58 &
+0.67 {[}0.62,
+0.72{]} & 0 / 1 \\
+Never & 15 & Worst
+residue (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.74 / 0.68 / 0.59 &
+0.67 {[}0.61,
+0.72{]} & 0 / 0 \\
+Never & 16 & pKa,
+min (PROPKA)
+\cite{olsson2011,sondergaard2011}
+& pKa & 0.74 / 0.67
+/ 0.60 & 0.67
+{[}0.61, 0.73{]} & 0
+/ 0 \\
+Never & 17 & Net van
+der Waals (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.74 / 0.67 / 0.58 &
+0.66 {[}0.61,
+0.71{]} & 0 / 1 \\
+Never & 18 & H-bond,
+side chain (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.72 / 0.68 / 0.59 &
+0.66 {[}0.59,
+0.72{]} & 0 / 1 \\
+Never & 19 & Site
+total (Rosetta)
+\cite{alford2017} &
+Rosetta energy &
+0.71 / 0.66 / 0.60 &
+0.66 {[}0.60,
+0.71{]} & 0 / 1 \\
+Never & 20 &
+Pairwise distance,
+max & Geometry &
+0.72 / 0.65 / 0.60 &
+0.66 {[}0.52,
+0.76{]} & 0 / 0 \\
+Never & 21 &
+Repulsion (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.71 / 0.63 / 0.62 &
+0.65 {[}0.60,
+0.71{]} & 0 / 1 \\
+Never & 22 &
+Solvation (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.72 / 0.66 / 0.57 &
+0.65 {[}0.60,
+0.70{]} & 0 / 1 \\
+Never & 23 & H-bond,
+backbone to side
+chain (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy &
+0.56 / 0.68 / 0.65 &
+0.63 {[}0.56,
+0.70{]} & 0 / 0 \\
+Never & 24 & Polar
+contacts & Geometry
+& 0.59 / 0.59 / 0.65
+& 0.61 {[}0.49,
+0.73{]} & 0 / 0 \\
+Never & 25 &
+Ramachandran
+(Rosetta, site)
+\cite{alford2017} &
+Rosetta energy &
+0.10 / 0.00 / 0.00 &
+0.03 {[}0.00,
+0.11{]} & 0 / 3 \\
+Never & -- & Omega
+torsion (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy & --
+/ -- / -- & -- & 0 /
+3 \\
+Never & -- &
+Amino-acid
+propensity (Rosetta,
+site)
+\cite{alford2017} &
+Rosetta energy & --
+/ -- / -- & -- & 0 /
+3 \\
+\end{longtable}
+
+\textbf{More
+detail.} The 37
+metrics scored for
+the second-shell
+lesion, with the 8
+supplementary
+comparators and the
+response and
+control-noise flags
+at each dose: Table
+S49. The specificity
+ratio and verdict at
+each dose: Table S34
+(comparators: Table
+S35). The counts of
+eligible, responding
+and specific metrics
+by family and dose:
+Table S30.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{4
+Discussion}
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}

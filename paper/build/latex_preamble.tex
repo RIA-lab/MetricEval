@@ -1,0 +1,27 @@
+% Extra preamble for the pandoc LaTeX template (pdflatex).
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{cite}                 % numeric citations, ranges compressed: [3--5]
+\usepackage{caption}
+\captionsetup{font=small,labelsep=period,justification=raggedright,singlelinecheck=false}
+\usepackage{etoolbox}
+\usepackage{framed}
+\definecolor{shadecolor}{gray}{0.95}
+\AtBeginEnvironment{longtable}{\small}
+\setlength{\emergencystretch}{3em}
+% allow line breaks after underscores (column names in \texttt)
+\DeclareRobustCommand{\_}{\textunderscore\hspace{0pt}}
+% characters used in the text that the utf8 input encoding does not define
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{03C1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{03B2}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{0394}{\ensuremath{\Delta}}
+\DeclareUnicodeCharacter{03C3}{\ensuremath{\sigma}}
+\DeclareUnicodeCharacter{03BA}{\ensuremath{\kappa}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{00B3}{\ensuremath{{}^{3}}}
+\DeclareUnicodeCharacter{2011}{\mbox{-}}
+\DeclareUnicodeCharacter{202F}{\,}

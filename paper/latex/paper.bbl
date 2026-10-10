@@ -1,0 +1,191 @@
+\begin{thebibliography}{10}
+
+\bibitem{alford2017}
+R.~F. Alford, A.~Leaver-Fay, J.~R. Jeliazkov, M.~J. O'Meara, F.~P. DiMaio,
+  H.~Park, M.~V. Shapovalov, P.~D. Renfrew, V.~K. Mulligan, K.~Kappel, J.~W.
+  Labonte, M.~S. Pacella, R.~Bonneau, P.~Bradley, R.~L. Dunbrack, R.~Das,
+  D.~Baker, B.~Kuhlman, T.~Kortemme, and J.~J. Gray.
+\newblock {The Rosetta All-Atom Energy Function for Macromolecular Modeling and
+  Design}.
+\newblock {\em J. Chem. Theory Comput.}, 13:3031--3048, 2017.
+
+\bibitem{chaudhury2010}
+S.~Chaudhury, S.~Lyskov, and J.~J. Gray.
+\newblock {PyRosetta: a script-based interface for implementing molecular
+  modeling algorithms using Rosetta}.
+\newblock {\em Bioinformatics}, 26:689--691, 2010.
+
+\bibitem{lee1971}
+B.~Lee and F.~M. Richards.
+\newblock {The interpretation of protein structures: Estimation of static
+  accessibility}.
+\newblock {\em Journal of Molecular Biology}, 55:379--400, 1971.
+
+\bibitem{mitternacht2016}
+S.~Mitternacht.
+\newblock {FreeSASA: An open source C library for solvent accessible surface
+  area calculations}.
+\newblock {\em F1000Research}, 5:189, 2016.
+
+\bibitem{tien2013}
+M.~Z. Tien, A.~G. Meyer, D.~K. Sydykova, S.~J. Spielman, and C.~O. Wilke.
+\newblock {Maximum Allowed Solvent Accessibilities of Residues in Proteins}.
+\newblock {\em PLoS ONE}, 8:e80635, 2013.
+
+\bibitem{olsson2011}
+M.~H.~M. Olsson, C.~R. Søndergaard, M.~Rostkowski, and J.~H. Jensen.
+\newblock {PROPKA3: Consistent Treatment of Internal and Surface Residues in
+  Empirical pKa Predictions}.
+\newblock {\em Journal of Chemical Theory and Computation}, 7:525--537, 2011.
+
+\bibitem{sondergaard2011}
+C.~R. Søndergaard, M.~H.~M. Olsson, M.~Rostkowski, and J.~H. Jensen.
+\newblock {Improved Treatment of Ligands and Coupling Effects in Empirical
+  Calculation and Rationalization of pKa Values}.
+\newblock {\em Journal of Chemical Theory and Computation}, 7:2284--2295, 2011.
+
+\bibitem{chai2024}
+{Chai Discovery}, J.~Boitreaud, J.~Dent, M.~McPartlon, J.~Meier, V.~Reis,
+  A.~Rogozhnikov, and K.~Wu.
+\newblock {Chai-1: Decoding the molecular interactions of life}.
+\newblock bioRxiv, 2024.
+\newblock doi: 10.1101/2024.10.10.615955.
+
+\bibitem{evans2021}
+R.~Evans, M.~O’Neill, A.~Pritzel, N.~Antropova, A.~Senior, T.~Green,
+  A.~Žídek, R.~Bates, S.~Blackwell, J.~Yim, O.~Ronneberger, S.~Bodenstein,
+  M.~Zielinski, A.~Bridgland, A.~Potapenko, A.~Cowie, K.~Tunyasuvunakool,
+  R.~Jain, E.~Clancy, P.~Kohli, J.~Jumper, and D.~Hassabis.
+\newblock {Protein complex prediction with AlphaFold-Multimer}.
+\newblock bioRxiv, 2021.
+\newblock doi: 10.1101/2021.10.04.463034.
+
+\bibitem{jumper2021}
+J.~Jumper, R.~Evans, A.~Pritzel, T.~Green, M.~Figurnov, O.~Ronneberger,
+  K.~Tunyasuvunakool, R.~Bates, A.~Žídek, A.~Potapenko, A.~Bridgland,
+  C.~Meyer, S.~A.~A. Kohl, A.~J. Ballard, A.~Cowie, B.~Romera-Paredes,
+  S.~Nikolov, R.~Jain, J.~Adler, T.~Back, S.~Petersen, D.~Reiman, E.~Clancy,
+  M.~Zielinski, M.~Steinegger, M.~Pacholska, T.~Berghammer, S.~Bodenstein,
+  D.~Silver, O.~Vinyals, A.~W. Senior, K.~Kavukcuoglu, P.~Kohli, and
+  D.~Hassabis.
+\newblock {Highly accurate protein structure prediction with AlphaFold}.
+\newblock {\em Nature}, 596:583--589, 2021.
+
+\bibitem{ahern2026}
+W.~Ahern, J.~Yim, D.~Tischer, S.~Salike, S.~M. Woodbury, D.~Kim, I.~Kalvet,
+  Y.~Kipnis, B.~Coventry, H.~R. Altae-Tran, M.~S. Bauer, R.~Barzilay, T.~S.
+  Jaakkola, R.~Krishna, and D.~Baker.
+\newblock {Atom-level enzyme active site scaffolding using RFdiffusion2}.
+\newblock {\em Nature Methods}, 23:96--105, 2026.
+
+\bibitem{burley2025}
+S.~K. Burley, R.~Bhatt, C.~Bhikadiya, C.~Bi, A.~Biester, P.~Biswas,
+  S.~Bittrich, S.~Blaumann, R.~Brown, H.~Chao, V.~R. Chithari, P.~A. Craig,
+  G.~V. Crichlow, J.~M. Duarte, S.~Dutta, Z.~Feng, J.~W. Flatt, S.~Ghosh, D.~S.
+  Goodsell, R.~K. Green, V.~Guranovic, J.~Henry, B.~P. Hudson, M.~Joy, J.~T.
+  Kaelber, I.~Khokhriakov, J.-S. Lai, C.~L. Lawson, Y.~Liang,
+  D.~Myers-Turnbull, E.~Peisach, I.~Persikova, D.~W. Piehl, A.~Pingale,
+  Y.~Rose, J.~Sagendorf, A.~Sali, J.~Segura, M.~Sekharan, C.~Shao, J.~Smith,
+  M.~Trumbull, B.~Vallat, M.~Voigt, B.~Webb, S.~Whetstone, A.~Wu-Wu, T.~Xing,
+  J.~Y. Young, A.~Zalevsky, and C.~Zardecki.
+\newblock {Updated resources for exploring experimentally-determined PDB
+  structures and Computed Structure Models at the RCSB Protein Data Bank}.
+\newblock {\em Nucleic Acids Research}, 53:D564--D574, 2025.
+
+\bibitem{berman2000}
+H.~M. Berman, J.~Westbrook, Z.~Feng, G.~Gilliland, T.~N. Bhat, H.~Weissig,
+  I.~N. Shindyalov, and P.~E. Bourne.
+\newblock {The Protein Data Bank}.
+\newblock {\em Nucleic Acids Research}, 28:235--242, 2000.
+
+\bibitem{uniprot2023}
+{The UniProt Consortium}.
+\newblock {UniProt: the Universal Protein Knowledgebase in 2023}.
+\newblock {\em Nucleic Acids Research}, 51:D523--D531, 2023.
+
+\bibitem{dana2019}
+J.~M. Dana, A.~Gutmanas, N.~Tyagi, G.~Qi, C.~O’Donovan, M.~Martin, and
+  S.~Velankar.
+\newblock {SIFTS: updated Structure Integration with Function, Taxonomy and
+  Sequences resource allows 40-fold increase in coverage of structure-based
+  annotations for proteins}.
+\newblock {\em Nucleic Acids Research}, 47:D482--D489, 2019.
+
+\bibitem{ribeiro2018}
+A.~J.~M. Ribeiro, G.~L. Holliday, N.~Furnham, J.~D. Tyzack, K.~Ferris, and
+  J.~M. Thornton.
+\newblock {Mechanism and Catalytic Site Atlas (M-CSA): a database of enzyme
+  reaction mechanisms and active sites}.
+\newblock {\em Nucleic Acids Research}, 46:D618--D623, 2018.
+
+\bibitem{anishchenko2025}
+I.~Anishchenko, Y.~Kipnis, I.~Kalvet, G.~Zhou, R.~Krishna, S.~J. Pellock,
+  A.~Lauko, G.~R. Lee, L.~An, J.~Dauparas, F.~DiMaio, and D.~Baker.
+\newblock {Modeling protein-small molecule conformational ensembles with
+  PLACER}.
+\newblock {\em Proc. Natl. Acad. Sci. U.S.A.}, 122:e2427161122, 2025.
+
+\bibitem{hanley1982}
+J.~A. Hanley and B.~J. McNeil.
+\newblock {The meaning and use of the area under a receiver operating
+  characteristic (ROC) curve}.
+\newblock {\em Radiology}, 143:29--36, 1982.
+
+\bibitem{mann1947}
+H.~B. Mann and D.~R. Whitney.
+\newblock {On a test of whether one of two random variables is stochastically
+  larger than the other}.
+\newblock {\em The Annals of Mathematical Statistics}, 18:50--60, 1947.
+
+\bibitem{efron1979}
+B.~Efron.
+\newblock {Bootstrap Methods: Another Look at the Jackknife}.
+\newblock {\em The Annals of Statistics}, 7:1--26, 1979.
+
+\bibitem{field2007}
+C.~A. Field and A.~H. Welsh.
+\newblock {Bootstrapping Clustered Data}.
+\newblock {\em Journal of the Royal Statistical Society Series B: Statistical
+  Methodology}, 69:369--390, 2007.
+
+\bibitem{westfall1993}
+P.~H. Westfall and S.~S. Young.
+\newblock {\em {Resampling-Based Multiple Testing: Examples and Methods for
+  p-Value Adjustment}}.
+\newblock Wiley, New York, 1993.
+
+\bibitem{kim2026}
+D.~Kim, S.~M. Woodbury, W.~Ahern, D.~Tischer, A.~Kang, E.~Joyce, A.~K. Bera,
+  N.~Hanikel, S.~Salike, R.~Krishna, J.~Yim, S.~J. Pellock, A.~Lauko,
+  I.~Kalvet, D.~Hilvert, and D.~Baker.
+\newblock {Computational design of metallohydrolases}.
+\newblock {\em Nature}, 649:246--253, 2026.
+
+\bibitem{carlin2016}
+D.~A. Carlin, R.~W. Caster, X.~Wang, S.~A. Betzenderfer, C.~X. Chen, V.~M.
+  Duong, C.~V. Ryklansky, A.~Alpekin, N.~Beaumont, H.~Kapoor, N.~Kim,
+  H.~Mohabbot, B.~Pang, R.~Teel, L.~Whithaus, I.~Tagkopoulos, and J.~B. Siegel.
+\newblock {Kinetic Characterization of 100 Glycoside Hydrolase Mutants Enables
+  the Discovery of Structural Features Correlated with Kinetic Constants}.
+\newblock {\em PLOS ONE}, 11:e0147596, 2016.
+
+\bibitem{carlin2017}
+D.~A. Carlin, S.~Hapig-Ward, B.~W. Chan, N.~Damrau, M.~Riley, R.~W. Caster,
+  B.~Bethards, and J.~B. Siegel.
+\newblock {Thermal stability and kinetic constants for 129 variants of a family
+  1 glycoside hydrolase reveal that enzyme activity and stability can be
+  separately designed}.
+\newblock {\em PLOS ONE}, 12:e0176255, 2017.
+
+\bibitem{henikoff1992}
+S.~Henikoff and J.~G. Henikoff.
+\newblock {Amino acid substitution matrices from protein blocks}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  89:10915--10919, 1992.
+
+\bibitem{spearman1904}
+C.~Spearman.
+\newblock {The proof and measurement of association between two things}.
+\newblock {\em The American Journal of Psychology}, 15:72--101, 1904.
+
+\end{thebibliography}
