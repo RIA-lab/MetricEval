@@ -1,9 +1,9 @@
-LaTeX source of "MetricEval" (Methods, Results, references) and its Supplementary Information
-=============================================================================================
+LaTeX source of the paper and of its Supplementary Information
+===============================================================
 
-  paper.tex            Title, Abstract, 1 Introduction and 4 Discussion are reserved headings
-                       only; 2 Methods, 3 Results and the references are complete
-  supplementary.tex    describes the 49 supplementary tables and the 9 main-text tables
+  paper.tex            title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and the
+                       references; the Abstract is a reserved heading only
+  supplementary.tex    describes the 49 supplementary tables and the seven data tables of the Results
   references.bib       entries cited in paper.tex
   paper.bbl            BibTeX output for paper.tex (so that paper.tex compiles without BibTeX)
 
@@ -17,7 +17,7 @@ or  pdflatex paper && bibtex paper && pdflatex paper && pdflatex paper
 
 Numbering: section numbers are part of the headings; table, box and equation numbers
 are written in the text. Citation numbers follow the order of first citation in the
-Methods and Results (references are listed with \nocite in that order).
+Introduction, Methods and Results (references are listed with \nocite in that order).
 
 The data tables are not part of this source: they are released as CSV files
 (main/ and supplementary/ of the released directory), and the supplement describes them.

@@ -22,7 +22,7 @@ import sys
 from collections import OrderedDict
 from pathlib import Path
 
-from common import (HERE, LINK_HOST, PAPER, TABLES, link_ids, page_texts, pandoc_html, print_pdf,
+from common import (HERE, LINK_HOST, PAPER, TABLES, TITLE, link_ids, page_texts, pandoc_html, print_pdf,
                     relativize_links)
 import supplement_spec as spec
 
@@ -186,7 +186,7 @@ def entry_md(old, new, sp, row, cites, paper_pages, fx):
 def front_matter(ids, index, fx):
     n_supp = sum(r["kind"] == "supplementary" for r in index.values())
     s03, s02, a3, a5 = ids["S03"], ids["S02"], ids["A3"], ids["A5"]
-    return f"""<div class="title-block"><h1 class="doc-title">[Title]</h1><div class="subtitle">Supplementary Information</div></div>
+    return f"""<div class="title-block"><h1 class="doc-title">{TITLE}</h1><div class="subtitle">Supplementary Information</div></div>
 
 # 1 About these tables
 
@@ -334,7 +334,7 @@ def main():
     supp_pages = json.loads(SUPP_PAGES.read_text()) if SUPP_PAGES.exists() else {}
     for attempt in range(1, 5):
         OUT_MD.write_text(render(ids, index, supp_pages, paper_pages) + "\n", encoding="utf-8")
-        pandoc_html(OUT_MD, OUT_HTML, HERE / "template_supplement.html", "MetricEval: Supplementary Information")
+        pandoc_html(OUT_MD, OUT_HTML, HERE / "template_supplement.html", f"Supplementary Information: {TITLE}")
         errs = print_pdf(OUT_HTML, OUT_PDF)
         relativize_links(OUT_PDF)
         new_pages, n_pages = find_pages(OUT_PDF, ids)

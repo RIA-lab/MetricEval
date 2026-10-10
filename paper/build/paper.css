@@ -26,7 +26,7 @@ body {
 .title-block { margin: 6mm 0 8mm; text-align: center; }
 h1.doc-title {
   font-size: 20pt; line-height: 1.25; font-weight: 700; margin: 0;
-  color: var(--muted); border: 0; padding: 0;
+  color: var(--ink); border: 0; padding: 0;
 }
 h1, h2, h3 {
   font-family: "Liberation Sans", "DejaVu Sans", sans-serif;

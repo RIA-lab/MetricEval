@@ -4,15 +4,15 @@
 Writes paper/latex/ (paper.tex, supplementary.tex, references.bib, paper.bbl,
 README.txt) and paper/latex_source.zip (sources only).
 
-  * paper.tex          Methods (2), Results (3) and the references; Title, Abstract,
-                       1 Introduction and 4 Discussion are headings only, as in paper.pdf.
+  * paper.tex          the title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and the
+                       references; the Abstract is a heading only, as in paper.pdf.
   * supplementary.tex  the description of the supplementary tables (as supplementary.pdf).
   * references.bib     the entries cited, in the order of first citation. paper.tex lists
                        them with \\nocite in that order, so that the BibTeX (unsrt) numbers
                        equal the numbers of paper.pdf.
 
-The text is the same Markdown as for the PDFs (methods.md, results.md and the
-generated supplementary.md text); pandoc writes the LaTeX, latex_filter.lua maps
+The text is the same Markdown as for the PDFs (introduction.md, methods.md, results.md,
+discussion.md and the generated supplementary.md text); pandoc writes the LaTeX, latex_filter.lua maps
 figures and boxes, latex_preamble.tex adds packages. Both documents are compiled
 with latexmk in a scratch directory to check them; the compiled PDFs are not part
 of the release (paper.pdf and supplementary.pdf are).
@@ -30,7 +30,7 @@ from pathlib import Path
 
 import build_pdf as bp
 import build_supplement as bs
-from common import HERE, PAPER
+from common import HERE, PAPER, TITLE
 
 OUT = PAPER / "latex"
 ZIP = PAPER / "latex_source.zip"
@@ -38,12 +38,12 @@ PANDOC_FROM = "markdown-implicit_figures-auto_identifiers-citations"   # smart q
 CITE_KEY = "`\\cite{%s}`{=latex}"
 
 README = """\
-LaTeX source of "MetricEval" (Methods, Results, references) and its Supplementary Information
-=============================================================================================
+LaTeX source of the paper and of its Supplementary Information
+===============================================================
 
-  paper.tex            Title, Abstract, 1 Introduction and 4 Discussion are reserved headings
-                       only; 2 Methods, 3 Results and the references are complete
-  supplementary.tex    describes the 49 supplementary tables and the 9 main-text tables
+  paper.tex            title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and the
+                       references; the Abstract is a reserved heading only
+  supplementary.tex    describes the 49 supplementary tables and the seven data tables of the Results
   references.bib       entries cited in paper.tex
   paper.bbl            BibTeX output for paper.tex (so that paper.tex compiles without BibTeX)
 
@@ -57,7 +57,7 @@ or  pdflatex paper && bibtex paper && pdflatex paper && pdflatex paper
 
 Numbering: section numbers are part of the headings; table, box and equation numbers
 are written in the text. Citation numbers follow the order of first citation in the
-Methods and Results (references are listed with \\nocite in that order).
+Introduction, Methods and Results (references are listed with \\nocite in that order).
 
 The data tables are not part of this source: they are released as CSV files
 (main/ and supplementary/ of the released directory), and the supplement describes them.
@@ -113,8 +113,7 @@ def paper_markdown():
         body = cites_to_latex(body, local, order)
         body = bp.link_ids(body, lambda n: None)          # table ids stay plain text
         sections.append(body)
-    md = "\n\n".join(["# Abstract {.unnumbered}", "# 1 Introduction", sections[0], sections[1],
-                      "# 4 Discussion",
+    md = "\n\n".join(["# Abstract {.unnumbered}", *sections,
                       "```{=latex}\n\\bibliographystyle{unsrt}\n\\bibliography{references}\n```"])
     return md, order
 
@@ -155,7 +154,7 @@ def build_paper():
     md, order = paper_markdown()
     write_bib(order)
     nocite = "\\nocite{" + ",\n  ".join(order) + "}\n"
-    run_pandoc(md, "[Title]", None, OUT / "paper.tex", before_body=nocite)
+    run_pandoc(md, TITLE, None, OUT / "paper.tex", before_body=nocite)
     return len(order)
 
 
@@ -165,7 +164,7 @@ def build_supplement():
     md = bs.render(ids, index, {}, {}, latex=True)
     md = re.sub(r'<div class="title-block">.*?</div></div>\n*', "", md, count=1, flags=re.S)
     md = re.sub(r"\[([^\]]+)\]\(https://pdflink\.invalid/[^)]*\)", r"\1", md)
-    run_pandoc(md, "[Title]", "Supplementary Information", OUT / "supplementary.tex")
+    run_pandoc(md, TITLE, "Supplementary Information", OUT / "supplementary.tex")
 
 
 # ------------------------------------------------------------------ compile and zip

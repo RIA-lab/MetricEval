@@ -87,7 +87,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={{[}Title{]}},
+  pdftitle={Do in-silico metrics filter designed enzymes against catalysis?},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -95,36 +95,53 @@
   urlcolor={blue},
   pdfcreator={LaTeX via pandoc}}
 
-\title{{[}Title{]}}
+\title{Do in-silico
+metrics filter
+designed enzymes
+against catalysis?}
 \author{}
 \date{}
 
 \begin{document}
 \maketitle
 
-\nocite{alford2017,
+\nocite{listov2026,
+  butcher2025,
+  kim2026,
+  listov2025,
+  richter2011,
+  abramson2024,
+  lauko2025,
+  ahern2026,
+  watson2023,
+  yeh2023,
+  braun2026,
+  jumper2021,
+  chai2024,
+  anishchenko2025,
+  johnson2025,
+  overath2025,
+  garcia2026,
+  korbeld2026,
+  kiss2010,
+  alford2017,
   chaudhury2010,
   lee1971,
   mitternacht2016,
   tien2013,
   olsson2011,
   sondergaard2011,
-  chai2024,
   evans2021,
-  jumper2021,
-  ahern2026,
   burley2025,
   berman2000,
   uniprot2023,
   dana2019,
   ribeiro2018,
-  anishchenko2025,
   hanley1982,
   mann1947,
   efron1979,
   field2007,
   westfall1993,
-  kim2026,
   carlin2016,
   carlin2017,
   henikoff1992,
@@ -135,6 +152,362 @@
 
 \section{1
 Introduction}
+
+Computational enzyme
+design
+\cite{listov2026}
+now produces far
+more candidates than
+can be tested. A
+single design
+problem yields tens
+of thousands to
+millions of designs:
+130,000 backbones
+for a cysteine
+hydrolase designed
+with RFdiffusion3
+\cite{butcher2025},
+several hundred
+thousand sequences
+for a zinc
+metallohydrolase
+\cite{kim2026}, and
+\(10^5\) to \(10^6\)
+designs for each
+starting structure
+in a Kemp-eliminase
+workflow
+\cite{listov2025}.
+The experiment, one
+or two 96-well
+plates, takes up
+about a hundred, and
+an in-silico filter
+decides which.
+Richter and
+colleagues described
+this filtering step
+in 2011 as
+``analyzing, and
+ranking all of the
+produced structures
+to find the best
+handful worth
+experimentally
+characterizing''
+\cite{richter2011}.
+
+Recent campaigns
+have invested
+heavily in this
+step. The
+RFdiffusion3
+cysteine hydrolases
+went through three
+rounds of filtering
+on AlphaFold3
+\cite{abramson2024}
+predictions of the
+catalytic geometry,
+and 18\% of the 190
+designs tested were
+multi-turnover
+enzymes, against
+1--2\% in earlier
+campaigns
+\cite{butcher2025}.
+In the
+serine-hydrolase
+campaign, the
+fraction of designs
+with
+ester-hydrolysis
+activity rose from
+1.6\% to 5.2\% in
+the round that added
+a filter for the
+preorganization of
+the catalytic
+residues
+\cite{lauko2025}.
+In-silico criteria
+also decide which
+method is judged
+better: RFdiffusion2
+yields a design that
+passes them at all
+41 active sites of
+its benchmark,
+RFdiffusion at 16
+\cite{ahern2026,watson2023}.
+Filtering is thus a
+decisive step in
+enzyme design, yet
+passing it is no
+guarantee of
+activity: of the 192
+designs tested in
+the metallohydrolase
+campaign, 176 have
+no reported kcat/KM
+\cite{kim2026}.
+
+The filters
+themselves are far
+from standardized:
+what they measure
+differs from one
+pipeline to the
+next. Some rank
+designs by Rosetta
+energies and shape
+complementarity
+\cite{kim2026,listov2025,yeh2023},
+some by how closely
+a predicted
+structure reproduces
+the intended
+catalytic geometry
+\cite{butcher2025,braun2026},
+and others by the
+confidence of
+AlphaFold or Chai-1
+models of the
+enzyme--substrate
+complex
+\cite{abramson2024,jumper2021,chai2024}
+or by the
+preorganization of
+the active site in
+an ensemble of
+predicted
+conformations
+\cite{lauko2025,anishchenko2025}.
+Many pipelines
+combine several of
+these into a
+composite score
+\cite{butcher2025,kim2026,listov2025}.
+Cut-offs differ from
+campaign to
+campaign, and the
+weights are set by
+judgement, in one
+case as ``an
+arbitrary initial
+guess''
+\cite{kim2026}.
+
+That judgement has
+little evidence to
+draw on: it is not
+known whether any of
+these metrics
+responds to
+catalysis. A
+campaign judges its
+filter by its own
+hit rate, which also
+reflects every other
+change made between
+rounds. For the
+final selection, the
+designers of the
+metallohydrolases
+combined many
+metrics instead of
+applying cut-offs
+``due to the lack of
+known standalone
+predictive metrics
+for metallohydrolase
+activity''
+\cite{kim2026}. The
+authors of
+Riff-Diff, who
+ranked their designs
+mainly by the RMSD
+of the catalytic
+residues, report a
+``negligible
+correlation between
+predicted enzyme
+rankings and actual
+activity in this and
+previous studies''
+\cite{braun2026}.
+Systematic
+evaluations exist
+for neighbouring
+problems: filters
+for generated enzyme
+sequences
+\cite{johnson2025},
+interface metrics
+for protein binders
+\cite{overath2025},
+predictor confidence
+for monomer designs
+\cite{garcia2026,korbeld2026}
+and, in 2010,
+quantum-mechanical
+and
+molecular-dynamics
+scoring of the first
+Kemp-eliminase
+designs
+\cite{kiss2010}. To
+our knowledge, none
+has asked whether
+the fast metrics
+that filter
+structure-based
+enzyme designs
+respond to
+catalysis.
+
+To address this, we
+asked what a metric
+that tracks
+catalysis should be
+able to do, and
+turned each answer
+into a test. It
+should tell an
+enzyme that works
+from one that does
+not, which is what a
+filter is for
+(\emph{activity
+discrimination
+test}). It should
+also know which
+substrate an enzyme
+is built for, as
+every design
+conditioned on a
+substrate assumes
+(\emph{substrate
+discrimination
+test}), and order
+enzymes by their
+activity, because a
+selection ends by
+choosing the best of
+the designs that
+pass (\emph{activity
+ranking test}). And
+it should notice
+damage to the
+catalytic residues
+more than the same
+damage elsewhere in
+the protein, since
+that is what
+separates catalysis
+from geometry
+(\emph{detection
+ability test}). We
+applied the tests to
+33 metrics
+computable from a
+design model or a
+co-folded prediction
+(Methods 2.1). The
+first three observe
+natural enzymes and
+designs as they are,
+whereas the fourth
+damages natural
+enzymes on purpose,
+which is what allows
+catalysis to be told
+apart from proximity
+to the active site.
+Every test ranks the
+metrics alongside
+trivial references,
+such as the distance
+to the catalytic
+residues, so that a
+metric is credited
+only if it does
+better than
+something simple.
+
+In activity
+discrimination,
+intra-residue
+repulsion of the
+catalytic residues
+led, but not beyond
+chance on the
+natural pairs (AUROC
+0.61, against a
+chance threshold of
+0.68 for the best of
+39 items). On the
+designs the tyrosine
+fraction, which
+knows nothing about
+the active site,
+came close (0.75
+against 0.80). In
+substrate
+discrimination, ipTM
+led (0.70), so the
+predictor registers
+which ligand it was
+given, but the RMSD
+of the catalytic
+atoms barely
+separated the two
+predictions (0.53 to
+0.56). In activity
+ranking, the range
+of the catalytic pKa
+ranked the BglB
+variants best
+(Spearman ρ = 0.48),
+but the distance
+from the mutated
+residue to the
+catalytic residues
+does almost as well
+(0.46) and no metric
+beat it. In
+detection ability,
+the per-chain pTM
+minimum responded
+most to catalytic
+damage (R = 0.75;
+0.5 means no
+preference for the
+catalytic site) and
+fell to 0.59 when
+the control lay at
+the same distance
+from the ligand. In
+three of the four
+tests, then, the
+best metric is
+matched by a simple
+reference or loses
+its advantage under
+a stricter control.
+What the metrics
+register is that
+something near the
+active site has
+changed; we could
+not show that they
+register whether the
+change is catalytic
+(Results 3.1 to
+3.4).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{2 Methods}
 
@@ -7240,6 +7613,167 @@ Table S29.
 
 \section{4
 Discussion}
+
+As generative models
+produce more designs
+than any laboratory
+can test, the
+in-silico filter
+that chooses among
+them has become a
+decisive step of
+enzyme design. The
+designs that are
+built are the ones
+that pass it, and
+the same metrics
+increasingly decide
+which design methods
+are judged better. A
+filter that does not
+track catalysis
+therefore wastes
+experiments and can
+mislead the field
+about what works,
+yet the metrics
+behind these filters
+had not, to our
+knowledge, been
+tested against
+catalysis.
+
+We tested 33 such
+metrics in four
+tests, each
+corresponding to a
+job that a filter is
+asked to do.
+Activity
+discrimination is
+the basic one, to
+separate designs
+that work from
+designs that do not.
+Substrate
+discrimination asks
+whether a metric
+knows what an enzyme
+is built for, which
+design conditioned
+on a substrate takes
+for granted.
+Activity ranking is
+the last step of a
+selection, choosing
+the best of the
+designs that pass.
+Detection ability
+asks for the
+property that makes
+a metric a measure
+of catalysis and not
+of geometry: it must
+register damage to
+the catalytic
+residues more than
+the same damage
+elsewhere in the
+protein. Three of
+the tests observe
+proteins as they
+exist and the fourth
+intervenes, which is
+what allows
+catalysis to be told
+apart from
+proximity. In every
+test a metric has to
+beat a trivial
+reference before it
+counts as having
+detected anything. A
+metric that tracks
+catalysis should do
+well in all four.
+
+In activity
+discrimination, none
+of the 33 metrics
+separated natural
+dead enzymes from
+their active forms
+beyond chance (best
+AUROC 0.61, against
+a threshold of
+0.68), whereas
+whole-prediction
+pLDDT did (0.79); on
+192 designs the
+intra-residue
+repulsion of the
+catalytic residues
+led (0.80), with the
+tyrosine fraction
+close behind (0.75).
+In substrate
+discrimination, ipTM
+separated the
+cognate ligand from
+a wrong one (0.70),
+but the RMSD of the
+catalytic atoms
+barely did (0.53 to
+0.56). In activity
+ranking, the range
+of the catalytic pKa
+correlated best with
+the measured
+impairment of BglB
+variants (ρ = 0.48),
+yet the distance
+from the mutated
+residue to the
+catalytic residues
+gives 0.46 and no
+metric beat it. In
+detection ability,
+the per-chain pTM
+minimum responded
+most to catalytic
+damage (R = 0.75)
+but fell to 0.59
+when the control lay
+at the same distance
+from the ligand.
+Taken together, the
+metrics register
+damage close to the
+active site, or the
+supply of another
+ligand, and we could
+not show that they
+register whether the
+damage is catalytic.
+The designed sets
+are small and had
+already passed a
+filter, so this
+marks where the
+metrics fail to
+stand out, not that
+they carry no
+information.
+Registering damage
+is probably enough
+to discard designs
+that are plainly
+broken, but not for
+the choice a filter
+exists to make,
+between designs that
+differ in chemistry
+and not in position.
 
 \bibliographystyle{unsrt}
 \bibliography{references}

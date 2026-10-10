@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Build paper/paper.pdf from the Markdown sections.
 
-Included: Methods (2), Results (3) and one merged, globally numbered reference
-list. Title, Abstract, 1 Introduction and 4 Discussion are reserved as empty
-headings (see RESERVED below).
+Included: the title, 1 Introduction, 2 Methods, 3 Results, 4 Discussion and one
+merged, globally numbered reference list (numbered by first citation, in the order
+of the sections). The Abstract is a reserved, empty heading until it is written.
 
 Pipeline: Markdown -> pandoc (HTML, KaTeX math) -> headless Chromium (PDF).
 
@@ -18,7 +18,7 @@ import re
 import sys
 from pathlib import Path
 
-from common import (HERE, LINK_HOST, MATH_RE, PAPER, link_ids, page_texts, pandoc_html,
+from common import (HERE, LINK_HOST, MATH_RE, PAPER, TITLE, link_ids, page_texts, pandoc_html,
                     print_pdf, relativize_links)
 
 OUT_PDF = PAPER / "paper.pdf"
@@ -28,10 +28,10 @@ SUPP_PAGES = HERE / "supplement_pages.json"   # written by build_supplement.py
 PAPER_PAGES = HERE / "paper_pages.json"       # read by build_supplement.py
 
 # Sections to include with their content, in paper order.
-BODY_FILES = ["methods.md", "results.md"]
+BODY_FILES = ["introduction.md", "methods.md", "results.md", "discussion.md"]
 
-# Reserved sections: heading only, no body. (kind, heading text)
-TITLE_PLACEHOLDER = "[Title]"
+# Sections that cite nothing and so have no reference block of their own.
+NO_REFS_OK = {"discussion.md"}
 
 SENTENCE_PATCHES = [
     # The source files say their reference list is local to the section; in the
@@ -51,6 +51,8 @@ COLS_RE = re.compile(r"^<!--\s*cols:\s*([\d.,\s]+?)\s*-->$")
 def split_refs(text, name):
     """Return (body without reference block, {local number: (key, text)})."""
     m = REFS_BLOCK_RE.search(text)
+    if not m and name in NO_REFS_OK:
+        return text, {}          # a numbered citation here would stop renumber() with an error
     if not m:
         sys.exit(f"{name}: no <!-- refs:start --> ... <!-- refs:end --> block")
     refs = {}
@@ -227,7 +229,7 @@ def main():
         return f"{LINK_HOST}supplementary.pdf" + (f"#page={page}" if page else "")
 
     key_to_global, order = {}, []
-    sections = []
+    sections = {}
     for name in BODY_FILES:
         raw = (PAPER / name).read_text(encoding="utf-8")
         body, local = split_refs(raw, name)
@@ -237,31 +239,29 @@ def main():
         body = renumber(body, local, key_to_global, order)
         body = body.replace("](fig1_study_map.png)", "](../fig1_study_map.png)")
         body = link_ids(body, supplement_href)
-        sections.append(body)
+        sections[name] = body
     check_bib([k for k, _ in order])
 
     md = "\n\n".join(
         [
-            f'<div class="title-block"><h1 class="doc-title">{TITLE_PLACEHOLDER}</h1></div>',
+            f'<div class="title-block"><h1 class="doc-title">{TITLE}</h1></div>',
             "# Abstract {.unnumbered .reserved}",
-            "# 1 Introduction {.reserved}",
-            sections[0],
-            sections[1],
-            "# 4 Discussion {.reserved}",
+            *sections.values(),
             "# References {.unnumbered}",
             f'<div class="refs">\n{reference_html(order)}\n</div>',
         ]
     )
     OUT_MD.write_text(md + "\n", encoding="utf-8")
 
-    pandoc_html(OUT_MD, OUT_HTML, HERE / "template.html", "MetricEval: Methods and Results (draft)")
+    pandoc_html(OUT_MD, OUT_HTML, HERE / "template.html", TITLE)
     h = OUT_HTML.read_text(encoding="utf-8")
     h = re.sub(r"<caption>\s*" + TOP_MARK + r"\s*", '<caption class="top">', h)
     OUT_HTML.write_text(h, encoding="utf-8")
 
     errs = print_pdf(OUT_HTML, OUT_PDF)
     n_links = relativize_links(OUT_PDF)
-    numbers = sorted({m.group(1) for sec in sections for m in re.finditer(r"^#{1,3} (\d+(?:\.\d+)*) ", sec, re.M)})
+    linked = [sections["methods.md"], sections["results.md"]]
+    numbers = sorted({m.group(1) for sec in linked for m in re.finditer(r"^#{1,3} (\d+(?:\.\d+)*) ", sec, re.M)})
     pages = heading_pages(OUT_PDF, numbers)
     PAPER_PAGES.write_text(json.dumps(pages, indent=1), encoding="utf-8")
     print(f"wrote {OUT_PDF} ({OUT_PDF.stat().st_size // 1024} KiB); {len(order)} references; "

@@ -10,6 +10,9 @@ HERE = Path(__file__).resolve().parent
 PAPER = HERE.parent
 TABLES = PAPER.parent / "tables"
 
+# The title of the paper, used by the PDFs and the LaTeX source of both documents.
+TITLE = "Do in-silico metrics filter designed enzymes against catalysis?"
+
 # Links between the two PDFs are written with this placeholder host; Chromium
 # would turn a relative href into an absolute file:// path, so after printing
 # the host is stripped again and the link becomes relative ("supplementary.pdf#page=3").

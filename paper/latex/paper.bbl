@@ -1,5 +1,148 @@
 \begin{thebibliography}{10}
 
+\bibitem{listov2026}
+D.~Listov and S.~J. Fleishman.
+\newblock {De novo enzyme design: Controlling structure to design function}.
+\newblock {\em Curr. Opin. Struct. Biol.}, 98:103252, 2026.
+
+\bibitem{butcher2025}
+J.~Butcher, R.~Krishna, R.~Mitra, R.~I. Brent, Y.~Li, N.~Corley, P.~T. Kim,
+  J.~Funk, S.~Mathis, S.~Salike, A.~Muraishi, H.~Eisenach, T.~R. Thompson,
+  J.~Chen, Y.~Politanska, E.~Sehgal, B.~Coventry, O.~Zhang, B.~Qiang, K.~Didi,
+  M.~Kazman, F.~DiMaio, and D.~Baker.
+\newblock {De novo Design of All-atom Biomolecular Interactions with
+  RFdiffusion3}.
+\newblock bioRxiv, 2025.
+\newblock doi: 10.1101/2025.09.18.676967.
+
+\bibitem{kim2026}
+D.~Kim, S.~M. Woodbury, W.~Ahern, D.~Tischer, A.~Kang, E.~Joyce, A.~K. Bera,
+  N.~Hanikel, S.~Salike, R.~Krishna, J.~Yim, S.~J. Pellock, A.~Lauko,
+  I.~Kalvet, D.~Hilvert, and D.~Baker.
+\newblock {Computational design of metallohydrolases}.
+\newblock {\em Nature}, 649:246--253, 2026.
+
+\bibitem{listov2025}
+D.~Listov, E.~Vos, G.~Hoffka, S.~Y. Hoch, A.~Berg, S.~Hamer-Rogotner, O.~Dym,
+  S.~C.~L. Kamerlin, and S.~J. Fleishman.
+\newblock {Complete computational design of high-efficiency Kemp elimination
+  enzymes}.
+\newblock {\em Nature}, 643:1421--1427, 2025.
+
+\bibitem{richter2011}
+F.~Richter, A.~Leaver-Fay, S.~D. Khare, S.~Bjelic, and D.~Baker.
+\newblock {De novo enzyme design using Rosetta3}.
+\newblock {\em PLOS ONE}, 6:e19230, 2011.
+
+\bibitem{abramson2024}
+J.~Abramson, J.~Adler, J.~Dunger, R.~Evans, T.~Green, A.~Pritzel,
+  O.~Ronneberger, L.~Willmore, A.~J. Ballard, J.~Bambrick, S.~W. Bodenstein,
+  D.~A. Evans, C.~C. Hung, M.~O'Neill, D.~Reiman, K.~Tunyasuvunakool, Z.~Wu,
+  A.~Žemgulytė, E.~Arvaniti, C.~Beattie, O.~Bertolli, A.~Bridgland,
+  A.~Cherepanov, M.~Congreve, A.~I. Cowen-Rivers, A.~Cowie, M.~Figurnov, F.~B.
+  Fuchs, H.~Gladman, R.~Jain, Y.~A. Khan, C.~M.~R. Low, K.~Perlin,
+  A.~Potapenko, P.~Savy, S.~Singh, A.~Stecula, A.~Thillaisundaram, C.~Tong,
+  S.~Yakneen, E.~D. Zhong, M.~Zielinski, A.~Žídek, V.~Bapst, P.~Kohli,
+  M.~Jaderberg, D.~Hassabis, and J.~M. Jumper.
+\newblock {Accurate structure prediction of biomolecular interactions with
+  AlphaFold 3}.
+\newblock {\em Nature}, 630:493--500, 2024.
+
+\bibitem{lauko2025}
+A.~Lauko, S.~J. Pellock, K.~H. Sumida, I.~Anishchenko, D.~Juergens, W.~Ahern,
+  J.~Jeung, A.~F. Shida, A.~Hunt, I.~Kalvet, C.~Norn, I.~R. Humphreys,
+  C.~Jamieson, R.~Krishna, Y.~Kipnis, A.~Kang, E.~Brackenbrough, A.~K. Bera,
+  B.~Sankaran, K.~N. Houk, and D.~Baker.
+\newblock {Computational design of serine hydrolases}.
+\newblock {\em Science (New York, N.Y.)}, 388:eadu2454, 2025.
+
+\bibitem{ahern2026}
+W.~Ahern, J.~Yim, D.~Tischer, S.~Salike, S.~M. Woodbury, D.~Kim, I.~Kalvet,
+  Y.~Kipnis, B.~Coventry, H.~R. Altae-Tran, M.~S. Bauer, R.~Barzilay, T.~S.
+  Jaakkola, R.~Krishna, and D.~Baker.
+\newblock {Atom-level enzyme active site scaffolding using RFdiffusion2}.
+\newblock {\em Nature Methods}, 23:96--105, 2026.
+
+\bibitem{watson2023}
+J.~L. Watson, D.~Juergens, N.~R. Bennett, B.~L. Trippe, J.~Yim, H.~E. Eisenach,
+  W.~Ahern, A.~J. Borst, R.~J. Ragotte, L.~F. Milles, B.~I.~M. Wicky,
+  N.~Hanikel, S.~J. Pellock, A.~Courbet, W.~Sheffler, J.~Wang, P.~Venkatesh,
+  I.~Sappington, S.~V. Torres, A.~Lauko, V.~De~Bortoli, E.~Mathieu,
+  S.~Ovchinnikov, R.~Barzilay, T.~S. Jaakkola, F.~DiMaio, M.~Baek, and
+  D.~Baker.
+\newblock {De novo design of protein structure and function with RFdiffusion}.
+\newblock {\em Nature}, 620:1089--1100, 2023.
+
+\bibitem{yeh2023}
+A.~H. Yeh, C.~Norn, Y.~Kipnis, D.~Tischer, S.~J. Pellock, D.~Evans, P.~Ma,
+  G.~R. Lee, J.~Z. Zhang, I.~Anishchenko, B.~Coventry, L.~Cao, J.~Dauparas,
+  S.~Halabiya, M.~DeWitt, L.~Carter, K.~N. Houk, and D.~Baker.
+\newblock {De novo design of luciferases using deep learning}.
+\newblock {\em Nature}, 614:774--780, 2023.
+
+\bibitem{braun2026}
+M.~Braun, A.~Tripp, M.~Chakatok, S.~Kaltenbrunner, C.~Fischer, D.~Stoll,
+  A.~Bijelic, W.~Elaily, M.~G. Totaro, M.~Moser, S.~Y. Hoch, H.~Lechner,
+  F.~Rossi, M.~Aleotti, M.~Hall, and G.~Oberdorfer.
+\newblock {Computational enzyme design by catalytic motif scaffolding}.
+\newblock {\em Nature}, 649:237--245, 2026.
+
+\bibitem{jumper2021}
+J.~Jumper, R.~Evans, A.~Pritzel, T.~Green, M.~Figurnov, O.~Ronneberger,
+  K.~Tunyasuvunakool, R.~Bates, A.~Žídek, A.~Potapenko, A.~Bridgland,
+  C.~Meyer, S.~A.~A. Kohl, A.~J. Ballard, A.~Cowie, B.~Romera-Paredes,
+  S.~Nikolov, R.~Jain, J.~Adler, T.~Back, S.~Petersen, D.~Reiman, E.~Clancy,
+  M.~Zielinski, M.~Steinegger, M.~Pacholska, T.~Berghammer, S.~Bodenstein,
+  D.~Silver, O.~Vinyals, A.~W. Senior, K.~Kavukcuoglu, P.~Kohli, and
+  D.~Hassabis.
+\newblock {Highly accurate protein structure prediction with AlphaFold}.
+\newblock {\em Nature}, 596:583--589, 2021.
+
+\bibitem{chai2024}
+{Chai Discovery}, J.~Boitreaud, J.~Dent, M.~McPartlon, J.~Meier, V.~Reis,
+  A.~Rogozhnikov, and K.~Wu.
+\newblock {Chai-1: Decoding the molecular interactions of life}.
+\newblock bioRxiv, 2024.
+\newblock doi: 10.1101/2024.10.10.615955.
+
+\bibitem{anishchenko2025}
+I.~Anishchenko, Y.~Kipnis, I.~Kalvet, G.~Zhou, R.~Krishna, S.~J. Pellock,
+  A.~Lauko, G.~R. Lee, L.~An, J.~Dauparas, F.~DiMaio, and D.~Baker.
+\newblock {Modeling protein-small molecule conformational ensembles with
+  PLACER}.
+\newblock {\em Proc. Natl. Acad. Sci. U.S.A.}, 122:e2427161122, 2025.
+
+\bibitem{johnson2025}
+S.~R. Johnson, X.~Fu, S.~Viknander, C.~Goldin, S.~Monaco, A.~Zelezniak, and
+  K.~K. Yang.
+\newblock {Computational scoring and experimental evaluation of enzymes
+  generated by neural networks}.
+\newblock {\em Nature Biotechnology}, 43:396--405, 2025.
+
+\bibitem{overath2025}
+M.~D. Overath, A.~S.~H. Rygaard, C.~P. Jacobsen, V.~Brasas, O.~Morell,
+  P.~Sormanni, and T.~P. Jenkins.
+\newblock {Predicting Experimental Success in De Novo Binder Design: A
+  Meta-Analysis of 3,766 Experimentally Characterised Binders}.
+\newblock bioRxiv, 2025.
+\newblock doi: 10.1101/2025.08.14.670059.
+
+\bibitem{garcia2026}
+M.~Garcia, S.~M. Dixit, and G.~J. Rocklin.
+\newblock {Evaluating zero-shot prediction of monomeric protein design success
+  by AlphaFold, ESMFold, and ProteinMPNN}.
+\newblock {\em Protein Sci.}, 35:e70453, 2026.
+
+\bibitem{korbeld2026}
+K.~T. Korbeld, V.~Viliuga, and M.~J. L.~J. Fürst.
+\newblock {Limitations of the refolding pipeline for de novo protein design}.
+\newblock {\em Protein Sci.}, 35:e70613, 2026.
+
+\bibitem{kiss2010}
+G.~Kiss, D.~Röthlisberger, D.~Baker, and K.~N. Houk.
+\newblock {Evaluation and ranking of enzyme designs}.
+\newblock {\em Protein Sci.}, 19:1760--1773, 2010.
+
 \bibitem{alford2017}
 R.~F. Alford, A.~Leaver-Fay, J.~R. Jeliazkov, M.~J. O'Meara, F.~P. DiMaio,
   H.~Park, M.~V. Shapovalov, P.~D. Renfrew, V.~K. Mulligan, K.~Kappel, J.~W.
@@ -44,13 +187,6 @@ C.~R. Søndergaard, M.~H.~M. Olsson, M.~Rostkowski, and J.~H. Jensen.
   Calculation and Rationalization of pKa Values}.
 \newblock {\em Journal of Chemical Theory and Computation}, 7:2284--2295, 2011.
 
-\bibitem{chai2024}
-{Chai Discovery}, J.~Boitreaud, J.~Dent, M.~McPartlon, J.~Meier, V.~Reis,
-  A.~Rogozhnikov, and K.~Wu.
-\newblock {Chai-1: Decoding the molecular interactions of life}.
-\newblock bioRxiv, 2024.
-\newblock doi: 10.1101/2024.10.10.615955.
-
 \bibitem{evans2021}
 R.~Evans, M.~O’Neill, A.~Pritzel, N.~Antropova, A.~Senior, T.~Green,
   A.~Žídek, R.~Bates, S.~Blackwell, J.~Yim, O.~Ronneberger, S.~Bodenstein,
@@ -59,24 +195,6 @@ R.~Evans, M.~O’Neill, A.~Pritzel, N.~Antropova, A.~Senior, T.~Green,
 \newblock {Protein complex prediction with AlphaFold-Multimer}.
 \newblock bioRxiv, 2021.
 \newblock doi: 10.1101/2021.10.04.463034.
-
-\bibitem{jumper2021}
-J.~Jumper, R.~Evans, A.~Pritzel, T.~Green, M.~Figurnov, O.~Ronneberger,
-  K.~Tunyasuvunakool, R.~Bates, A.~Žídek, A.~Potapenko, A.~Bridgland,
-  C.~Meyer, S.~A.~A. Kohl, A.~J. Ballard, A.~Cowie, B.~Romera-Paredes,
-  S.~Nikolov, R.~Jain, J.~Adler, T.~Back, S.~Petersen, D.~Reiman, E.~Clancy,
-  M.~Zielinski, M.~Steinegger, M.~Pacholska, T.~Berghammer, S.~Bodenstein,
-  D.~Silver, O.~Vinyals, A.~W. Senior, K.~Kavukcuoglu, P.~Kohli, and
-  D.~Hassabis.
-\newblock {Highly accurate protein structure prediction with AlphaFold}.
-\newblock {\em Nature}, 596:583--589, 2021.
-
-\bibitem{ahern2026}
-W.~Ahern, J.~Yim, D.~Tischer, S.~Salike, S.~M. Woodbury, D.~Kim, I.~Kalvet,
-  Y.~Kipnis, B.~Coventry, H.~R. Altae-Tran, M.~S. Bauer, R.~Barzilay, T.~S.
-  Jaakkola, R.~Krishna, and D.~Baker.
-\newblock {Atom-level enzyme active site scaffolding using RFdiffusion2}.
-\newblock {\em Nature Methods}, 23:96--105, 2026.
 
 \bibitem{burley2025}
 S.~K. Burley, R.~Bhatt, C.~Bhikadiya, C.~Bi, A.~Biester, P.~Biswas,
@@ -118,13 +236,6 @@ A.~J.~M. Ribeiro, G.~L. Holliday, N.~Furnham, J.~D. Tyzack, K.~Ferris, and
   reaction mechanisms and active sites}.
 \newblock {\em Nucleic Acids Research}, 46:D618--D623, 2018.
 
-\bibitem{anishchenko2025}
-I.~Anishchenko, Y.~Kipnis, I.~Kalvet, G.~Zhou, R.~Krishna, S.~J. Pellock,
-  A.~Lauko, G.~R. Lee, L.~An, J.~Dauparas, F.~DiMaio, and D.~Baker.
-\newblock {Modeling protein-small molecule conformational ensembles with
-  PLACER}.
-\newblock {\em Proc. Natl. Acad. Sci. U.S.A.}, 122:e2427161122, 2025.
-
 \bibitem{hanley1982}
 J.~A. Hanley and B.~J. McNeil.
 \newblock {The meaning and use of the area under a receiver operating
@@ -153,13 +264,6 @@ P.~H. Westfall and S.~S. Young.
 \newblock {\em {Resampling-Based Multiple Testing: Examples and Methods for
   p-Value Adjustment}}.
 \newblock Wiley, New York, 1993.
-
-\bibitem{kim2026}
-D.~Kim, S.~M. Woodbury, W.~Ahern, D.~Tischer, A.~Kang, E.~Joyce, A.~K. Bera,
-  N.~Hanikel, S.~Salike, R.~Krishna, J.~Yim, S.~J. Pellock, A.~Lauko,
-  I.~Kalvet, D.~Hilvert, and D.~Baker.
-\newblock {Computational design of metallohydrolases}.
-\newblock {\em Nature}, 649:246--253, 2026.
 
 \bibitem{carlin2016}
 D.~A. Carlin, R.~W. Caster, X.~Wang, S.~A. Betzenderfer, C.~X. Chen, V.~M.
