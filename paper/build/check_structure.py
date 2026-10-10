@@ -98,7 +98,7 @@ def main():
                         f"first mismatch at position {first_bad}; {len(order)} cited of {n_supp})")
 
     # references
-    for n in ("methods.md", "results.md"):
+    for n in ("introduction.md", "methods.md", "results.md"):
         raw = (PAPER / n).read_text(encoding="utf-8")
         blk = re.search(r"<!--\s*refs:start\s*-->(.*?)<!--\s*refs:end\s*-->", raw, re.S)
         listed = {int(x) for x in re.findall(r"^\[(\d+)\]", blk.group(1), re.M)}
