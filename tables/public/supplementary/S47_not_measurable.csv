@@ -1,10 +1,10 @@
-test_id,reader_name,claim_type,role,mechanism_or_caveat,artifacts
-N0_UNRELATED,sanity floor: unrelated protein,detection,retired,"signed paired-median statistic cannot register a difference of random sign (seq_length median delta +6, sign p 0.87); partner = next table entry",results/P2_N0/n0_table.csv
-P2KE_OXY,oxyanion-hole rung,not_measurable,retired,"well-defined perturbation, but not the named one",results/P2KE/oxyanion_provenance.json;results/P2KE/REPORT.md
-P2KE_METAL,metal removal,not_measurable,not_measurable,no scoreable cell on any metric,results/P2KE/REPORT.md
-P2K_G,deformation (geometry) axis,not_measurable,retired,37/42 (P2) and 40/47 (P2K) apparent specific cells track pre-repack clash burden,results/P2K/blindness_map.csv;results/P2K/g_clash_attribution.csv
-P3V2_E,"de novo set, second shell",not_measurable,not_measurable,,results/P3v2/blindness_map.csv
-P3V2_G,"de novo set, deformation axis",not_measurable,retired,,results/P3v2/blindness_map.csv
-ISOPLACER_C,PLACER on the isosteric rung (P2K),not_measurable,not_measurable,the specific-metric count moves 0->9 and 5->2 with crop anchor alone,results/isoplacer/placer_specificity.csv;results/isoplacer/REPORT.md
-P0_TRAP,trapping-mutant pairs (retired),discrimination,retired,"26 of 30 pairs not confirmed dead (86.7% [70.3, 94.7])",results/P0/TRAPPING_VERIFICATION.md;results/P4/trapping_verification.json
-P5T2_TRAP,trapping-mutant pairs re-predicted (retired),discrimination,retired,retired tier; REPORT_T2.md still calls it the clean test,results/P5/t2_separation.csv
+reader_name,claim_type,role,mechanism_or_caveat
+sanity floor: unrelated protein,detection,retired,"signed paired-median statistic cannot register a difference of random sign (seq_length median delta +6, sign p 0.87); partner = next table entry"
+oxyanion-hole step,not_measurable,retired,"well-defined perturbation, but not the named one"
+metal removal,not_measurable,not_measurable,no scoreable cell on any metric
+deformation (geometry) experiment,not_measurable,retired,37 of 42 (main set) and 40 of 47 (packing-matched main set) apparent specific cells track the clash burden present before repacking
+"de novo set, second shell",not_measurable,not_measurable,
+"de novo set, deformation experiment",not_measurable,retired,
+PLACER on the isosteric step,not_measurable,not_measurable,the specific-metric count moves 0->9 and 5->2 with crop anchor alone
+trapping-mutant pairs (retired),discrimination,retired,"26 of 30 pairs not confirmed dead (86.7% [70.3, 94.7])"
+trapping-mutant pairs re-predicted (retired),discrimination,retired,retired tier

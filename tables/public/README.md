@@ -1,38 +1,32 @@
-# tables/public: the tables released with the paper
+# Public tables
 
-9 main-text tables and 49 supplementary tables, as CSV (UTF-8, comma-separated, one header row).
-The Supplementary PDF (`paper/supplementary.pdf`) describes every table: what a row is, what the columns
-mean, which part of the paper uses it. `INDEX.csv` lists them all with a sha256 of each file.
+9 main-text tables and 49 supplementary tables of the paper, as CSV (UTF-8, comma-separated, one header row).
+The Supplementary PDF describes every table: what a row is, what the columns mean and which part of the paper uses it.
+`INDEX.csv` lists all tables with title, size, licence flag and a sha256 of each file.
 
 ```
-main/            T1 ... T9   the paper's Tables 1 to 9 (the numbers of the paper)
-supplementary/   S1 ... S49   supplementary tables, numbered in the order in which the Methods and Results first cite them
-INDEX.csv        id, file, title, where the paper uses it, rows, columns, licence flag, sha256, id and file in tables/
+main/            T1 ... T9          Tables 1 to 9 of the paper
+supplementary/   S1 ... S49        supplementary tables, numbered in the order in which the paper first cites them
+INDEX.csv        id, file, title, where the paper uses it, rows, columns, licence flag, sha256
 ```
 
 ## Numbering
-Supplementary tables were renumbered S1, S2, S3 ... by first citation in the paper. `INDEX.csv` keeps the
-id under which each table was generated (`source_id`, for example `S17c`) and its file in `tables/`.
-S2 to S7 are the metric audit (the former A5, S01, A3, S02, A4 and S03).
+Supplementary tables are numbered S1, S2, S3 ... by first citation in the Methods and Results.
+S2 to S7 describe which metric can be tested in which experiment and why.
 
-## What was changed relative to `tables/`
-* Files are renamed `S<n>_<name>.csv`; internal experiment labels (1A, 1B, 2A, 2B) are not used in the names.
-* Column names `rank_in_table_5` / `in_table_5` (supplementary table for Table 6) and `rank_in_table_6` / `in_table_6`
-  (for Table 7) are renamed to the paper's current numbers.
-* References to other tables inside text cells (for example `see S17c`) are translated to the new numbers.
-* S34 and S35 had a column name used twice (`n_clusters`, identical in every row); the second copy is removed.
-* Nothing else is altered: values are as generated. `INDEX.csv` records, per table, whether anything was changed.
-* Not released: the working copies A1 and A2 (S3 and S7 are their reader-facing versions) and the GPU ledger.
+## Conventions
+* `applicability_status` says whether a metric can be tested in an experiment (`OK`, `GLOBAL`, `REF`, `OK-KNOCKON`,
+  `OK-PROVISIONAL`) or why not (`X-ARM`, `X-NOINPUT`, `X-BOOKKEEP`, `X-UNDEF-COV`, `X-WITHDRAWN`, `X-NOCTRL`,
+  `X-CONFOUND`, `NOT-RUN`, `DUP`); the Supplementary PDF explains each.
+* `lesion_test` is `catalytic lesion`, `second-shell lesion` or `deformation` (an experiment that could not be used).
+* `mode` and `valid_modes` are `structure-space` or `prediction-based`.
+* Result tables carry the same columns for traceability of a row to its denominator: `claim_type`, `unit`, `n_units`,
+  `n_clusters`, `cluster_def`, `k`, `N`, `k_of_N`, `denominator_def`, `headline_ok`, `status`, `licence_flag`.
+* Pointers into the private project (file paths, hashes, internal ids) are not part of the public tables.
 
-## Licence and caveats
-* Tables flagged `D2DCure_aggregate` in `INDEX.csv` (T6, S13, S17, S18, S19, S20) are aggregates of D2DCure BglB data, whose licence is
-  unstated. They contain no per-variant row. Check the licence before redistributing them.
-* Columns named `source_artifact(s)`, `evidence_path`, `artifacts`, `system_table` and `code_ref` point into the private
-  project (`results/...`, `data/...`, `src/...`) and do not resolve in this repository.
-* Internal codes in some tables are explained in the Supplementary PDF (Conventions): `P2K`, `P1`, `P3v2` ... are analyses
-  (translated in the PDF and in S7), `M1` is structure-space and `M3` prediction-based.
-* `role = not_run` in S7 is stale for three experiments that were run (see the PDF).
+## Licence
+Tables flagged `D2DCure_aggregate` in `INDEX.csv` (T6, S13, S17, S18, S19, S20) are aggregates of D2DCure BglB data, whose licence is
+unstated. They contain no per-variant row. Check the licence before redistributing them.
 
 ## Integrity
-`sha256` in `INDEX.csv` is the hash of the file as released; the hash of each source table was checked against
-`tables/MANIFEST.json` before it was copied.
+`sha256` in `INDEX.csv` is the hash of each file as released.

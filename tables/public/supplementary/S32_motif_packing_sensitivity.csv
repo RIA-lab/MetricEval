@@ -1,21 +1,21 @@
-test_id,reader_name,motif_and_controls,level,n_eligible_keys,n_responds_keys,n_specific_keys,n_cells
-P1_C,pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,isosteric,23,12,0,25
-P1_C,pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,non_isosteric,23,12,0,25
-P1_C,pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,ala,23,14,0,25
-P1_C,pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,gly,20,14,0,22
-P2_C,main set,residue type exact + burial; NO packing match; NOT count-gated,isosteric,29,23,0,31
-P2_C,main set,residue type exact + burial; NO packing match; NOT count-gated,non_isosteric,29,23,3,31
-P2_C,main set,residue type exact + burial; NO packing match; NOT count-gated,ala,29,20,8,31
-P2_C,main set,residue type exact + burial; NO packing match; NOT count-gated,gly,26,19,6,28
-P2K_C,"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,isosteric,29,23,0,31
-P2K_C,"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,non_isosteric,29,23,5,31
-P2K_C,"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,ala,29,20,8,31
-P2K_C,"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,gly,26,19,8,28
-P2S_C,shortened motif (<=3 residues),as P2K; motif truncated to <=3 residues,isosteric,23,16,0,25
-P2S_C,shortened motif (<=3 residues),as P2K; motif truncated to <=3 residues,non_isosteric,23,18,0,25
-P2S_C,shortened motif (<=3 residues),as P2K; motif truncated to <=3 residues,ala,23,20,2,25
-P2S_C,shortened motif (<=3 residues),as P2K; motif truncated to <=3 residues,gly,20,17,0,22
-P3V2_C,"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,isosteric,23,17,8,25
-P3V2_C,"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,non_isosteric,23,18,3,25
-P3V2_C,"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,ala,23,15,4,25
-P3V2_C,"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,gly,20,16,4,22
+reader_name,motif_and_controls,level,n_eligible_keys,n_responds_keys,n_specific_keys,n_cells
+pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,isosteric,23,12,0,25
+pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,non_isosteric,23,12,0,25
+pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,ala,23,14,0,25
+pilot set,residue type exact + burial; no packing match; not count-gated; motif <=3,gly,20,14,0,22
+main set,residue type exact + burial; NO packing match; NOT count-gated,isosteric,29,23,0,31
+main set,residue type exact + burial; NO packing match; NOT count-gated,non_isosteric,29,23,3,31
+main set,residue type exact + burial; NO packing match; NOT count-gated,ala,29,20,8,31
+main set,residue type exact + burial; NO packing match; NOT count-gated,gly,26,19,6,28
+"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,isosteric,29,23,0,31
+"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,non_isosteric,29,23,5,31
+"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,ala,29,20,8,31
+"main set, packing-matched controls",residue type exact + burial +/-0.10 relSASA + packing band; arm-count gated; tiers 0-5,gly,26,19,8,28
+shortened motif (<=3 residues),as the main set with packing-matched controls; motif truncated to <=3 residues,isosteric,23,16,0,25
+shortened motif (<=3 residues),as the main set with packing-matched controls; motif truncated to <=3 residues,non_isosteric,23,18,0,25
+shortened motif (<=3 residues),as the main set with packing-matched controls; motif truncated to <=3 residues,ala,23,20,2,25
+shortened motif (<=3 residues),as the main set with packing-matched controls; motif truncated to <=3 residues,gly,20,17,0,22
+"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,isosteric,23,17,8,25
+"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,non_isosteric,23,18,3,25
+"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,ala,23,15,4,25
+"de novo set, created-site control",buried packing-matched position mutated TO the catalytic type,gly,20,16,4,22

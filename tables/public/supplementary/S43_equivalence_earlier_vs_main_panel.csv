@@ -1,0 +1,7 @@
+analysis_set,metric_set,n_metrics,geomean_sr,ci90_lo,ci90_hi,median_sr,n_clusters,status,note
+pilot set,earlier whole panel (all metrics with a testable cell),103,0.9642,0.7479,1.2195,1.0,21,complete,includes ~34 composition metrics with SR = 1 by construction
+main set,earlier whole panel (all metrics with a testable cell),102,0.9575,0.8969,1.0839,1.0086,74,complete,includes ~34 composition metrics with SR = 1 by construction
+"main set, packing-matched controls",earlier whole panel (all metrics with a testable cell),102,0.9947,0.9374,1.1342,1.0384,74,complete,includes ~34 composition metrics with SR = 1 by construction
+shortened motif (<=3 residues),earlier whole panel (all metrics with a testable cell),100,0.8522,0.7831,0.926,0.9269,75,complete,includes ~34 composition metrics with SR = 1 by construction
+"main set, packing-matched controls",main-set metrics only,27,1.0746,0.9584,1.1782,1.1406,74,complete,metrics with a defined SR (both arms move); nested bootstrap by EC sub-subclass
+main set,main-set metrics only,27,1.0215,0.9087,1.1249,1.1096,74,complete,metrics with a defined SR (both arms move); nested bootstrap by EC sub-subclass

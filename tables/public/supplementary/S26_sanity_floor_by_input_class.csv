@@ -1,54 +1,54 @@
-dataset,n0_artifact,condition,input_class,n_metrics,n_scored,n_responds,n_unscored,note
-main set (143),results/P2_N0/n0_table.csv,cat_to_gly,bookkeeping,20,20,8,0,identical to the C-Gly rung (reconciliation row below)
-main set (143),results/P2_N0/n0_table.csv,cat_to_gly,seq_only,29,29,10,0,identical to the C-Gly rung (reconciliation row below)
-main set (143),results/P2_N0/n0_table.csv,cat_to_gly,struct_site,34,26,25,8,identical to the C-Gly rung (reconciliation row below)
-main set (143),results/P2_N0/n0_table.csv,cat_to_gly,struct_whole,15,15,15,0,identical to the C-Gly rung (reconciliation row below)
-main set (143),results/P2_N0/n0_table.csv,seq_scramble,bookkeeping,21,21,7,0,
-main set (143),results/P2_N0/n0_table.csv,seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
-main set (143),results/P2_N0/n0_table.csv,seq_scramble,struct_site,41,38,32,3,
-main set (143),results/P2_N0/n0_table.csv,seq_scramble,struct_whole,15,15,14,0,
-main set (143),results/P2_N0/n0_table.csv,unrelated_protein,bookkeeping,21,21,7,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-main set (143),results/P2_N0/n0_table.csv,unrelated_protein,seq_only,29,29,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-main set (143),results/P2_N0/n0_table.csv,unrelated_protein,struct_site,38,35,33,3,withdrawn: signed paired-median statistic cannot register a difference of random sign
-main set (143),results/P2_N0/n0_table.csv,unrelated_protein,struct_whole,15,15,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-pilot set (53),results/N0/n0_table.csv,cat_to_gly,bookkeeping,20,20,8,0,identical to the C-Gly rung (reconciliation row below)
-pilot set (53),results/N0/n0_table.csv,cat_to_gly,seq_only,29,29,2,0,identical to the C-Gly rung (reconciliation row below)
-pilot set (53),results/N0/n0_table.csv,cat_to_gly,struct_site,28,28,20,0,identical to the C-Gly rung (reconciliation row below)
-pilot set (53),results/N0/n0_table.csv,cat_to_gly,struct_whole,15,15,13,0,identical to the C-Gly rung (reconciliation row below)
-pilot set (53),results/N0/n0_table.csv,ligand_removed,bookkeeping,21,21,1,0,
-pilot set (53),results/N0/n0_table.csv,ligand_removed,seq_only,29,29,0,0,
-pilot set (53),results/N0/n0_table.csv,ligand_removed,struct_site,41,37,16,4,
-pilot set (53),results/N0/n0_table.csv,ligand_removed,struct_whole,15,15,8,0,
-pilot set (53),results/N0/n0_table.csv,seq_scramble,bookkeeping,21,21,4,0,
-pilot set (53),results/N0/n0_table.csv,seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
-pilot set (53),results/N0/n0_table.csv,seq_scramble,struct_site,40,38,23,2,
-pilot set (53),results/N0/n0_table.csv,seq_scramble,struct_whole,15,15,14,0,
-pilot set (53),results/N0/n0_table.csv,unrelated_protein,bookkeeping,21,21,14,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-pilot set (53),results/N0/n0_table.csv,unrelated_protein,seq_only,29,29,1,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-pilot set (53),results/N0/n0_table.csv,unrelated_protein,struct_site,44,37,24,7,withdrawn: signed paired-median statistic cannot register a difference of random sign
-pilot set (53),results/N0/n0_table.csv,unrelated_protein,struct_whole,15,15,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-shortened motif (143),results/P2S_N0/n0_table.csv,cat_to_gly,bookkeeping,20,20,8,0,identical to the C-Gly rung (reconciliation row below)
-shortened motif (143),results/P2S_N0/n0_table.csv,cat_to_gly,seq_only,29,29,4,0,identical to the C-Gly rung (reconciliation row below)
-shortened motif (143),results/P2S_N0/n0_table.csv,cat_to_gly,struct_site,32,26,22,6,identical to the C-Gly rung (reconciliation row below)
-shortened motif (143),results/P2S_N0/n0_table.csv,cat_to_gly,struct_whole,15,15,15,0,identical to the C-Gly rung (reconciliation row below)
-shortened motif (143),results/P2S_N0/n0_table.csv,seq_scramble,bookkeeping,21,21,7,0,
-shortened motif (143),results/P2S_N0/n0_table.csv,seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
-shortened motif (143),results/P2S_N0/n0_table.csv,seq_scramble,struct_site,38,35,29,3,
-shortened motif (143),results/P2S_N0/n0_table.csv,seq_scramble,struct_whole,15,15,14,0,
-shortened motif (143),results/P2S_N0/n0_table.csv,unrelated_protein,bookkeeping,21,21,7,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-shortened motif (143),results/P2S_N0/n0_table.csv,unrelated_protein,seq_only,29,29,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-shortened motif (143),results/P2S_N0/n0_table.csv,unrelated_protein,struct_site,37,35,30,2,withdrawn: signed paired-median statistic cannot register a difference of random sign
-shortened motif (143),results/P2S_N0/n0_table.csv,unrelated_protein,struct_whole,15,15,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-de novo (30),results/P3_N0/n0_table.csv,cat_to_gly,bookkeeping,20,20,8,0,identical to the C-Gly rung (reconciliation row below)
-de novo (30),results/P3_N0/n0_table.csv,cat_to_gly,seq_only,29,29,3,0,identical to the C-Gly rung (reconciliation row below)
-de novo (30),results/P3_N0/n0_table.csv,cat_to_gly,struct_site,26,26,22,0,identical to the C-Gly rung (reconciliation row below)
-de novo (30),results/P3_N0/n0_table.csv,cat_to_gly,struct_whole,15,15,12,0,identical to the C-Gly rung (reconciliation row below)
-de novo (30),results/P3_N0/n0_table.csv,seq_scramble,bookkeeping,21,21,6,0,
-de novo (30),results/P3_N0/n0_table.csv,seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
-de novo (30),results/P3_N0/n0_table.csv,seq_scramble,struct_site,37,35,20,2,
-de novo (30),results/P3_N0/n0_table.csv,seq_scramble,struct_whole,15,15,15,0,
-de novo (30),results/P3_N0/n0_table.csv,unrelated_protein,bookkeeping,21,21,3,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-de novo (30),results/P3_N0/n0_table.csv,unrelated_protein,seq_only,29,29,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-de novo (30),results/P3_N0/n0_table.csv,unrelated_protein,struct_site,37,37,12,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-de novo (30),results/P3_N0/n0_table.csv,unrelated_protein,struct_whole,15,15,1,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
-main set (143),results/P2_N0/n0_table.csv;results/P2/blindness_map.csv,RECONCILIATION cat_to_gly vs C-Gly,all,98,98,98,,"responds identical on 98 of 98 metrics (same perturbation, scored twice)"
+dataset,condition,input_class,n_metrics,n_scored,n_responds,n_unscored,note
+main set (143),cat_to_gly,bookkeeping,20,20,8,0,identical to the Gly step (reconciliation row below)
+main set (143),cat_to_gly,seq_only,29,29,10,0,identical to the Gly step (reconciliation row below)
+main set (143),cat_to_gly,struct_site,34,26,25,8,identical to the Gly step (reconciliation row below)
+main set (143),cat_to_gly,struct_whole,15,15,15,0,identical to the Gly step (reconciliation row below)
+main set (143),seq_scramble,bookkeeping,21,21,7,0,
+main set (143),seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
+main set (143),seq_scramble,struct_site,41,38,32,3,
+main set (143),seq_scramble,struct_whole,15,15,14,0,
+main set (143),unrelated_protein,bookkeeping,21,21,7,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+main set (143),unrelated_protein,seq_only,29,29,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+main set (143),unrelated_protein,struct_site,38,35,33,3,withdrawn: signed paired-median statistic cannot register a difference of random sign
+main set (143),unrelated_protein,struct_whole,15,15,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+pilot set (53),cat_to_gly,bookkeeping,20,20,8,0,identical to the Gly step (reconciliation row below)
+pilot set (53),cat_to_gly,seq_only,29,29,2,0,identical to the Gly step (reconciliation row below)
+pilot set (53),cat_to_gly,struct_site,28,28,20,0,identical to the Gly step (reconciliation row below)
+pilot set (53),cat_to_gly,struct_whole,15,15,13,0,identical to the Gly step (reconciliation row below)
+pilot set (53),ligand_removed,bookkeeping,21,21,1,0,
+pilot set (53),ligand_removed,seq_only,29,29,0,0,
+pilot set (53),ligand_removed,struct_site,41,37,16,4,
+pilot set (53),ligand_removed,struct_whole,15,15,8,0,
+pilot set (53),seq_scramble,bookkeeping,21,21,4,0,
+pilot set (53),seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
+pilot set (53),seq_scramble,struct_site,40,38,23,2,
+pilot set (53),seq_scramble,struct_whole,15,15,14,0,
+pilot set (53),unrelated_protein,bookkeeping,21,21,14,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+pilot set (53),unrelated_protein,seq_only,29,29,1,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+pilot set (53),unrelated_protein,struct_site,44,37,24,7,withdrawn: signed paired-median statistic cannot register a difference of random sign
+pilot set (53),unrelated_protein,struct_whole,15,15,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+shortened motif (143),cat_to_gly,bookkeeping,20,20,8,0,identical to the Gly step (reconciliation row below)
+shortened motif (143),cat_to_gly,seq_only,29,29,4,0,identical to the Gly step (reconciliation row below)
+shortened motif (143),cat_to_gly,struct_site,32,26,22,6,identical to the Gly step (reconciliation row below)
+shortened motif (143),cat_to_gly,struct_whole,15,15,15,0,identical to the Gly step (reconciliation row below)
+shortened motif (143),seq_scramble,bookkeeping,21,21,7,0,
+shortened motif (143),seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
+shortened motif (143),seq_scramble,struct_site,38,35,29,3,
+shortened motif (143),seq_scramble,struct_whole,15,15,14,0,
+shortened motif (143),unrelated_protein,bookkeeping,21,21,7,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+shortened motif (143),unrelated_protein,seq_only,29,29,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+shortened motif (143),unrelated_protein,struct_site,37,35,30,2,withdrawn: signed paired-median statistic cannot register a difference of random sign
+shortened motif (143),unrelated_protein,struct_whole,15,15,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+de novo (30),cat_to_gly,bookkeeping,20,20,8,0,identical to the Gly step (reconciliation row below)
+de novo (30),cat_to_gly,seq_only,29,29,3,0,identical to the Gly step (reconciliation row below)
+de novo (30),cat_to_gly,struct_site,26,26,22,0,identical to the Gly step (reconciliation row below)
+de novo (30),cat_to_gly,struct_whole,15,15,12,0,identical to the Gly step (reconciliation row below)
+de novo (30),seq_scramble,bookkeeping,21,21,6,0,
+de novo (30),seq_scramble,seq_only,29,29,0,0,permutation preserves composition: invariant by construction
+de novo (30),seq_scramble,struct_site,37,35,20,2,
+de novo (30),seq_scramble,struct_whole,15,15,15,0,
+de novo (30),unrelated_protein,bookkeeping,21,21,3,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+de novo (30),unrelated_protein,seq_only,29,29,0,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+de novo (30),unrelated_protein,struct_site,37,37,12,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+de novo (30),unrelated_protein,struct_whole,15,15,1,0,withdrawn: signed paired-median statistic cannot register a difference of random sign
+main set (143),check: cat_to_gly against the Gly step,all,98,98,98,,"responds identical on 98 of 98 metrics (same perturbation, scored twice)"

@@ -1,7 +1,7 @@
-verdict,n_pairs,denominator,note,source_artifact
-confirmed_reduced,15,30,,results/P0/trapping_verified_summary.json
-not_stated,7,30,,results/P0/trapping_verified_summary.json
-confirmed_inactive,4,30,,results/P0/trapping_verified_summary.json
-active,4,30,,results/P0/trapping_verified_summary.json
-not confirmed dead (mislabelling rate),26,30,"0.867, 95% CI 0.703-0.947; tier retired",results/P0/trapping_verified_summary.json
-engineered substitution present in the deposited construct,30,30,"the failure is the inference from substitution to dead enzyme, not the annotation",results/P0/trapping_verified_summary.json
+verdict,n_pairs,denominator,note
+confirmed_reduced,15,30,
+not_stated,7,30,
+confirmed_inactive,4,30,
+active,4,30,
+not confirmed dead (mislabelling rate),26,30,"0.867, 95% CI 0.703-0.947; tier retired"
+engineered substitution present in the deposited construct,30,30,"the failure is the inference from substitution to dead enzyme, not the annotation"

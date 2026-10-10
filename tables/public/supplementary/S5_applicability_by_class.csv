@@ -1,341 +1,341 @@
-input_class,test_id,test_class,status,n_metrics
-ame,D4_BGLB_M1,rank_m1,X-ARM,12
-ame,D4_BGLB_M3,rank_m3,OK,5
-ame,D4_BGLB_M3,rank_m3,X-ARM,6
-ame,D4_BGLB_M3,rank_m3,X-UNDEF-COV,1
-ame,ISOPLACER_C,placer_c,X-ARM,12
-ame,N0_CATGLY,detection_dup,X-ARM,12
-ame,N0_LIGREMOVED,sanity_n0,X-ARM,12
-ame,N0_SEQSCRAMBLE,sanity_n0,X-ARM,12
-ame,N0_UNRELATED,sanity_n0,X-ARM,12
-ame,P0_TRAP,real_m1,X-ARM,12
-ame,P0_ZYM,real_m1,X-ARM,12
-ame,P1_C,spec_C,X-ARM,12
-ame,P2KE_E,spec_E,X-ARM,12
-ame,P2KE_METAL,spec_E,X-ARM,12
-ame,P2KE_OXY,spec_E,X-ARM,12
-ame,P2K_C,spec_C,X-ARM,12
-ame,P2K_G,G,X-ARM,12
-ame,P2S_C,spec_C,X-ARM,12
-ame,P2S_E,spec_E,X-ARM,12
-ame,P2_C,spec_C,X-ARM,12
-ame,P3V2_C,spec_C,X-ARM,12
-ame,P3V2_E,spec_E,X-ARM,12
-ame,P3V2_G,G,X-ARM,12
-ame,P5T2_TRAP,real_m3,X-ARM,6
-ame,P5T2_TRAP,real_m3,X-WITHDRAWN,6
-ame,P5T2_ZYM,real_m3,OK,6
-ame,P5T2_ZYM,real_m3,X-ARM,6
-ame,P5_1B_LADDER,ladder_m3,NOT-RUN,6
-ame,P5_1B_LADDER,ladder_m3,X-ARM,6
-ame,P5_CAXIS_DN,ladder_m3,X-ARM,6
-ame,P5_CAXIS_DN,ladder_m3,X-UNDEF-COV,6
-ame,P5_CAXIS_NAT,ladder_m3,OK-KNOCKON,6
-ame,P5_CAXIS_NAT,ladder_m3,X-ARM,6
-ame,P5_S_DN,S_m3,OK,6
-ame,P5_S_DN,S_m3,X-ARM,6
-ame,P5_S_NAT,S_m3,OK,6
-ame,P5_S_NAT,S_m3,X-ARM,6
-ame,P6_PLATES_M1,rank_m1,X-ARM,12
-ame,P6_PLATES_M3,rank_m3,OK,6
-ame,P6_PLATES_M3,rank_m3,X-ARM,6
-bookkeeping,D4_BGLB_M1,rank_m1,X-BOOKKEEP,64
-bookkeeping,D4_BGLB_M3,rank_m3,X-BOOKKEEP,64
-bookkeeping,ISOPLACER_C,placer_c,X-BOOKKEEP,64
-bookkeeping,N0_CATGLY,detection_dup,X-BOOKKEEP,64
-bookkeeping,N0_LIGREMOVED,sanity_n0,X-BOOKKEEP,64
-bookkeeping,N0_SEQSCRAMBLE,sanity_n0,X-BOOKKEEP,64
-bookkeeping,N0_UNRELATED,sanity_n0,X-BOOKKEEP,64
-bookkeeping,P0_TRAP,real_m1,X-BOOKKEEP,64
-bookkeeping,P0_ZYM,real_m1,X-BOOKKEEP,64
-bookkeeping,P1_C,spec_C,X-BOOKKEEP,64
-bookkeeping,P2KE_E,spec_E,X-BOOKKEEP,64
-bookkeeping,P2KE_METAL,spec_E,X-BOOKKEEP,64
-bookkeeping,P2KE_OXY,spec_E,X-BOOKKEEP,64
-bookkeeping,P2K_C,spec_C,X-BOOKKEEP,64
-bookkeeping,P2K_G,G,X-BOOKKEEP,64
-bookkeeping,P2S_C,spec_C,X-BOOKKEEP,64
-bookkeeping,P2S_E,spec_E,X-BOOKKEEP,64
-bookkeeping,P2_C,spec_C,X-BOOKKEEP,64
-bookkeeping,P3V2_C,spec_C,X-BOOKKEEP,64
-bookkeeping,P3V2_E,spec_E,X-BOOKKEEP,64
-bookkeeping,P3V2_G,G,X-BOOKKEEP,64
-bookkeeping,P5T2_TRAP,real_m3,X-BOOKKEEP,64
-bookkeeping,P5T2_ZYM,real_m3,X-BOOKKEEP,64
-bookkeeping,P5_1B_LADDER,ladder_m3,X-BOOKKEEP,64
-bookkeeping,P5_CAXIS_DN,ladder_m3,X-BOOKKEEP,64
-bookkeeping,P5_CAXIS_NAT,ladder_m3,X-BOOKKEEP,64
-bookkeeping,P5_S_DN,S_m3,X-BOOKKEEP,64
-bookkeeping,P5_S_NAT,S_m3,X-BOOKKEEP,64
-bookkeeping,P6_PLATES_M1,rank_m1,X-BOOKKEEP,64
-bookkeeping,P6_PLATES_M3,rank_m3,X-BOOKKEEP,64
-deposit_meta,D4_BGLB_M1,rank_m1,X-NOINPUT,3
-deposit_meta,D4_BGLB_M3,rank_m3,X-ARM,3
-deposit_meta,ISOPLACER_C,placer_c,X-ARM,3
-deposit_meta,N0_CATGLY,detection_dup,X-NOINPUT,3
-deposit_meta,N0_LIGREMOVED,sanity_n0,X-NOINPUT,3
-deposit_meta,N0_SEQSCRAMBLE,sanity_n0,X-NOINPUT,3
-deposit_meta,N0_UNRELATED,sanity_n0,X-NOINPUT,3
-deposit_meta,P0_TRAP,real_m1,X-WITHDRAWN,3
-deposit_meta,P0_ZYM,real_m1,OK,2
-deposit_meta,P0_ZYM,real_m1,REF,1
-deposit_meta,P1_C,spec_C,X-NOINPUT,3
-deposit_meta,P2KE_E,spec_E,X-NOINPUT,3
-deposit_meta,P2KE_METAL,spec_E,X-NOINPUT,3
-deposit_meta,P2KE_OXY,spec_E,X-NOINPUT,3
-deposit_meta,P2K_C,spec_C,X-NOINPUT,3
-deposit_meta,P2K_G,G,X-NOINPUT,3
-deposit_meta,P2S_C,spec_C,X-NOINPUT,3
-deposit_meta,P2S_E,spec_E,X-NOINPUT,3
-deposit_meta,P2_C,spec_C,X-NOINPUT,3
-deposit_meta,P3V2_C,spec_C,X-NOINPUT,3
-deposit_meta,P3V2_E,spec_E,X-NOINPUT,3
-deposit_meta,P3V2_G,G,X-NOINPUT,3
-deposit_meta,P5T2_TRAP,real_m3,X-ARM,3
-deposit_meta,P5T2_ZYM,real_m3,X-ARM,3
-deposit_meta,P5_1B_LADDER,ladder_m3,X-ARM,3
-deposit_meta,P5_CAXIS_DN,ladder_m3,X-ARM,3
-deposit_meta,P5_CAXIS_NAT,ladder_m3,X-ARM,3
-deposit_meta,P5_S_DN,S_m3,X-ARM,3
-deposit_meta,P5_S_NAT,S_m3,X-ARM,3
-deposit_meta,P6_PLATES_M1,rank_m1,X-NOINPUT,3
-deposit_meta,P6_PLATES_M3,rank_m3,X-ARM,3
-placer_csv,D4_BGLB_M1,rank_m1,NOT-RUN,15
-placer_csv,D4_BGLB_M3,rank_m3,X-ARM,15
-placer_csv,ISOPLACER_C,placer_c,GLOBAL,15
-placer_csv,N0_CATGLY,detection_dup,X-ARM,15
-placer_csv,N0_LIGREMOVED,sanity_n0,X-ARM,15
-placer_csv,N0_SEQSCRAMBLE,sanity_n0,X-ARM,15
-placer_csv,N0_UNRELATED,sanity_n0,X-ARM,15
-placer_csv,P0_TRAP,real_m1,X-WITHDRAWN,15
-placer_csv,P0_ZYM,real_m1,GLOBAL,15
-placer_csv,P1_C,spec_C,X-ARM,15
-placer_csv,P2KE_E,spec_E,X-ARM,15
-placer_csv,P2KE_METAL,spec_E,X-ARM,15
-placer_csv,P2KE_OXY,spec_E,X-ARM,15
-placer_csv,P2K_C,spec_C,X-ARM,15
-placer_csv,P2K_G,G,X-ARM,15
-placer_csv,P2S_C,spec_C,X-ARM,15
-placer_csv,P2S_E,spec_E,X-ARM,15
-placer_csv,P2_C,spec_C,X-ARM,15
-placer_csv,P3V2_C,spec_C,X-ARM,15
-placer_csv,P3V2_E,spec_E,X-ARM,15
-placer_csv,P3V2_G,G,X-ARM,15
-placer_csv,P5T2_TRAP,real_m3,X-ARM,15
-placer_csv,P5T2_ZYM,real_m3,X-ARM,15
-placer_csv,P5_1B_LADDER,ladder_m3,X-ARM,15
-placer_csv,P5_CAXIS_DN,ladder_m3,X-ARM,15
-placer_csv,P5_CAXIS_NAT,ladder_m3,X-ARM,15
-placer_csv,P5_S_DN,S_m3,X-ARM,15
-placer_csv,P5_S_NAT,S_m3,X-ARM,15
-placer_csv,P6_PLATES_M1,rank_m1,NOT-RUN,15
-placer_csv,P6_PLATES_M3,rank_m3,X-ARM,15
-placer_site,D4_BGLB_M1,rank_m1,NOT-RUN,10
-placer_site,D4_BGLB_M3,rank_m3,X-ARM,10
-placer_site,ISOPLACER_C,placer_c,X-CONFOUND,10
-placer_site,N0_CATGLY,detection_dup,X-ARM,10
-placer_site,N0_LIGREMOVED,sanity_n0,X-ARM,10
-placer_site,N0_SEQSCRAMBLE,sanity_n0,X-ARM,10
-placer_site,N0_UNRELATED,sanity_n0,X-ARM,10
-placer_site,P0_TRAP,real_m1,X-WITHDRAWN,10
-placer_site,P0_ZYM,real_m1,OK,10
-placer_site,P1_C,spec_C,X-ARM,10
-placer_site,P2KE_E,spec_E,X-ARM,10
-placer_site,P2KE_METAL,spec_E,X-ARM,10
-placer_site,P2KE_OXY,spec_E,X-ARM,10
-placer_site,P2K_C,spec_C,X-ARM,10
-placer_site,P2K_G,G,X-ARM,10
-placer_site,P2S_C,spec_C,X-ARM,10
-placer_site,P2S_E,spec_E,X-ARM,10
-placer_site,P2_C,spec_C,X-ARM,10
-placer_site,P3V2_C,spec_C,X-ARM,10
-placer_site,P3V2_E,spec_E,X-ARM,10
-placer_site,P3V2_G,G,X-ARM,10
-placer_site,P5T2_TRAP,real_m3,X-ARM,10
-placer_site,P5T2_ZYM,real_m3,X-ARM,10
-placer_site,P5_1B_LADDER,ladder_m3,X-ARM,10
-placer_site,P5_CAXIS_DN,ladder_m3,X-ARM,10
-placer_site,P5_CAXIS_NAT,ladder_m3,X-ARM,10
-placer_site,P5_S_DN,S_m3,X-ARM,10
-placer_site,P5_S_NAT,S_m3,X-ARM,10
-placer_site,P6_PLATES_M1,rank_m1,NOT-RUN,10
-placer_site,P6_PLATES_M3,rank_m3,X-ARM,10
-pred_global,D4_BGLB_M1,rank_m1,X-ARM,13
-pred_global,D4_BGLB_M3,rank_m3,GLOBAL,8
-pred_global,D4_BGLB_M3,rank_m3,REF,2
-pred_global,D4_BGLB_M3,rank_m3,X-UNDEF-COV,3
-pred_global,ISOPLACER_C,placer_c,X-ARM,13
-pred_global,N0_CATGLY,detection_dup,X-ARM,13
-pred_global,N0_LIGREMOVED,sanity_n0,X-ARM,13
-pred_global,N0_SEQSCRAMBLE,sanity_n0,X-ARM,13
-pred_global,N0_UNRELATED,sanity_n0,X-ARM,13
-pred_global,P0_TRAP,real_m1,X-ARM,13
-pred_global,P0_ZYM,real_m1,X-ARM,13
-pred_global,P1_C,spec_C,X-ARM,13
-pred_global,P2KE_E,spec_E,X-ARM,13
-pred_global,P2KE_METAL,spec_E,X-ARM,13
-pred_global,P2KE_OXY,spec_E,X-ARM,13
-pred_global,P2K_C,spec_C,X-ARM,13
-pred_global,P2K_G,G,X-ARM,13
-pred_global,P2S_C,spec_C,X-ARM,13
-pred_global,P2S_E,spec_E,X-ARM,13
-pred_global,P2_C,spec_C,X-ARM,13
-pred_global,P3V2_C,spec_C,X-ARM,13
-pred_global,P3V2_E,spec_E,X-ARM,13
-pred_global,P3V2_G,G,X-ARM,13
-pred_global,P5T2_TRAP,real_m3,X-WITHDRAWN,13
-pred_global,P5T2_ZYM,real_m3,GLOBAL,11
-pred_global,P5T2_ZYM,real_m3,REF,2
-pred_global,P5_1B_LADDER,ladder_m3,NOT-RUN,13
-pred_global,P5_CAXIS_DN,ladder_m3,X-UNDEF-COV,13
-pred_global,P5_CAXIS_NAT,ladder_m3,GLOBAL,13
-pred_global,P5_S_DN,S_m3,GLOBAL,13
-pred_global,P5_S_NAT,S_m3,GLOBAL,13
-pred_global,P6_PLATES_M1,rank_m1,X-ARM,13
-pred_global,P6_PLATES_M3,rank_m3,GLOBAL,8
-pred_global,P6_PLATES_M3,rank_m3,REF,2
-pred_global,P6_PLATES_M3,rank_m3,X-UNDEF-COV,3
-pred_interface,D4_BGLB_M1,rank_m1,X-ARM,11
-pred_interface,D4_BGLB_M3,rank_m3,OK,10
-pred_interface,D4_BGLB_M3,rank_m3,X-ARM,1
-pred_interface,ISOPLACER_C,placer_c,X-ARM,11
-pred_interface,N0_CATGLY,detection_dup,X-ARM,11
-pred_interface,N0_LIGREMOVED,sanity_n0,X-ARM,11
-pred_interface,N0_SEQSCRAMBLE,sanity_n0,X-ARM,11
-pred_interface,N0_UNRELATED,sanity_n0,X-ARM,11
-pred_interface,P0_TRAP,real_m1,X-ARM,11
-pred_interface,P0_ZYM,real_m1,X-ARM,11
-pred_interface,P1_C,spec_C,X-ARM,11
-pred_interface,P2KE_E,spec_E,X-ARM,11
-pred_interface,P2KE_METAL,spec_E,X-ARM,11
-pred_interface,P2KE_OXY,spec_E,X-ARM,11
-pred_interface,P2K_C,spec_C,X-ARM,11
-pred_interface,P2K_G,G,X-ARM,11
-pred_interface,P2S_C,spec_C,X-ARM,11
-pred_interface,P2S_E,spec_E,X-ARM,11
-pred_interface,P2_C,spec_C,X-ARM,11
-pred_interface,P3V2_C,spec_C,X-ARM,11
-pred_interface,P3V2_E,spec_E,X-ARM,11
-pred_interface,P3V2_G,G,X-ARM,11
-pred_interface,P5T2_TRAP,real_m3,X-ARM,1
-pred_interface,P5T2_TRAP,real_m3,X-WITHDRAWN,10
-pred_interface,P5T2_ZYM,real_m3,OK,10
-pred_interface,P5T2_ZYM,real_m3,X-ARM,1
-pred_interface,P5_1B_LADDER,ladder_m3,NOT-RUN,10
-pred_interface,P5_1B_LADDER,ladder_m3,X-ARM,1
-pred_interface,P5_CAXIS_DN,ladder_m3,X-ARM,1
-pred_interface,P5_CAXIS_DN,ladder_m3,X-UNDEF-COV,10
-pred_interface,P5_CAXIS_NAT,ladder_m3,OK-PROVISIONAL,10
-pred_interface,P5_CAXIS_NAT,ladder_m3,X-ARM,1
-pred_interface,P5_S_DN,S_m3,OK,10
-pred_interface,P5_S_DN,S_m3,X-ARM,1
-pred_interface,P5_S_NAT,S_m3,OK,10
-pred_interface,P5_S_NAT,S_m3,X-ARM,1
-pred_interface,P6_PLATES_M1,rank_m1,X-ARM,11
-pred_interface,P6_PLATES_M3,rank_m3,OK,10
-pred_interface,P6_PLATES_M3,rank_m3,X-ARM,1
-seq_only,D4_BGLB_M1,rank_m1,GLOBAL,26
-seq_only,D4_BGLB_M1,rank_m1,REF,2
-seq_only,D4_BGLB_M1,rank_m1,X-UNDEF-COV,1
-seq_only,D4_BGLB_M3,rank_m3,X-ARM,29
-seq_only,ISOPLACER_C,placer_c,X-ARM,29
-seq_only,N0_CATGLY,detection_dup,X-NOINPUT,29
-seq_only,N0_LIGREMOVED,sanity_n0,X-NOINPUT,29
-seq_only,N0_SEQSCRAMBLE,sanity_n0,X-NOINPUT,29
-seq_only,N0_UNRELATED,sanity_n0,X-NOINPUT,29
-seq_only,P0_TRAP,real_m1,X-WITHDRAWN,29
-seq_only,P0_ZYM,real_m1,GLOBAL,26
-seq_only,P0_ZYM,real_m1,REF,3
-seq_only,P1_C,spec_C,X-NOINPUT,29
-seq_only,P2KE_E,spec_E,X-NOINPUT,29
-seq_only,P2KE_METAL,spec_E,X-NOINPUT,29
-seq_only,P2KE_OXY,spec_E,X-NOINPUT,29
-seq_only,P2K_C,spec_C,X-NOINPUT,29
-seq_only,P2K_G,G,X-NOINPUT,29
-seq_only,P2S_C,spec_C,X-NOINPUT,29
-seq_only,P2S_E,spec_E,X-NOINPUT,29
-seq_only,P2_C,spec_C,X-NOINPUT,29
-seq_only,P3V2_C,spec_C,X-NOINPUT,29
-seq_only,P3V2_E,spec_E,X-NOINPUT,29
-seq_only,P3V2_G,G,X-NOINPUT,29
-seq_only,P5T2_TRAP,real_m3,X-ARM,29
-seq_only,P5T2_ZYM,real_m3,X-ARM,29
-seq_only,P5_1B_LADDER,ladder_m3,X-ARM,29
-seq_only,P5_CAXIS_DN,ladder_m3,X-ARM,29
-seq_only,P5_CAXIS_NAT,ladder_m3,X-ARM,29
-seq_only,P5_S_DN,S_m3,X-NOINPUT,29
-seq_only,P5_S_NAT,S_m3,X-NOINPUT,29
-seq_only,P6_PLATES_M1,rank_m1,GLOBAL,26
-seq_only,P6_PLATES_M1,rank_m1,REF,3
-seq_only,P6_PLATES_M3,rank_m3,X-ARM,29
-struct_site,D4_BGLB_M1,rank_m1,OK,36
-struct_site,D4_BGLB_M1,rank_m1,X-UNDEF-COV,8
-struct_site,D4_BGLB_M3,rank_m3,X-ARM,44
-struct_site,ISOPLACER_C,placer_c,X-ARM,44
-struct_site,N0_CATGLY,detection_dup,DUP,44
-struct_site,N0_LIGREMOVED,sanity_n0,X-UNDEF-COV,44
-struct_site,N0_SEQSCRAMBLE,sanity_n0,OK,32
-struct_site,N0_SEQSCRAMBLE,sanity_n0,X-UNDEF-COV,12
-struct_site,N0_UNRELATED,sanity_n0,X-WITHDRAWN,44
-struct_site,P0_TRAP,real_m1,X-WITHDRAWN,44
-struct_site,P0_ZYM,real_m1,OK,39
-struct_site,P0_ZYM,real_m1,X-UNDEF-COV,5
-struct_site,P1_C,spec_C,OK,29
-struct_site,P1_C,spec_C,X-UNDEF-COV,15
-struct_site,P2KE_E,spec_E,OK,37
-struct_site,P2KE_E,spec_E,X-UNDEF-COV,7
-struct_site,P2KE_METAL,spec_E,X-NOCTRL,44
-struct_site,P2KE_OXY,spec_E,X-WITHDRAWN,44
-struct_site,P2K_C,spec_C,OK,37
-struct_site,P2K_C,spec_C,X-UNDEF-COV,7
-struct_site,P2K_G,G,X-WITHDRAWN,44
-struct_site,P2S_C,spec_C,OK,29
-struct_site,P2S_C,spec_C,X-UNDEF-COV,15
-struct_site,P2S_E,spec_E,OK,35
-struct_site,P2S_E,spec_E,X-UNDEF-COV,9
-struct_site,P2_C,spec_C,OK,37
-struct_site,P2_C,spec_C,X-UNDEF-COV,7
-struct_site,P3V2_C,spec_C,OK,29
-struct_site,P3V2_C,spec_C,X-UNDEF-COV,15
-struct_site,P3V2_E,spec_E,X-NOCTRL,44
-struct_site,P3V2_G,G,X-WITHDRAWN,44
-struct_site,P5T2_TRAP,real_m3,X-ARM,44
-struct_site,P5T2_ZYM,real_m3,X-ARM,44
-struct_site,P5_1B_LADDER,ladder_m3,X-ARM,44
-struct_site,P5_CAXIS_DN,ladder_m3,X-ARM,44
-struct_site,P5_CAXIS_NAT,ladder_m3,X-ARM,44
-struct_site,P5_S_DN,S_m3,X-ARM,44
-struct_site,P5_S_NAT,S_m3,X-ARM,44
-struct_site,P6_PLATES_M1,rank_m1,OK,37
-struct_site,P6_PLATES_M1,rank_m1,X-UNDEF-COV,7
-struct_site,P6_PLATES_M3,rank_m3,X-ARM,44
-struct_whole,D4_BGLB_M1,rank_m1,GLOBAL,15
-struct_whole,D4_BGLB_M3,rank_m3,X-ARM,15
-struct_whole,ISOPLACER_C,placer_c,X-ARM,15
-struct_whole,N0_CATGLY,detection_dup,DUP,15
-struct_whole,N0_LIGREMOVED,sanity_n0,X-UNDEF-COV,15
-struct_whole,N0_SEQSCRAMBLE,sanity_n0,GLOBAL,15
-struct_whole,N0_UNRELATED,sanity_n0,X-WITHDRAWN,15
-struct_whole,P0_TRAP,real_m1,X-WITHDRAWN,15
-struct_whole,P0_ZYM,real_m1,GLOBAL,15
-struct_whole,P1_C,spec_C,GLOBAL,15
-struct_whole,P2KE_E,spec_E,GLOBAL,15
-struct_whole,P2KE_METAL,spec_E,X-NOCTRL,15
-struct_whole,P2KE_OXY,spec_E,X-WITHDRAWN,15
-struct_whole,P2K_C,spec_C,GLOBAL,15
-struct_whole,P2K_G,G,X-WITHDRAWN,15
-struct_whole,P2S_C,spec_C,GLOBAL,15
-struct_whole,P2S_E,spec_E,GLOBAL,15
-struct_whole,P2_C,spec_C,GLOBAL,15
-struct_whole,P3V2_C,spec_C,GLOBAL,15
-struct_whole,P3V2_E,spec_E,X-NOCTRL,15
-struct_whole,P3V2_G,G,X-WITHDRAWN,15
-struct_whole,P5T2_TRAP,real_m3,X-ARM,15
-struct_whole,P5T2_ZYM,real_m3,X-ARM,15
-struct_whole,P5_1B_LADDER,ladder_m3,X-ARM,15
-struct_whole,P5_CAXIS_DN,ladder_m3,X-ARM,15
-struct_whole,P5_CAXIS_NAT,ladder_m3,X-ARM,15
-struct_whole,P5_S_DN,S_m3,X-ARM,15
-struct_whole,P5_S_NAT,S_m3,X-ARM,15
-struct_whole,P6_PLATES_M1,rank_m1,GLOBAL,15
-struct_whole,P6_PLATES_M3,rank_m3,X-ARM,15
+input_class,test,test_class,status,n_metrics
+ame,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-ARM,12
+ame,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",OK,5
+ame,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,6
+ame,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-UNDEF-COV,1
+ame,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-ARM,12
+ame,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-ARM,12
+ame,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-ARM,12
+ame,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-ARM,12
+ame,sanity floor: unrelated protein [sanity floor],sanity floor,X-ARM,12
+ame,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-ARM,12
+ame,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",X-ARM,12
+ame,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,12
+ame,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,12
+ame,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,12
+ame,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,12
+ame,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,12
+ame,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-ARM,12
+ame,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,12
+ame,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,12
+ame,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,12
+ame,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,12
+ame,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,12
+ame,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-ARM,12
+ame,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,6
+ame,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-WITHDRAWN,6
+ame,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",OK,6
+ame,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,6
+ame,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",NOT-RUN,6
+ame,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,6
+ame,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,6
+ame,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-UNDEF-COV,6
+ame,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",OK-KNOCKON,6
+ame,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,6
+ame,"substrate swap, de novo designs [substrate swap]",substrate swap,OK,6
+ame,"substrate swap, de novo designs [substrate swap]",substrate swap,X-ARM,6
+ame,"substrate swap, natural enzymes [substrate swap]",substrate swap,OK,6
+ame,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-ARM,6
+ame,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-ARM,12
+ame,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",OK,6
+ame,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,6
+bookkeeping,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-BOOKKEEP,64
+bookkeeping,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-BOOKKEEP,64
+bookkeeping,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-BOOKKEEP,64
+bookkeeping,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-BOOKKEEP,64
+bookkeeping,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-BOOKKEEP,64
+bookkeeping,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-BOOKKEEP,64
+bookkeeping,sanity floor: unrelated protein [sanity floor],sanity floor,X-BOOKKEEP,64
+bookkeeping,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-BOOKKEEP,64
+bookkeeping,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",X-BOOKKEEP,64
+bookkeeping,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-BOOKKEEP,64
+bookkeeping,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-BOOKKEEP,64
+bookkeeping,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-BOOKKEEP,64
+bookkeeping,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-BOOKKEEP,64
+bookkeeping,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-BOOKKEEP,64
+bookkeeping,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-BOOKKEEP,64
+bookkeeping,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-BOOKKEEP,64
+bookkeeping,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-BOOKKEEP,64
+bookkeeping,"substrate swap, de novo designs [substrate swap]",substrate swap,X-BOOKKEEP,64
+bookkeeping,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-BOOKKEEP,64
+bookkeeping,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-BOOKKEEP,64
+bookkeeping,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-BOOKKEEP,64
+deposit_meta,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-NOINPUT,3
+deposit_meta,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,3
+deposit_meta,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-ARM,3
+deposit_meta,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-NOINPUT,3
+deposit_meta,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-NOINPUT,3
+deposit_meta,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-NOINPUT,3
+deposit_meta,sanity floor: unrelated protein [sanity floor],sanity floor,X-NOINPUT,3
+deposit_meta,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-WITHDRAWN,3
+deposit_meta,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",OK,2
+deposit_meta,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",REF,1
+deposit_meta,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,3
+deposit_meta,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,3
+deposit_meta,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,3
+deposit_meta,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,3
+deposit_meta,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,3
+deposit_meta,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-NOINPUT,3
+deposit_meta,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,3
+deposit_meta,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,3
+deposit_meta,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,3
+deposit_meta,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,3
+deposit_meta,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,3
+deposit_meta,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-NOINPUT,3
+deposit_meta,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,3
+deposit_meta,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,3
+deposit_meta,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,3
+deposit_meta,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,3
+deposit_meta,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,3
+deposit_meta,"substrate swap, de novo designs [substrate swap]",substrate swap,X-ARM,3
+deposit_meta,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-ARM,3
+deposit_meta,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-NOINPUT,3
+deposit_meta,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,3
+placer_csv,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",NOT-RUN,15
+placer_csv,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,15
+placer_csv,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,GLOBAL,15
+placer_csv,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-ARM,15
+placer_csv,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-ARM,15
+placer_csv,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-ARM,15
+placer_csv,sanity floor: unrelated protein [sanity floor],sanity floor,X-ARM,15
+placer_csv,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-WITHDRAWN,15
+placer_csv,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",GLOBAL,15
+placer_csv,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,15
+placer_csv,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,15
+placer_csv,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,15
+placer_csv,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,15
+placer_csv,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,15
+placer_csv,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-ARM,15
+placer_csv,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,15
+placer_csv,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,15
+placer_csv,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,15
+placer_csv,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,15
+placer_csv,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,15
+placer_csv,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-ARM,15
+placer_csv,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,15
+placer_csv,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,15
+placer_csv,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,15
+placer_csv,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,15
+placer_csv,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,15
+placer_csv,"substrate swap, de novo designs [substrate swap]",substrate swap,X-ARM,15
+placer_csv,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-ARM,15
+placer_csv,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",NOT-RUN,15
+placer_csv,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,15
+placer_site,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",NOT-RUN,10
+placer_site,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,10
+placer_site,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-CONFOUND,10
+placer_site,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-ARM,10
+placer_site,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-ARM,10
+placer_site,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-ARM,10
+placer_site,sanity floor: unrelated protein [sanity floor],sanity floor,X-ARM,10
+placer_site,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-WITHDRAWN,10
+placer_site,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",OK,10
+placer_site,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,10
+placer_site,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,10
+placer_site,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,10
+placer_site,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,10
+placer_site,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,10
+placer_site,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-ARM,10
+placer_site,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,10
+placer_site,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,10
+placer_site,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,10
+placer_site,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,10
+placer_site,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,10
+placer_site,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-ARM,10
+placer_site,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,10
+placer_site,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,10
+placer_site,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,10
+placer_site,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,10
+placer_site,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,10
+placer_site,"substrate swap, de novo designs [substrate swap]",substrate swap,X-ARM,10
+placer_site,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-ARM,10
+placer_site,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",NOT-RUN,10
+placer_site,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,10
+pred_global,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-ARM,13
+pred_global,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",GLOBAL,8
+pred_global,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",REF,2
+pred_global,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-UNDEF-COV,3
+pred_global,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-ARM,13
+pred_global,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-ARM,13
+pred_global,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-ARM,13
+pred_global,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-ARM,13
+pred_global,sanity floor: unrelated protein [sanity floor],sanity floor,X-ARM,13
+pred_global,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-ARM,13
+pred_global,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",X-ARM,13
+pred_global,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,13
+pred_global,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,13
+pred_global,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,13
+pred_global,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,13
+pred_global,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,13
+pred_global,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-ARM,13
+pred_global,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,13
+pred_global,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,13
+pred_global,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,13
+pred_global,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,13
+pred_global,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,13
+pred_global,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-ARM,13
+pred_global,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-WITHDRAWN,13
+pred_global,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",GLOBAL,11
+pred_global,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",REF,2
+pred_global,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",NOT-RUN,13
+pred_global,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-UNDEF-COV,13
+pred_global,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",GLOBAL,13
+pred_global,"substrate swap, de novo designs [substrate swap]",substrate swap,GLOBAL,13
+pred_global,"substrate swap, natural enzymes [substrate swap]",substrate swap,GLOBAL,13
+pred_global,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-ARM,13
+pred_global,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",GLOBAL,8
+pred_global,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",REF,2
+pred_global,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-UNDEF-COV,3
+pred_interface,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-ARM,11
+pred_interface,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",OK,10
+pred_interface,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,1
+pred_interface,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-ARM,11
+pred_interface,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-ARM,11
+pred_interface,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-ARM,11
+pred_interface,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-ARM,11
+pred_interface,sanity floor: unrelated protein [sanity floor],sanity floor,X-ARM,11
+pred_interface,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-ARM,11
+pred_interface,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",X-ARM,11
+pred_interface,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,11
+pred_interface,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,11
+pred_interface,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,11
+pred_interface,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,11
+pred_interface,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,11
+pred_interface,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-ARM,11
+pred_interface,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,11
+pred_interface,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,11
+pred_interface,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,11
+pred_interface,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-ARM,11
+pred_interface,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-ARM,11
+pred_interface,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-ARM,11
+pred_interface,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,1
+pred_interface,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-WITHDRAWN,10
+pred_interface,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",OK,10
+pred_interface,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,1
+pred_interface,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",NOT-RUN,10
+pred_interface,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,1
+pred_interface,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,1
+pred_interface,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-UNDEF-COV,10
+pred_interface,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",OK-PROVISIONAL,10
+pred_interface,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,1
+pred_interface,"substrate swap, de novo designs [substrate swap]",substrate swap,OK,10
+pred_interface,"substrate swap, de novo designs [substrate swap]",substrate swap,X-ARM,1
+pred_interface,"substrate swap, natural enzymes [substrate swap]",substrate swap,OK,10
+pred_interface,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-ARM,1
+pred_interface,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-ARM,11
+pred_interface,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",OK,10
+pred_interface,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,1
+seq_only,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",GLOBAL,26
+seq_only,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",REF,2
+seq_only,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-UNDEF-COV,1
+seq_only,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,29
+seq_only,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-ARM,29
+seq_only,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),X-NOINPUT,29
+seq_only,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-NOINPUT,29
+seq_only,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-NOINPUT,29
+seq_only,sanity floor: unrelated protein [sanity floor],sanity floor,X-NOINPUT,29
+seq_only,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-WITHDRAWN,29
+seq_only,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",GLOBAL,26
+seq_only,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",REF,3
+seq_only,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,29
+seq_only,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,29
+seq_only,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,29
+seq_only,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,29
+seq_only,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,29
+seq_only,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-NOINPUT,29
+seq_only,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,29
+seq_only,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,29
+seq_only,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,29
+seq_only,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-NOINPUT,29
+seq_only,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOINPUT,29
+seq_only,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-NOINPUT,29
+seq_only,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,29
+seq_only,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,29
+seq_only,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,29
+seq_only,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,29
+seq_only,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,29
+seq_only,"substrate swap, de novo designs [substrate swap]",substrate swap,X-NOINPUT,29
+seq_only,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-NOINPUT,29
+seq_only,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",GLOBAL,26
+seq_only,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",REF,3
+seq_only,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,29
+struct_site,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",OK,36
+struct_site,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-UNDEF-COV,8
+struct_site,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,44
+struct_site,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-ARM,44
+struct_site,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),DUP,44
+struct_site,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-UNDEF-COV,44
+struct_site,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,OK,32
+struct_site,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,X-UNDEF-COV,12
+struct_site,sanity floor: unrelated protein [sanity floor],sanity floor,X-WITHDRAWN,44
+struct_site,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-WITHDRAWN,44
+struct_site,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",OK,39
+struct_site,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",X-UNDEF-COV,5
+struct_site,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",OK,29
+struct_site,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-UNDEF-COV,15
+struct_site,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",OK,37
+struct_site,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-UNDEF-COV,7
+struct_site,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOCTRL,44
+struct_site,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-WITHDRAWN,44
+struct_site,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",OK,37
+struct_site,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-UNDEF-COV,7
+struct_site,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-WITHDRAWN,44
+struct_site,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",OK,29
+struct_site,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-UNDEF-COV,15
+struct_site,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",OK,35
+struct_site,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-UNDEF-COV,9
+struct_site,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",OK,37
+struct_site,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-UNDEF-COV,7
+struct_site,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",OK,29
+struct_site,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",X-UNDEF-COV,15
+struct_site,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOCTRL,44
+struct_site,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-WITHDRAWN,44
+struct_site,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,44
+struct_site,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,44
+struct_site,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,44
+struct_site,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,44
+struct_site,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,44
+struct_site,"substrate swap, de novo designs [substrate swap]",substrate swap,X-ARM,44
+struct_site,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-ARM,44
+struct_site,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",OK,37
+struct_site,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",X-UNDEF-COV,7
+struct_site,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,44
+struct_whole,"BglB single-point variants (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",GLOBAL,15
+struct_whole,"BglB single-point variants (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,15
+struct_whole,PLACER on the isosteric step [PLACER on the isosteric step],PLACER on the isosteric step,X-ARM,15
+struct_whole,sanity floor: all catalytic residues to Gly [detection floor (duplicate of the Gly step)],detection floor (duplicate of the Gly step),DUP,15
+struct_whole,sanity floor: ligand removed (pilot set only) [sanity floor],sanity floor,X-UNDEF-COV,15
+struct_whole,sanity floor: permuted sequence on native backbone [sanity floor],sanity floor,GLOBAL,15
+struct_whole,sanity floor: unrelated protein [sanity floor],sanity floor,X-WITHDRAWN,15
+struct_whole,"trapping-mutant pairs (retired) [dead against active, structure-space]","dead against active, structure-space",X-WITHDRAWN,15
+struct_whole,"zymogen-mature pairs (structure-space metrics) [dead against active, structure-space]","dead against active, structure-space",GLOBAL,15
+struct_whole,"pilot set [catalytic lesion, structure-space]","catalytic lesion, structure-space",GLOBAL,15
+struct_whole,"second-shell lesion, main set [second-shell lesion, structure-space]","second-shell lesion, structure-space",GLOBAL,15
+struct_whole,"metal removal [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOCTRL,15
+struct_whole,"oxyanion-hole step [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-WITHDRAWN,15
+struct_whole,"main set, packing-matched controls [catalytic lesion, structure-space]","catalytic lesion, structure-space",GLOBAL,15
+struct_whole,deformation (geometry) experiment [deformation (retired)],deformation (retired),X-WITHDRAWN,15
+struct_whole,"shortened motif (<=3 residues) [catalytic lesion, structure-space]","catalytic lesion, structure-space",GLOBAL,15
+struct_whole,"shortened motif, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",GLOBAL,15
+struct_whole,"main set [catalytic lesion, structure-space]","catalytic lesion, structure-space",GLOBAL,15
+struct_whole,"de novo set, created-site control [catalytic lesion, structure-space]","catalytic lesion, structure-space",GLOBAL,15
+struct_whole,"de novo set, second shell [second-shell lesion, structure-space]","second-shell lesion, structure-space",X-NOCTRL,15
+struct_whole,"de novo set, deformation experiment [deformation (retired)]",deformation (retired),X-WITHDRAWN,15
+struct_whole,"trapping-mutant pairs re-predicted (retired) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,15
+struct_whole,"zymogen-mature pairs re-predicted (prediction-based metrics) [dead against active, prediction-based]","dead against active, prediction-based",X-ARM,15
+struct_whole,"chemistry ladder with ligand-distance-matched controls (new) [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,15
+struct_whole,"chemistry ladder in the predictor, de novo designs [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,15
+struct_whole,"chemistry ladder in the predictor, natural enzymes [catalytic lesion, prediction-based]","catalytic lesion, prediction-based",X-ARM,15
+struct_whole,"substrate swap, de novo designs [substrate swap]",substrate swap,X-ARM,15
+struct_whole,"substrate swap, natural enzymes [substrate swap]",substrate swap,X-ARM,15
+struct_whole,"plate designs (structure-space metrics) [activity ranking, structure-space]","activity ranking, structure-space",GLOBAL,15
+struct_whole,"plate designs (prediction-based metrics) [activity ranking, prediction-based]","activity ranking, prediction-based",X-ARM,15

@@ -1,5 +1,5 @@
-metric_set,panel,n_metrics,n_systems_complete,participation_ratio,effective_rank_fraction,var_explained_pc1,n_pcs_for_90pct,median_abs_offdiag_r,source_artifact,note
-legacy panel,native values across systems,97,102,12.12,0.125,0.195,23,0.109,results/effective_dimensionality.json,all metrics measured; includes sequence composition and whole-protein terms
-legacy panel,isosteric responses (catalytic arm),76,124,14.2,0.187,0.155,20,0.104,results/effective_dimensionality.json,all metrics measured; includes sequence composition and whole-protein terms
-main-set metrics (one member per canonical key),native values across systems,29,123,7.85,0.271,0.207,11,0.143,tables/spec/derived/dimensionality_main.json,"restricted to the metrics valid in both parts; same construction (phase P2, complete cases)"
-main-set metrics (one member per canonical key),isosteric responses (catalytic arm),23,124,10.5,0.457,0.188,13,0.101,tables/spec/derived/dimensionality_main.json,"restricted to the metrics valid in both parts; same construction (phase P2, complete cases)"
+metric_set,panel,n_metrics,n_systems_complete,participation_ratio,effective_rank_fraction,var_explained_pc1,n_pcs_for_90pct,median_abs_offdiag_r,note
+earlier whole panel,native values across systems,97,102,12.12,0.125,0.195,23,0.109,all metrics measured; includes sequence composition and whole-protein terms
+earlier whole panel,isosteric responses (catalytic arm),76,124,14.2,0.187,0.155,20,0.104,all metrics measured; includes sequence composition and whole-protein terms
+main-set metrics (one member per canonical key),native values across systems,29,123,7.85,0.271,0.207,11,0.143,"restricted to the metrics valid in all four tests; same construction (main set, complete cases)"
+main-set metrics (one member per canonical key),isosteric responses (catalytic arm),23,124,10.5,0.457,0.188,13,0.101,"restricted to the metrics valid in all four tests; same construction (main set, complete cases)"
