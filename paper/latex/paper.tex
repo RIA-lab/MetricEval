@@ -154,68 +154,69 @@ As designs outnumber
 what a laboratory
 can test, in-silico
 metrics decide which
-enzymes are built,
-yet it is not known
-whether they respond
-to catalysis or to
+enzymes are built.
+Pipelines filter on
+many different
+metrics, from
+Rosetta energies and
+the geometry of the
+catalytic residues
+to the confidence of
+structure-prediction
+models. Yet no
+systematic study has
+asked whether these
+metrics respond to
+catalysis or to
 something simpler,
 such as proximity to
 the active site. We
-asked what a metric
-that tracks
-catalysis should be
-able to do and
-turned each answer
-into a test. It
-should tell an
-enzyme that works
-from one that does
-not, the basic job
-of a filter
-(\emph{activity
-discrimination});
-know which substrate
-an enzyme is built
-for, as every design
-conditioned on a
-substrate assumes
-(\emph{substrate
-discrimination});
-order enzymes by
-activity, because a
-selection ends by
-choosing the best of
-those that pass
-(\emph{activity
-ranking}); and
-notice damage to the
-catalytic residues
-more than the same
-damage elsewhere,
-which separates
-catalysis from
-proximity to the
-active site
-(\emph{detection
-ability}, the only
-test that damages
+therefore designed
+four tests and
+applied them to 33
+metrics.
+\emph{Activity
+discrimination} asks
+whether a metric
+separates enzymes
+that work from
+enzymes that do not;
+\emph{substrate
+discrimination},
+whether it knows
+which substrate an
+enzyme is built for;
+\emph{activity
+ranking}, whether it
+orders enzymes by
+their activity; and
+\emph{detection
+ability}, whether it
+notices damage to
+the catalytic
+residues more than
+the same damage
+elsewhere. Three
+tests observe
+natural enzymes and
+designs as they are,
+whereas detection
+ability damages
 natural enzymes on
-purpose). We applied
-the tests to 33
-metrics and, in
-every test, ranked
-them beside trivial
-references, such as
-the distance to the
-catalytic residues,
-so that a metric is
-credited only if it
-does better than
-something simple. In
-three of the four
-tests the best
-metric was matched
-by a simple
+purpose, so that
+catalysis can be
+told apart from
+proximity to the
+active site. Every
+test ranks the
+metrics beside
+trivial references,
+such as the distance
+to the catalytic
+residues. In three
+of the four tests
+the best metric was
+matched by a simple
 reference or lost
 its advantage under
 a stricter control.
