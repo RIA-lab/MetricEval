@@ -138,14 +138,98 @@ Introduction}
 
 \section{2 Methods}
 
+\subsection{2.1
+Experiment overview}
+
+Four tests, one in
+each of 2.2 to 2.5,
+ask whether the
+in-silico metrics
+used to filter
+designed enzymes
+respond to catalysis
+or to something
+simpler, such as how
+close a change is to
+the active site:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Activity
+  discrimination
+  test (2.2; results
+  in 3.1).} The
+  metrics are ranked
+  by how well they
+  separate real dead
+  from active
+  proteins, 21
+  zymogen--mature
+  enzyme pairs and
+  192 plated de novo
+  designs of which
+  16 are active.
+\item
+  \textbf{Substrate
+  discrimination
+  test (2.3; results
+  in 3.2).} A
+  structure
+  predictor is given
+  each of 55 natural
+  enzymes with its
+  own substrate and
+  with a wrong
+  ligand, and the
+  prediction-based
+  metrics are ranked
+  by how well they
+  separate the two
+  predictions.
+\item
+  \textbf{Activity
+  ranking test (2.4;
+  results in 3.3).}
+  The metrics are
+  ranked by how well
+  their order of 432
+  BglB variants and
+  of 16 plated
+  designs agrees
+  with the measured
+  activity, against
+  declared trivial
+  baselines.
+\item
+  \textbf{Detection
+  ability test (2.5;
+  results in 3.4).}
+  Catalytic residues
+  are deliberately
+  damaged in up to
+  195 natural
+  enzymes, and the
+  metrics are ranked
+  by whether they
+  move more than
+  when the same
+  damage is made at
+  a matched
+  non-catalytic site
+  of the same
+  protein.
+\end{itemize}
+
+\textbf{Metrics.}
 The same panel is
 scored in every
 test: 29
 structure-space
 metrics, which read
 atomic coordinates
-and are used in 2.1,
-2.3 and 2.4, and 4
+and are used in 2.2,
+2.4 and 2.5, and 4
 prediction-based
 metrics, which read
 the output of a
@@ -153,7 +237,7 @@ structure predictor
 that is given a
 sequence and a
 ligand and are used
-in 2.1 to 2.4 (Table
+in 2.2 to 2.5 (Table
 1). Numbers in
 square brackets are
 references (see
@@ -190,8 +274,8 @@ residues are
 catalytic --- it
 only knows which
 residues it was
-handed. In 2.1 and
-2.3 the scored
+handed. In 2.2 and
+2.4 the scored
 residues are the
 catalytic residues.
 The third column
@@ -368,7 +452,7 @@ RFdiffusion2
 \cite{ahern2026}, as
 implemented in this
 project (equations
-in 2.2) & the
+in 2.3) & the
 catalytic atoms; the
 ligand \\
 Reference rows (6;
@@ -466,7 +550,7 @@ ranks a set of
 \emph{items} (the
 metrics, the
 reference rows and,
-in 2.3, the declared
+in 2.4, the declared
 baselines): \(m\) is
 an item, \(M\) the
 number of items
@@ -500,10 +584,12 @@ threshold from the
 max-statistic
 \(T^{(r)}\)) are
 defined with their
-equations in 2.1 to
-2.4.
+equations in 2.2 to
+2.5.
 
-\subsection{2.1
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2.2
 Activity
 discrimination test:
 do the metrics
@@ -547,12 +633,12 @@ are used, each with
 its own table and
 its own n: 21
 zymogen--mature
-pairs (2.1.1;
+pairs (2.2.1;
 results in 3.1.1,
 Table 5) and 192
 plated designs, of
 which 16 are active
-(2.1.2; results in
+(2.2.2; results in
 3.1.2, Table 6). The
 procedure is the
 same for both:
@@ -600,7 +686,7 @@ same for both:
   threshold.
 \end{enumerate}
 
-\subsubsection{2.1.1
+\subsubsection{2.2.1
 Discriminate natural
 active and dead
 enzymes}
@@ -1028,7 +1114,7 @@ headline when its
 interval is wider
 than 0.2.
 
-\subsubsection{2.1.2
+\subsubsection{2.2.2
 Discriminate de novo
 designed active and
 no active enzymes}
@@ -1108,7 +1194,7 @@ analyses (rank
 correlation among
 the 16, hits per
 plate) are reported
-in 2.3.2 and the
+in 2.4.2 and the
 AUROC, added later,
 in this subsection.
 
@@ -1227,7 +1313,7 @@ threshold in bold.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{2.2
+\subsection{2.3
 Substrate
 discrimination test:
 do prediction-based
@@ -1386,7 +1472,7 @@ condition.
 Twenty-eight of the
 59 enzymes are also
 in the 143-enzyme
-set of 2.4.
+set of 2.5.
 
 \textbf{Why this
 dataset.} A wrong
@@ -1667,7 +1753,7 @@ quantity is reported
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{2.3
+\subsection{2.4
 Activity ranking
 test: do the metrics
 track measured
@@ -1721,16 +1807,16 @@ Two datasets are
 used, each with its
 own table and its
 own n: 432 BglB
-variants (2.3.1;
+variants (2.4.1;
 results in 3.3.1,
 Table 8) and the 16
 plated designs that
 have a measured
-activity (2.3.2;
+activity (2.4.2;
 results in 3.3.2,
 Table 9).
 
-\subsubsection{2.3.1
+\subsubsection{2.4.1
 Ranking natural
 enzyme activity}
 
@@ -1954,7 +2040,7 @@ silico with the same
 rotamer-space
 substitution, repack
 and minimisation as
-in 2.4 (the wild
+in 2.5 (the wild
 type goes through
 the identical
 treatment with five
@@ -2210,14 +2296,14 @@ baselines are
 reported in full in
 Table S12.
 
-\subsubsection{2.3.2
+\subsubsection{2.4.2
 Ranking de novo
 designed enzyme
 activity}
 
 \textbf{Dataset.}
 The 192-design
-campaign of 2.1.2
+campaign of 2.2.2
 \cite{kim2026}. Only
 the 16 designs with
 a reported kcat/KM
@@ -2239,14 +2325,14 @@ independent designs
 is smaller than 16.
 The 192-design plate
 is used for the
-AUROC of 2.1.2
+AUROC of 2.2.2
 (Table 6) and for
 the filter-style
 analysis (S20).
 
 \textbf{Why this
 dataset.} The same
-designs as 2.1.2, so
+designs as 2.2.2, so
 that the
 discrimination
 (active against the
@@ -2272,7 +2358,7 @@ before these data
 were analysed; the
 AUROC, added later,
 is reported in
-2.1.2.
+2.2.2.
 
 \textbf{Metrics
 scored.} The 36
@@ -2306,7 +2392,7 @@ AME and the ligand
 clearance are in the
 Supplement (S21) and
 not among the ranked
-items, as in 2.1.2.
+items, as in 2.2.2.
 
 \textbf{Ranking
 criteria.} The
@@ -2428,7 +2514,7 @@ metrics).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{2.4
+\subsection{2.5
 Detection ability
 test: do the metrics
 respond more to a
@@ -2488,10 +2574,10 @@ its own datasets and
 table: the catalytic
 lesion (the
 chemistry ladder,
-2.4.1; results in
+2.5.1; results in
 3.4.1, Table 10) and
 the second-shell
-lesion (2.4.2;
+lesion (2.5.2;
 results in 3.4.2,
 Table 11).
 
@@ -2712,7 +2798,7 @@ interval of its
 median response
 excludes zero.
 
-\subsubsection{2.4.1
+\subsubsection{2.5.1
 Detecting catalytic
 lesion}
 
@@ -2838,7 +2924,7 @@ pairs} & the natural
 arm of the
 re-predicted ladder
 (the 59 natural
-enzymes of 2.2, 28
+enzymes of 2.3, 28
 of which are in the
 143); the two
 reference rows pLDDT
@@ -2941,7 +3027,7 @@ four
 prediction-based
 main-set metrics
 (Table 1, defined in
-2.2) are computed on
+2.3) are computed on
 each re-predicted
 complex. The seed
 noise of the ladder
@@ -3087,7 +3173,7 @@ item.
 
 \emph{Chance
 reference.} As in
-2.1, the top of a
+2.2, the top of a
 ranking of \(M\)
 items looks good by
 chance. The labels
@@ -3403,13 +3489,13 @@ all metrics, natural
 and de novo, is in
 Table S43.
 
-\subsubsection{2.4.2
+\subsubsection{2.5.2
 Detecting second
 shell lesion}
 
 \textbf{Dataset.}
 The 143 main enzymes
-of 2.4.1 pooled with
+of 2.5.1 pooled with
 the 52 pilot enzymes
 that are not in the
 main set, with a
@@ -3496,7 +3582,7 @@ counted for each
 item, and a dose
 enters a counted set
 only where both
-hold, as in 2.4.1;
+hold, as in 2.5.1;
 here no cell
 qualifies for any
 item, so the ranking
@@ -3632,7 +3718,7 @@ metric is ranked by
 how well its value
 separates the two
 states (Methods
-2.1). Two datasets
+2.2). Two datasets
 are used, each with
 its own table.
 
@@ -3672,7 +3758,7 @@ forms with the
 shared ligand. Every
 item is scored on
 all 21 pairs
-(Methods 2.1.1).
+(Methods 2.2.1).
 
 \textbf{Ranking
 criteria.} The 33
@@ -4070,7 +4156,7 @@ transition-state-analogue
 ligand and zinc.
 Every item is scored
 on all 192 designs
-(Methods 2.1.2).
+(Methods 2.2.2).
 
 \textbf{Ranking
 criteria.} The 36
@@ -4480,7 +4566,7 @@ cognate prediction
 from a wrong-ligand
 prediction of the
 same enzyme (Methods
-2.2).
+2.3).
 
 \textbf{Dataset.} 55
 natural enzymes of
@@ -4507,7 +4593,7 @@ all 59 is in Table
 S14). One n, 55
 enzymes, applies to
 every row (Methods
-2.2).
+2.3).
 
 \textbf{Ranking
 criteria.} Chai-1
@@ -5066,7 +5152,7 @@ the rank correlation
 between its value
 and the measured
 activity (Methods
-2.3). Two datasets
+2.4). Two datasets
 are used, each with
 its own table.
 
@@ -5133,7 +5219,7 @@ predictions of the
 variant with the
 assay substrate
 (pNPG) (Methods
-2.3.1).
+2.4.1).
 
 \textbf{Ranking
 criteria.} The 41
@@ -5599,7 +5685,7 @@ so every row has n =
 16; they lie in 8 of
 the 136 backbone
 clusters (Methods
-2.3.2).
+2.4.2).
 
 \textbf{Ranking
 criteria.} The 36
@@ -5632,7 +5718,7 @@ items would show for
 unrelated metrics.
 The analysis is
 descriptive (Methods
-2.3.2).
+2.4.2).
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0652}}
@@ -6021,7 +6107,7 @@ a matched
 non-catalytic
 control position of
 the same protein
-(Methods 2.4). Two
+(Methods 2.5). Two
 kinds of lesion are
 tested, each with
 its own datasets and
@@ -6106,7 +6192,7 @@ control is
 constructed, are
 analysed separately
 (Tables S29 and S30)
-(Methods 2.4.1).
+(Methods 2.5.1).
 
 \textbf{Ranking
 criteria.} The 35
@@ -6765,7 +6851,7 @@ and dose.
 Structure-space
 metrics are scored
 on this lesion
-(Methods 2.4.2).
+(Methods 2.5.2).
 
 \textbf{Ranking
 criteria.} The 29
