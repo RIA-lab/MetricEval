@@ -529,7 +529,7 @@ The six sets used in 3.1 with their size and definition: 55 candidate rows, 49 s
 
 :::
 
-The 30 trapping-mutant pairs verified against the primary literature: 15 confirmed reduced, 4 confirmed inactive, 4 active and 7 not stated; 26 of the 30 (86.7%, 95% interval 70.3 to 94.7%) are not confirmed dead. Every deposited construct carries an engineered substitution; the failure is the inference from substitution to dead enzyme. The tier is retired.
+The 30 trapping-mutant pairs verified against the primary literature: 15 confirmed reduced, 4 confirmed inactive, 4 active and 7 not stated; 26 of the 30 (86.7%, 95% interval 70.3 to 94.7%) are not confirmed dead. Every deposited construct carries an engineered substitution. The tier is retired.
 
 **Key columns.**
 
@@ -1592,7 +1592,7 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 :::
 
-The same cells as [S33](#S33) for the whole-protein and sequence-only metrics, which are not in the main set. They show that composition metrics have a ratio of 1 by construction and that whole-protein energies move with the lesion.
+The same cells as [S33](#S33) for the whole-protein and sequence-only metrics, which are not in the main set. Composition metrics have a ratio of 1 by construction, and whole-protein energies move with the lesion.
 
 **Key columns.**
 
@@ -2038,7 +2038,7 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **Notes.**
 
-- Because both arms are scored over the catalytic residues, a high raw R on this test measures location.
+- Both arms are scored over the catalytic residues.
 
 
 ### Table S45. Drift of the current Chai-1 engine against the earlier predictions {#S45}

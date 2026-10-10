@@ -211,7 +211,7 @@ TABLES = {
     row="one verdict category (6 rows)",
     contents=("The 30 trapping-mutant pairs verified against the primary literature: 15 confirmed reduced, 4 confirmed inactive, "
               "4 active and 7 not stated; 26 of the 30 (86.7%, 95% interval 70.3 to 94.7%) are not confirmed dead. Every deposited "
-              "construct carries an engineered substitution; the failure is the inference from substitution to dead enzyme. The tier is retired."),
+              "construct carries an engineered substitution. The tier is retired."),
     columns=[("verdict", "confirmed_reduced, confirmed_inactive, active, not_stated, and the summary rows"),
              ("n_pairs / denominator", "number of pairs and the total (30)"), ("note", "interval of the mislabelling rate")],
     excerpt=["verdict", "n_pairs", "denominator", "note"]),
@@ -603,8 +603,8 @@ TABLES = {
     title="Specificity ratio of whole-protein and sequence-only comparators at every step",
     supports="Methods 2.5.1; Results 3.4",
     row="one comparator metric at one lesion step or dose (308 rows)",
-    contents=("The same cells as {S04a} for the whole-protein and sequence-only metrics, which are not in the main set. They show that "
-              "composition metrics have a ratio of 1 by construction and that whole-protein energies move with the lesion."),
+    contents=("The same cells as {S04a} for the whole-protein and sequence-only metrics, which are not in the main set. Composition "
+              "metrics have a ratio of 1 by construction, and whole-protein energies move with the lesion."),
     columns=[("canonical_key / metric_name / input_class", "the comparator"), ("lesion_test / level / n_systems", "as in {S04a}"),
              ("delta_*, sr_*, responds, specific, verdict", "as in {S04a}")],
     excerpt=["canonical_key", "lesion_test", "level", "n_systems", "sr_median", "verdict"],
@@ -814,5 +814,5 @@ TABLES = {
              ("responds_ / control_above_noise_ / specific_second_shell_<d>", "per-dose flags"),
              ("r_mean_all_steps / first_step_detected / first_step_specific", "mean R over all doses and the onsets")],
     excerpt=["detection_group", "rank_in_group", "metric_name", "r_mean_all_steps", "n_steps_interpretable"],
-    notes=["Because both arms are scored over the catalytic residues, a high raw R on this test measures location."]),
+    notes=["Both arms are scored over the catalytic residues."]),
 }

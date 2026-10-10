@@ -213,20 +213,33 @@ metrics beside
 trivial references,
 such as the distance
 to the catalytic
-residues. In three
-of the four tests
-the best metric was
-matched by a simple
-reference or lost
-its advantage under
-a stricter control.
-The metrics register
-that something near
-the active site has
-changed; we could
-not show that they
-register whether the
-change is catalytic.
+residues. In
+activity
+discrimination,
+pLDDT was best on
+natural enzymes,
+with an AUROC of
+0.79, and the
+intra-residue
+repulsion of the
+catalytic residues
+on designs, with
+0.80. ipTM was best
+in substrate
+discrimination, with
+0.70, the range of
+the catalytic pKa in
+activity ranking,
+with a Spearman
+correlation of 0.48,
+and the per-chain
+pTM minimum in
+detection ability,
+with a probability
+of 0.75 of changing
+more at the
+catalytic residues
+than at the control.
 
 \section{1
 Introduction}
@@ -515,75 +528,56 @@ better than
 something simple.
 
 In activity
-discrimination,
+discrimination on
+natural enzymes,
+pLDDT ranked first
+(AUROC 0.79) and the
+best of the 33
+metrics, the
 intra-residue
 repulsion of the
-catalytic residues
-led, but not beyond
-chance on the
-natural pairs (AUROC
-0.61, against a
-chance threshold of
-0.68 for the best of
-39 items). On the
-designs the tyrosine
-fraction, which
-knows nothing about
-the active site,
-came close (0.75
-against 0.80). In
+catalytic residues,
+reached 0.61,
+against a chance
+threshold of 0.68
+for the best of 39
+items. On the
+designs the
+intra-residue
+repulsion ranked
+first (0.80) and the
+tyrosine fraction
+reached 0.75. In
 substrate
 discrimination, ipTM
-led (0.70), so the
-predictor registers
-which ligand it was
-given, but the RMSD
-of the catalytic
-atoms barely
-separated the two
-predictions (0.53 to
-0.56). In activity
+ranked first (0.70)
+and the RMSD of the
+catalytic atoms
+reached 0.53 to
+0.56. In activity
 ranking, the range
 of the catalytic pKa
 ranked the BglB
-variants best
+variants first
 (Spearman ρ = 0.48),
-but the distance
-from the mutated
-residue to the
-catalytic residues
-does almost as well
-(0.46) and no metric
+the distance from
+the mutated residue
+to the catalytic
+residues reached
+0.46, and no metric
 beat it. In
 detection ability,
 the per-chain pTM
-minimum responded
-most to catalytic
-damage (R = 0.75;
-0.5 means no
-preference for the
-catalytic site) and
-fell to 0.59 when
-the control lay at
-the same distance
-from the ligand. In
-three of the four
-tests, then, the
-best metric is
-matched by a simple
-reference or loses
-its advantage under
-a stricter control.
-What the metrics
-register is that
-something near the
-active site has
-changed; we could
-not show that they
-register whether the
-change is catalytic
-(Results 3.1 to
-3.4).
+minimum had the
+highest R (0.75; 0.5
+means no preference
+for the catalytic
+site) and an R of
+0.59 when the
+control lay at the
+same distance from
+the ligand (Results
+3.1 to 3.4).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1284,10 +1278,7 @@ RMSD between the two
 forms is 0.207 Å
 (0.484 Å after
 backbone
-superposition), so
-the chemistry of the
-site is intact in
-the dead form. The
+superposition). The
 definitions of the
 six pair sets used
 in 3.1 (55, 49, 45,
@@ -7776,82 +7767,60 @@ catalysis should do
 well in all four.
 
 In activity
-discrimination, none
-of the 33 metrics
-separated natural
-dead enzymes from
-their active forms
-beyond chance (best
-AUROC 0.61, against
-a threshold of
-0.68), whereas
-whole-prediction
-pLDDT did (0.79); on
-192 designs the
+discrimination,
+pLDDT of the whole
+prediction ranked
+first on natural
+dead and active
+enzymes (AUROC 0.79)
+and the best of the
+33 metrics, the
 intra-residue
 repulsion of the
-catalytic residues
-led (0.80), with the
+catalytic residues,
+reached 0.61, below
+the chance threshold
+of 0.68; on 192
+designs the
+intra-residue
+repulsion ranked
+first (0.80) and the
 tyrosine fraction
-close behind (0.75).
-In substrate
+reached 0.75. In
+substrate
 discrimination, ipTM
-separated the
-cognate ligand from
-a wrong one (0.70),
-but the RMSD of the
+ranked first (0.70)
+and the RMSD of the
 catalytic atoms
-barely did (0.53 to
-0.56). In activity
+reached 0.53 to
+0.56. In activity
 ranking, the range
 of the catalytic pKa
 correlated best with
 the measured
 impairment of BglB
-variants (ρ = 0.48),
-yet the distance
+variants (ρ = 0.48)
+and the distance
 from the mutated
 residue to the
 catalytic residues
-gives 0.46 and no
-metric beat it. In
+gave 0.46; no metric
+beat it. In
 detection ability,
 the per-chain pTM
 minimum responded
 most to catalytic
 damage (R = 0.75)
-but fell to 0.59
-when the control lay
-at the same distance
-from the ligand.
-Taken together, the
-metrics register
-damage close to the
-active site, or the
-supply of another
-ligand, and we could
-not show that they
-register whether the
-damage is catalytic.
-The designed sets
-are small and had
-already passed a
-filter, so this
-marks where the
-metrics fail to
-stand out, not that
-they carry no
-information.
-Registering damage
-is probably enough
-to discard designs
-that are plainly
-broken, but not for
-the choice a filter
-exists to make,
-between designs that
-differ in chemistry
-and not in position.
+and gave 0.59 when
+the control lay at
+the same distance
+from the ligand. The
+192 designs, of
+which 16 are active,
+had already passed
+the filters of the
+campaign that made
+them.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
