@@ -130,7 +130,7 @@ supplementary/     S1 ... S49    supplementary tables, one CSV per table
 
 **File.** `supplementary/S1_main_metric_set.csv` · 191 rows × 16 columns · public
 
-**Supports.** Methods, Table 1 and 'Which metrics are reported'; the main set of 33 metrics used in Tables 5 to 11. **Cited in.** Methods [2.1](https://pdflink.invalid/paper.pdf#page=1); Discussion.
+**Supports.** Methods, Table 1 and 'Which metrics are reported'; the main set of 33 metrics used in Tables 5 to 11. **Cited in.** Methods [2.1](https://pdflink.invalid/paper.pdf#page=1).
 
 **A row is** one distinct metric (a canonical key; literal aliases are merged), 191 in all.
 
@@ -307,7 +307,7 @@ A summary of [S3](#S3): for each input class and test, how many metrics receive 
 
 **File.** `supplementary/S5_denominator_restatement.csv` · 58 rows × 14 columns · public
 
-**Supports.** Discussion ('Test a metric only where it is defined'); Methods, 'Which metrics are reported'. **Cited in.** Methods [2.1](https://pdflink.invalid/paper.pdf#page=1).
+**Supports.** Methods, 'Which metrics are reported'. **Cited in.** Methods [2.1](https://pdflink.invalid/paper.pdf#page=1).
 
 **A row is** one headline count of the earlier whole-panel analysis (58 in all).
 
@@ -348,7 +348,7 @@ The counts of responding and specific metrics of the earlier analysis (original_
 
 **File.** `supplementary/S6_test_inventory.csv` · 30 rows × 14 columns · public
 
-**Supports.** Methods 2.2 to 2.5; the key to the test names in [S3](#S3) and [S4](#S4). **Cited in.** Methods [2.1](https://pdflink.invalid/paper.pdf#page=1); Discussion.
+**Supports.** Methods 2.2 to 2.5; the key to the test names in [S3](#S3) and [S4](#S4). **Cited in.** Methods [2.1](https://pdflink.invalid/paper.pdf#page=1).
 
 **A row is** one test: an experiment on a data set with one kind of metric (30 in all).
 
@@ -389,7 +389,7 @@ Every test with its name and class, the kind of metric (structure-space or predi
 
 **File.** `supplementary/S7_zymogen_all_metrics.csv` · 136 rows × 25 columns · public
 
-**Supports.** Results 3.1.1 (wider set); Methods 2.2.1. **Cited in.** Methods [2.2.1](https://pdflink.invalid/paper.pdf#page=2); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=13); Discussion.
+**Supports.** Results 3.1.1 (wider set); Methods 2.2.1. **Cited in.** Methods [2.2.1](https://pdflink.invalid/paper.pdf#page=2); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=13).
 
 **A row is** one scored metric (136 in all).
 
@@ -889,7 +889,7 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **File.** `supplementary/S18_bglb_sensitivities.csv` · 11 rows × 22 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
 
-**Supports.** Results 3.3.1; Discussion. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=6); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=17); Discussion.
+**Supports.** Results 3.3.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=6); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=17).
 
 **A row is** the main analysis and one of ten sensitivity analyses (11 rows).
 
@@ -1250,7 +1250,7 @@ The sanity-floor conditions (all catalytic residues replaced by Gly, scrambled s
 
 **File.** `supplementary/S26_control_match_tiers.csv` · 81 rows × 6 columns · public
 
-**Supports.** Methods 2.5; Results 3.4.1. **Cited in.** Methods [2.5](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
+**Supports.** Methods 2.5; Results 3.4.1. **Cited in.** Methods [2.5](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one analysis, lesion test and matching tier (81 rows).
 
@@ -1289,7 +1289,7 @@ For each analysis and lesion test, how many (enzyme, step) entries needed each l
 
 **File.** `supplementary/S27_control_arm_balance.csv` · 15 rows × 9 columns · public
 
-**Supports.** Methods 2.5; Results 3.4.1. **Cited in.** Methods [2.5](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
+**Supports.** Methods 2.5; Results 3.4.1. **Cited in.** Methods [2.5](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one analysis and lesion test (15 rows).
 
@@ -1328,7 +1328,7 @@ The share of (enzyme, step) pairs in which the control arm changed fewer or more
 
 **File.** `supplementary/S28_catalytic_lesion_all_metrics_ranked.csv` · 43 rows × 73 columns · public
 
-**Supports.** Results 3.4.1; the complete version of Table 10. **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
+**Supports.** Results 3.4.1; the complete version of Table 10. **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric scored on the catalytic-lesion ladder (43 in all).
 
@@ -1379,7 +1379,7 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **File.** `supplementary/S29_specificity_by_family_and_step.csv` · 20 rows × 27 columns · public
 
-**Supports.** Results 3.4.1 and 3.4.2; Discussion. **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19), [3.4.2](https://pdflink.invalid/paper.pdf#page=21); Discussion.
+**Supports.** Results 3.4.1 and 3.4.2. **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19), [3.4.2](https://pdflink.invalid/paper.pdf#page=21).
 
 **A row is** one family of metrics at one lesion step or dose (20 rows).
 
@@ -1465,7 +1465,7 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **File.** `supplementary/S31_motif_packing_sensitivity.csv` · 20 rows × 7 columns · public
 
-**Supports.** Results 3.4.1; Discussion (limitations). **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
+**Supports.** Results 3.4.1. **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one analysis and one lesion step (20 rows).
 
@@ -1627,7 +1627,7 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **File.** `supplementary/S35_survivors_by_status.csv` · 97 rows × 10 columns · public
 
-**Supports.** Methods 2.5.1; Results 3.4.1; Discussion. **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
+**Supports.** Methods 2.5.1; Results 3.4.1. **Cited in.** Methods [2.5.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric at one step in one analysis (97 rows: 74 natural, 23 de novo).
 
@@ -2047,7 +2047,7 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **File.** `supplementary/S45_engine_drift_check.csv` · 176 rows × 5 columns · public
 
-**Supports.** Results 3.2; Discussion (limitations). **Cited in.** Results [3.2](https://pdflink.invalid/paper.pdf#page=15).
+**Supports.** Results 3.2. **Cited in.** Results [3.2](https://pdflink.invalid/paper.pdf#page=15).
 
 **A row is** one metric on one re-run prediction (176 rows).
 
@@ -2086,7 +2086,7 @@ A drift check: four predictions (two cognate predictions of the substrate swap a
 
 **File.** `supplementary/S46_effective_dimensionality.csv` · 4 rows × 10 columns · public
 
-**Supports.** Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
+**Supports.** Results 3.4.1. **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one set of metrics and one panel (4 rows).
 
@@ -2125,7 +2125,7 @@ The participation ratio and related measures of the effective number of independ
 
 **File.** `supplementary/S47_denovo_created_control.csv` · 5 rows × 11 columns · public
 
-**Supports.** Results 3.4.1; Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
+**Supports.** Results 3.4.1. **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one burial metric (5 rows).
 
@@ -2165,7 +2165,7 @@ In the 30 de novo designs the control is a position mutated to the catalytic res
 
 **File.** `supplementary/S48_not_measurable.csv` · 9 rows × 4 columns · public
 
-**Supports.** Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
+**Supports.** Results 3.4.1. **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one experiment (9 rows).
 
@@ -2204,7 +2204,7 @@ The deformation experiment (apparent specific cells track the clash burden prese
 
 **File.** `supplementary/S49_placer_isosteric.csv` · 50 rows × 12 columns · public
 
-**Supports.** Results 3.4.1; Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
+**Supports.** Results 3.4.1. **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one PLACER metric in one analysis (50 rows).
 

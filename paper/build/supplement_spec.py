@@ -128,7 +128,7 @@ TABLES = {
 "A4": dict(
     topic=AUDIT,
     title="Counts restated on the eligible metrics (denominators before and after the audit)",
-    supports="Discussion ('Test a metric only where it is defined'); Methods, 'Which metrics are reported'",
+    supports="Methods, 'Which metrics are reported'",
     row="one headline count of the earlier whole-panel analysis (58 in all)",
     contents=("The counts of responding and specific metrics of the earlier analysis (original_k of original_N, over every metric with a "
               "testable cell) restated on the eligible metrics only (eligible_k of eligible_N, also as distinct metrics and for the "
@@ -295,7 +295,7 @@ TABLES = {
 "S16g": dict(
     topic=SUB,
     title="Drift of the current Chai-1 engine against the earlier predictions",
-    supports="Results 3.2; Discussion (limitations)",
+    supports="Results 3.2",
     row="one metric on one re-run prediction (176 rows)",
     contents=("A drift check: four predictions (two cognate predictions of the substrate swap and two predictions of the "
               "catalytic-lesion ladder) were re-run with the current Chai-1 engine, and every metric is compared with its stored value. "
@@ -346,7 +346,7 @@ TABLES = {
 "S20b": dict(
     topic=RANK,
     title="BglB: sensitivity analyses",
-    supports="Results 3.3.1; Discussion",
+    supports="Results 3.3.1",
     row="the main analysis and one of ten sensitivity analyses (11 rows)",
     contents=("The main analysis and ten sensitivity analyses with their sizes, the number of metrics with an interval above 0.5, the number "
               "that beat the distance baseline and the AUROC of the distance baseline. The analyses are: the main analysis (432 variants); "
@@ -522,7 +522,7 @@ TABLES = {
 "S28": dict(
     topic=DET,
     title="Structure-space specificity by metric family and lesion step, with the panel statistic and sensitivity sets",
-    supports="Results 3.4.1 and 3.4.2; Discussion",
+    supports="Results 3.4.1 and 3.4.2",
     row="one family of metrics at one lesion step or dose (20 rows)",
     contents=("The number of eligible, responding and specific structure-space metrics (as distinct metrics) by family (site-scoped "
               "Rosetta energy, catalytic geometry, catalytic pKa, all main-set metrics) at each step of the catalytic lesion and each "
@@ -559,7 +559,7 @@ TABLES = {
 "S10": dict(
     topic=DET,
     title="Sensitivity of the specificity-ratio counts to motif size, packing matching and count gating",
-    supports="Results 3.4.1; Discussion (limitations)",
+    supports="Results 3.4.1",
     row="one analysis and one lesion step (20 rows)",
     contents=("Counts of eligible, responding and specific metrics at each step for five analyses: the pilot set, the main set without packing "
               "matching or count gating, the main set with packing-matched controls (primary), the main set with the motif shortened to at "
@@ -613,7 +613,7 @@ TABLES = {
 "S07": dict(
     topic=DET,
     title="The specific cells that survive the controls",
-    supports="Methods 2.5.1; Results 3.4.1; Discussion",
+    supports="Methods 2.5.1; Results 3.4.1",
     row="one metric at one step in one analysis (97 rows: 74 natural, 23 de novo)",
     contents=("The cells that are specific under the control of their analysis, with the specificity ratio, the population "
               "(natural or de novo) and the applicability status of the metric. Of the 97, 69 are of metrics with status OK, 27 of whole-protein "
@@ -751,7 +751,7 @@ TABLES = {
 "S12b": dict(
     topic=DET,
     title="Effective dimensionality of the panel",
-    supports="Discussion (limitations)",
+    supports="Results 3.4.1",
     row="one set of metrics and one panel (4 rows)",
     contents=("The participation ratio and related measures of the effective number of independent metrics, for the earlier whole panel and for "
               "the 29 structure-space main-set metrics, for native values (7.85 of 29) and for isosteric responses (10.5)."),
@@ -763,7 +763,7 @@ TABLES = {
 "S09": dict(
     topic=DET,
     title="De novo designs: burial equivalence of the created-site control",
-    supports="Results 3.4.1; Discussion (limitations)",
+    supports="Results 3.4.1",
     row="one burial metric (5 rows)",
     contents=("In the 30 de novo designs the control is a position mutated to the catalytic residue type. For the five burial metrics the "
               "table gives the catalytic-arm and control-arm medians, the paired difference with 90% interval and whether they differ."),
@@ -775,7 +775,7 @@ TABLES = {
 "S08": dict(
     topic=DET,
     title="Experiments that could not be made or were retired",
-    supports="Discussion (limitations)",
+    supports="Results 3.4.1",
     row="one experiment (9 rows)",
     contents=("The deformation experiment (apparent specific cells track the clash burden present before repacking), oxyanion-hole removal "
               "(the step that was run located no bound ligand in any of the 143 structures and removed a proxy residue, so it did not test the named "
@@ -789,7 +789,7 @@ TABLES = {
 "S13": dict(
     topic=DET,
     title="PLACER ensemble metrics on the isosteric step (not interpretable)",
-    supports="Results 3.4.1; Discussion (limitations)",
+    supports="Results 3.4.1",
     row="one PLACER metric in one analysis (50 rows)",
     contents=("The specificity ratio, verdict and applicability of 25 PLACER ensemble metrics on the isosteric step, in two analyses. They are "
               "not interpretable: the control arm is covered 1.6 to 3.2 times less than the catalytic arm in every crop configuration, so the "
