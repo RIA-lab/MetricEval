@@ -99,6 +99,7 @@ VALUE_MAPS["pair_set"] = {
 }
 
 # ------------------------------------------------------------------ free text (exact cell values)
+# «S22c» in a key or value stands for the S number of that table in the current numbering (table_ids.csv)
 TEXT_EXACT = {
     # T1 / T2
     "interface + AME metrics (main-set membership decided by 1B and 2B)": "interface + AME metrics",
@@ -117,8 +118,8 @@ TEXT_EXACT = {
     "measured label; 176 'no reported activity' are NOT negatives": "measured label; the 176 'no active' designs are not confirmed negatives",
     "reported kcat/KM vs no reported activity (NOT inactive)": "active (reported kcat/KM) vs no active (not confirmed inactive)",
     # T7, T8, T9
-    "descriptive only (human ruling 2026-08-09; relaxed on 2026-10-09 only for the AUROC of Table 4): Spearman rank correlation with log10 kcat/KM over the 16 designs that have a reported value (the other 176 have no measurement); no direction is fixed in advance, so ranked by the size of rho; 90% interval resamples designs; a 90% interval excludes 0 for about 10% of unrelated items, that is about 3.6 of the 36; rho_given_length partials the sequence length out of both sides; ranks 31 to 36 are in S22 (column rank_in_table_6)":
-        "descriptive analysis: Spearman rank correlation with log10 kcat/KM over the 16 designs that have a reported value; ranked by the size of rho; 90% interval resamples designs; a 90% interval excludes 0 for about 10% of unrelated items, that is about 3.6 of the 36; rho_given_length partials the sequence length out of both sides; ranks 31 to 36 are in S22 (column rank_in_table_7)",
+    "descriptive only (human ruling 2026-08-09; relaxed on 2026-10-09 only for the AUROC of Table 4): Spearman rank correlation with log10 kcat/KM over the 16 designs that have a reported value (the other 176 have no measurement); no direction is fixed in advance, so ranked by the size of rho; 90% interval resamples designs; a 90% interval excludes 0 for about 10% of unrelated items, that is about 3.6 of the 36; rho_given_length partials the sequence length out of both sides; ranks 31 to 36 are in «S22c» (column rank_in_table_6)":
+        "descriptive analysis: Spearman rank correlation with log10 kcat/KM over the 16 designs that have a reported value; ranked by the size of rho; 90% interval resamples designs; a 90% interval excludes 0 for about 10% of unrelated items, that is about 3.6 of the 36; rho_given_length partials the sequence length out of both sides; ranks 31 to 36 are in «S22c» (column rank_in_table_9)",
     # S3, S4
     "any Ser/Cys/Thr + His among the scored residues; in the X arm these are control residues; the row is absent when Ser/His is substituted":
         "any Ser/Cys/Thr + His among the scored residues; in the control arm these are control residues; the row is absent when Ser/His is substituted",
@@ -169,8 +170,8 @@ TEXT_EXACT = {
     "identical to the C-Gly rung (reconciliation row below)": "identical to the Gly step (reconciliation row below)",
     "-1 = no control matched; 0 = exact; tiers >=3 drop packing; 5 also relaxes burial (P2K only; P2 tiers are not comparable: packing was not a criterion)":
         "-1 = no control matched; 0 = exact; tiers >=3 drop packing; 5 also relaxes burial (main set with packing matching only; tiers of the analysis without packing matching are not comparable)",
-    "detection read once here: N0 cat->Gly is identical to this rung (S26); primary = packing-matched, count-gated main set; control quality in S27 and S28":
-        "detection floor read once here: all catalytic residues to Gly is identical to this step (S26); primary = packing-matched, count-gated main set; control quality in S27 and S28",
+    "detection read once here: N0 cat->Gly is identical to this rung («S05»); primary = packing-matched, count-gated main set; control quality in «S06a» and «S06b»":
+        "detection floor read once here: all catalytic residues to Gly is identical to this step («S05»); primary = packing-matched, count-gated main set; control quality in «S06a» and «S06b»",
     "legacy 102-metric statistic (0.958 [0.897, 1.084]) included ~34 composition metrics with SR = 1 by construction":
         "the earlier 102-metric statistic (0.958 [0.897, 1.084]) included ~34 composition metrics with SR = 1 by construction",
     # S39, S43, S45, S47
@@ -216,12 +217,10 @@ ROLE_FIX = {   # reader_name of the experiment -> role
     "plate designs (prediction-based metrics)": "primary",
     "chemistry ladder with ligand-distance-matched controls (new)": "sensitivity",
 }
-T1_ROLE_FIX = {"BglB single-point variants (prediction-based metrics)": "primary",
-               "Plated de novo designs (prediction-based metrics)": "primary"}
 
 # ------------------------------------------------------------------ file names and titles
 FILE_SLUG = {
-    "T8": "T8_specificity_catalytic_lesion", "T9": "T9_specificity_second_shell_lesion",
+    "T8": "specificity_catalytic_lesion", "T9": "specificity_second_shell_lesion",
     "S26": "catalytic_lesion_all_metrics_ranked", "S27": "second_shell_lesion_all_metrics_ranked",
     "S11": "equivalence_earlier_vs_main_panel",
 }

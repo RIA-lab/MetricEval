@@ -190,12 +190,12 @@ def front_matter(ids, index, fx):
 
 # 1 About these tables
 
-This document describes the {n_supp} supplementary tables (S1 to S{n_supp}) and the nine main-text tables (T1 to T9) of the paper. It does not reprint them. Every table is released as a CSV file; each entry below gives the path, the number of rows and columns, what a row is, what the key columns mean, a three-row excerpt, the places in the paper that cite the table, and caveats. Supplementary tables are numbered in the order in which the Methods and Results first cite them.
+This document describes the {n_supp} supplementary tables (S1 to S{n_supp}) and the seven data tables of the Results (T5 to T11) of the paper. It does not reprint them. Every one of these tables is released as a CSV file (Tables 1 to 4, in the Methods, are descriptive and are not released as files); each entry below gives the path, the number of rows and columns, what a row is, what the key columns mean, a three-row excerpt, the places in the paper that cite the table, and caveats. Supplementary tables are numbered in the order in which the Methods and Results first cite them.
 
 ```
 README.md          what is released, what was changed, licence
 INDEX.csv          one row per table: id, file, title, rows, columns, licence flag, sha256
-main/              T1 ... T9     Tables 1 to 9 of the paper
+main/              T5 ... T11    Tables 5 to 11 of the paper
 supplementary/     S1 ... S{n_supp}    supplementary tables, one CSV per table
 ```
 
@@ -203,13 +203,15 @@ supplementary/     S1 ... S{n_supp}    supplementary tables, one CSV per table
 
 # 2 Conventions shared by the tables
 
-**Shared provenance columns.** The result tables (T3 to T9 and the supplementary tables whose entry says so) carry the same block of up to 12 columns, so that a row can be traced to its denominator: `claim_type`, `unit` and `n_units` (what was counted and how many), `n_clusters` and `cluster_def` (the resampling unit: enzyme sub-subclass for natural enzymes, campaign and plate well or backbone cluster for designs, position for BglB), `k`, `N` and `k_of_N` (a count with its denominator), `denominator_def`, `headline_ok` (1 if the row may be quoted as a headline result; 0 for per-metric detail, descriptive analyses, reference rows and wrong-ligand AUROCs), `status` and `licence_flag`.
+**Shared provenance columns.** The result tables (T5 to T11 and the supplementary tables whose entry says so) carry the same block of up to 12 columns, so that a row can be traced to its denominator: `claim_type`, `unit` and `n_units` (what was counted and how many), `n_clusters` and `cluster_def` (the resampling unit: enzyme sub-subclass for natural enzymes, campaign and plate well or backbone cluster for designs, position for BglB), `k`, `N` and `k_of_N` (a count with its denominator), `denominator_def`, `headline_ok` (1 if the row may be quoted as a headline result; 0 for per-metric detail, descriptive analyses, reference rows and wrong-ligand AUROCs), `status` and `licence_flag`.
 
 **Claim types.** `detection` (can the metric see damage), `specificity` (catalytic against matched control), `equivalence` (panel ratio against 1), `discrimination` (a real contrast, dead against active), `ranking` (against a measured label), `enrichment`, `baseline` (a reference row), `design`, `audit`, `not_measurable`.
 
 **Applicability status** (in {a3}, {s02} and the `applicability_status` columns). `OK` can be tested; `OK-KNOCKON` tested but reported as displacement of the other catalytic residues, with no specificity verdict; `OK-PROVISIONAL` the raw status of the interface terms in the re-predicted ladder, resolved by testability; `GLOBAL` tested but has no site input, so it is a comparator; `REF` a fixed reference row; `X-BOOKKEEP` a counter or constant; `X-NOINPUT` the input cannot reach the changed quantity; `X-ARM` the metric belongs to the other kind (structure space or prediction) than the test; `X-UNDEF-COV` defined on too few units; `X-WITHDRAWN` the test was withdrawn; `X-NOCTRL` no matched control exists; `X-CONFOUND` the control is confounded; `NOT-RUN`; `DUP` identical to another test and read once.
 
 **Verdicts in the specificity tables.** `specific` (response significant, interval of the specificity ratio above 1, control adequate); `non_specific` (responds, not more than the control); `blind` (does not respond); `invariant` (does not change); and counts-floor labels for cells with too few units.
+
+**Why some metrics are not in the main set.** A metric with no residue-set input (whole-protein energies, sequence composition, whole-prediction confidence) cannot respond *specifically* to catalytic residues, and a metric whose input cannot reach the changed quantity cannot register the lesion at all (sequence composition under a rotamer change, for example); such metrics are kept as comparators. One further quantity passes these tests but is kept out of the main set: the Chai-1 combined score, which Chai-1 uses to rank its own models and which equals 0.2 × pTM + 0.8 × ipTM − 100 × (inter-chain clash flag), so that it is a rescaled ipTM and not an independent metric. It is still scored, and its role and reason are in {a5}.
 
 **Names that recur.** `canonical_key` is the distinct metric after literal aliases are merged (`metric_name` may be an alias); `in_main_set` is 1 for the 33 reported metrics; `role` is `main`, `reference` or a supplement role (see {a5}); `source` is structure-space, prediction-based, PLACER, baseline, natural or denovo as the table says; `lesion_test` is the catalytic lesion or the second-shell lesion; `level` or `lesion_step` is the lesion step (isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 Å³ median side-chain volume change; `second_shell_1/2/4` is the second-shell dose); `ame_flavour` is `crystal` (against the deposited structure) or `self_design` (against a design's own model) and the two are never pooled; `sr_*` is a specificity ratio with its interval; `auroc` is direction-free unless a column says `signed` or `directed`; `rho` is a Spearman correlation.
 
@@ -228,12 +230,12 @@ LOOKUP = [
     ("The specificity ratio of one metric at one lesion step", "{S04a} (comparators: {S04b})"),
     ("Whether the controls were good", "{S06a}, {S06b} (structure space); {S16a}, {S16b}, {S16c}, {S16d}, {S16e} (predictor ladder)"),
     ("How fragile the structure-space specificity result is", "{S10}, {S11}, {S28}"),
-    ("How a metric responds to the substrate swap, and the role of ligand size", "Table 5, {S14}, {S14b}"),
-    ("The distance control for the interface terms", "Table 8, {S29}, {S16a}, {S16b}, {S16c}, {S16d}"),
-    ("Every metric on the 21-pair evaluation set (complete Table 3)", "{S17c}"),
-    ("Every metric on the 192 plated designs, active against no active (complete Table 4)", "{S17d}"),
-    ("Every quantity analysed on the 432 BglB variants (complete Table 6)", "{S20c}"),
-    ("Every metric on the 16 plated designs with a measured activity (complete Table 7)", "{S22c}"),
+    ("How a metric responds to the substrate swap, and the role of ligand size", "Table 7, {S14}, {S14b}"),
+    ("The distance control for the interface terms", "Table 10, {S29}, {S16a}, {S16b}, {S16c}, {S16d}"),
+    ("Every metric on the 21-pair evaluation set (complete Table 5)", "{S17c}"),
+    ("Every metric on the 192 plated designs, active against no active (complete Table 6)", "{S17d}"),
+    ("Every quantity analysed on the 432 BglB variants (complete Table 8)", "{S20c}"),
+    ("Every metric on the 16 plated designs with a measured activity (complete Table 9)", "{S22c}"),
     ("Hits per plate when a metric fills a 96-well plate", "{S22d}"),
     ("The wider set of 49 pairs, the 28 re-predicted pairs, the pair-set definitions", "{S17}, {S18}, {S17b}"),
     ("BglB: every metric, prediction-based metrics, sensitivity analyses", "{S20a}, {S21}, {S20b}"),
@@ -243,23 +245,23 @@ LOOKUP = [
 ]
 
 MAIN_MORE = {
-    "T1": "{S03}", "T2": "{S03}, {S17b}", "T3": "{S17c}, {S17}, {S18}", "T4": "{S17d}",
-    "T5": "{S14}, {S14b}", "T6": "{S20c}, {S20a}, {S20b}, {S21}", "T7": "{S22c}, {S22d}, {S22a}, {S22b}, {S23}",
-    "T8": "{S26}, {S28}, {S29}", "T9": "{S27}, {S28}",
+    "T5": "{S17c}, {S17}, {S18}", "T6": "{S17d}",
+    "T7": "{S14}, {S14b}", "T8": "{S20c}, {S20a}, {S20b}, {S21}", "T9": "{S22c}, {S22d}, {S22a}, {S22b}, {S23}",
+    "T10": "{S26}, {S28}, {S29}", "T11": "{S27}, {S28}",
 }
 
 DATA_NOTES = [
-    "Two sets of numbers for natural enzymes in the substrate swap: {S14} uses all 59 natural enzymes, Table 5 uses the evaluation set of 55.",
-    "Two forms of the rank statistic R: {S12} is R on the 143 main enzymes with 90% intervals; Table 8 and {S26} are the pooled analysis on 195 enzymes with 95% intervals and the counted-step rule. Values for the same metric differ.",
+    "Two sets of numbers for natural enzymes in the substrate swap: {S14} uses all 59 natural enzymes, Table 7 uses the evaluation set of 55.",
+    "Two forms of the rank statistic R: {S12} is R on the 143 main enzymes with 90% intervals; Table 10 and {S26} are the pooled analysis on 195 enzymes with 95% intervals and the counted-step rule. Values for the same metric differ.",
     "Among the 29 prediction-based metrics of the ladder with ligand-distance-matched controls, the cells of {A3} keep the label NOT-RUN although the analysis was carried out (results in {S16c} and {S16d}).",
 ]
 
 
 def back_matter(ids, index, fx, paper_pages):
     md = ["# Appendix A. Main-text tables", "",
-          "The nine tables of the paper, with the supplementary tables that hold the complete version or more detail.", ""]
+          "The seven data tables of the Results (Tables 5 to 11), with the supplementary tables that hold the complete version or more detail. Tables 1 to 4 of the Methods are descriptive and are not released as files.", ""]
     rows = []
-    for tid in [f"T{i}" for i in range(1, 10)]:
+    for tid in [f"T{i}" for i in range(5, 12)]:
         r = index[tid]
         rows.append([f"**{tid}**", f"`{r['file']}`", f"{int(r['rows'])} × {r['columns']}",
                      MAIN_MORE[tid].format_map(fx)])

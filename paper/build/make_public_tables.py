@@ -36,12 +36,17 @@ csv.field_size_limit(10**9)
 
 HEADER_FIXES = {
     # the generator still names these columns after the old table numbers
-    "S20c": {"rank_in_table_5": "rank_in_table_6", "in_table_5": "in_table_6"},
-    "S22c": {"rank_in_table_6": "rank_in_table_7", "in_table_6": "in_table_7"},
+    # keys: the column names of the private tables; values: the paper's table numbers
+    "S17c": {"rank_in_table_3": "rank_in_table_5"},
+    "S17d": {"rank_in_table_4": "rank_in_table_6", "in_table_4": "in_table_6"},
+    "S20c": {"rank_in_table_5": "rank_in_table_8", "in_table_5": "in_table_8"},   # generator still says 5
+    "S22c": {"rank_in_table_6": "rank_in_table_9", "in_table_6": "in_table_9"},   # generator still says 6
+    "S26": {"rank_in_table_8": "rank_in_table_10"},
+    "S27": {"rank_in_table_9": "rank_in_table_11"},
 }
 CELL_FIXES = {  # (table, column, old text, new text)
-    ("S22c", "cluster_def", "Table 6", "Table 7"),
-    ("S22d", "cluster_def", "Table 6", "Table 7"),
+    ("S22c", "cluster_def", "Table 6", "Table 9"),
+    ("S22d", "cluster_def", "Table 6", "Table 9"),
 }
 KEEP_VERBATIM = {"input_id", "prediction", "base_system", "canonical_key", "metric_name", "metric", "members", "rep_metric",
                  "alias_of", "item"}
@@ -64,11 +69,19 @@ def read(path):
     return rows[0], rows[1:]
 
 
+EXACT = {}
+
+
+def resolve(text, ids):
+    """«S22c» -> the S number of table S22c in the current numbering."""
+    return re.sub(r"«(\w+)»", lambda m: ids[m.group(1)], text)
+
+
 def scrub_cell(col, v):
     if not v:
         return v
-    if v in R.TEXT_EXACT:
-        return R.TEXT_EXACT[v]
+    if v in EXACT:
+        return EXACT[v]
     m = R.VALUE_MAPS.get(col)
     if m and v in m:
         return m[v]
@@ -102,6 +115,8 @@ def main():
     ids = {r["old_id"]: r["new_id"] for r in csv.DictReader(open(HERE / "table_ids.csv", encoding="utf-8"))}
     index = {r["table_id"]: r for r in csv.DictReader(open(TABLES / "INDEX.csv", encoding="utf-8"))}
     manifest = json.load(open(TABLES / "MANIFEST.json", encoding="utf-8"))["outputs"]
+    EXACT.clear()
+    EXACT.update({resolve(k, ids): resolve(v, ids) for k, v in R.TEXT_EXACT.items()})
     labels = test_labels()
 
     def tr_ids(text, table):
@@ -118,7 +133,9 @@ def main():
     (PUBLIC / "main").mkdir(parents=True)
     (PUBLIC / "supplementary").mkdir()
 
-    jobs = [(t, t, "main") for t in [f"T{i}" for i in range(1, 10)]]
+    # private tables/main/T3 ... T9 are Tables 5 to 11 of the paper (Tables 1 to 4 are in the Methods
+    # and are not released as files)
+    jobs = [(f"T{i}", f"T{i + 2}", "main") for i in range(3, 10)]
     jobs += [(old, new, "supplementary") for old, new in sorted(ids.items(), key=lambda kv: int(kv[1][1:]))]
 
     rows_out, cross = [], []
@@ -128,8 +145,7 @@ def main():
         if sha(src) != manifest[src_rel]:
             sys.exit(f"hash mismatch for {src_rel}")
         stem = Path(src_rel).stem
-        slug = R.FILE_SLUG.get(old)
-        fname = f"{slug}.csv" if kind == "main" and slug else (f"{stem}.csv" if kind == "main" else f"{new}_{slug or slug_of(stem)}.csv")
+        fname = f"{new}_{R.FILE_SLUG.get(old) or slug_of(stem)}.csv"
         dst = PUBLIC / kind / fname
 
         header, body = read(src)
@@ -209,8 +225,8 @@ def main():
                     changed.add("codes and cross-references translated")
 
         # experiments that were run are labelled as run
-        if old in ("S03", "T1"):
-            fix, key = (R.ROLE_FIX, "reader_name") if old == "S03" else (R.T1_ROLE_FIX, "experiment")
+        if old == "S03":
+            fix, key = R.ROLE_FIX, "reader_name"
             if key in new_header and "role" in new_header:
                 ki, ri = new_header.index(key), new_header.index("role")
                 for r in body:
@@ -225,7 +241,7 @@ def main():
 
         if kind == "main":
             title = scrub_text(R.MAIN_TITLES.get(old, index[old]["title"]))
-            supports, topic = f"Table {old[1:]} of the paper", "Main text"
+            supports, topic = f"Table {new[1:]} of the paper", "Main text"
         else:
             sp = spec.TABLES[old]
             title, supports, topic = sp["title"], sp["supports"], sp["topic"]
@@ -258,12 +274,12 @@ def main():
 
 README = """# Public tables
 
-{n_main} main-text tables and {n_supp} supplementary tables of the paper, as CSV (UTF-8, comma-separated, one header row).
+{n_main} data tables of the Results (Tables 5 to 11) and {n_supp} supplementary tables of the paper, as CSV (UTF-8, comma-separated, one header row).
 The Supplementary PDF describes every table: what a row is, what the columns mean and which part of the paper uses it.
 `INDEX.csv` lists all tables with title, size, licence flag and a sha256 of each file.
 
 ```
-main/            T1 ... T9          Tables 1 to 9 of the paper
+main/            T5 ... T11         Tables 5 to 11 of the paper (Tables 1 to 4, in the Methods, are descriptive and not released as files)
 supplementary/   S1 ... S{n_supp}        supplementary tables, numbered in the order in which the paper first cites them
 INDEX.csv        id, file, title, where the paper uses it, rows, columns, licence flag, sha256
 ```

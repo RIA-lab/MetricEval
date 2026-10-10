@@ -1,59 +1,57 @@
 public_id,source_id,source_file,changes
-T1,T1,tables/main/T1_study_map.csv,codes and cross-references translated; column names changed; internal columns removed; role corrected
-T2,T2,tables/main/T2_datasets.csv,codes and cross-references translated; internal columns removed
-T3,T3,tables/main/T3_dead_vs_active.csv,codes and cross-references translated; internal columns removed
-T4,T4,tables/main/T4_plated_designs_auroc.csv,codes and cross-references translated; internal columns removed
-T5,T5,tables/main/T5_substrate_swap.csv,codes and cross-references translated; internal columns removed
-T6,T6,tables/main/T6_bglb_variants.csv,codes and cross-references translated; internal columns removed
-T7,T7,tables/main/T7_plated_designs.csv,codes and cross-references translated; internal columns removed
-T8,T8,tables/main/T8_specificity_axis_C.csv,codes and cross-references translated; internal columns removed
-T9,T9,tables/main/T9_specificity_axis_E.csv,codes and cross-references translated; internal columns removed
-S1,S14,tables/supp/S14_substrate_swap_per_metric.csv,column names changed; internal columns removed
-S2,A5,tables/audit/A5_main_metric_set.csv,codes and cross-references translated; column names changed; internal columns removed
-S3,S01,tables/supp/S01_metric_contracts.csv,codes and cross-references translated; column names changed; internal columns removed
-S4,A3,tables/audit/A3_applicability.csv,codes and cross-references translated; internal columns removed
-S5,S02,tables/supp/S02_applicability_by_class.csv,codes and cross-references translated
-S6,A4,tables/audit/A4_denominator_restatement.csv,codes and cross-references translated; column names changed; internal columns removed
-S7,S03,tables/supp/S03_test_inventory.csv,codes and cross-references translated; column names changed; internal columns removed; role corrected
-S8,S17,tables/supp/S17_zymogen_all_metrics.csv,column names changed; internal columns removed
-S9,S18,tables/supp/S18_zymogen_re_predicted_restated.csv,column names changed; internal columns removed
-S10,S17b,tables/supp/S17b_pair_set_definitions.csv,codes and cross-references translated; internal columns removed
-S11,S19,tables/supp/S19_trapping_verification.csv,internal columns removed
-S12,S17c,tables/supp/S17c_zymogen_21pair_all_metrics.csv,codes and cross-references translated; column names changed; internal columns removed
-S13,S24,tables/supp/S24_reference_rows.csv,internal columns removed
-S14,S17d,tables/supp/S17d_plates_all_metrics_auroc.csv,codes and cross-references translated; column names changed; internal columns removed
+T5,T3,tables/main/T3_dead_vs_active.csv,codes and cross-references translated; internal columns removed
+T6,T4,tables/main/T4_plated_designs_auroc.csv,codes and cross-references translated; internal columns removed
+T7,T5,tables/main/T5_substrate_swap.csv,codes and cross-references translated; internal columns removed
+T8,T6,tables/main/T6_bglb_variants.csv,codes and cross-references translated; internal columns removed
+T9,T7,tables/main/T7_plated_designs.csv,codes and cross-references translated; internal columns removed
+T10,T8,tables/main/T8_specificity_axis_C.csv,codes and cross-references translated; internal columns removed
+T11,T9,tables/main/T9_specificity_axis_E.csv,codes and cross-references translated; internal columns removed
+S1,A5,tables/audit/A5_main_metric_set.csv,codes and cross-references translated; column names changed; internal columns removed
+S2,S01,tables/supp/S01_metric_contracts.csv,codes and cross-references translated; column names changed; internal columns removed
+S3,A3,tables/audit/A3_applicability.csv,codes and cross-references translated; internal columns removed
+S4,S02,tables/supp/S02_applicability_by_class.csv,codes and cross-references translated
+S5,A4,tables/audit/A4_denominator_restatement.csv,codes and cross-references translated; column names changed; internal columns removed
+S6,S03,tables/supp/S03_test_inventory.csv,codes and cross-references translated; column names changed; internal columns removed; role corrected
+S7,S17,tables/supp/S17_zymogen_all_metrics.csv,column names changed; internal columns removed
+S8,S18,tables/supp/S18_zymogen_re_predicted_restated.csv,column names changed; internal columns removed
+S9,S17b,tables/supp/S17b_pair_set_definitions.csv,codes and cross-references translated; internal columns removed
+S10,S19,tables/supp/S19_trapping_verification.csv,internal columns removed
+S11,S17c,tables/supp/S17c_zymogen_21pair_all_metrics.csv,codes and cross-references translated; column names changed; internal columns removed
+S12,S24,tables/supp/S24_reference_rows.csv,internal columns removed
+S13,S17d,tables/supp/S17d_plates_all_metrics_auroc.csv,codes and cross-references translated; column names changed; internal columns removed
+S14,S14,tables/supp/S14_substrate_swap_per_metric.csv,column names changed; internal columns removed
 S15,S14b,tables/supp/S14b_substrate_swap_size_strata.csv,internal columns removed
-S16,S16g,tables/supp/S16g_engine_drift_check.csv,column names changed; internal columns removed
-S17,S20c,tables/supp/S20c_bglb_all_quantities_ranked.csv,column names changed; internal columns removed
-S18,S20a,tables/supp/S20a_bglb_all_metrics.csv,column names changed; internal columns removed
-S19,S20b,tables/supp/S20b_bglb_sensitivities.csv,codes and cross-references translated; internal columns removed
-S20,S21,tables/supp/S21_bglb_prediction_based_all_metrics.csv,column names changed; internal columns removed
-S21,S22d,tables/supp/S22d_plates_hits_per_plate_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
-S22,S22c,tables/supp/S22c_plates_all_metrics_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
-S23,S22b,tables/supp/S22b_plates_ordering.csv,column names changed; internal columns removed
-S24,S22a,tables/supp/S22a_plates_enrichment.csv,column names changed; internal columns removed
-S25,S23,tables/supp/S23_plates_prediction_based_enrichment.csv,column names changed; internal columns removed
-S26,S05,tables/supp/S05_sanity_floor_by_input_class.csv,codes and cross-references translated; internal columns removed
-S27,S06a,tables/supp/S06a_control_match_tiers.csv,codes and cross-references translated; column names changed
-S28,S06b,tables/supp/S06b_control_arm_balance.csv,codes and cross-references translated; column names changed
-S29,S26,tables/supp/S26_axis_C_all_metrics_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
-S30,S28,tables/supp/S28_specificity_by_family_and_step.csv,codes and cross-references translated; column names changed; internal columns removed
-S31,S29,tables/supp/S29_predictor_ladder_three_controls.csv,codes and cross-references translated; column names changed; internal columns removed
-S32,S10,tables/supp/S10_motif_packing_sensitivity.csv,codes and cross-references translated; internal columns removed
-S33,S16f,tables/supp/S16f_replicate_noise_context.csv,codes and cross-references translated; internal columns removed
-S34,S04a,tables/supp/S04a_part1A_eligible_metrics.csv,codes and cross-references translated; column names changed; internal columns removed; repeated column removed
-S35,S04b,tables/supp/S04b_part1A_global_comparators.csv,codes and cross-references translated; column names changed; internal columns removed; repeated column removed
-S36,S07,tables/supp/S07_survivors_by_status.csv,codes and cross-references translated; column names changed; internal columns removed
-S37,S12,tables/supp/S12_ranking_statistic_by_lesion_step.csv,column names changed; internal columns removed
-S38,S16a,tables/supp/S16a_ladder_pair_distances.csv,column names changed; internal columns removed
-S39,S16e,tables/supp/S16e_new_distance_matched_controls.csv,codes and cross-references translated; internal columns removed
-S40,S16b,tables/supp/S16b_ladder_distance_strata.csv,codes and cross-references translated; column names changed; internal columns removed
-S41,S16c,tables/supp/S16c_ladder_matched_subsets.csv,codes and cross-references translated; column names changed; internal columns removed
-S42,S16d,tables/supp/S16d_ladder_regression_adjusted.csv,codes and cross-references translated; column names changed; internal columns removed
-S43,S11,tables/supp/S11_equivalence_legacy_vs_main.csv,codes and cross-references translated; column names changed; internal columns removed
-S44,S15,tables/supp/S15_ladder_re_predicted_per_level.csv,column names changed; internal columns removed
-S45,S12b,tables/supp/S12b_effective_dimensionality.csv,codes and cross-references translated; internal columns removed
-S46,S09,tables/supp/S09_denovo_created_control.csv,internal columns removed
-S47,S08,tables/supp/S08_not_measurable.csv,codes and cross-references translated; internal columns removed
-S48,S13,tables/supp/S13_placer_isosteric.csv,codes and cross-references translated; column names changed; internal columns removed
-S49,S27,tables/supp/S27_axis_E_all_metrics_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
+S16,S20c,tables/supp/S20c_bglb_all_quantities_ranked.csv,column names changed; internal columns removed
+S17,S20a,tables/supp/S20a_bglb_all_metrics.csv,column names changed; internal columns removed
+S18,S20b,tables/supp/S20b_bglb_sensitivities.csv,codes and cross-references translated; internal columns removed
+S19,S21,tables/supp/S21_bglb_prediction_based_all_metrics.csv,column names changed; internal columns removed
+S20,S22d,tables/supp/S22d_plates_hits_per_plate_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
+S21,S22c,tables/supp/S22c_plates_all_metrics_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
+S22,S22b,tables/supp/S22b_plates_ordering.csv,column names changed; internal columns removed
+S23,S22a,tables/supp/S22a_plates_enrichment.csv,column names changed; internal columns removed
+S24,S23,tables/supp/S23_plates_prediction_based_enrichment.csv,column names changed; internal columns removed
+S25,S05,tables/supp/S05_sanity_floor_by_input_class.csv,codes and cross-references translated; internal columns removed
+S26,S06a,tables/supp/S06a_control_match_tiers.csv,codes and cross-references translated; column names changed
+S27,S06b,tables/supp/S06b_control_arm_balance.csv,codes and cross-references translated; column names changed
+S28,S26,tables/supp/S26_axis_C_all_metrics_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
+S29,S28,tables/supp/S28_specificity_by_family_and_step.csv,codes and cross-references translated; column names changed; internal columns removed
+S30,S29,tables/supp/S29_predictor_ladder_three_controls.csv,codes and cross-references translated; column names changed; internal columns removed
+S31,S10,tables/supp/S10_motif_packing_sensitivity.csv,codes and cross-references translated; internal columns removed
+S32,S16f,tables/supp/S16f_replicate_noise_context.csv,codes and cross-references translated; internal columns removed
+S33,S04a,tables/supp/S04a_part1A_eligible_metrics.csv,codes and cross-references translated; column names changed; internal columns removed; repeated column removed
+S34,S04b,tables/supp/S04b_part1A_global_comparators.csv,codes and cross-references translated; column names changed; internal columns removed; repeated column removed
+S35,S07,tables/supp/S07_survivors_by_status.csv,codes and cross-references translated; column names changed; internal columns removed
+S36,S12,tables/supp/S12_ranking_statistic_by_lesion_step.csv,column names changed; internal columns removed
+S37,S16a,tables/supp/S16a_ladder_pair_distances.csv,column names changed; internal columns removed
+S38,S16e,tables/supp/S16e_new_distance_matched_controls.csv,codes and cross-references translated; internal columns removed
+S39,S16b,tables/supp/S16b_ladder_distance_strata.csv,codes and cross-references translated; column names changed; internal columns removed
+S40,S16c,tables/supp/S16c_ladder_matched_subsets.csv,codes and cross-references translated; column names changed; internal columns removed
+S41,S16d,tables/supp/S16d_ladder_regression_adjusted.csv,codes and cross-references translated; column names changed; internal columns removed
+S42,S11,tables/supp/S11_equivalence_legacy_vs_main.csv,codes and cross-references translated; column names changed; internal columns removed
+S43,S15,tables/supp/S15_ladder_re_predicted_per_level.csv,column names changed; internal columns removed
+S44,S27,tables/supp/S27_axis_E_all_metrics_ranked.csv,codes and cross-references translated; column names changed; internal columns removed
+S45,S16g,tables/supp/S16g_engine_drift_check.csv,column names changed; internal columns removed
+S46,S12b,tables/supp/S12b_effective_dimensionality.csv,codes and cross-references translated; internal columns removed
+S47,S09,tables/supp/S09_denovo_created_control.csv,internal columns removed
+S48,S08,tables/supp/S08_not_measurable.csv,codes and cross-references translated; internal columns removed
+S49,S13,tables/supp/S13_placer_isosteric.csv,codes and cross-references translated; column names changed; internal columns removed
