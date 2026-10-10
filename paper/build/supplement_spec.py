@@ -144,7 +144,7 @@ TABLES = {
 "S03": dict(
     topic=AUDIT,
     title="Test inventory: the 30 tests, with comparator, control type, role and caveats",
-    supports="Methods 2.1 to 2.4; the key to the test names in {A3} and {S02}",
+    supports="Methods 2.2 to 2.5; the key to the test names in {A3} and {S02}",
     row="one test: an experiment on a data set with one kind of metric (30 in all)",
     contents=("Every test with its name and class, the kind of metric (structure-space or prediction-based), the unit and the number of "
               "units, the resampling unit, the changes applied, the comparator and control type, the role (primary, sensitivity, sanity, "
@@ -160,7 +160,7 @@ TABLES = {
 "S17": dict(
     topic=ACT,
     title="Wider set of 49 zymogen-mature pairs: all 136 scored metrics, with the same-state null",
-    supports="Results 3.1.1 (wider set); Methods 2.1.1",
+    supports="Results 3.1.1 (wider set); Methods 2.2.1",
     row="one scored metric (136 in all)",
     contents=("The analysis on the 49 pairs for which structure-space metrics were scored (before the evaluation set of 21 pairs that share "
               "a ligand was fixed): the direction-free AUROC of dead against active with interval, the directed AUROC, the number of pairs, "
@@ -195,7 +195,7 @@ TABLES = {
 "S17b": dict(
     topic=ACT,
     title="Definitions of the pair sets",
-    supports="Methods 2.1.1; Results 3.1.1",
+    supports="Methods 2.2.1; Results 3.1.1",
     row="one set of zymogen-mature pairs (6 in all)",
     contents=("The six sets used in 3.1 with their size and definition: 55 candidate rows, 49 scored pairs, 45 with PLACER, "
               "28 re-predicted pairs, the 21-pair evaluation set (pairs that share a ligand) and the 96 same-state null pairs, and which "
@@ -207,7 +207,7 @@ TABLES = {
 "S19": dict(
     topic=ACT,
     title="Substrate-trapping mutants checked against the literature (tier retired)",
-    supports="Results 3.1.1 (retired tier); Methods 2.1.1",
+    supports="Results 3.1.1 (retired tier); Methods 2.2.1",
     row="one verdict category (6 rows)",
     contents=("The 30 trapping-mutant pairs verified against the primary literature: 15 confirmed reduced, 4 confirmed inactive, "
               "4 active and 7 not stated; 26 of the 30 (86.7%, 95% interval 70.3 to 94.7%) are not confirmed dead. Every deposited "
@@ -237,7 +237,7 @@ TABLES = {
 "S24": dict(
     topic=ACT,
     title="Reference rows in full, across the activity tests",
-    supports="Results 3.1 and 3.3; Tables 5, 6, 8 and 9; Methods 2.1 and 2.3",
+    supports="Results 3.1 and 3.3; Tables 5, 6, 8 and 9; Methods 2.2 and 2.4",
     row="one reference item for one measure (35 in all)",
     contents=("The rows that need no catalytic information, reported in full with intervals: crystallographic resolution, sequence "
               "length, net charge and tyrosine fraction (AUROC on the 49 zymogen pairs) and pLDDT and pTM (AUROC on the 28 re-predicted pairs); the five declared BglB baselines "
@@ -273,7 +273,7 @@ TABLES = {
 "S14b": dict(
     topic=SUB,
     title="Substrate swap stratified by ligand size and charge",
-    supports="Results 3.2; Methods 2.2 (size check, Eq. 10)",
+    supports="Results 3.2; Methods 2.3 (size check, Eq. 10)",
     row="one quantity, source, wrong-ligand condition and stratum of the difference in ligand size or charge, for one analysis variant",
     contents=("The check of whether ligand size or charge explains the discrimination. For each headline quantity (ipTM, per-chain pTM "
               "minimum, the combined score, ligand clearance), comparator (pTM, pLDDT, AME RMSD) and the two baselines (ligand heavy-atom "
@@ -330,7 +330,7 @@ TABLES = {
 "S20a": dict(
     topic=RANK,
     title="BglB: all 84 structure-space and comparator metrics",
-    supports="Results 3.3.1; Methods 2.3.1",
+    supports="Results 3.3.1; Methods 2.4.1",
     row="one metric analysed on the 432 BglB variants (84 in all)",
     contents=("Spearman correlation, signed, direction-free and magnitude AUROC with intervals, the paired difference against the "
               "distance baseline and whether the metric beats all baselines, for every structure-space metric and comparator (36 site-scoped, "
@@ -364,7 +364,7 @@ TABLES = {
 "S21": dict(
     topic=RANK,
     title="BglB: prediction-based metrics (Chai-1 with the assay substrate)",
-    supports="Results 3.3.1; Methods 2.3.1",
+    supports="Results 3.3.1; Methods 2.4.1",
     row="one prediction-based metric analysed on the 432 BglB variants (28 in all)",
     contents=("The same columns as {S20a} for the metrics computed from Chai-1 predictions of each variant with the assay substrate "
               "(pNPG, no metal); active-site accuracy is measured against the wild-type crystal, which carries a covalent glucosyl "
@@ -380,7 +380,7 @@ TABLES = {
 "S22d": dict(
     topic=RANK,
     title="Plated designs: hits per 96-well plate for every metric (filter-style analysis)",
-    supports="Results 3.3.2; Methods 2.3.2 (Eqs. 16 and 17)",
+    supports="Results 3.3.2; Methods 2.4.2 (Eqs. 16 and 17)",
     row="one metric scored on the 192 designs (128 in all)",
     contents=("The filter-style analysis, for every metric: the expected hits per 96-well plate and the "
               "actives among the 48 designs kept when the quarter of designs that the metric ranks highest, or lowest, fills the plate "
@@ -415,7 +415,7 @@ TABLES = {
 "S22b": dict(
     topic=RANK,
     title="Plated designs: ordering among the 16 active designs, structure-space metrics and comparators",
-    supports="Results 3.3.2; Methods 2.3.2 (Eq. 15)",
+    supports="Results 3.3.2; Methods 2.4.2 (Eq. 15)",
     row="one metric of the structure-space panel or a comparator (81 in all)",
     contents=("The Spearman correlation with log kcat/KM among the 16 active designs with and without the sequence length partialled out, "
               "with 90% intervals and whether the interval excludes 0 (24 do)."),
@@ -428,7 +428,7 @@ TABLES = {
 "S22a": dict(
     topic=RANK,
     title="Plated designs: enrichment at every keep fraction, structure-space metrics",
-    supports="Results 3.3.2; Methods 2.3.2",
+    supports="Results 3.3.2; Methods 2.4.2",
     row="one metric, one direction (keep the highest or the lowest values) and one keep fraction (816 rows)",
     contents=("Enrichment on the 192 plated designs for the 102 metrics of the structure-space panel and its comparators, in both directions "
               "and at keep fractions of 5, 10, 25 and 50%: the number kept, the actives kept and the expected hits per 96-well plate "
@@ -445,7 +445,7 @@ TABLES = {
 "S23": dict(
     topic=RANK,
     title="Plated designs: enrichment for prediction-based metrics",
-    supports="Results 3.3.2; Methods 2.3.2",
+    supports="Results 3.3.2; Methods 2.4.2",
     row="one prediction-based metric, one direction and one keep fraction (232 rows)",
     contents=("The same as {S22a} for the 29 prediction-based metrics (Chai-1 with the transition-state analogue and zinc; active-site accuracy "
               "against the design's own model)."),
@@ -460,7 +460,7 @@ TABLES = {
 "S05": dict(
     topic=DET,
     title="Sanity floors by class of metric",
-    supports="Methods 2.4 (detection floor); Results 3.4.1",
+    supports="Methods 2.5 (detection floor); Results 3.4.1",
     row="one sanity-floor condition on one data set and one class of metric (53 rows)",
     contents=("The sanity-floor conditions (all catalytic residues replaced by Gly, scrambled sequence on the native backbone, unrelated "
               "protein, ligand removed on the pilot set) for the 143-enzyme set, the shortened-motif set, the pilot set and the de novo set: "
@@ -474,7 +474,7 @@ TABLES = {
 "S06a": dict(
     topic=DET,
     title="Control matching: the loosest tier needed",
-    supports="Methods 2.4; Results 3.4.1",
+    supports="Methods 2.5; Results 3.4.1",
     row="one analysis, lesion test and matching tier (81 rows)",
     contents=("For each analysis and lesion test, how many (enzyme, step) entries needed each loosest matching tier: 0 = exact match, tiers 3 and "
               "above drop packing matching, tier 5 also relaxes burial (main set only), -1 = no control found; and the share of the lesion test."),
@@ -486,7 +486,7 @@ TABLES = {
 "S06b": dict(
     topic=DET,
     title="Control matching: balance of residues changed in the two arms",
-    supports="Methods 2.4; Results 3.4.1",
+    supports="Methods 2.5; Results 3.4.1",
     row="one analysis and lesion test (15 rows)",
     contents=("The share of (enzyme, step) pairs in which the control arm changed fewer or more residues than the catalytic arm, the "
               "median and mean ratio, and the number with no control. The comparison of medians used elsewhere cannot see this imbalance."),
@@ -540,7 +540,7 @@ TABLES = {
 "S29": dict(
     topic=DET,
     title="Re-predicted catalytic lesion: the prediction-based metrics under three successive controls and the pre-specified rule",
-    supports="Results 3.4.1; Methods 2.4.1 (Eq. 24)",
+    supports="Results 3.4.1; Methods 2.5.1 (Eq. 24)",
     row="one prediction-based metric or reference row (6 rows)",
     contents=("Specificity of the prediction-based metrics on the natural arm of the re-predicted ladder (59 enzymes, 286 pairs): the "
               "specificity ratio on the isosteric step with the original control, in the distance-matched subset (68 pairs, 21 systems) and "
@@ -571,7 +571,7 @@ TABLES = {
 "S16f": dict(
     topic=DET,
     title="Re-predicted ladder: seed-noise context",
-    supports="Methods 2.4.1; Results 3.4.1",
+    supports="Methods 2.5.1; Results 3.4.1",
     row="one prediction-based metric in one arm and subset (56 rows)",
     contents=("Noise context from the second-seed replicate on 30 natural pairs: the median absolute change in each arm against the seed "
               "noise of the metric, for the nine prediction-based metrics, on all pairs and on the original matched subset."),
@@ -584,7 +584,7 @@ TABLES = {
 "S04a": dict(
     topic=DET,
     title="Specificity ratio of every eligible metric at every step",
-    supports="Methods 2.4.1 (Eq. 22); Results 3.4.1 and 3.4.2",
+    supports="Methods 2.5.1 (Eq. 22); Results 3.4.1 and 3.4.2",
     row="one eligible (site-scoped) metric at one lesion step or dose (256 rows)",
     contents=("The median change at the catalytic lesion and its interval, the specificity ratio with 95% interval, whether the metric "
               "responds and whether it is specific, and the verdict: specific, non_specific, blind (does not respond), invariant "
@@ -601,7 +601,7 @@ TABLES = {
 "S04b": dict(
     topic=DET,
     title="Specificity ratio of whole-protein and sequence-only comparators at every step",
-    supports="Methods 2.4.1; Results 3.4",
+    supports="Methods 2.5.1; Results 3.4",
     row="one comparator metric at one lesion step or dose (308 rows)",
     contents=("The same cells as {S04a} for the whole-protein and sequence-only metrics, which are not in the main set. They show that "
               "composition metrics have a ratio of 1 by construction and that whole-protein energies move with the lesion."),
@@ -613,7 +613,7 @@ TABLES = {
 "S07": dict(
     topic=DET,
     title="The specific cells that survive the controls",
-    supports="Methods 2.4.1; Results 3.4.1; Discussion",
+    supports="Methods 2.5.1; Results 3.4.1; Discussion",
     row="one metric at one step in one analysis (97 rows: 74 natural, 23 de novo)",
     contents=("The cells that are specific under the control of their analysis, with the specificity ratio, the population "
               "(natural or de novo) and the applicability status of the metric. Of the 97, 69 are of metrics with status OK, 27 of whole-protein "
@@ -628,7 +628,7 @@ TABLES = {
 "S12": dict(
     topic=DET,
     title="Rank statistic R per lesion step on the 143 main enzymes",
-    supports="Methods 2.4.1 (Eq. 19)",
+    supports="Methods 2.5.1 (Eq. 19)",
     row="one metric at one step of the catalytic lesion (313 rows)",
     contents=("The rank statistic R (probability that a metric changes more at the catalytic lesion than at the matched control) for the "
               "143 main enzymes alone, with 90% intervals, for 83 distinct metrics including comparators. This is the per-step form "
@@ -644,7 +644,7 @@ TABLES = {
 "S16a": dict(
     topic=DET,
     title="Re-predicted ladder: distance of the substituted and control residues to the ligand",
-    supports="Methods 2.4.1; Results 3.4.1",
+    supports="Methods 2.5.1; Results 3.4.1",
     row="one catalytic/control pair of the ladder (312 pairs: 286 natural, 26 de novo)",
     contents=("For every pair the residue types, the burial of each residue, the distance of the substituted and of the control residue to "
               "the ligand (in the reference structure and in the prediction), whether the control is adjacent to a catalytic residue, "
@@ -663,7 +663,7 @@ TABLES = {
 "S16e": dict(
     topic=DET,
     title="Re-predicted ladder: candidates for a new distance-matched control",
-    supports="Methods 2.4.1; Results 3.4.1",
+    supports="Methods 2.5.1; Results 3.4.1",
     row="one candidate control for one pair that had no control within the caliper (291 rows)",
     contents=("The candidate controls for the pairs that had none in the caliper, which were selected (54 pairs, 53 new predictions), their "
               "distances and burial, and the reason when none was selected (no candidate in the caliper for 213 pairs; no reference distance "
@@ -679,7 +679,7 @@ TABLES = {
 "S16b": dict(
     topic=DET,
     title="Re-predicted ladder: specificity ratio in strata of the distance to the ligand",
-    supports="Methods 2.4.1; Results 3.4.1",
+    supports="Methods 2.5.1; Results 3.4.1",
     row="one metric in one distance stratum, for one source (203 rows)",
     contents=("The specificity ratio of each metric in the near, mid and far third of the pairs by the distance of the substituted residue "
               "to the ligand (edges 2.73 and 3.66 A), and on all pairs, with the median distances of the two arms."),
@@ -694,7 +694,7 @@ TABLES = {
 "S16c": dict(
     topic=DET,
     title="Re-predicted ladder: caliper-matched subsets and the rule labels",
-    supports="Methods 2.4.1; Results 3.4.1 (68 to 69 pairs in 21 to 22 systems)",
+    supports="Methods 2.5.1; Results 3.4.1 (68 to 69 pairs in 21 to 22 systems)",
     row="one metric in one matched subset for one source (348 rows)",
     contents=("The specificity ratio in caliper-matched subsets: original_controls (original controls within the caliper), "
               "original_plus_new_controls (with the new controls added, the subset of Table 10) and the sensitivity sets "
@@ -711,7 +711,7 @@ TABLES = {
 "S16d": dict(
     topic=DET,
     title="Re-predicted ladder: regression-adjusted ratios",
-    supports="Methods 2.4.1 (Eq. 24); Results 3.4.1",
+    supports="Methods 2.5.1 (Eq. 24); Results 3.4.1",
     row="one metric with the original or the extended set of controls, for one source (116 rows)",
     contents=("The ratio of catalytic to control change adjusted for the distance to the ligand and the burial, "
               "log(|delta| + eps) ~ arm + d_lig + relSASA, beside the unadjusted ratio on the same pairs, and the regression coefficients."),
@@ -726,7 +726,7 @@ TABLES = {
 "S11": dict(
     topic=DET,
     title="Panel equivalence statistic: earlier whole panel against the main-set metrics",
-    supports="Results 3.4.1; Methods 2.4.1 (equivalence to 1)",
+    supports="Results 3.4.1; Methods 2.5.1 (equivalence to 1)",
     row="one analysis and set of metrics (6 rows)",
     contents=("The geometric-mean specificity ratio of the panel with a 90% interval (nested bootstrap that recomputes every metric inside "
               "each draw), for the earlier whole panel (100 to 103 metrics, including composition metrics that have a ratio of 1 by arithmetic) and "
@@ -738,7 +738,7 @@ TABLES = {
 "S15": dict(
     topic=DET,
     title="Re-predicted ladder: specificity ratio per step for all metrics",
-    supports="Methods 2.4.1; Results 3.4.1",
+    supports="Methods 2.5.1; Results 3.4.1",
     row="one metric at one step for one source (231 rows)",
     contents=("The re-predicted catalytic-lesion ladder per step (ALL steps pooled, isosteric, non-isosteric, Ala, Gly) for all 44 metrics, natural "
               "and de novo: pairs and systems, specificity ratio (median and mean) with intervals, and the verdict of the earlier rule."),
