@@ -2,12 +2,12 @@
 
 # 1 About these tables
 
-This document describes the 49 supplementary tables ([S1](#S1) to [S49](#S49)) and the nine main-text tables (T1 to T9) of the paper. It does not reprint them. Every table is released as a CSV file; each entry below gives the path, the number of rows and columns, what a row is, what the key columns mean, a three-row excerpt, the places in the paper that cite the table, and caveats. Supplementary tables are numbered in the order in which the Methods and Results first cite them.
+This document describes the 49 supplementary tables ([S1](#S1) to [S49](#S49)) and the seven data tables of the Results (T5 to T11) of the paper. It does not reprint them. Every one of these tables is released as a CSV file (Tables 1 to 4, in the Methods, are descriptive and are not released as files); each entry below gives the path, the number of rows and columns, what a row is, what the key columns mean, a three-row excerpt, the places in the paper that cite the table, and caveats. Supplementary tables are numbered in the order in which the Methods and Results first cite them.
 
 ```
 README.md          what is released, what was changed, licence
 INDEX.csv          one row per table: id, file, title, rows, columns, licence flag, sha256
-main/              T1 ... T9     Tables 1 to 9 of the paper
+main/              T5 ... T11    Tables 5 to 11 of the paper
 supplementary/     S1 ... S49    supplementary tables, one CSV per table
 ```
 
@@ -15,17 +15,19 @@ supplementary/     S1 ... S49    supplementary tables, one CSV per table
 
 # 2 Conventions shared by the tables
 
-**Shared provenance columns.** The result tables (T3 to T9 and the supplementary tables whose entry says so) carry the same block of up to 12 columns, so that a row can be traced to its denominator: `claim_type`, `unit` and `n_units` (what was counted and how many), `n_clusters` and `cluster_def` (the resampling unit: enzyme sub-subclass for natural enzymes, campaign and plate well or backbone cluster for designs, position for BglB), `k`, `N` and `k_of_N` (a count with its denominator), `denominator_def`, `headline_ok` (1 if the row may be quoted as a headline result; 0 for per-metric detail, descriptive analyses, reference rows and wrong-ligand AUROCs), `status` and `licence_flag`.
+**Shared provenance columns.** The result tables (T5 to T11 and the supplementary tables whose entry says so) carry the same block of up to 12 columns, so that a row can be traced to its denominator: `claim_type`, `unit` and `n_units` (what was counted and how many), `n_clusters` and `cluster_def` (the resampling unit: enzyme sub-subclass for natural enzymes, campaign and plate well or backbone cluster for designs, position for BglB), `k`, `N` and `k_of_N` (a count with its denominator), `denominator_def`, `headline_ok` (1 if the row may be quoted as a headline result; 0 for per-metric detail, descriptive analyses, reference rows and wrong-ligand AUROCs), `status` and `licence_flag`.
 
 **Claim types.** `detection` (can the metric see damage), `specificity` (catalytic against matched control), `equivalence` (panel ratio against 1), `discrimination` (a real contrast, dead against active), `ranking` (against a measured label), `enrichment`, `baseline` (a reference row), `design`, `audit`, `not_measurable`.
 
-**Applicability status** (in [S4](#S4), [S5](#S5) and the `applicability_status` columns). `OK` can be tested; `OK-KNOCKON` tested but reported as displacement of the other catalytic residues, with no specificity verdict; `OK-PROVISIONAL` the raw status of the interface terms in the re-predicted ladder, resolved by testability; `GLOBAL` tested but has no site input, so it is a comparator; `REF` a fixed reference row; `X-BOOKKEEP` a counter or constant; `X-NOINPUT` the input cannot reach the changed quantity; `X-ARM` the metric belongs to the other kind (structure space or prediction) than the test; `X-UNDEF-COV` defined on too few units; `X-WITHDRAWN` the test was withdrawn; `X-NOCTRL` no matched control exists; `X-CONFOUND` the control is confounded; `NOT-RUN`; `DUP` identical to another test and read once.
+**Applicability status** (in [S3](#S3), [S4](#S4) and the `applicability_status` columns). `OK` can be tested; `OK-KNOCKON` tested but reported as displacement of the other catalytic residues, with no specificity verdict; `OK-PROVISIONAL` the raw status of the interface terms in the re-predicted ladder, resolved by testability; `GLOBAL` tested but has no site input, so it is a comparator; `REF` a fixed reference row; `X-BOOKKEEP` a counter or constant; `X-NOINPUT` the input cannot reach the changed quantity; `X-ARM` the metric belongs to the other kind (structure space or prediction) than the test; `X-UNDEF-COV` defined on too few units; `X-WITHDRAWN` the test was withdrawn; `X-NOCTRL` no matched control exists; `X-CONFOUND` the control is confounded; `NOT-RUN`; `DUP` identical to another test and read once.
 
 **Verdicts in the specificity tables.** `specific` (response significant, interval of the specificity ratio above 1, control adequate); `non_specific` (responds, not more than the control); `blind` (does not respond); `invariant` (does not change); and counts-floor labels for cells with too few units.
 
-**Names that recur.** `canonical_key` is the distinct metric after literal aliases are merged (`metric_name` may be an alias); `in_main_set` is 1 for the 33 reported metrics; `role` is `main`, `reference` or a supplement role (see [S2](#S2)); `source` is structure-space, prediction-based, PLACER, baseline, natural or denovo as the table says; `lesion_test` is the catalytic lesion or the second-shell lesion; `level` or `lesion_step` is the lesion step (isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 Å³ median side-chain volume change; `second_shell_1/2/4` is the second-shell dose); `ame_flavour` is `crystal` (against the deposited structure) or `self_design` (against a design's own model) and the two are never pooled; `sr_*` is a specificity ratio with its interval; `auroc` is direction-free unless a column says `signed` or `directed`; `rho` is a Spearman correlation.
+**Why some metrics are not in the main set.** A metric with no residue-set input (whole-protein energies, sequence composition, whole-prediction confidence) cannot respond *specifically* to catalytic residues, and a metric whose input cannot reach the changed quantity cannot register the lesion at all (sequence composition under a rotamer change, for example); such metrics are kept as comparators. One further quantity passes these tests but is kept out of the main set: the Chai-1 combined score, which Chai-1 uses to rank its own models and which equals 0.2 × pTM + 0.8 × ipTM − 100 × (inter-chain clash flag), so that it is a rescaled ipTM and not an independent metric. It is still scored, and its role and reason are in [S1](#S1).
 
-**Test names.** Tables that refer to a test use the names of [S7](#S7), a name followed by its class in square brackets, for example `main set [catalytic lesion, structure-space]`.
+**Names that recur.** `canonical_key` is the distinct metric after literal aliases are merged (`metric_name` may be an alias); `in_main_set` is 1 for the 33 reported metrics; `role` is `main`, `reference` or a supplement role (see [S1](#S1)); `source` is structure-space, prediction-based, PLACER, baseline, natural or denovo as the table says; `lesion_test` is the catalytic lesion or the second-shell lesion; `level` or `lesion_step` is the lesion step (isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 Å³ median side-chain volume change; `second_shell_1/2/4` is the second-shell dose); `ame_flavour` is `crystal` (against the deposited structure) or `self_design` (against a design's own model) and the two are never pooled; `sr_*` is a specificity ratio with its interval; `auroc` is direction-free unless a column says `signed` or `directed`; `rho` is a Spearman correlation.
+
+**Test names.** Tables that refer to a test use the names of [S6](#S6), a name followed by its class in square brackets, for example `main set [catalytic lesion, structure-space]`.
 
 **Licence.** Tables flagged `D2DCure_aggregate` in `INDEX.csv` are built from the D2DCure BglB data, whose licence is unstated; they hold metric-level aggregates only, no per-variant row. All other tables are `public`.
 
@@ -38,24 +40,24 @@ supplementary/     S1 ... S49    supplementary tables, one CSV per table
 
 | I want to know | Go to |
 |------------------------------------------------------------|--------------------------------------------------|
-| Which 33 metrics are reported, and why the rest are not | [S2](#S2), [S3](#S3); then [S4](#S4) and [S5](#S5) for the reason in each test |
-| What a metric reads, and over which residues it is scored | [S3](#S3) |
-| The 30 tests, with comparator, control type and role | [S7](#S7) |
-| The specificity ratio of one metric at one lesion step | [S34](#S34) (comparators: [S35](#S35)) |
-| Whether the controls were good | [S27](#S27), [S28](#S28) (structure space); [S38](#S38), [S40](#S40), [S41](#S41), [S42](#S42), [S39](#S39) (predictor ladder) |
-| How fragile the structure-space specificity result is | [S32](#S32), [S43](#S43), [S30](#S30) |
-| How a metric responds to the substrate swap, and the role of ligand size | Table 5, [S1](#S1), [S15](#S15) |
-| The distance control for the interface terms | Table 8, [S31](#S31), [S38](#S38), [S40](#S40), [S41](#S41), [S42](#S42) |
-| Every metric on the 21-pair evaluation set (complete Table 3) | [S12](#S12) |
-| Every metric on the 192 plated designs, active against no active (complete Table 4) | [S14](#S14) |
-| Every quantity analysed on the 432 BglB variants (complete Table 6) | [S17](#S17) |
-| Every metric on the 16 plated designs with a measured activity (complete Table 7) | [S22](#S22) |
-| Hits per plate when a metric fills a 96-well plate | [S21](#S21) |
-| The wider set of 49 pairs, the 28 re-predicted pairs, the pair-set definitions | [S8](#S8), [S9](#S9), [S10](#S10) |
-| BglB: every metric, prediction-based metrics, sensitivity analyses | [S18](#S18), [S20](#S20), [S19](#S19) |
-| Plated designs: enrichment and ordering for every metric | [S24](#S24), [S25](#S25), [S23](#S23) |
-| The reference rows (resolution, length, tyrosine fraction, distance) | [S13](#S13) |
-| Experiments that could not be made | [S47](#S47), [S48](#S48) |
+| Which 33 metrics are reported, and why the rest are not | [S1](#S1), [S2](#S2); then [S3](#S3) and [S4](#S4) for the reason in each test |
+| What a metric reads, and over which residues it is scored | [S2](#S2) |
+| The 30 tests, with comparator, control type and role | [S6](#S6) |
+| The specificity ratio of one metric at one lesion step | [S33](#S33) (comparators: [S34](#S34)) |
+| Whether the controls were good | [S26](#S26), [S27](#S27) (structure space); [S37](#S37), [S39](#S39), [S40](#S40), [S41](#S41), [S38](#S38) (predictor ladder) |
+| How fragile the structure-space specificity result is | [S31](#S31), [S42](#S42), [S29](#S29) |
+| How a metric responds to the substrate swap, and the role of ligand size | Table 7, [S14](#S14), [S15](#S15) |
+| The distance control for the interface terms | Table 10, [S30](#S30), [S37](#S37), [S39](#S39), [S40](#S40), [S41](#S41) |
+| Every metric on the 21-pair evaluation set (complete Table 5) | [S11](#S11) |
+| Every metric on the 192 plated designs, active against no active (complete Table 6) | [S13](#S13) |
+| Every quantity analysed on the 432 BglB variants (complete Table 8) | [S16](#S16) |
+| Every metric on the 16 plated designs with a measured activity (complete Table 9) | [S21](#S21) |
+| Hits per plate when a metric fills a 96-well plate | [S20](#S20) |
+| The wider set of 49 pairs, the 28 re-predicted pairs, the pair-set definitions | [S7](#S7), [S8](#S8), [S9](#S9) |
+| BglB: every metric, prediction-based metrics, sensitivity analyses | [S17](#S17), [S19](#S19), [S18](#S18) |
+| Plated designs: enrichment and ordering for every metric | [S23](#S23), [S24](#S24), [S22](#S22) |
+| The reference rows (resolution, length, tyrosine fraction, distance) | [S12](#S12) |
+| Experiments that could not be made | [S48](#S48), [S49](#S49) |
 
 :::
 
@@ -66,55 +68,55 @@ supplementary/     S1 ... S49    supplementary tables, one CSV per table
 
 | Table | Title | Topic | Rows × cols | Page |
 |---------|--------------------------------------------------------------|------------------------|---------------|-------|
-| [S1](#S1) | Substrate swap on all systems: all 33 prediction-based quantities, natural enzymes and de novo designs | Substrate discrimination (3.2) | 242 × 17 | 4 |
-| [S2](#S2) | Main metric set: the role of every distinct metric, and why | Metric audit | 191 × 16 | 4 |
-| [S3](#S3) | Metric contracts: what each named quantity reads, over which residues, and where it is valid | Metric audit | 216 × 19 | 5 |
-| [S4](#S4) | Applicability of every metric in every test (long format) | Metric audit | 6,480 × 11 | 6 |
-| [S5](#S5) | Applicability by class of metric and test | Metric audit | 340 × 5 | 7 |
-| [S6](#S6) | Counts restated on the eligible metrics (denominators before and after the audit) | Metric audit | 58 × 14 | 7 |
-| [S7](#S7) | Test inventory: the 30 tests, with comparator, control type, role and caveats | Metric audit | 30 × 14 | 8 |
-| [S8](#S8) | Wider set of 49 zymogen-mature pairs: all 136 scored metrics, with the same-state null | Activity discrimination (3.1) | 136 × 25 | 8 |
-| [S9](#S9) | Zymogen pairs re-predicted with Chai-1, restated with the definedness gate | Activity discrimination (3.1) | 33 × 22 | 9 |
-| [S10](#S10) | Definitions of the pair sets | Activity discrimination (3.1) | 6 × 4 | 10 |
-| [S11](#S11) | Substrate-trapping mutants checked against the literature (tier retired) | Activity discrimination (3.1) | 6 × 4 | 10 |
-| [S12](#S12) | Zymogen-mature evaluation set: all 158 metrics ranked by AUROC (complete Table 3) | Activity discrimination (3.1) | 158 × 27 | 10 |
-| [S13](#S13) | Reference rows in full, across the activity tests | Activity discrimination (3.1) | 35 × 9 | 11 |
-| [S14](#S14) | Plated designs: all 128 metrics ranked by the AUROC of active against no active designs (complete Table 4) | Activity discrimination (3.1) | 128 × 29 | 12 |
+| [S1](#S1) | Main metric set: the role of every distinct metric, and why | Metric audit | 191 × 16 | 4 |
+| [S2](#S2) | Metric contracts: what each named quantity reads, over which residues, and where it is valid | Metric audit | 216 × 19 | 4 |
+| [S3](#S3) | Applicability of every metric in every test (long format) | Metric audit | 6,480 × 11 | 5 |
+| [S4](#S4) | Applicability by class of metric and test | Metric audit | 340 × 5 | 6 |
+| [S5](#S5) | Counts restated on the eligible metrics (denominators before and after the audit) | Metric audit | 58 × 14 | 6 |
+| [S6](#S6) | Test inventory: the 30 tests, with comparator, control type, role and caveats | Metric audit | 30 × 14 | 7 |
+| [S7](#S7) | Wider set of 49 zymogen-mature pairs: all 136 scored metrics, with the same-state null | Activity discrimination (3.1) | 136 × 25 | 7 |
+| [S8](#S8) | Zymogen pairs re-predicted with Chai-1, restated with the definedness gate | Activity discrimination (3.1) | 33 × 22 | 8 |
+| [S9](#S9) | Definitions of the pair sets | Activity discrimination (3.1) | 6 × 4 | 9 |
+| [S10](#S10) | Substrate-trapping mutants checked against the literature (tier retired) | Activity discrimination (3.1) | 6 × 4 | 9 |
+| [S11](#S11) | Zymogen-mature evaluation set: all 158 metrics ranked by AUROC (complete Table 5) | Activity discrimination (3.1) | 158 × 27 | 9 |
+| [S12](#S12) | Reference rows in full, across the activity tests | Activity discrimination (3.1) | 35 × 9 | 10 |
+| [S13](#S13) | Plated designs: all 128 metrics ranked by the AUROC of active against no active designs (complete Table 6) | Activity discrimination (3.1) | 128 × 29 | 11 |
+| [S14](#S14) | Substrate swap on all systems: all 33 prediction-based quantities, natural enzymes and de novo designs | Substrate discrimination (3.2) | 242 × 17 | 11 |
 | [S15](#S15) | Substrate swap stratified by ligand size and charge | Substrate discrimination (3.2) | 1,136 × 27 | 12 |
-| [S16](#S16) | Drift of the current Chai-1 engine against the earlier predictions | Substrate discrimination (3.2) | 176 × 5 | 13 |
-| [S17](#S17) | BglB: every analysed quantity ranked by rank correlation with the measured impairment (complete Table 6) | Activity ranking (3.3) | 114 × 35 | 13 |
-| [S18](#S18) | BglB: all 84 structure-space and comparator metrics | Activity ranking (3.3) | 84 × 29 | 14 |
-| [S19](#S19) | BglB: sensitivity analyses | Activity ranking (3.3) | 11 × 22 | 15 |
-| [S20](#S20) | BglB: prediction-based metrics (Chai-1 with the assay substrate) | Activity ranking (3.3) | 28 × 29 | 16 |
-| [S21](#S21) | Plated designs: hits per 96-well plate for every metric (filter-style analysis) | Activity ranking (3.3) | 128 × 37 | 16 |
-| [S22](#S22) | Plated designs: every metric ranked by correlation with kcat/KM among the 16 designs that have a value (complete Table 7) | Activity ranking (3.3) | 106 × 29 | 17 |
-| [S23](#S23) | Plated designs: ordering among the 16 active designs, structure-space metrics and comparators | Activity ranking (3.3) | 81 × 23 | 18 |
-| [S24](#S24) | Plated designs: enrichment at every keep fraction, structure-space metrics | Activity ranking (3.3) | 816 × 27 | 18 |
-| [S25](#S25) | Plated designs: enrichment for prediction-based metrics | Activity ranking (3.3) | 232 × 27 | 19 |
-| [S26](#S26) | Sanity floors by class of metric | Detection ability (3.4) | 53 × 8 | 19 |
-| [S27](#S27) | Control matching: the loosest tier needed | Detection ability (3.4) | 81 × 6 | 20 |
-| [S28](#S28) | Control matching: balance of residues changed in the two arms | Detection ability (3.4) | 15 × 9 | 20 |
-| [S29](#S29) | Catalytic lesion: every metric scored (Table 8 plus supplementary comparators and per-step flags) | Detection ability (3.4) | 43 × 73 | 21 |
-| [S30](#S30) | Structure-space specificity by metric family and lesion step, with the panel statistic and sensitivity sets | Detection ability (3.4) | 20 × 27 | 22 |
-| [S31](#S31) | Re-predicted catalytic lesion: the prediction-based metrics under three successive controls and the pre-specified rule | Detection ability (3.4) | 6 × 23 | 22 |
-| [S32](#S32) | Sensitivity of the specificity-ratio counts to motif size, packing matching and count gating | Detection ability (3.4) | 20 × 7 | 23 |
-| [S33](#S33) | Re-predicted ladder: seed-noise context | Detection ability (3.4) | 56 × 12 | 23 |
-| [S34](#S34) | Specificity ratio of every eligible metric at every step | Detection ability (3.4) | 256 × 29 | 24 |
-| [S35](#S35) | Specificity ratio of whole-protein and sequence-only comparators at every step | Detection ability (3.4) | 308 × 29 | 24 |
-| [S36](#S36) | The specific cells that survive the controls | Detection ability (3.4) | 97 × 10 | 25 |
-| [S37](#S37) | Rank statistic R per lesion step on the 143 main enzymes | Detection ability (3.4) | 313 × 14 | 25 |
-| [S38](#S38) | Re-predicted ladder: distance of the substituted and control residues to the ligand | Detection ability (3.4) | 312 × 34 | 26 |
-| [S39](#S39) | Re-predicted ladder: candidates for a new distance-matched control | Detection ability (3.4) | 291 × 17 | 27 |
-| [S40](#S40) | Re-predicted ladder: specificity ratio in strata of the distance to the ligand | Detection ability (3.4) | 203 × 27 | 27 |
-| [S41](#S41) | Re-predicted ladder: caliper-matched subsets and the rule labels | Detection ability (3.4) | 348 × 25 | 28 |
-| [S42](#S42) | Re-predicted ladder: regression-adjusted ratios | Detection ability (3.4) | 116 × 28 | 28 |
-| [S43](#S43) | Panel equivalence statistic: earlier whole panel against the main-set metrics | Detection ability (3.4) | 6 × 10 | 29 |
-| [S44](#S44) | Re-predicted ladder: specificity ratio per step for all metrics | Detection ability (3.4) | 231 × 16 | 29 |
-| [S45](#S45) | Effective dimensionality of the panel | Detection ability (3.4) | 4 × 10 | 30 |
-| [S46](#S46) | De novo designs: burial equivalence of the created-site control | Detection ability (3.4) | 5 × 11 | 30 |
-| [S47](#S47) | Experiments that could not be made or were retired | Detection ability (3.4) | 9 × 4 | 31 |
-| [S48](#S48) | PLACER ensemble metrics on the isosteric step (not interpretable) | Detection ability (3.4) | 50 × 12 | 31 |
-| [S49](#S49) | Second-shell lesion: every metric scored (Table 9 plus supplementary comparators and per-dose flags) | Detection ability (3.4) | 37 × 59 | 32 |
+| [S16](#S16) | BglB: every analysed quantity ranked by rank correlation with the measured impairment (complete Table 8) | Activity ranking (3.3) | 114 × 35 | 13 |
+| [S17](#S17) | BglB: all 84 structure-space and comparator metrics | Activity ranking (3.3) | 84 × 29 | 14 |
+| [S18](#S18) | BglB: sensitivity analyses | Activity ranking (3.3) | 11 × 22 | 14 |
+| [S19](#S19) | BglB: prediction-based metrics (Chai-1 with the assay substrate) | Activity ranking (3.3) | 28 × 29 | 15 |
+| [S20](#S20) | Plated designs: hits per 96-well plate for every metric (filter-style analysis) | Activity ranking (3.3) | 128 × 37 | 16 |
+| [S21](#S21) | Plated designs: every metric ranked by correlation with kcat/KM among the 16 designs that have a value (complete Table 9) | Activity ranking (3.3) | 106 × 29 | 16 |
+| [S22](#S22) | Plated designs: ordering among the 16 active designs, structure-space metrics and comparators | Activity ranking (3.3) | 81 × 23 | 17 |
+| [S23](#S23) | Plated designs: enrichment at every keep fraction, structure-space metrics | Activity ranking (3.3) | 816 × 27 | 17 |
+| [S24](#S24) | Plated designs: enrichment for prediction-based metrics | Activity ranking (3.3) | 232 × 27 | 18 |
+| [S25](#S25) | Sanity floors by class of metric | Detection ability (3.4) | 53 × 8 | 19 |
+| [S26](#S26) | Control matching: the loosest tier needed | Detection ability (3.4) | 81 × 6 | 19 |
+| [S27](#S27) | Control matching: balance of residues changed in the two arms | Detection ability (3.4) | 15 × 9 | 20 |
+| [S28](#S28) | Catalytic lesion: every metric scored (Table 10 plus supplementary comparators and per-step flags) | Detection ability (3.4) | 43 × 73 | 20 |
+| [S29](#S29) | Structure-space specificity by metric family and lesion step, with the panel statistic and sensitivity sets | Detection ability (3.4) | 20 × 27 | 21 |
+| [S30](#S30) | Re-predicted catalytic lesion: the prediction-based metrics under three successive controls and the pre-specified rule | Detection ability (3.4) | 6 × 23 | 22 |
+| [S31](#S31) | Sensitivity of the specificity-ratio counts to motif size, packing matching and count gating | Detection ability (3.4) | 20 × 7 | 22 |
+| [S32](#S32) | Re-predicted ladder: seed-noise context | Detection ability (3.4) | 56 × 12 | 23 |
+| [S33](#S33) | Specificity ratio of every eligible metric at every step | Detection ability (3.4) | 256 × 29 | 23 |
+| [S34](#S34) | Specificity ratio of whole-protein and sequence-only comparators at every step | Detection ability (3.4) | 308 × 29 | 24 |
+| [S35](#S35) | The specific cells that survive the controls | Detection ability (3.4) | 97 × 10 | 24 |
+| [S36](#S36) | Rank statistic R per lesion step on the 143 main enzymes | Detection ability (3.4) | 313 × 14 | 25 |
+| [S37](#S37) | Re-predicted ladder: distance of the substituted and control residues to the ligand | Detection ability (3.4) | 312 × 34 | 25 |
+| [S38](#S38) | Re-predicted ladder: candidates for a new distance-matched control | Detection ability (3.4) | 291 × 17 | 26 |
+| [S39](#S39) | Re-predicted ladder: specificity ratio in strata of the distance to the ligand | Detection ability (3.4) | 203 × 27 | 27 |
+| [S40](#S40) | Re-predicted ladder: caliper-matched subsets and the rule labels | Detection ability (3.4) | 348 × 25 | 27 |
+| [S41](#S41) | Re-predicted ladder: regression-adjusted ratios | Detection ability (3.4) | 116 × 28 | 28 |
+| [S42](#S42) | Panel equivalence statistic: earlier whole panel against the main-set metrics | Detection ability (3.4) | 6 × 10 | 28 |
+| [S43](#S43) | Re-predicted ladder: specificity ratio per step for all metrics | Detection ability (3.4) | 231 × 16 | 29 |
+| [S44](#S44) | Second-shell lesion: every metric scored (Table 11 plus supplementary comparators and per-dose flags) | Detection ability (3.4) | 37 × 59 | 29 |
+| [S45](#S45) | Drift of the current Chai-1 engine against the earlier predictions | Substrate discrimination (3.2) | 176 × 5 | 30 |
+| [S46](#S46) | Effective dimensionality of the panel | Detection ability (3.4) | 4 × 10 | 30 |
+| [S47](#S47) | De novo designs: burial equivalence of the created-site control | Detection ability (3.4) | 5 × 11 | 31 |
+| [S48](#S48) | Experiments that could not be made or were retired | Detection ability (3.4) | 9 × 4 | 31 |
+| [S49](#S49) | PLACER ensemble metrics on the isosteric step (not interpretable) | Detection ability (3.4) | 50 × 12 | 32 |
 
 :::
 
@@ -122,63 +124,13 @@ supplementary/     S1 ... S49    supplementary tables, one CSV per table
 # 5 Supplementary tables
 
 
-### Table S1. Substrate swap on all systems: all 33 prediction-based quantities, natural enzymes and de novo designs {#S1}
+### Table S1. Main metric set: the role of every distinct metric, and why {#S1}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S1_substrate_swap_per_metric.csv` · 242 rows × 17 columns · public
+**File.** `supplementary/S1_main_metric_set.csv` · 191 rows × 16 columns · public
 
-**Supports.** Results 3.2; the all-system analysis behind Table 5. **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1), [2.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.2](https://pdflink.invalid/paper.pdf#page=3).
-
-**A row is** one prediction-based quantity under one wrong-ligand condition, for one source (natural enzymes or de novo designs).
-
-:::
-
-The substrate swap before the 55-enzyme evaluation set was fixed: all 59 natural enzymes (cognate value averaged over five seeds) and all 30 de novo designs, for every one of the 33 prediction-based quantities that were scored, including the Chai-1 combined score (a rescaled ipTM) that Table 5 leaves out. For each quantity and each wrong ligand (same enzyme class, different class, decoy; apo for the quantities that are defined without a ligand) it gives the mean under the cognate and under the other condition, the paired change, the change in units of seed noise, and the direction-free AUROC with its interval.
-
-**Key columns.**
-
-::: {.defs}
-
-| Column | Meaning |
-|--------------------------------|------------------------------------------------------------------------------|
-| `source` | natural or denovo |
-| `metric_name` / `canonical_key` / `input_class` | the quantity, the distinct metric it belongs to and its class |
-| `ame_flavour` | crystal = active-site accuracy against the deposited structure; self_design = against the design's own model (never pooled) |
-| `in_main_set` | 1 for the four main-set metrics (each appears several times: mean, maximum and spread over the five predicted models are separate rows) |
-| `condition` | same_ec, diff_ec, decoy or apo |
-| `n_systems` | systems with a value (59 natural, 30 de novo) |
-| `mean_cognate` / `mean_condition` / `mean_delta` | mean value under the cognate ligand, under the condition, and the paired difference |
-| `median_delta_over_sigma` / `frac_beyond_1sigma` | median change in units of the seed-to-seed standard deviation, and the share of systems that move by more than one |
-| `auroc` / `auroc_lo` / `auroc_hi` | direction-free AUROC of cognate against the condition, 95% interval over systems |
-
-:::
-
-**Excerpt** (first 3 rows where source = natural, condition = diff_ec, in_main_set = 1).
-
-::: {.excerpt}
-
-| `source` | `metric_name` | `condition` | `n_systems` | `mean_cognate` | `mean_condition` | `auroc` |
-|----------|----------|----------|----------|----------|----------|----------|
-| `natural` | `ame_crystal_clash_max` | `diff_ec` | `58` | `3.2826` | `3.6103` | `0.6564` |
-| `natural` | `ame_crystal_rmsd_max` | `diff_ec` | `59` | `1.4469` | `1.5572` | `0.5395` |
-| `natural` | `ame_crystal_rmsd_mean` | `diff_ec` | `59` | `1.2516` | `1.2895` | `0.5306` |
-
-:::
-
-**Notes.**
-
-- n is 59 natural enzymes here and 55 in Table 5, whose evaluation set drops four enzymes whose ligand could not be built.
-- Per-metric results of this table are descriptive; the ranking and the best-of-30 threshold are in Table 5.
-
-
-### Table S2. Main metric set: the role of every distinct metric, and why {#S2}
-
-::: {.tmeta}
-
-**File.** `supplementary/S2_main_metric_set.csv` · 191 rows × 16 columns · public
-
-**Supports.** Methods, Box 2 and 'Which metrics are reported'; the main set of 33 metrics used in Tables 3 to 9. **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1); Discussion.
+**Supports.** Methods, Table 1 and 'Which metrics are reported'; the main set of 33 metrics used in Tables 5 to 11. **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1); Discussion.
 
 **A row is** one distinct metric (a canonical key; literal aliases are merged), 191 in all.
 
@@ -220,13 +172,13 @@ The audit that fixes which metrics the paper reports. For each distinct metric i
 - NOT-RUN in status_ranking_tests marks the PLACER metrics, which were not computed in the BglB and plated-design analyses.
 
 
-### Table S3. Metric contracts: what each named quantity reads, over which residues, and where it is valid {#S3}
+### Table S2. Metric contracts: what each named quantity reads, over which residues, and where it is valid {#S2}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S3_metric_contracts.csv` · 216 rows × 19 columns · public
+**File.** `supplementary/S2_metric_contracts.csv` · 216 rows × 19 columns · public
 
-**Supports.** Methods, Box 2 and 'Which metrics are reported'. **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1).
+**Supports.** Methods, Table 1 and 'Which metrics are reported'. **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1).
 
 **A row is** one named quantity (216 in all; an alias is a separate row linked by alias_of and canonical_key).
 
@@ -264,11 +216,11 @@ The input contract of every quantity in the panel: what it reads (sequence only,
 :::
 
 
-### Table S4. Applicability of every metric in every test (long format) {#S4}
+### Table S3. Applicability of every metric in every test (long format) {#S3}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S4_applicability.csv` · 6,480 rows × 11 columns · public
+**File.** `supplementary/S3_applicability.csv` · 6,480 rows × 11 columns · public
 
 **Supports.** Methods, 'Which metrics are reported'; every Results subsection. **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1).
 
@@ -285,7 +237,7 @@ Whether each quantity can be tested in each of the 30 tests, and if not why. Sta
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
 | `metric_name` / `canonical_key` / `input_class` | the quantity, the distinct metric and its class |
-| `test` / `test_class` | the test (its name and class as in [S7](#S7)) and the class alone, for example 'dead against active, prediction-based' |
+| `test` / `test_class` | the test (its name and class as in [S6](#S6)) and the class alone, for example 'dead against active, prediction-based' |
 | `status` / `reason` | the applicability status and the reason in words |
 | `defined_k` / `defined_N` / `fraction` / `partial` | number of units on which the metric is defined, of how many, their ratio, and whether coverage is partial |
 
@@ -305,23 +257,23 @@ Whether each quantity can be tested in each of the 30 tests, and if not why. Sta
 
 **Notes.**
 
-- Released as a CSV only: with 6,480 rows it is not printed. [S26](#S26) is its summary by class of metric.
-- Of the 79 cells with status NOT-RUN, 50 are PLACER metrics that were not computed in the BglB and plated-design analyses. The other 29 are prediction-based metrics in the ladder with ligand-distance-matched controls: this analysis was carried out (results in [S41](#S41) and [S42](#S42)) but its cells keep the label NOT-RUN.
+- Released as a CSV only: with 6,480 rows it is not printed. [S25](#S25) is its summary by class of metric.
+- Of the 79 cells with status NOT-RUN, 50 are PLACER metrics that were not computed in the BglB and plated-design analyses. The other 29 are prediction-based metrics in the ladder with ligand-distance-matched controls: this analysis was carried out (results in [S40](#S40) and [S41](#S41)) but its cells keep the label NOT-RUN.
 
 
-### Table S5. Applicability by class of metric and test {#S5}
+### Table S4. Applicability by class of metric and test {#S4}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S5_applicability_by_class.csv` · 340 rows × 5 columns · public
+**File.** `supplementary/S4_applicability_by_class.csv` · 340 rows × 5 columns · public
 
-**Supports.** Methods, 'Which metrics are reported' (summary of [S4](#S4)). **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1).
+**Supports.** Methods, 'Which metrics are reported' (summary of [S3](#S3)). **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1).
 
 **A row is** one class of metric in one test with one status (340 rows).
 
 :::
 
-A summary of [S4](#S4): for each input class and test, how many metrics receive each status. The quickest way to see why a whole class of metrics is absent from a result.
+A summary of [S3](#S3): for each input class and test, how many metrics receive each status. The quickest way to see why a whole class of metrics is absent from a result.
 
 **Key columns.**
 
@@ -349,11 +301,11 @@ A summary of [S4](#S4): for each input class and test, how many metrics receive 
 :::
 
 
-### Table S6. Counts restated on the eligible metrics (denominators before and after the audit) {#S6}
+### Table S5. Counts restated on the eligible metrics (denominators before and after the audit) {#S5}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S6_denominator_restatement.csv` · 58 rows × 14 columns · public
+**File.** `supplementary/S5_denominator_restatement.csv` · 58 rows × 14 columns · public
 
 **Supports.** Discussion ('Test a metric only where it is defined'); Methods, 'Which metrics are reported'. **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1).
 
@@ -390,19 +342,19 @@ The counts of responding and specific metrics of the earlier analysis (original_
 :::
 
 
-### Table S7. Test inventory: the 30 tests, with comparator, control type, role and caveats {#S7}
+### Table S6. Test inventory: the 30 tests, with comparator, control type, role and caveats {#S6}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S7_test_inventory.csv` · 30 rows × 14 columns · public
+**File.** `supplementary/S6_test_inventory.csv` · 30 rows × 14 columns · public
 
-**Supports.** Methods, Tables 1 and 2; the key to the test names in [S4](#S4) and [S5](#S5). **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1); Discussion.
+**Supports.** Methods 2.1 to 2.4; the key to the test names in [S3](#S3) and [S4](#S4). **Cited in.** Methods [2](https://pdflink.invalid/paper.pdf#page=1); Discussion.
 
 **A row is** one test: an experiment on a data set with one kind of metric (30 in all).
 
 :::
 
-Every test with its name and class, the kind of metric (structure-space or prediction-based), the unit and the number of units, the resampling unit, the changes applied, the comparator and control type, the role (primary, sensitivity, sanity, retired, not_measurable or dup) and the caveats. [S4](#S4) and [S5](#S5) use the test names of this table.
+Every test with its name and class, the kind of metric (structure-space or prediction-based), the unit and the number of units, the resampling unit, the changes applied, the comparator and control type, the role (primary, sensitivity, sanity, retired, not_measurable or dup) and the caveats. [S3](#S3) and [S4](#S4) use the test names of this table.
 
 **Key columns.**
 
@@ -431,13 +383,13 @@ Every test with its name and class, the kind of metric (structure-space or predi
 :::
 
 
-### Table S8. Wider set of 49 zymogen-mature pairs: all 136 scored metrics, with the same-state null {#S8}
+### Table S7. Wider set of 49 zymogen-mature pairs: all 136 scored metrics, with the same-state null {#S7}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S8_zymogen_all_metrics.csv` · 136 rows × 25 columns · public
+**File.** `supplementary/S7_zymogen_all_metrics.csv` · 136 rows × 25 columns · public
 
-**Supports.** Results 3.1.1 (wider set); Methods 2.1.1. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=5); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=17).
+**Supports.** Results 3.1.1 (wider set); Methods 2.1.1. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=2); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=12); Discussion.
 
 **A row is** one scored metric (136 in all).
 
@@ -475,17 +427,17 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **Notes.**
 
-- Structure-space and PLACER metrics only; the 4 prediction-based metrics were scored on the 28 re-predicted pairs ([S9](#S9)).
-- Results are descriptive of a wider set; the evaluation set is the 21 pairs of [S37](#S37).
+- Structure-space and PLACER metrics only; the 4 prediction-based metrics were scored on the 28 re-predicted pairs ([S8](#S8)).
+- Results are descriptive of a wider set; the evaluation set is the 21 pairs of [S36](#S36).
 
 
-### Table S9. Zymogen pairs re-predicted with Chai-1, restated with the definedness gate {#S9}
+### Table S8. Zymogen pairs re-predicted with Chai-1, restated with the definedness gate {#S8}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S9_zymogen_re_predicted_restated.csv` · 33 rows × 22 columns · public
+**File.** `supplementary/S8_zymogen_re_predicted_restated.csv` · 33 rows × 22 columns · public
 
-**Supports.** Results 3.1.1 (wider-set check for the prediction-based metrics). **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=5); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=17).
+**Supports.** Results 3.1.1 (wider-set check for the prediction-based metrics). **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=2); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=12).
 
 **A row is** one prediction-based metric (33 in all).
 
@@ -526,13 +478,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - 28 pairs include the 7 apo pairs that are not in the 21-pair evaluation set.
 
 
-### Table S10. Definitions of the pair sets {#S10}
+### Table S9. Definitions of the pair sets {#S9}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S10_pair_set_definitions.csv` · 6 rows × 4 columns · public
+**File.** `supplementary/S9_pair_set_definitions.csv` · 6 rows × 4 columns · public
 
-**Supports.** Methods 2.1.1; Results 3.1.1. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=5); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=17).
+**Supports.** Methods 2.1.1; Results 3.1.1. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=2); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=12).
 
 **A row is** one set of zymogen-mature pairs (6 in all).
 
@@ -559,19 +511,19 @@ The six sets used in 3.1 with their size and definition: 55 candidate rows, 49 s
 | `pair_set` | `n` | `used_for` |
 |----------|----------|----------|
 | `zymogen candidate rows` | `55` | `candidate list` |
-| `scored pairs (wider set)` | `49` | `S8 (49 = max n_pairs)` |
-| `pairs with PLACER` | `45` | `S48` |
+| `scored pairs (wider set)` | `49` | `S7 (49 = max n_pairs)` |
+| `pairs with PLACER` | `45` | `S49` |
 
 :::
 
 
-### Table S11. Substrate-trapping mutants checked against the literature (tier retired) {#S11}
+### Table S10. Substrate-trapping mutants checked against the literature (tier retired) {#S10}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S11_trapping_verification.csv` · 6 rows × 4 columns · public
+**File.** `supplementary/S10_trapping_verification.csv` · 6 rows × 4 columns · public
 
-**Supports.** Results 3.1.1 (retired tier); Methods 2.1.1. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=5); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=17).
+**Supports.** Results 3.1.1 (retired tier); Methods 2.1.1. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=2); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=12).
 
 **A row is** one verdict category (6 rows).
 
@@ -604,13 +556,13 @@ The 30 trapping-mutant pairs verified against the primary literature: 15 confirm
 :::
 
 
-### Table S12. Zymogen-mature evaluation set: all 158 metrics ranked by AUROC (complete Table 3) {#S12}
+### Table S11. Zymogen-mature evaluation set: all 158 metrics ranked by AUROC (complete Table 5) {#S11}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S12_zymogen_21pair_all_metrics.csv` · 158 rows × 27 columns · public
+**File.** `supplementary/S11_zymogen_21pair_all_metrics.csv` · 158 rows × 27 columns · public
 
-**Supports.** Results 3.1.1; the complete version of Table 3. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=5); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=17).
+**Supports.** Results 3.1.1; the complete version of Table 5. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=2); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=12).
 
 **A row is** one metric scored on the 21 pairs (158 in all).
 
@@ -624,7 +576,7 @@ Every metric scored on the 21 pairs that share a ligand: structure-space, PLACER
 
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
-| `rank` / `rank_in_table_3` | rank among all 158 and rank among the 39 items of Table 3 |
+| `rank` / `rank_in_table_5` | rank among all 158 and rank among the 39 items of Table 5 |
 | `metric_name` / `canonical_key` / `source` / `input_class` | the metric, the distinct metric, structure-space / PLACER / prediction-based, and class |
 | `role` | main, reference or a supplement role (43 rows carry main because aliases of the 33 main-set metrics are separate rows) |
 | `n_pairs` / `auroc` / `auroc_ci_lo` / `auroc_ci_hi` | pairs (21) and AUROC with 95% interval over pairs |
@@ -648,13 +600,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 :::
 
 
-### Table S13. Reference rows in full, across the activity tests {#S13}
+### Table S12. Reference rows in full, across the activity tests {#S12}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S13_reference_rows.csv` · 35 rows × 9 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
+**File.** `supplementary/S12_reference_rows.csv` · 35 rows × 9 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
 
-**Supports.** Results 3.1 and 3.3; Tables 3, 4, 6 and 7; Methods 2.1 and 2.3. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=5), [2.3.1](https://pdflink.invalid/paper.pdf#page=10); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=17), [3.1.2](https://pdflink.invalid/paper.pdf#page=18), [3.3.1](https://pdflink.invalid/paper.pdf#page=21).
+**Supports.** Results 3.1 and 3.3; Tables 5, 6, 8 and 9; Methods 2.1 and 2.3. **Cited in.** Methods [2.1.1](https://pdflink.invalid/paper.pdf#page=2), [2.3.1](https://pdflink.invalid/paper.pdf#page=6); Results [3.1.1](https://pdflink.invalid/paper.pdf#page=12), [3.1.2](https://pdflink.invalid/paper.pdf#page=13), [3.3.1](https://pdflink.invalid/paper.pdf#page=16).
 
 **A row is** one reference item for one measure (35 in all).
 
@@ -692,13 +644,13 @@ The rows that need no catalytic information, reported in full with intervals: cr
 - Contains aggregates of D2DCure data (licence unstated); no per-variant rows.
 
 
-### Table S14. Plated designs: all 128 metrics ranked by the AUROC of active against no active designs (complete Table 4) {#S14}
+### Table S13. Plated designs: all 128 metrics ranked by the AUROC of active against no active designs (complete Table 6) {#S13}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S14_plates_all_metrics_auroc.csv` · 128 rows × 29 columns · public
+**File.** `supplementary/S13_plates_all_metrics_auroc.csv` · 128 rows × 29 columns · public
 
-**Supports.** Results 3.1.2; the complete version of Table 4. **Cited in.** Methods [2.1.2](https://pdflink.invalid/paper.pdf#page=7); Results [3.1.2](https://pdflink.invalid/paper.pdf#page=18).
+**Supports.** Results 3.1.2; the complete version of Table 6. **Cited in.** Methods [2.1.2](https://pdflink.invalid/paper.pdf#page=3); Results [3.1.2](https://pdflink.invalid/paper.pdf#page=13).
 
 **A row is** one metric scored on the 192 designs (128 in all).
 
@@ -712,7 +664,7 @@ Every metric scored on the 192 plated designs, ranked by the direction-free AURO
 
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
-| `rank` / `rank_in_table_4` / `in_table_4` | rank among 128, rank among the 36 items of Table 4 and membership of Table 4 |
+| `rank` / `rank_in_table_6` / `in_table_6` | rank among 128, rank among the 36 items of Table 6 and membership of Table 6 |
 | `metric_name` / `canonical_key` / `source` / `input_class` / `role` | the metric, its source, class and role |
 | `n_designs` / `n_active` | 192 and 16 |
 | `auroc` / `auroc_ci_lo` / `auroc_ci_hi` / `auroc_directed` / `higher_in` | AUROC, interval, directed AUROC and the group in which the metric is larger |
@@ -739,13 +691,63 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Designs are not exchangeable (10 of the 16 active designs lie in two backbone clusters), so the threshold understates the chance range.
 
 
+### Table S14. Substrate swap on all systems: all 33 prediction-based quantities, natural enzymes and de novo designs {#S14}
+
+::: {.tmeta}
+
+**File.** `supplementary/S14_substrate_swap_per_metric.csv` · 242 rows × 17 columns · public
+
+**Supports.** Results 3.2; the all-system analysis behind Table 7. **Cited in.** Methods [2.2](https://pdflink.invalid/paper.pdf#page=4); Results [3.2](https://pdflink.invalid/paper.pdf#page=15).
+
+**A row is** one prediction-based quantity under one wrong-ligand condition, for one source (natural enzymes or de novo designs).
+
+:::
+
+The substrate swap before the 55-enzyme evaluation set was fixed: all 59 natural enzymes (cognate value averaged over five seeds) and all 30 de novo designs, for every one of the 33 prediction-based quantities that were scored, including the Chai-1 combined score (a rescaled ipTM) that Table 7 leaves out. For each quantity and each wrong ligand (same enzyme class, different class, decoy; apo for the quantities that are defined without a ligand) it gives the mean under the cognate and under the other condition, the paired change, the change in units of seed noise, and the direction-free AUROC with its interval.
+
+**Key columns.**
+
+::: {.defs}
+
+| Column | Meaning |
+|--------------------------------|------------------------------------------------------------------------------|
+| `source` | natural or denovo |
+| `metric_name` / `canonical_key` / `input_class` | the quantity, the distinct metric it belongs to and its class |
+| `ame_flavour` | crystal = active-site accuracy against the deposited structure; self_design = against the design's own model (never pooled) |
+| `in_main_set` | 1 for the four main-set metrics (each appears several times: mean, maximum and spread over the five predicted models are separate rows) |
+| `condition` | same_ec, diff_ec, decoy or apo |
+| `n_systems` | systems with a value (59 natural, 30 de novo) |
+| `mean_cognate` / `mean_condition` / `mean_delta` | mean value under the cognate ligand, under the condition, and the paired difference |
+| `median_delta_over_sigma` / `frac_beyond_1sigma` | median change in units of the seed-to-seed standard deviation, and the share of systems that move by more than one |
+| `auroc` / `auroc_lo` / `auroc_hi` | direction-free AUROC of cognate against the condition, 95% interval over systems |
+
+:::
+
+**Excerpt** (first 3 rows where source = natural, condition = diff_ec, in_main_set = 1).
+
+::: {.excerpt}
+
+| `source` | `metric_name` | `condition` | `n_systems` | `mean_cognate` | `mean_condition` | `auroc` |
+|----------|----------|----------|----------|----------|----------|----------|
+| `natural` | `ame_crystal_clash_max` | `diff_ec` | `58` | `3.2826` | `3.6103` | `0.6564` |
+| `natural` | `ame_crystal_rmsd_max` | `diff_ec` | `59` | `1.4469` | `1.5572` | `0.5395` |
+| `natural` | `ame_crystal_rmsd_mean` | `diff_ec` | `59` | `1.2516` | `1.2895` | `0.5306` |
+
+:::
+
+**Notes.**
+
+- n is 59 natural enzymes here and 55 in Table 7, whose evaluation set drops four enzymes whose ligand could not be built.
+- Per-metric results of this table are descriptive; the ranking and the best-of-30 threshold are in Table 7.
+
+
 ### Table S15. Substrate swap stratified by ligand size and charge {#S15}
 
 ::: {.tmeta}
 
 **File.** `supplementary/S15_substrate_swap_size_strata.csv` · 1,136 rows × 27 columns · public
 
-**Supports.** Results 3.2; Methods 2.2 (size check, Eq. 10). **Cited in.** Methods [2.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.2](https://pdflink.invalid/paper.pdf#page=3).
+**Supports.** Results 3.2; Methods 2.2 (size check, Eq. 10). **Cited in.** Methods [2.2](https://pdflink.invalid/paper.pdf#page=4); Results [3.2](https://pdflink.invalid/paper.pdf#page=15).
 
 **A row is** one quantity, source, wrong-ligand condition and stratum of the difference in ligand size or charge, for one analysis variant.
 
@@ -786,52 +788,13 @@ The check of whether ligand size or charge explains the discrimination. For each
 - Released as a CSV only for the full 1,136 rows; the excerpt shows the structure.
 
 
-### Table S16. Drift of the current Chai-1 engine against the earlier predictions {#S16}
+### Table S16. BglB: every analysed quantity ranked by rank correlation with the measured impairment (complete Table 8) {#S16}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S16_engine_drift_check.csv` · 176 rows × 5 columns · public
+**File.** `supplementary/S16_bglb_all_quantities_ranked.csv` · 114 rows × 35 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
 
-**Supports.** Methods 2.2 'Limits'; Results 3.2. **Cited in.** Methods [2.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.2](https://pdflink.invalid/paper.pdf#page=3).
-
-**A row is** one metric on one re-run prediction (176 rows).
-
-:::
-
-A drift check: four predictions (two cognate predictions of the substrate swap and two predictions of the catalytic-lesion ladder) were re-run with the current Chai-1 engine, and every metric is compared with its stored value. Most differences are small (median absolute difference 0.0007) but the largest is 0.91, which is why Chai-1 results are reported with seed noise and are not claimed to be bitwise reproducible.
-
-**Key columns.**
-
-::: {.defs}
-
-| Column | Meaning |
-|--------------------------------|------------------------------------------------------------------------------|
-| `prediction` | the prediction that was re-run (system, condition and seed) |
-| `metric_name` | the metric |
-| `stored` / `rerun` / `abs_diff` | stored value, value of the re-run and their absolute difference |
-
-:::
-
-**Excerpt** (first 3 rows).
-
-::: {.excerpt}
-
-| `prediction` | `metric_name` | `stored` | `rerun` | `abs_diff` |
-|----------|----------|----------|----------|----------|
-| `M0112_3dfr_a1__cognate__s101` | `ame_crystal_clash_max` | `2.722` | `2.7284` | `0.0064` |
-| `M0112_3dfr_a1__cognate__s101` | `ame_crystal_pass` | `1.0` | `1.0` | `0.0` |
-| `M0112_3dfr_a1__cognate__s101` | `ame_crystal_rmsd_max` | `0.8037` | `0.8055` | `0.0018` |
-
-:::
-
-
-### Table S17. BglB: every analysed quantity ranked by rank correlation with the measured impairment (complete Table 6) {#S17}
-
-::: {.tmeta}
-
-**File.** `supplementary/S17_bglb_all_quantities_ranked.csv` · 114 rows × 35 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
-
-**Supports.** Results 3.3.1; the complete version of Table 6. **Cited in.** Methods [2.3](https://pdflink.invalid/paper.pdf#page=9), [2.3.1](https://pdflink.invalid/paper.pdf#page=10); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=21).
+**Supports.** Results 3.3.1; the complete version of Table 8. **Cited in.** Methods [2.3](https://pdflink.invalid/paper.pdf#page=6), [2.3.1](https://pdflink.invalid/paper.pdf#page=6); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=16).
 
 **A row is** one quantity analysed on the 432 BglB variants (114 in all).
 
@@ -845,7 +808,7 @@ Every quantity analysed on the 432-variant evaluation set: 84 structure-space me
 
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
-| `rank` / `rank_in_table_6` / `in_table_6` | rank among 114, rank among the 41 items of Table 6 and membership of Table 6 |
+| `rank` / `rank_in_table_8` / `in_table_8` | rank among 114, rank among the 41 items of Table 8 and membership of Table 8 |
 | `metric_name` / `canonical_key` / `source` / `input_class` / `role` | the quantity, its source (structure-space, prediction-based or baseline), class and role |
 | `n_variants` | variants with a value (431 or 432; 248 for the Rosetta score of the BglB data) |
 | `rho` / `rho_ci_lo` / `rho_ci_hi` | Spearman correlation and 95% interval over positions |
@@ -874,13 +837,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Aggregates of D2DCure data (licence unstated); no per-variant rows.
 
 
-### Table S18. BglB: all 84 structure-space and comparator metrics {#S18}
+### Table S17. BglB: all 84 structure-space and comparator metrics {#S17}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S18_bglb_all_metrics.csv` · 84 rows × 29 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
+**File.** `supplementary/S17_bglb_all_metrics.csv` · 84 rows × 29 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
 
-**Supports.** Results 3.3.1; Methods 2.3.1. **Cited in.** Methods [2.3.1](https://pdflink.invalid/paper.pdf#page=10); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=21).
+**Supports.** Results 3.3.1; Methods 2.3.1. **Cited in.** Methods [2.3.1](https://pdflink.invalid/paper.pdf#page=6); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=16).
 
 **A row is** one metric analysed on the 432 BglB variants (84 in all).
 
@@ -920,13 +883,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Aggregates of D2DCure data (licence unstated); no per-variant rows.
 
 
-### Table S19. BglB: sensitivity analyses {#S19}
+### Table S18. BglB: sensitivity analyses {#S18}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S19_bglb_sensitivities.csv` · 11 rows × 22 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
+**File.** `supplementary/S18_bglb_sensitivities.csv` · 11 rows × 22 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
 
-**Supports.** Results 3.3.1; Discussion. **Cited in.** Methods [2.3.1](https://pdflink.invalid/paper.pdf#page=10); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=21); Discussion.
+**Supports.** Results 3.3.1; Discussion. **Cited in.** Methods [2.3.1](https://pdflink.invalid/paper.pdf#page=6); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=16); Discussion.
 
 **A row is** the main analysis and one of ten sensitivity analyses (11 rows).
 
@@ -967,19 +930,19 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Aggregates of D2DCure data (licence unstated); no per-variant rows.
 
 
-### Table S20. BglB: prediction-based metrics (Chai-1 with the assay substrate) {#S20}
+### Table S19. BglB: prediction-based metrics (Chai-1 with the assay substrate) {#S19}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S20_bglb_prediction_based_all_metrics.csv` · 28 rows × 29 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
+**File.** `supplementary/S19_bglb_prediction_based_all_metrics.csv` · 28 rows × 29 columns · D2DCure aggregate (licence of the source data unstated; aggregates only, no per-variant rows)
 
-**Supports.** Results 3.3.1; Methods 2.3.1. **Cited in.** Methods [2.3.1](https://pdflink.invalid/paper.pdf#page=10); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=21).
+**Supports.** Results 3.3.1; Methods 2.3.1. **Cited in.** Methods [2.3.1](https://pdflink.invalid/paper.pdf#page=6); Results [3.3.1](https://pdflink.invalid/paper.pdf#page=16).
 
 **A row is** one prediction-based metric analysed on the 432 BglB variants (28 in all).
 
 :::
 
-The same columns as [S18](#S18) for the metrics computed from Chai-1 predictions of each variant with the assay substrate (pNPG, no metal); active-site accuracy is measured against the wild-type crystal, which carries a covalent glucosyl intermediate. Twelve rows are main-set metrics; the largest correlation is 0.17.
+The same columns as [S17](#S17) for the metrics computed from Chai-1 predictions of each variant with the assay substrate (pNPG, no metal); active-site accuracy is measured against the wild-type crystal, which carries a covalent glucosyl intermediate. Twelve rows are main-set metrics; the largest correlation is 0.17.
 
 **Key columns.**
 
@@ -1013,13 +976,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Aggregates of D2DCure data (licence unstated); no per-variant rows.
 
 
-### Table S21. Plated designs: hits per 96-well plate for every metric (filter-style analysis) {#S21}
+### Table S20. Plated designs: hits per 96-well plate for every metric (filter-style analysis) {#S20}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S21_plates_hits_per_plate_ranked.csv` · 128 rows × 37 columns · public
+**File.** `supplementary/S20_plates_hits_per_plate_ranked.csv` · 128 rows × 37 columns · public
 
-**Supports.** Results 3.3.2; Methods 2.3.2 (Eqs. 16 and 17). **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=11); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=22).
+**Supports.** Results 3.3.2; Methods 2.3.2 (Eqs. 16 and 17). **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=18).
 
 **A row is** one metric scored on the 192 designs (128 in all).
 
@@ -1033,7 +996,7 @@ The filter-style analysis, for every metric: the expected hits per 96-well plate
 
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
-| `rank` / `rank_among_ranked_items` / `ranked_item` | rank among 128, rank among the 36 items of Table 7 and whether the metric is one of them |
+| `rank` / `rank_among_ranked_items` / `ranked_item` | rank among 128, rank among the 36 items of Table 9 and whether the metric is one of them |
 | `metric_name` / `canonical_key` / `source` / `input_class` / `role` | the metric and its class |
 | `n_designs` / `n_active` / `n_kept_highest` / `n_kept_lowest` | 192, 16 and the number kept (fewer than 48 when designs tie at the cut) |
 | `hits_highest_quarter` / `hits_highest_ci_lo90` / `hits_highest_ci_hi90` / `actives_in_highest_quarter` | hits per plate for the highest quarter, 90% interval and actives kept |
@@ -1062,13 +1025,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Descriptive only: no hypothesis test.
 
 
-### Table S22. Plated designs: every metric ranked by correlation with kcat/KM among the 16 designs that have a value (complete Table 7) {#S22}
+### Table S21. Plated designs: every metric ranked by correlation with kcat/KM among the 16 designs that have a value (complete Table 9) {#S21}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S22_plates_all_metrics_ranked.csv` · 106 rows × 29 columns · public
+**File.** `supplementary/S21_plates_all_metrics_ranked.csv` · 106 rows × 29 columns · public
 
-**Supports.** Results 3.3.2; the complete version of Table 7. **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=11); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=22).
+**Supports.** Results 3.3.2; the complete version of Table 9. **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=18).
 
 **A row is** one metric with a rank correlation on the 16 designs with a reported kcat/KM (106 in all).
 
@@ -1082,7 +1045,7 @@ Every metric that has a correlation, ranked by the size of the Spearman correlat
 
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
-| `rank` / `rank_in_table_7` / `in_table_7` | rank among 106, rank among the 36 items of Table 7 and membership of Table 7 |
+| `rank` / `rank_in_table_9` / `in_table_9` | rank among 106, rank among the 36 items of Table 9 and membership of Table 9 |
 | `metric_name` / `canonical_key` / `source` / `input_class` / `role` | the metric and its class |
 | `n_designs` / `rho` / `rho_ci_lo90` / `rho_ci_hi90` | 16 designs, Spearman correlation and 90% interval over designs |
 | `interval_excludes_zero` / `higher_value_means` | whether the interval excludes 0 and whether a larger value means higher or lower activity |
@@ -1109,13 +1072,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Descriptive only; about 10% of unrelated metrics are expected to have an interval that excludes 0.
 
 
-### Table S23. Plated designs: ordering among the 16 active designs, structure-space metrics and comparators {#S23}
+### Table S22. Plated designs: ordering among the 16 active designs, structure-space metrics and comparators {#S22}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S23_plates_ordering.csv` · 81 rows × 23 columns · public
+**File.** `supplementary/S22_plates_ordering.csv` · 81 rows × 23 columns · public
 
-**Supports.** Results 3.3.2; Methods 2.3.2 (Eq. 15). **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=11); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=22).
+**Supports.** Results 3.3.2; Methods 2.3.2 (Eq. 15). **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=18).
 
 **A row is** one metric of the structure-space panel or a comparator (81 in all).
 
@@ -1150,13 +1113,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 :::
 
 
-### Table S24. Plated designs: enrichment at every keep fraction, structure-space metrics {#S24}
+### Table S23. Plated designs: enrichment at every keep fraction, structure-space metrics {#S23}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S24_plates_enrichment.csv` · 816 rows × 27 columns · public
+**File.** `supplementary/S23_plates_enrichment.csv` · 816 rows × 27 columns · public
 
-**Supports.** Results 3.3.2; Methods 2.3.2. **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=11); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=22).
+**Supports.** Results 3.3.2; Methods 2.3.2. **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=18).
 
 **A row is** one metric, one direction (keep the highest or the lowest values) and one keep fraction (816 rows).
 
@@ -1197,19 +1160,19 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Descriptive only. Released as a CSV only for the full 816 rows.
 
 
-### Table S25. Plated designs: enrichment for prediction-based metrics {#S25}
+### Table S24. Plated designs: enrichment for prediction-based metrics {#S24}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S25_plates_prediction_based_enrichment.csv` · 232 rows × 27 columns · public
+**File.** `supplementary/S24_plates_prediction_based_enrichment.csv` · 232 rows × 27 columns · public
 
-**Supports.** Results 3.3.2; Methods 2.3.2. **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=11); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=22).
+**Supports.** Results 3.3.2; Methods 2.3.2. **Cited in.** Methods [2.3.2](https://pdflink.invalid/paper.pdf#page=8); Results [3.3.2](https://pdflink.invalid/paper.pdf#page=18).
 
 **A row is** one prediction-based metric, one direction and one keep fraction (232 rows).
 
 :::
 
-The same as [S24](#S24) for the 29 prediction-based metrics (Chai-1 with the transition-state analogue and zinc; active-site accuracy against the design's own model).
+The same as [S23](#S23) for the 29 prediction-based metrics (Chai-1 with the transition-state analogue and zinc; active-site accuracy against the design's own model).
 
 **Key columns.**
 
@@ -1218,7 +1181,7 @@ The same as [S24](#S24) for the 29 prediction-based metrics (Chai-1 with the tra
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
 | `metric` / `canonical_key` / `input_class` / `in_main_set` | the metric |
-| `direction` / `keep_fraction` / `n_kept` / `n_active_kept` | as in [S24](#S24) |
+| `direction` / `keep_fraction` / `n_kept` / `n_active_kept` | as in [S23](#S23) |
 | `expected_hits_per_plate` / `hits_lo90` / `hits_hi90` / `enrichment_vs_baseline` | expected hits per plate, 90% interval and ratio to 8.0 |
 
 :::
@@ -1242,13 +1205,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 - Descriptive only (16 active designs).
 
 
-### Table S26. Sanity floors by class of metric {#S26}
+### Table S25. Sanity floors by class of metric {#S25}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S26_sanity_floor_by_input_class.csv` · 53 rows × 8 columns · public
+**File.** `supplementary/S25_sanity_floor_by_input_class.csv` · 53 rows × 8 columns · public
 
-**Supports.** Methods 2.4 (detection floor); Results 3.4.1. **Cited in.** Methods [2.4](https://pdflink.invalid/paper.pdf#page=12); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4 (detection floor); Results 3.4.1. **Cited in.** Methods [2.4](https://pdflink.invalid/paper.pdf#page=8); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one sanity-floor condition on one data set and one class of metric (53 rows).
 
@@ -1281,13 +1244,13 @@ The sanity-floor conditions (all catalytic residues replaced by Gly, scrambled s
 :::
 
 
-### Table S27. Control matching: the loosest tier needed {#S27}
+### Table S26. Control matching: the loosest tier needed {#S26}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S27_control_match_tiers.csv` · 81 rows × 6 columns · public
+**File.** `supplementary/S26_control_match_tiers.csv` · 81 rows × 6 columns · public
 
-**Supports.** Methods 2.4; Results 3.4.1. **Cited in.** Methods [2.4](https://pdflink.invalid/paper.pdf#page=12), [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4; Results 3.4.1. **Cited in.** Methods [2.4](https://pdflink.invalid/paper.pdf#page=8); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
 
 **A row is** one analysis, lesion test and matching tier (81 rows).
 
@@ -1320,13 +1283,13 @@ For each analysis and lesion test, how many (enzyme, step) entries needed each l
 :::
 
 
-### Table S28. Control matching: balance of residues changed in the two arms {#S28}
+### Table S27. Control matching: balance of residues changed in the two arms {#S27}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S28_control_arm_balance.csv` · 15 rows × 9 columns · public
+**File.** `supplementary/S27_control_arm_balance.csv` · 15 rows × 9 columns · public
 
-**Supports.** Methods 2.4; Results 3.4.1. **Cited in.** Methods [2.4](https://pdflink.invalid/paper.pdf#page=12), [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4; Results 3.4.1. **Cited in.** Methods [2.4](https://pdflink.invalid/paper.pdf#page=8); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
 
 **A row is** one analysis and lesion test (15 rows).
 
@@ -1359,19 +1322,19 @@ The share of (enzyme, step) pairs in which the control arm changed fewer or more
 :::
 
 
-### Table S29. Catalytic lesion: every metric scored (Table 8 plus supplementary comparators and per-step flags) {#S29}
+### Table S28. Catalytic lesion: every metric scored (Table 10 plus supplementary comparators and per-step flags) {#S28}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S29_catalytic_lesion_all_metrics_ranked.csv` · 43 rows × 73 columns · public
+**File.** `supplementary/S28_catalytic_lesion_all_metrics_ranked.csv` · 43 rows × 73 columns · public
 
-**Supports.** Results 3.4.1; the complete version of Table 8. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23); Discussion.
+**Supports.** Results 3.4.1; the complete version of Table 10. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
 
 **A row is** one metric scored on the catalytic-lesion ladder (43 in all).
 
 :::
 
-Table 8 with the 8 supplementary comparators and every flag that decides whether a step counts. Metrics are grouped by the lesion step at which they are first detected and ranked by the mean of the rank statistic R over the counted steps. For each step (isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 A3) it gives R with interval, the number of informative proteins and the flags that the metric responds, that the control response is above its noise and that the metric is specific; the number of steps counted; the first step detected and the first step at which the metric is specific (the onset of specificity); the mean R of the 143 main enzymes alone; and, for the prediction-based metrics, the distance-matched R. Structure-space metrics: 195 pooled natural enzymes (143 main + 52 pilot); prediction-based: 59 enzymes, 286 pairs.
+Table 10 with the 8 supplementary comparators and every flag that decides whether a step counts. Metrics are grouped by the lesion step at which they are first detected and ranked by the mean of the rank statistic R over the counted steps. For each step (isosteric 15.3, non-isosteric 36.4, Ala 53.2, Gly 80.5 A3) it gives R with interval, the number of informative proteins and the flags that the metric responds, that the control response is above its noise and that the metric is specific; the number of steps counted; the first step detected and the first step at which the metric is specific (the onset of specificity); the mean R of the 143 main enzymes alone; and, for the prediction-based metrics, the distance-matched R. Structure-space metrics: 195 pooled natural enzymes (143 main + 52 pilot); prediction-based: 59 enzymes, 286 pairs.
 
 **Key columns.**
 
@@ -1379,7 +1342,7 @@ Table 8 with the 8 supplementary comparators and every flag that decides whether
 
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
-| `detection_group` / `rank_in_group` / `rank` / `rank_in_table_8` | group by first detected step, rank in the group, overall rank and rank among the 35 items of Table 8 |
+| `detection_group` / `rank_in_group` / `rank` / `rank_in_table_10` | group by first detected step, rank in the group, overall rank and rank among the 35 items of Table 10 |
 | `metric_name` / `canonical_key` / `source` / `input_class` / `role` / `in_ranked_set` | the metric, class, role and whether it is one of the 35 ranked items |
 | `n_steps` / `n_steps_interpretable` | steps with a value and steps counted |
 | `r_mean` / `r_lo` / `r_hi` | mean R over counted steps with 95% interval over enzyme sub-subclasses |
@@ -1407,16 +1370,16 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 
 **Notes.**
 
-- Descriptive of a pooled set. [S30](#S30) and [S31](#S31) hold the specificity-ratio analysis.
+- Descriptive of a pooled set. [S29](#S29) and [S30](#S30) hold the specificity-ratio analysis.
 
 
-### Table S30. Structure-space specificity by metric family and lesion step, with the panel statistic and sensitivity sets {#S30}
+### Table S29. Structure-space specificity by metric family and lesion step, with the panel statistic and sensitivity sets {#S29}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S30_specificity_by_family_and_step.csv` · 20 rows × 27 columns · public
+**File.** `supplementary/S29_specificity_by_family_and_step.csv` · 20 rows × 27 columns · public
 
-**Supports.** Results 3.4.1 and 3.4.2; Discussion. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23), [3.4.2](https://pdflink.invalid/paper.pdf#page=25); Discussion.
+**Supports.** Results 3.4.1 and 3.4.2; Discussion. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19), [3.4.2](https://pdflink.invalid/paper.pdf#page=21); Discussion.
 
 **A row is** one family of metrics at one lesion step or dose (20 rows).
 
@@ -1452,13 +1415,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 :::
 
 
-### Table S31. Re-predicted catalytic lesion: the prediction-based metrics under three successive controls and the pre-specified rule {#S31}
+### Table S30. Re-predicted catalytic lesion: the prediction-based metrics under three successive controls and the pre-specified rule {#S30}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S31_predictor_ladder_three_controls.csv` · 6 rows × 23 columns · public
+**File.** `supplementary/S30_predictor_ladder_three_controls.csv` · 6 rows × 23 columns · public
 
-**Supports.** Results 3.4.1; Methods 2.4.1 (Eq. 24). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Results 3.4.1; Methods 2.4.1 (Eq. 24). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one prediction-based metric or reference row (6 rows).
 
@@ -1496,13 +1459,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 :::
 
 
-### Table S32. Sensitivity of the specificity-ratio counts to motif size, packing matching and count gating {#S32}
+### Table S31. Sensitivity of the specificity-ratio counts to motif size, packing matching and count gating {#S31}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S32_motif_packing_sensitivity.csv` · 20 rows × 7 columns · public
+**File.** `supplementary/S31_motif_packing_sensitivity.csv` · 20 rows × 7 columns · public
 
-**Supports.** Results 3.4.1; Methods 2.4.1 'Limits'. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Results 3.4.1; Discussion (limitations). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
 
 **A row is** one analysis and one lesion step (20 rows).
 
@@ -1535,13 +1498,13 @@ Counts of eligible, responding and specific metrics at each step for five analys
 :::
 
 
-### Table S33. Re-predicted ladder: seed-noise context {#S33}
+### Table S32. Re-predicted ladder: seed-noise context {#S32}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S33_replicate_noise_context.csv` · 56 rows × 12 columns · public
+**File.** `supplementary/S32_replicate_noise_context.csv` · 56 rows × 12 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one prediction-based metric in one arm and subset (56 rows).
 
@@ -1574,13 +1537,13 @@ Noise context from the second-seed replicate on 30 natural pairs: the median abs
 :::
 
 
-### Table S34. Specificity ratio of every eligible metric at every step {#S34}
+### Table S33. Specificity ratio of every eligible metric at every step {#S33}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S34_eligible_metrics.csv` · 256 rows × 29 columns · public
+**File.** `supplementary/S33_eligible_metrics.csv` · 256 rows × 29 columns · public
 
-**Supports.** Methods 2.4.1 (Eq. 22); Results 3.4.1 and 3.4.2. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23), [3.4.2](https://pdflink.invalid/paper.pdf#page=25).
+**Supports.** Methods 2.4.1 (Eq. 22); Results 3.4.1 and 3.4.2. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19), [3.4.2](https://pdflink.invalid/paper.pdf#page=21).
 
 **A row is** one eligible (site-scoped) metric at one lesion step or dose (256 rows).
 
@@ -1617,19 +1580,19 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 :::
 
 
-### Table S35. Specificity ratio of whole-protein and sequence-only comparators at every step {#S35}
+### Table S34. Specificity ratio of whole-protein and sequence-only comparators at every step {#S34}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S35_global_comparators.csv` · 308 rows × 29 columns · public
+**File.** `supplementary/S34_global_comparators.csv` · 308 rows × 29 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23), [3.4.2](https://pdflink.invalid/paper.pdf#page=25).
+**Supports.** Methods 2.4.1; Results 3.4. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19), [3.4.2](https://pdflink.invalid/paper.pdf#page=21).
 
 **A row is** one comparator metric at one lesion step or dose (308 rows).
 
 :::
 
-The same cells as [S34](#S34) for the whole-protein and sequence-only metrics, which are not in the main set. They show that composition metrics have a ratio of 1 by construction and that whole-protein energies move with the lesion.
+The same cells as [S33](#S33) for the whole-protein and sequence-only metrics, which are not in the main set. They show that composition metrics have a ratio of 1 by construction and that whole-protein energies move with the lesion.
 
 **Key columns.**
 
@@ -1638,8 +1601,8 @@ The same cells as [S34](#S34) for the whole-protein and sequence-only metrics, w
 | Column | Meaning |
 |--------------------------------|------------------------------------------------------------------------------|
 | `canonical_key` / `metric_name` / `input_class` | the comparator |
-| `lesion_test` / `level` / `n_systems` | as in [S34](#S34) |
-| delta_*, sr_*, responds, specific, verdict | as in [S34](#S34) |
+| `lesion_test` / `level` / `n_systems` | as in [S33](#S33) |
+| delta_*, sr_*, responds, specific, verdict | as in [S33](#S33) |
 
 :::
 
@@ -1658,13 +1621,13 @@ The shared block of 12 provenance columns (see Conventions) is also present and 
 :::
 
 
-### Table S36. The specific cells that survive the controls {#S36}
+### Table S35. The specific cells that survive the controls {#S35}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S36_survivors_by_status.csv` · 97 rows × 10 columns · public
+**File.** `supplementary/S35_survivors_by_status.csv` · 97 rows × 10 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4.1; Discussion. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1; Results 3.4.1; Discussion. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric at one step in one analysis (97 rows: 74 natural, 23 de novo).
 
@@ -1698,19 +1661,19 @@ The cells that are specific under the control of their analysis, with the specif
 :::
 
 
-### Table S37. Rank statistic R per lesion step on the 143 main enzymes {#S37}
+### Table S36. Rank statistic R per lesion step on the 143 main enzymes {#S36}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S37_ranking_statistic_by_lesion_step.csv` · 313 rows × 14 columns · public
+**File.** `supplementary/S36_ranking_statistic_by_lesion_step.csv` · 313 rows × 14 columns · public
 
-**Supports.** Methods 2.4.1 (Eq. 19). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1 (Eq. 19). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric at one step of the catalytic lesion (313 rows).
 
 :::
 
-The rank statistic R (probability that a metric changes more at the catalytic lesion than at the matched control) for the 143 main enzymes alone, with 90% intervals, for 83 distinct metrics including comparators. This is the per-step form of R on the main enzymes; Table 8 and [S29](#S29) report the pooled analysis on 195 enzymes with 95% intervals and the counted-step rule, so the values for the same metric differ.
+The rank statistic R (probability that a metric changes more at the catalytic lesion than at the matched control) for the 143 main enzymes alone, with 90% intervals, for 83 distinct metrics including comparators. This is the per-step form of R on the main enzymes; Table 10 and [S28](#S28) report the pooled analysis on 195 enzymes with 95% intervals and the counted-step rule, so the values for the same metric differ.
 
 **Key columns.**
 
@@ -1739,19 +1702,19 @@ The rank statistic R (probability that a metric changes more at the catalytic le
 :::
 
 
-### Table S38. Re-predicted ladder: distance of the substituted and control residues to the ligand {#S38}
+### Table S37. Re-predicted ladder: distance of the substituted and control residues to the ligand {#S37}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S38_ladder_pair_distances.csv` · 312 rows × 34 columns · public
+**File.** `supplementary/S37_ladder_pair_distances.csv` · 312 rows × 34 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one catalytic/control pair of the ladder (312 pairs: 286 natural, 26 de novo).
 
 :::
 
-For every pair the residue types, the burial of each residue, the distance of the substituted and of the control residue to the ligand (in the reference structure and in the prediction), whether the control is adjacent to a catalytic residue, and whether the pair falls in each of the calipers used in [S41](#S41).
+For every pair the residue types, the burial of each residue, the distance of the substituted and of the control residue to the ligand (in the reference structure and in the prediction), whether the control is adjacent to a catalytic residue, and whether the pair falls in each of the calipers used in [S40](#S40).
 
 **Key columns.**
 
@@ -1786,13 +1749,13 @@ For every pair the residue types, the burial of each residue, the distance of th
 - Released as a CSV only for the full 312 rows.
 
 
-### Table S39. Re-predicted ladder: candidates for a new distance-matched control {#S39}
+### Table S38. Re-predicted ladder: candidates for a new distance-matched control {#S38}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S39_new_distance_matched_controls.csv` · 291 rows × 17 columns · public
+**File.** `supplementary/S38_new_distance_matched_controls.csv` · 291 rows × 17 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one candidate control for one pair that had no control within the caliper (291 rows).
 
@@ -1827,13 +1790,13 @@ The candidate controls for the pairs that had none in the caliper, which were se
 :::
 
 
-### Table S40. Re-predicted ladder: specificity ratio in strata of the distance to the ligand {#S40}
+### Table S39. Re-predicted ladder: specificity ratio in strata of the distance to the ligand {#S39}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S40_ladder_distance_strata.csv` · 203 rows × 27 columns · public
+**File.** `supplementary/S39_ladder_distance_strata.csv` · 203 rows × 27 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric in one distance stratum, for one source (203 rows).
 
@@ -1868,19 +1831,19 @@ The specificity ratio of each metric in the near, mid and far third of the pairs
 :::
 
 
-### Table S41. Re-predicted ladder: caliper-matched subsets and the rule labels {#S41}
+### Table S40. Re-predicted ladder: caliper-matched subsets and the rule labels {#S40}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S41_ladder_matched_subsets.csv` · 348 rows × 25 columns · public
+**File.** `supplementary/S40_ladder_matched_subsets.csv` · 348 rows × 25 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4.1 (68 to 69 pairs in 21 to 22 systems). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1; Results 3.4.1 (68 to 69 pairs in 21 to 22 systems). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric in one matched subset for one source (348 rows).
 
 :::
 
-The specificity ratio in caliper-matched subsets: original_controls (original controls within the caliper), original_plus_new_controls (with the new controls added, the subset of Table 8) and the sensitivity sets distance_in_prediction, distance_to_organic_atoms, caliper_1A and caliper_3A that use other distance definitions and calipers, with the label from the pre-specified rule (lower 90% bound above 1.2 with at least 30 pairs in 15 systems).
+The specificity ratio in caliper-matched subsets: original_controls (original controls within the caliper), original_plus_new_controls (with the new controls added, the subset of Table 10) and the sensitivity sets distance_in_prediction, distance_to_organic_atoms, caliper_1A and caliper_3A that use other distance definitions and calipers, with the label from the pre-specified rule (lower 90% bound above 1.2 with at least 30 pairs in 15 systems).
 
 **Key columns.**
 
@@ -1909,13 +1872,13 @@ The specificity ratio in caliper-matched subsets: original_controls (original co
 :::
 
 
-### Table S42. Re-predicted ladder: regression-adjusted ratios {#S42}
+### Table S41. Re-predicted ladder: regression-adjusted ratios {#S41}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S42_ladder_regression_adjusted.csv` · 116 rows × 28 columns · public
+**File.** `supplementary/S41_ladder_regression_adjusted.csv` · 116 rows × 28 columns · public
 
-**Supports.** Methods 2.4.1 (Eq. 24); Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1 (Eq. 24); Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric with the original or the extended set of controls, for one source (116 rows).
 
@@ -1950,13 +1913,13 @@ The ratio of catalytic to control change adjusted for the distance to the ligand
 :::
 
 
-### Table S43. Panel equivalence statistic: earlier whole panel against the main-set metrics {#S43}
+### Table S42. Panel equivalence statistic: earlier whole panel against the main-set metrics {#S42}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S43_equivalence_earlier_vs_main_panel.csv` · 6 rows × 10 columns · public
+**File.** `supplementary/S42_equivalence_earlier_vs_main_panel.csv` · 6 rows × 10 columns · public
 
-**Supports.** Results 3.4.1; Methods 2.4.1 (equivalence to 1). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Results 3.4.1; Methods 2.4.1 (equivalence to 1). **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one analysis and set of metrics (6 rows).
 
@@ -1989,13 +1952,13 @@ The geometric-mean specificity ratio of the panel with a 90% interval (nested bo
 :::
 
 
-### Table S44. Re-predicted ladder: specificity ratio per step for all metrics {#S44}
+### Table S43. Re-predicted ladder: specificity ratio per step for all metrics {#S43}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S44_ladder_re_predicted_per_level.csv` · 231 rows × 16 columns · public
+**File.** `supplementary/S43_ladder_re_predicted_per_level.csv` · 231 rows × 16 columns · public
 
-**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Methods 2.4.1; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=9); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one metric at one step for one source (231 rows).
 
@@ -2030,13 +1993,100 @@ The re-predicted catalytic-lesion ladder per step (ALL steps pooled, isosteric, 
 :::
 
 
-### Table S45. Effective dimensionality of the panel {#S45}
+### Table S44. Second-shell lesion: every metric scored (Table 11 plus supplementary comparators and per-dose flags) {#S44}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S45_effective_dimensionality.csv` · 4 rows × 10 columns · public
+**File.** `supplementary/S44_second_shell_lesion_all_metrics_ranked.csv` · 37 rows × 59 columns · public
 
-**Supports.** Methods 2.4.1 'Limits'. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Results 3.4.2; the complete version of Table 11. **Cited in.** Methods [2.4.2](https://pdflink.invalid/paper.pdf#page=11); Results [3.4.2](https://pdflink.invalid/paper.pdf#page=21).
+
+**A row is** one metric scored on second-shell removal (37 in all).
+
+:::
+
+Table 11 with the 8 supplementary comparators and the flags at each dose (1, 2 and 4 residues removed): R with interval, the number of informative proteins, and whether the metric responds, whether the control response is above its noise and whether it is specific. No step counts for any metric, so no rank on this test is interpretable and no reference level is computed.
+
+**Key columns.**
+
+::: {.defs}
+
+| Column | Meaning |
+|--------------------------------|------------------------------------------------------------------------------|
+| `detection_group` / `rank_in_group` / `rank` / `rank_in_table_11` | group by first dose detected, rank in the group, overall rank and rank among the 29 items of Table 11 |
+| `metric_name` / `canonical_key` / `source` / `input_class` / `role` / `in_ranked_set` | the metric and its role |
+| `n_steps` / `n_steps_interpretable` | doses with a value and counted (0 for every metric) |
+| r_second_shell_<d> / _lo / _hi / n_second_shell_<d> | R, interval and informative proteins at dose 1, 2 and 4 |
+| `responds_` / `control_above_noise_` / specific_second_shell_<d> | per-dose flags |
+| `r_mean_all_steps` / `first_step_detected` / `first_step_specific` | mean R over all doses and the onsets |
+
+:::
+
+The shared block of 12 provenance columns (see Conventions) is also present and is not repeated above.
+
+**Excerpt** (first 3 rows).
+
+::: {.excerpt}
+
+| `detection_group` | `rank_in_group` | `metric_name` | `r_mean_all_steps` | `n_steps_interpretable` |
+|----------|----------|----------|----------|----------|
+| `second_shell_4` | `1` | `propka_catalytic_shift_mean` | `0.7005` | `0` |
+| `second_shell_4` | `2` | `propka_catalytic_pka_mean` | `0.6915` | `0` |
+| `never` | `1` | `catalytic_frac_buried` | `0.781` | `0` |
+
+:::
+
+**Notes.**
+
+- Because both arms are scored over the catalytic residues, a high raw R on this test measures location.
+
+
+### Table S45. Drift of the current Chai-1 engine against the earlier predictions {#S45}
+
+::: {.tmeta}
+
+**File.** `supplementary/S45_engine_drift_check.csv` · 176 rows × 5 columns · public
+
+**Supports.** Results 3.2; Discussion (limitations). **Cited in.** Results [3.2](https://pdflink.invalid/paper.pdf#page=15).
+
+**A row is** one metric on one re-run prediction (176 rows).
+
+:::
+
+A drift check: four predictions (two cognate predictions of the substrate swap and two predictions of the catalytic-lesion ladder) were re-run with the current Chai-1 engine, and every metric is compared with its stored value. Most differences are small (median absolute difference 0.0007) but the largest is 0.91, which is why Chai-1 results are reported with seed noise and are not claimed to be bitwise reproducible.
+
+**Key columns.**
+
+::: {.defs}
+
+| Column | Meaning |
+|--------------------------------|------------------------------------------------------------------------------|
+| `prediction` | the prediction that was re-run (system, condition and seed) |
+| `metric_name` | the metric |
+| `stored` / `rerun` / `abs_diff` | stored value, value of the re-run and their absolute difference |
+
+:::
+
+**Excerpt** (first 3 rows).
+
+::: {.excerpt}
+
+| `prediction` | `metric_name` | `stored` | `rerun` | `abs_diff` |
+|----------|----------|----------|----------|----------|
+| `M0112_3dfr_a1__cognate__s101` | `ame_crystal_clash_max` | `2.722` | `2.7284` | `0.0064` |
+| `M0112_3dfr_a1__cognate__s101` | `ame_crystal_pass` | `1.0` | `1.0` | `0.0` |
+| `M0112_3dfr_a1__cognate__s101` | `ame_crystal_rmsd_max` | `0.8037` | `0.8055` | `0.0018` |
+
+:::
+
+
+### Table S46. Effective dimensionality of the panel {#S46}
+
+::: {.tmeta}
+
+**File.** `supplementary/S46_effective_dimensionality.csv` · 4 rows × 10 columns · public
+
+**Supports.** Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
 
 **A row is** one set of metrics and one panel (4 rows).
 
@@ -2069,13 +2119,13 @@ The participation ratio and related measures of the effective number of independ
 :::
 
 
-### Table S46. De novo designs: burial equivalence of the created-site control {#S46}
+### Table S47. De novo designs: burial equivalence of the created-site control {#S47}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S46_denovo_created_control.csv` · 5 rows × 11 columns · public
+**File.** `supplementary/S47_denovo_created_control.csv` · 5 rows × 11 columns · public
 
-**Supports.** Methods 2.4.1 'Limits'; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Results 3.4.1; Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19); Discussion.
 
 **A row is** one burial metric (5 rows).
 
@@ -2109,13 +2159,13 @@ In the 30 de novo designs the control is a position mutated to the catalytic res
 :::
 
 
-### Table S47. Experiments that could not be made or were retired {#S47}
+### Table S48. Experiments that could not be made or were retired {#S48}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S47_not_measurable.csv` · 9 rows × 4 columns · public
+**File.** `supplementary/S48_not_measurable.csv` · 9 rows × 4 columns · public
 
-**Supports.** Methods 2.4.1 'Limits'; Discussion. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one experiment (9 rows).
 
@@ -2148,13 +2198,13 @@ The deformation experiment (apparent specific cells track the clash burden prese
 :::
 
 
-### Table S48. PLACER ensemble metrics on the isosteric step (not interpretable) {#S48}
+### Table S49. PLACER ensemble metrics on the isosteric step (not interpretable) {#S49}
 
 ::: {.tmeta}
 
-**File.** `supplementary/S48_placer_isosteric.csv` · 50 rows × 12 columns · public
+**File.** `supplementary/S49_placer_isosteric.csv` · 50 rows × 12 columns · public
 
-**Supports.** Methods 2.4.1 'Limits'; Results 3.4.1. **Cited in.** Methods [2.4.1](https://pdflink.invalid/paper.pdf#page=13); Results [3.4.1](https://pdflink.invalid/paper.pdf#page=23).
+**Supports.** Results 3.4.1; Discussion (limitations). **Cited in.** Results [3.4.1](https://pdflink.invalid/paper.pdf#page=19).
 
 **A row is** one PLACER metric in one analysis (50 rows).
 
@@ -2187,72 +2237,22 @@ The specificity ratio, verdict and applicability of 25 PLACER ensemble metrics o
 :::
 
 
-### Table S49. Second-shell lesion: every metric scored (Table 9 plus supplementary comparators and per-dose flags) {#S49}
-
-::: {.tmeta}
-
-**File.** `supplementary/S49_second_shell_lesion_all_metrics_ranked.csv` · 37 rows × 59 columns · public
-
-**Supports.** Results 3.4.2; the complete version of Table 9. **Cited in.** Methods [2.4.2](https://pdflink.invalid/paper.pdf#page=16); Results [3.4.2](https://pdflink.invalid/paper.pdf#page=25).
-
-**A row is** one metric scored on second-shell removal (37 in all).
-
-:::
-
-Table 9 with the 8 supplementary comparators and the flags at each dose (1, 2 and 4 residues removed): R with interval, the number of informative proteins, and whether the metric responds, whether the control response is above its noise and whether it is specific. No step counts for any metric, so no rank on this test is interpretable and no reference level is computed.
-
-**Key columns.**
-
-::: {.defs}
-
-| Column | Meaning |
-|--------------------------------|------------------------------------------------------------------------------|
-| `detection_group` / `rank_in_group` / `rank` / `rank_in_table_9` | group by first dose detected, rank in the group, overall rank and rank among the 29 items of Table 9 |
-| `metric_name` / `canonical_key` / `source` / `input_class` / `role` / `in_ranked_set` | the metric and its role |
-| `n_steps` / `n_steps_interpretable` | doses with a value and counted (0 for every metric) |
-| r_second_shell_<d> / _lo / _hi / n_second_shell_<d> | R, interval and informative proteins at dose 1, 2 and 4 |
-| `responds_` / `control_above_noise_` / specific_second_shell_<d> | per-dose flags |
-| `r_mean_all_steps` / `first_step_detected` / `first_step_specific` | mean R over all doses and the onsets |
-
-:::
-
-The shared block of 12 provenance columns (see Conventions) is also present and is not repeated above.
-
-**Excerpt** (first 3 rows).
-
-::: {.excerpt}
-
-| `detection_group` | `rank_in_group` | `metric_name` | `r_mean_all_steps` | `n_steps_interpretable` |
-|----------|----------|----------|----------|----------|
-| `second_shell_4` | `1` | `propka_catalytic_shift_mean` | `0.7005` | `0` |
-| `second_shell_4` | `2` | `propka_catalytic_pka_mean` | `0.6915` | `0` |
-| `never` | `1` | `catalytic_frac_buried` | `0.781` | `0` |
-
-:::
-
-**Notes.**
-
-- Because both arms are scored over the catalytic residues, a high raw R on this test measures location.
-
-
 # Appendix A. Main-text tables
 
-The nine tables of the paper, with the supplementary tables that hold the complete version or more detail.
+The seven data tables of the Results (Tables 5 to 11), with the supplementary tables that hold the complete version or more detail. Tables 1 to 4 of the Methods are descriptive and are not released as files.
 
 | Table | File | Rows × columns | More detail in |
 |----------|------------------------------------------------------------|----------------|------------------------------|
-| **T1** | `main/T1_study_map.csv` | 12 × 17 | [S7](#S7) |
-| **T2** | `main/T2_datasets.csv` | 11 × 11 | [S7](#S7), [S10](#S10) |
-| **T3** | `main/T3_dead_vs_active.csv` | 30 × 26 | [S12](#S12), [S8](#S8), [S9](#S9) |
-| **T4** | `main/T4_plated_designs_auroc.csv` | 30 × 28 | [S14](#S14) |
-| **T5** | `main/T5_substrate_swap.csv` | 30 × 32 | [S1](#S1), [S15](#S15) |
-| **T6** | `main/T6_bglb_variants.csv` | 30 × 27 | [S17](#S17), [S18](#S18), [S19](#S19), [S20](#S20) |
-| **T7** | `main/T7_plated_designs.csv` | 30 × 26 | [S22](#S22), [S21](#S21), [S24](#S24), [S23](#S23), [S25](#S25) |
-| **T8** | `main/T8_specificity_catalytic_lesion.csv` | 35 × 36 | [S29](#S29), [S30](#S30), [S31](#S31) |
-| **T9** | `main/T9_specificity_second_shell_lesion.csv` | 29 × 30 | [S49](#S49), [S30](#S30) |
+| **T5** | `main/T5_dead_vs_active.csv` | 30 × 26 | [S11](#S11), [S7](#S7), [S8](#S8) |
+| **T6** | `main/T6_plated_designs_auroc.csv` | 30 × 28 | [S13](#S13) |
+| **T7** | `main/T7_substrate_swap.csv` | 30 × 32 | [S14](#S14), [S15](#S15) |
+| **T8** | `main/T8_bglb_variants.csv` | 30 × 27 | [S16](#S16), [S17](#S17), [S18](#S18), [S19](#S19) |
+| **T9** | `main/T9_plated_designs.csv` | 30 × 26 | [S21](#S21), [S20](#S20), [S23](#S23), [S22](#S22), [S24](#S24) |
+| **T10** | `main/T10_specificity_catalytic_lesion.csv` | 35 × 36 | [S28](#S28), [S29](#S29), [S30](#S30) |
+| **T11** | `main/T11_specificity_second_shell_lesion.csv` | 29 × 30 | [S44](#S44), [S29](#S29) |
 
 # Appendix B. Notes on the data
 
-- Two sets of numbers for natural enzymes in the substrate swap: [S1](#S1) uses all 59 natural enzymes, Table 5 uses the evaluation set of 55.
-- Two forms of the rank statistic R: [S37](#S37) is R on the 143 main enzymes with 90% intervals; Table 8 and [S29](#S29) are the pooled analysis on 195 enzymes with 95% intervals and the counted-step rule. Values for the same metric differ.
-- Among the 29 prediction-based metrics of the ladder with ligand-distance-matched controls, the cells of [S4](#S4) keep the label NOT-RUN although the analysis was carried out (results in [S41](#S41) and [S42](#S42)).
+- Two sets of numbers for natural enzymes in the substrate swap: [S14](#S14) uses all 59 natural enzymes, Table 7 uses the evaluation set of 55.
+- Two forms of the rank statistic R: [S36](#S36) is R on the 143 main enzymes with 90% intervals; Table 10 and [S28](#S28) are the pooled analysis on 195 enzymes with 95% intervals and the counted-step rule. Values for the same metric differ.
+- Among the 29 prediction-based metrics of the ladder with ligand-distance-matched controls, the cells of [S3](#S3) keep the label NOT-RUN although the analysis was carried out (results in [S40](#S40) and [S41](#S41)).
