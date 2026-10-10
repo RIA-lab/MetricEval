@@ -6,7 +6,6 @@ LaTeX source of "MetricEval" (Methods, Results, references) and its Supplementar
   supplementary.tex    describes the 49 supplementary tables and the 9 main-text tables
   references.bib       entries cited in paper.tex
   paper.bbl            BibTeX output for paper.tex (so that paper.tex compiles without BibTeX)
-  fig1_study_map.png   Figure 1
 
 Compile (pdfLaTeX; the standard TeX Live packages amsmath, cite, caption, framed,
 longtable, booktabs, hyperref are used):

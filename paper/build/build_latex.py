@@ -2,7 +2,7 @@
 """Build the LaTeX source of the paper and of the Supplementary Information.
 
 Writes paper/latex/ (paper.tex, supplementary.tex, references.bib, paper.bbl,
-fig1_study_map.png, README.txt) and paper/latex_source.zip (sources only).
+README.txt) and paper/latex_source.zip (sources only).
 
   * paper.tex          Methods (2), Results (3) and the references; Title, Abstract,
                        1 Introduction and 4 Discussion are headings only, as in paper.pdf.
@@ -34,7 +34,6 @@ from common import HERE, PAPER
 
 OUT = PAPER / "latex"
 ZIP = PAPER / "latex_source.zip"
-FIG = "fig1_study_map.png"
 PANDOC_FROM = "markdown-implicit_figures-auto_identifiers-citations"   # smart quotes on
 CITE_KEY = "`\\cite{%s}`{=latex}"
 
@@ -47,7 +46,6 @@ LaTeX source of "MetricEval" (Methods, Results, references) and its Supplementar
   supplementary.tex    describes the 49 supplementary tables and the 9 main-text tables
   references.bib       entries cited in paper.tex
   paper.bbl            BibTeX output for paper.tex (so that paper.tex compiles without BibTeX)
-  fig1_study_map.png   Figure 1
 
 Compile (pdfLaTeX; the standard TeX Live packages amsmath, cite, caption, framed,
 longtable, booktabs, hyperref are used):
@@ -202,7 +200,7 @@ def compile_check(names):
 
 
 def make_zip():
-    files = ["paper.tex", "supplementary.tex", "references.bib", "paper.bbl", FIG, "README.txt"]
+    files = ["paper.tex", "supplementary.tex", "references.bib", "paper.bbl", "README.txt"]
     with zipfile.ZipFile(ZIP, "w", zipfile.ZIP_DEFLATED) as z:
         for name in files:
             info = zipfile.ZipInfo(f"latex_source/{name}", date_time=(2026, 1, 1, 0, 0, 0))
@@ -214,7 +212,6 @@ def make_zip():
 
 def main():
     OUT.mkdir(exist_ok=True)
-    shutil.copy(PAPER / FIG, OUT / FIG)
     (OUT / "README.txt").write_text(README, encoding="utf-8")
     n_refs = build_paper()
     build_supplement()

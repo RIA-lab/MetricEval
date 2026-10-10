@@ -138,665 +138,43 @@ Introduction}
 
 \section{2 Methods}
 
-\textbf{How this
-section is
-organised.} Section
-2 has four
-subsections that
-correspond one to
-one to those of the
-Results, down to the
-sub-subsections (2.1
-→ 3.1, 2.2 → 3.2,
-2.3 → 3.3, 2.4 →
-3.4; 2.1.1 → 3.1.1,
-and so on): the
-activity
-discrimination test
-(2.1), the substrate
-discrimination test
-(2.2), the activity
-ranking test (2.3)
-and the detection
-ability test (2.4).
-Each describes the
-\textbf{experiment},
-the \textbf{dataset}
-(cases, selection,
-why it was chosen),
-the \textbf{metrics
-scored}, the
-\textbf{ranking
-criteria} with their
-equations, and the
-\textbf{limits}.
-Before 2.1 come the
-study map (Figure 1,
-Tables 1 and 2), the
-terms (Box 1), the
-metrics (Box 2) and
-the notation (Box
-3). Two tests use
-real proteins as
-they are (2.1, 2.3);
-two introduce a
-deliberate change
-(2.2, 2.4). Numbers
-in square brackets
-are references (see
-References). Tables
-with an S number are
-supplementary
-tables: each is
-described in the
-separate
-Supplementary PDF
-and released as a
-CSV file
-(\texttt{main/} and
-\texttt{supplementary/}).
-
-\subsection{The
-study at a glance}
-
-We ask one question:
-\textbf{do the
-in-silico metrics
-used to filter
-designed enzymes
-respond to
-catalysis, or to
-something simpler,
-such as how close a
-change is to the
-active site?} A
-metric that detects
-catalysis should
-move more when a
-catalytic residue is
-damaged than when
-the same damage is
-made elsewhere in
-the same protein.
-Figure 1 shows how
-the study tests
-this, in four tests.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{fig1_study_map.png}
-\par\smallskip
-
-{\small
-
-\textbf{Figure 1.
-The study map.} The
-four tests, what is
-changed or
-contrasted in each,
-what the metric is
-compared with, which
-metrics are used,
-and which claim the
-test supports.
-Numbers are taken
-from Tables 1 and 2.
-
-}
-
-\end{figure}
-
-The four tests
-support three kinds
-of claim:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Discrimination}
-  (2.1 and 2.2).
-  Does a metric
-  differ between two
-  states that should
-  differ? In 2.1 the
-  states are a
-  catalytically dead
-  enzyme and its
-  active form (real
-  structures); in
-  2.2 they are the
-  cognate ligand and
-  a wrong ligand
-  given to a
-  structure
-  predictor. We
-  compare each state
-  with the other
-  and, in 2.1, with
-  reference rows
-  that need no
-  catalytic
-  information.
-\item
-  \textbf{Ranking}
-  (2.3). Does a
-  metric track
-  measured activity?
-  We compare metric
-  values with
-  measured kinetics
-  and with declared
-  trivial baselines.
-\item
-  \textbf{Detection
-  ability} (2.4).
-  Does a metric
-  respond more to
-  damage at a
-  catalytic residue
-  than to the
-  identical damage
-  at a matched
-  non-catalytic site
-  of the same
-  protein? We damage
-  the protein on
-  purpose and
-  compare the two
-  responses.
-\end{itemize}
-
-Two kinds of metric
-are tested.
-\textbf{Structure-space
-metrics} read atomic
-coordinates; they
-are tested in 2.1,
-2.3 and 2.4.
-\textbf{Prediction-based
-metrics} read the
-output of a
+The same panel is
+scored in every
+test: 29
+structure-space
+metrics, which read
+atomic coordinates
+and are used in 2.1,
+2.3 and 2.4, and 4
+prediction-based
+metrics, which read
+the output of a
 structure predictor
 that is given a
 sequence and a
-ligand; they are
-tested in 2.2 and
-2.4, and again in
-2.1 and 2.3. The
-metrics valid and
-tested in all four
-tests are the ones
-this paper reports
-(Box 2).
+ligand and are used
+in 2.1 to 2.4 (Table
+1). Numbers in
+square brackets are
+references (see
+References); tables
+with an S number are
+supplementary
+tables, described in
+the Supplementary
+PDF and released as
+CSV files
+(\texttt{main/} and
+\texttt{supplementary/}).
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1120}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1760}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2400}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2080}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1280}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1360}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3226}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3548}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}@{}}
 \caption*{\textbf{Table
-1. The experiments
-in detail.} Each row
-is one experiment:
-the Results
-subsection that
-reports it, what is
-changed or
-contrasted, what the
-metric is compared
-with, which metrics
-are scored, and how
-many units there
-are.}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Results
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Experiment
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-What is changed or
-contrasted
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Compared with
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Metrics
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Units
-\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Results
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Experiment
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-What is changed or
-contrasted
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Compared with
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Metrics
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Units
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-3.1 & Zymogen versus
-mature enzyme,
-evaluation set &
-real dead and active
-forms & reference
-rows and a
-best-of-39 threshold
-& 29 structure-space
-& 21 pairs \\
-3.1 & Same 21 pairs,
-re-predicted &
-predictions of the
-dead and active
-forms & the same & 4
-prediction-based &
-21 pairs \\
-3.1 & Plated
-designs, evaluation
-set & 192 designs:
-16 active, 176 no
-active & reference
-rows and a
-best-of-36 threshold
-& 29 structure-space
-and 2
-prediction-based &
-192 designs \\
-3.2 & Substrate
-swap, evaluation set
-& the ligand given
-to the predictor:
-cognate, same class,
-different class,
-decoy & the cognate
-ligand; a best-of-30
-threshold & 30
-prediction-based
-quantities (4
-main-set metrics,
-see 2.2) & 55
-enzymes \\
-3.3 & BglB variants,
-evaluation set &
-real substitutions
-with measured
-kinetics & five
-declared baselines,
-reference rows and a
-best-of-41 threshold
-& 29 structure-space
-(28 defined) & 432
-variants at 175
-positions \\
-3.3 & BglB variants,
-re-predicted &
-predictions of the
-variants & the same
-& 4 prediction-based
-& same \\
-3.3 & Plated
-designs, evaluation
-set & 192 designs,
-16 with measured
-activity & reference
-rows & 29
-structure-space and
-2 prediction-based &
-16 designs with a
-measured activity \\
-3.4 & Catalytic
-lesion, in
-structures &
-catalytic residues
-replaced in four
-steps: isosteric,
-non-isosteric, to
-Ala, to Gly & the
-identical
-substitution at
-matched
-non-catalytic sites;
-a best-of-33
-threshold & 29
-structure-space &
-195 enzymes (143
-main + 52 pilot) \\
-3.4 & Second-shell
-lesion, in
-structures & 1, 2 or
-4 second-shell
-residues removed &
-matched control &
-same 29 & up to 193
-enzymes \\
-3.4 & Detection
-floor & all
-catalytic residues
-replaced by Gly (the
-same lesion as the
-Gly step) & the
-untouched structure,
-put through the same
-treatment & same 29
-& 143 enzymes \\
-3.4 & Catalytic
-lesion, re-predicted
-& one catalytic
-residue substituted
-per prediction &
-matched control,
-then a
-distance-matched
-control, then a
-regression
-adjustment & 4
-prediction-based &
-59 enzymes, 286
-pairs \\
-\end{longtable}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1732}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1417}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2835}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1890}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2126}}@{}}
-\caption*{\textbf{Table
-2. Datasets.} Which
-data each Results
-subsection uses, and
-what the labels
-are.}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Dataset
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Used in
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Composition
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Labels
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Notes
-\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Dataset
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Used in
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Composition
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Labels
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Notes
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Zymogen--mature
-pairs, evaluation
-set & 3.1 & 21 pairs
-from 21 proteins (9
-serine, 8 cysteine,
-4 aspartic
-peptidases); the two
-forms share a
-ligand; both
-re-predicted with
-Chai-1 & dead
-(zymogen) or active
-(mature) & subset of
-the 49-pair wider
-set and of the 28
-re-predicted
-pairs \\
-Zymogen--mature
-pairs, wider set &
-3.1 (Supplement) &
-49 pairs scored (55
-candidates);
-structure-space
-metrics only; 28 of
-them re-predicted &
-as above &
-trapping-mutant
-pairs were examined
-and retired \\
-Substrate-swap
-enzymes, evaluation
-set & 3.2 & 55 M-CSA
-enzymes, stratified
-by enzyme class (of
-59; 4 excluded
-because a supplied
-ligand is missing
-from a prediction) &
-none & 28 of the 59
-are also in the
-143-enzyme set; the
-30 de novo designs
-are in S1 \\
-BglB variants & 3.3
-& β-glucosidase B:
-655 single-point
-variants at 207
-positions; 432
-analysed at 175
-positions & log10
-kcat/KM relative to
-wild type: 166
-impaired, 254
-wild-type-like & one
-enzyme;
-variant-level data
-are not
-redistributed \\
-Plated designs &
-3.1, 3.3 & 192
-designs on two
-96-well plates, in
-136 backbone
-clusters & 16 with
-measured kcat/KM
-(active); 176 no
-active (not
-confirmed inactive)
-& 10 of the 16
-active designs lie
-in two backbone
-clusters \\
-143-enzyme set & 3.4
-& enzymes from the
-Mechanism and
-Catalytic Site Atlas
-(M-CSA), 77 enzyme
-sub-subclasses,
-median 6 catalytic
-residues; 2 carry a
-bound ligand & none
-& the primary set;
-pooled with the
-pilot set in each
-lesion test (Results
-3.4) \\
-Shortened-motif set
-& 3.4 (sensitivity)
-& the same 143
-enzymes with at most
-3 catalytic residues
-kept & none & tests
-whether motif size
-matters \\
-Pilot set & 3.4
-(pooled with the 143
-enzymes) & 53
-enzymes (annotation
-from UniProt active
-sites and M-CSA,
-mixed; 35
-peptidases; 34 with
-a ligand) & none &
-not a subset of the
-143-enzyme set;
-shares one PDB
-entry, so 52 are
-added to the 143 in
-both lesion tests;
-looser controls \\
-Curated designs &
-3.4 (sensitivity),
-3.2 (S1) & 30 de
-novo
-metallohydrolase
-designs with a
-three-histidine zinc
-site;
-transition-state
-analogue supplied &
-16 active, 3
-inactive, others
-unlabelled & 23 of
-the 30 are on the
-plates \\
-Ladder pairs & 3.4 &
-74 systems (59
-natural, 15
-designs); 312
-catalytic/control
-pairs, of which the
-286 natural pairs
-are analysed in
-Table 8 & none & one
-residue per
-prediction \\
-\end{longtable}
-
-\begin{shaded}
-
-\textbf{Box 1 ---
-Terms used
-throughout.}
-\textbf{Lesion}: a
-deliberate change to
-a protein (a
-substitution, a
-removal, or a swap
-of the ligand given
-to a predictor).
-\textbf{Response
-(Δ)}: how much a
-metric changes
-because of a lesion,
-measured against the
-same protein put
-through the same
-treatment without
-it. \textbf{Matched
-control}: the
-identical lesion
-applied at a
-non-catalytic site
-of the same protein,
-matched on residue
-type and burial
-(and, where stated,
-packing, secondary
-structure and
-distance to the
-ligand).
-\textbf{Specificity
-ratio (SR)}: the
-response at the
-catalytic site
-divided by the
-response at the
-control; SR = 1
-means the metric
-cannot tell the two
-apart (2.4).
-\textbf{Discrimination
-(AUROC)}: the
-probability that a
-randomly chosen
-member of one class
-scores higher than a
-member of the other,
-where 0.5 means no
-discrimination; we
-report the
-direction-free form
-max(A, 1 − A), which
-cannot fall below
-0.5 (equations in
-2.1).
-\textbf{Ranking}:
-whether a metric
-orders designs or
-variants by measured
-activity (Spearman
-ρ, equations in 2.3,
-or expected hits per
-plate). \textbf{Rank
-statistic R}: the
-probability that a
-metric changes more
-at the catalytic
-lesion than at the
-matched control
-(equations in 2.4).
-\textbf{Reference
-row or baseline}: a
-quantity that needs
-no catalytic
-information
-(resolution,
-sequence length,
-tyrosine fraction,
-the distance to the
-catalytic residues)
-which any useful
-metric must beat.
-
-\end{shaded}
-
-\begin{shaded}
-
-\textbf{Box 2 ---
-The 33 reported
-metrics and the
+1. The 33 reported
+metrics and the six
 reference rows.} In
 a structure,
 ``perturbed
@@ -819,15 +197,23 @@ catalytic residues.
 The third column
 says where each
 definition comes
-from.
-
-\end{shaded}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3226}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3548}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1613}}@{}}
+from.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Metrics
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Reads, and where it
+is defined
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Scored over
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Group
@@ -1017,174 +403,105 @@ counters and
 constants on which
 no test can be run.
 Whether a metric can
-be tested in a given
+be tested in an
 experiment is
-decided from three
-things only --- what
+decided from what
 the metric reads,
 whether it is
 defined under the
 experimental
-condition, and the
+condition and the
 design of the
-experiment --- never
-from the result. A
-metric with no
-residue-set input
-(whole-protein
-energies, sequence
-composition,
-whole-prediction
-confidence) cannot
-respond
-\emph{specifically}
-to catalytic
-residues, and a
-metric whose input
-cannot reach the
-perturbed quantity
-cannot register the
-lesion at all
-(sequence
-composition under a
-rotamer change, for
-example). Such
-metrics are kept as
-comparators in the
-Supplement. One
-further quantity is
-kept out of the main
-set although it
-passes these tests:
-the Chai-1 combined
-score, which Chai-1
-uses to rank its own
-models and which
-equals
-\(0.2\,\mathrm{pTM} + 0.8\,\mathrm{ipTM} - 100 \times (\text{inter-chain clash flag})\)
-(from the Chai-1
-code), so that it is
-a rescaled ipTM and
-not an independent
-metric (it is still
-scored, and its
-results are in the
-Supplement). The
+experiment, never
+from the result. The
 main text reports
-the \textbf{33
-metrics that are
-valid and tested in
-all four tests} (Box
-2), so that one set
-of metrics runs
-through the whole
-paper, plus six
-reference rows
+the 33 metrics that
+are valid and tested
+in all four tests
+(Table 1), so that
+one set of metrics
+runs through the
+whole paper, plus
+six reference rows
 chosen before any
 result was seen. The
-role of each of the
-191 distinct metrics
-(main, reference,
-supplement or
-excluded) and the
+Chai-1 combined
+score, a rescaled
+ipTM and not an
+independent metric,
+is scored but kept
+out of the main set.
+The role of each of
+the 191 distinct
+metrics and the
 reason for it are in
-Table S2; what each
+Table S1; what each
 of the 216 named
 quantities reads,
 and over which
 residues it is
 scored, is in Table
-S3; whether each can
+S2; whether each can
 be tested in each of
 the 30 tests, and if
 not why, is in
-Tables S4 (one row
+Tables S3 (one row
 per metric and test)
-and S5 (counts by
+and S4 (counts by
 class of metric);
 the counts of the
 earlier whole-panel
 analysis restated on
 the eligible metrics
 only are in Table
-S6; and the list of
+S5; and the list of
 the tests, with
 comparator, control
 type and role, is in
-Table S7.
+Table S6.
 
-\begin{shaded}
-
-\textbf{Box 3 ---
-Notation of the
-equations.} Every
-table of the Results
+\textbf{Notation.}
+Every Results table
 ranks a set of
 \emph{items} (the
 metrics, the
 reference rows and,
 in 2.3, the declared
-baselines). \(m\) is
-an item and \(M\)
-the number of items
-ranked in one table;
-\(x_u(m)\) is the
+baselines): \(m\) is
+an item, \(M\) the
+number of items
+ranked in one table
+and \(x_u(m)\) the
 value of item \(m\)
-on unit \(u\) (a
+on a unit \(u\) (a
 structure, a
 prediction, a
 variant or a
-design).
-\(N_{\mathrm{boot}} = 5{,}000\)
-is the number of
-bootstrap draws and
-\(N_{\mathrm{perm}} = 5{,}000\)
-the number of
-permutations, unless
-a different number
-is stated;
+design). Bootstrap
+and permutation
+tests use
+\(N_{\mathrm{boot}} = N_{\mathrm{perm}} = 5{,}000\)
+draws unless another
+number is stated;
 \(q_{\alpha}\) is
 the
 \(\alpha\)-quantile
-of a set of values.
+of a set of values
+and
 \(\mathbf{1}(\cdot)\)
 is 1 if its argument
 is true and 0
-otherwise. In 2.1
-and 2.2, \(A_m\) is
-the AUROC of item
-\(m\) and
-\(A^{*}_m\) its
-direction-free form;
-in 2.3, \(\rho_m\)
-is the Spearman
-correlation and
-\(I_v\) the measured
-impairment of
-variant \(v\); in
-2.4, \(\Delta\) is
-the response to a
-lesion, \(R_{m,s}\)
-the rank statistic
-of item \(m\) at
-step \(s\) and
-\(\bar R_m\) its
-mean over the
-counted steps.
-\(T^{(r)}\) is the
-largest statistic
-among the \(M\)
-items in permutation
-\(r\) (the
-max-statistic of
-2.1), and
-\(q_{0.95}(T)\) is
-the best-of-\(M\)
-threshold.
-
-\end{shaded}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+otherwise. The
+statistics (\(A_m\),
+\(\rho_m\),
+\(R_{m,s}\) and the
+best-of-\(M\)
+threshold from the
+max-statistic
+\(T^{(r)}\)) are
+defined with their
+equations in 2.1 to
+2.4.
 
 \subsection{2.1
 Activity
@@ -1192,8 +509,7 @@ discrimination test:
 do the metrics
 separate a dead
 enzyme from an
-active one? →
-Results 3.1}
+active one?}
 
 \textbf{Experiment.}
 Every metric is
@@ -1206,16 +522,38 @@ active, and the
 metrics are ranked
 by how well their
 values separate the
-two states. Two
-datasets are used,
-each with its own
-table and its own n:
-21 zymogen--mature
-pairs (2.1.1, Table
-3) and 192 plated
-designs, of which 16
-are active (2.1.2,
-Table 4). The
+two states. A
+zymogen, for
+example, is an
+inactive precursor
+that already
+contains the
+catalytic residues
+of the mature
+enzyme: a metric
+that detected
+catalytic competence
+would separate the
+two structures,
+whereas a metric
+that only reads the
+geometry of the
+catalytic residues
+would not, because
+that geometry is
+almost the same in
+both. Two datasets
+are used, each with
+its own table and
+its own n: 21
+zymogen--mature
+pairs (2.1.1;
+results in 3.1.1,
+Table 5) and 192
+plated designs, of
+which 16 are active
+(2.1.2; results in
+3.1.2, Table 6). The
 procedure is the
 same for both:
 
@@ -1262,31 +600,10 @@ same for both:
   threshold.
 \end{enumerate}
 
-\textbf{Illustration.}
-A zymogen is an
-inactive precursor
-that already
-contains the
-catalytic residues
-of the mature
-enzyme. A metric
-that detected
-catalytic competence
-would separate the
-two structures; a
-metric that only
-reads the geometry
-of the catalytic
-residues would not,
-because that
-geometry is almost
-the same in both.
-
 \subsubsection{2.1.1
 Discriminate natural
 active and dead
-enzymes → Results
-3.1.1}
+enzymes}
 
 \textbf{Dataset.}
 Pairs of structures
@@ -1305,15 +622,38 @@ boundaries come from
 UniProt
 \cite{uniprot2023}.
 The pairs were
-assembled in four
-steps, and the
-evaluation set is
-the last:
+assembled in the
+steps of Table 2,
+and the evaluation
+set is the last:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2143}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3214}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4643}}@{}}
+\caption*{\textbf{Table
+2. Assembly of the
+zymogen--mature
+pairs.} From the
+UniProt search to
+the 21-pair
+evaluation set of
+Results 3.1.1; the
+last row is the
+evaluation
+set.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Step
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Cases
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rule
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Step
@@ -1373,7 +713,7 @@ Scored pairs (wider
 set) & 49 &
 structure-space
 metrics scored on
-both forms (S8);
+both forms (S7);
 trapping-mutant
 pairs were examined
 and retired \\
@@ -1381,7 +721,7 @@ Re-predicted pairs &
 28 & both forms
 predicted with
 Chai-1, three seeds
-each (S9) \\
+each (S8) \\
 \textbf{Evaluation
 set} & \textbf{21} &
 the two forms share
@@ -1417,7 +757,7 @@ in 3.1 (55, 49, 45,
 28, 21 and 96 pairs)
 and the table that
 uses each are in
-Table S10.
+Table S9.
 
 \textbf{Why this
 dataset.} A zymogen
@@ -1450,7 +790,7 @@ row has a value on
 both forms of every
 pair, so that one n
 applies to every row
-of Table 3. The
+of Table 5. The
 pairs were selected
 by ligand sharing
 and not by any
@@ -1461,7 +801,7 @@ and 28-pair analyses
 had been read, and
 those analyses are
 in the Supplement
-(S8, S9). A second
+(S7, S8). A second
 class of dead
 enzymes,
 substrate-trapping
@@ -1470,12 +810,12 @@ verified against the
 primary literature
 (26 of 30 were not
 confirmed dead) and
-retired (S11).
+retired (S10).
 
 \textbf{Metrics
 scored.} The 33
 main-set metrics
-(Box 2) and the 6
+(Table 1) and the 6
 reference rows, 39
 items in all, are
 computed on both
@@ -1503,7 +843,7 @@ active-site accuracy
 is measured against
 each form's own
 deposited structure.
-Table S12 lists
+Table S11 lists
 every metric scored
 on the 21 pairs
 (158, including
@@ -1516,7 +856,7 @@ reference rows are
 reported in full,
 with intervals, for
 every activity test
-in Table S13.
+in Table S12.
 
 \textbf{Ranking
 criteria.} Let \(P\)
@@ -1565,7 +905,7 @@ and the directed
 \(A_m\) is kept so
 that the direction
 is visible (``higher
-in'' in Table 3 is
+in'' in Table 5 is
 the form in which
 the item takes
 larger values: dead
@@ -1606,7 +946,7 @@ the design-level and
 the cluster-level N
 are both 21.
 
-Table 3 ranks
+Table 5 ranks
 \(M = 39\) items,
 and the top of such
 a ranking looks good
@@ -1669,11 +1009,11 @@ reference level for
 reading the ranking.
 For the complete
 table of all 158
-metrics (S12) the
+metrics (S11) the
 same procedure gives
 the best-of-158
 threshold. In Table
-3 the AUROCs above
+5 the AUROCs above
 the threshold are in
 bold. No threshold
 is adopted for this
@@ -1688,78 +1028,10 @@ headline when its
 interval is wider
 than 0.2.
 
-\textbf{Limits.}
-
-\begin{itemize}
-\tightlist
-\item
-  21 pairs is a
-  small set, and the
-  interval of any
-  single AUROC is
-  wide (the
-  best-of-39
-  threshold has a
-  median of 0.63).
-\item
-  All 21 proteins
-  are peptidases
-  whose
-  zymogen-to-enzyme
-  activation is a
-  well-characterised
-  event; the set
-  says nothing about
-  other enzyme
-  classes.
-\item
-  The pairs share a
-  ligand by
-  construction, so
-  they are more
-  likely to have a
-  ligand-bound
-  mature structure
-  than a typical
-  deposit.
-\item
-  A zymogen
-  construct carries
-  a propeptide, so
-  the dead form is
-  on average longer
-  and its predicted
-  confidence lower;
-  protein-level
-  quantities can
-  separate the forms
-  without reading
-  catalysis.
-\item
-  The same-state
-  null and the
-  confound floor of
-  the earlier
-  analysis were
-  computed for the
-  49 pairs and are
-  not restated on
-  21; the reference
-  rows on the same
-  pairs take their
-  place (the AUROC
-  of every metric
-  against the
-  same-state null on
-  the 49 pairs is in
-  Table S8).
-\end{itemize}
-
 \subsubsection{2.1.2
 Discriminate de novo
 designed active and
-no active enzymes →
-Results 3.1.2}
+no active enzymes}
 
 \textbf{Dataset.} A
 deposited
@@ -1804,7 +1076,7 @@ transition-state
 analogue together
 with the zinc. One
 set serves every row
-of Table 4: every
+of Table 6: every
 item is scored on
 all 192 designs.
 
@@ -1876,7 +1148,7 @@ pooled), so they are
 in the Supplement
 and not among the
 ranked items. Table
-S14 lists every
+S13 lists every
 metric scored on the
 designs (128).
 
@@ -1890,7 +1162,7 @@ the 176 no active
 designs, over the
 192 designs;
 ``higher in'' in
-Table 4 is the group
+Table 6 is the group
 in which the item
 takes larger values.
 The interval
@@ -1940,7 +1212,7 @@ percentile 0.73),
 and the best-of-128
 threshold (0.75) for
 the 128 metrics of
-Table S14. Because
+Table S13. Because
 10 of the 16 active
 designs lie in two
 backbone clusters,
@@ -1949,44 +1221,9 @@ exchangeable and the
 threshold
 understates the
 chance range. Table
-4 marks the AUROCs
+6 marks the AUROCs
 above the best-of-36
 threshold in bold.
-
-\textbf{Limits.}
-
-\begin{itemize}
-\tightlist
-\item
-  The 176 no active
-  designs are not
-  confirmed
-  inactive, so the
-  AUROC compares
-  active designs
-  with the rest of
-  the plate.
-\item
-  Ten of the 16
-  active designs lie
-  in two backbone
-  clusters, so the
-  effective number
-  of independent
-  actives is small,
-  the intervals are
-  wide and the
-  best-of-36
-  threshold
-  understates the
-  chance range.
-\item
-  The designs differ
-  in length and
-  size; sequence
-  length is a
-  reference row.
-\end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1996,8 +1233,7 @@ discrimination test:
 do prediction-based
 metrics know which
 ligand they were
-given? → Results
-3.2}
+given?}
 
 \textbf{Experiment.}
 A structure
@@ -2015,8 +1251,24 @@ they separate the
 cognate prediction
 from a wrong-ligand
 prediction of the
-same enzyme. Chai-1
-is run on the
+same enzyme. For
+example, Chai-1
+predicts a hydrolase
+together with its
+own substrate and
+again together with
+a substrate of a
+different enzyme
+class; if ipTM falls
+when the wrong
+substrate is given,
+the metric ``knows''
+which substrate
+belongs to the
+protein, and the
+AUROC measures how
+reliably it does.
+Chai-1 is run on the
 sequence, the ligand
 (as a chemical
 structure) and,
@@ -2030,11 +1282,13 @@ five models and
 their confidence
 scores. Only the
 ligand supplied
-changes. The protein
-is untouched, and
-four conditions are
-built for every
-enzyme:
+changes; the protein
+sequence is the same
+in every condition,
+and four conditions
+are built for every
+enzyme (results in
+3.2, Table 7):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2086,24 +1340,6 @@ without a ligand
 there is no
 interface to be
 confident about.
-
-\textbf{Illustration.}
-Chai-1 predicts a
-hydrolase together
-with its own
-substrate, and again
-together with a
-substrate of a
-different enzyme
-class. If ipTM falls
-when the wrong
-substrate is given,
-the metric ``knows''
-which substrate
-belongs to the
-protein; the AUROC
-measures how
-reliably it does.
 
 \textbf{Dataset.}
 Natural enzymes of
@@ -2179,9 +1415,9 @@ is measured against
 the design's own
 model and is never
 pooled with it, are
-in S1. The choice of
-the 55 systems was
-made after the
+in S14. The choice
+of the 55 systems
+was made after the
 earlier all-system
 analysis had been
 read.
@@ -2192,7 +1428,7 @@ prediction is scored
 on 33
 prediction-based
 quantities, of which
-Table 5 ranks 30.
+Table 7 ranks 30.
 The three summaries
 of the Chai-1
 combined score are
@@ -2203,12 +1439,12 @@ not a main-set
 metric (see ``Which
 metrics are
 reported''); their
-AUROCs are in S1.
+AUROCs are in S14.
 The 30 listed
 quantities are the
 four main-set
-metrics of Box 2, 13
-whole-prediction
+metrics of Table 1,
+13 whole-prediction
 confidence summaries
 (pLDDT, pTM, the
 per-chain pTM of the
@@ -2240,7 +1476,7 @@ the minimum over the
 models, so that one
 metric appears in
 several rows of
-Table 5, one per
+Table 7, one per
 summary. Two
 quantities need a
 definition of their
@@ -2313,7 +1549,7 @@ symmetry resolution
 is also listed (``no
 symmetry
 resolution'' in
-Table 5).
+Table 7).
 
 \textbf{Ligand
 clearance} is the
@@ -2402,7 +1638,7 @@ threshold} (median
 0.56, 95th
 percentile 0.61)
 \cite{westfall1993}.
-Table 5 marks in
+Table 7 marks in
 bold the mean AUROCs
 above it. No
 threshold is
@@ -2429,52 +1665,13 @@ quantity is reported
 
 \begin{equation*}W \;=\; \frac{1}{n_{\mathrm{cells}}}\sum_{\mathrm{cells}}\Big[\mathbf{1}\big(x_{\mathrm{cognate}} > x_{\mathrm{wrong}}\big) + \tfrac12\,\mathbf{1}\big(x_{\mathrm{cognate}} = x_{\mathrm{wrong}}\big)\Big]. \tag{10}\end{equation*}
 
-\textbf{Limits.}
-
-\begin{itemize}
-\tightlist
-\item
-  55 natural
-  enzymes; the AUROC
-  does not separate
-  catalytic identity
-  from ligand size
-  or from the mere
-  presence of a
-  different ligand,
-  and the
-  ligand-size strata
-  (S15) are the
-  check.
-\item
-  The wrong ligands
-  are chosen by us,
-  so the AUROCs
-  describe
-  sensitivity to the
-  ligand supplied
-  and not a ranking
-  of designs.
-\item
-  Chai-1 is not
-  bitwise
-  reproducible; we
-  report the drift
-  of a re-run
-  against the
-  earlier
-  predictions (Table
-  S16).
-\end{itemize}
-
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{2.3
 Activity ranking
 test: do the metrics
 track measured
-activity? → Results
-3.3}
+activity?}
 
 \textbf{Experiment.}
 We ask whether the
@@ -2489,55 +1686,53 @@ does better than
 simply knowing how
 close the change is
 to the active site.
-This is a ranking
-claim, so the
-statistic is a rank
-correlation; the
-AUROC of the binary
-contrast (impaired
-against
-wild-type-like
-variants) is given
-for BglB in the
-Supplement (S17).
-Two datasets are
-used, each with its
-own table and its
-own n: 432 BglB
-variants (2.3.1,
-Table 6) and the 16
-plated designs that
-have a measured
-activity (2.3.2,
-Table 7).
-
-\textbf{Illustration.}
-Line the variants up
-by how strongly the
-assay found each one
-impaired, and line
-them up again by how
-much a metric
-changes for each
-one. If the two
+For example, the
+variants are lined
+up by how strongly
+the assay found each
+one impaired and
+again by how much a
+metric changes for
+each one; if the two
 orders agree, the
 metric ranks the
 variants as the
-assay does; the rank
-correlation measures
-how well. The
-baselines ask
+assay does, and the
+rank correlation
+measures how well.
+The baselines ask
 whether knowing only
 the distance from
 the mutated residue
 to the catalytic
 glutamates ranks
-them as well.
+them as well. This
+is a ranking claim,
+so the statistic is
+a rank correlation;
+the AUROC of the
+binary contrast
+(impaired against
+wild-type-like
+variants) is given
+for BglB in the
+Supplement (S16).
+Two datasets are
+used, each with its
+own table and its
+own n: 432 BglB
+variants (2.3.1;
+results in 3.3.1,
+Table 8) and the 16
+plated designs that
+have a measured
+activity (2.3.2;
+results in 3.3.2,
+Table 9).
 
 \subsubsection{2.3.1
 Ranking natural
-enzyme activity →
-Results 3.3.1}
+enzyme activity}
 
 \textbf{Dataset.}
 β-glucosidase B
@@ -2578,13 +1773,38 @@ the covalent link to
 the glucosyl
 intermediate in the
 deposited structure.
-The funnel to the
-evaluation set is:
+The funnel from the
+measured rows to the
+evaluation set is in
+Table 3:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2075}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3396}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4528}}@{}}
+\caption*{\textbf{Table
+3. From the D2DCure
+rows to the
+432-variant
+evaluation set.} The
+funnel for Results
+3.3.1; the last row
+is the set on which
+every row of Table 8
+is
+computed.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Step
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Cases
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Rule
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Step
@@ -2651,7 +1871,7 @@ above \\
 set} & \textbf{432
 variants} & one set
 serves every row of
-Table 6; a
+Table 8; a
 structure-space
 metric has a value
 for 431 of the 432
@@ -2673,7 +1893,7 @@ wild type of the
 same institution.
 The binary contrast
 of the Supplement
-(S17) uses the 420
+(S16) uses the 420
 variants that are
 impaired or
 wild-type-like.
@@ -2758,7 +1978,7 @@ glucosyl
 intermediate and not
 the substrate. The
 41 ranked items of
-Table 6 are the 28
+Table 8 are the 28
 structure-space
 main-set metrics
 that BglB defines
@@ -2910,7 +2130,7 @@ baseline only if the
 to
 \(q_{0.975}(D_m^{(b)})\),
 lies above 0. Table
-6 ranks \(M = 41\)
+8 ranks \(M = 41\)
 items by \(\rho_m\),
 and the top of such
 a ranking looks good
@@ -2946,7 +2166,7 @@ permutations (median
 0.24, 95th
 percentile 0.32; for
 the complete table
-S17, over all 114
+S16, over all 114
 analysed quantities,
 0.32). The same
 procedure applies to
@@ -2959,13 +2179,13 @@ It is a reference
 level for reading
 the ranking; a
 \(\rho\) above it is
-in bold in Table 6.
+in bold in Table 8.
 The signed
 correlation of the
 pre-specified plan
-(S18) and the AUROC
+(S17) and the AUROC
 of the binary
-contrast (S17) are
+contrast (S16) are
 given beside it. The
 ten sensitivity
 analyses (variants
@@ -2979,51 +2199,21 @@ labels, and each
 institution left out
 in turn) are
 summarised in Table
-S19, the 28
+S18, the 28
 prediction-based
 metrics, with their
 own correlation and
 AUROC columns, are
-in Table S20, and
+in Table S19, and
 the declared
 baselines are
 reported in full in
-Table S13.
-
-\textbf{Limits.}
-
-\begin{itemize}
-\tightlist
-\item
-  One enzyme: the
-  result is about
-  BglB and says
-  nothing about
-  other folds or
-  reactions.
-\item
-  The BglB wild-type
-  reference for
-  prediction-based
-  accuracy is a
-  covalent-intermediate
-  crystal.
-\item
-  Destabilised,
-  non-expressed and
-  insufficient-data
-  variants are set
-  aside, so the
-  ranking describes
-  folded variants
-  only.
-\end{itemize}
+Table S12.
 
 \subsubsection{2.3.2
 Ranking de novo
 designed enzyme
-activity → Results
-3.3.2}
+activity}
 
 \textbf{Dataset.}
 The 192-design
@@ -3040,7 +2230,7 @@ the
 set is those 16
 designs} and one n
 serves every row of
-Table 7. They lie in
+Table 9. They lie in
 8 of the 136
 backbone clusters,
 so the effective
@@ -3050,9 +2240,9 @@ is smaller than 16.
 The 192-design plate
 is used for the
 AUROC of 2.1.2
-(Table 4) and for
+(Table 6) and for
 the filter-style
-analysis (S21).
+analysis (S20).
 
 \textbf{Why this
 dataset.} The same
@@ -3086,8 +2276,8 @@ is reported in
 
 \textbf{Metrics
 scored.} The 36
-items of Table 7 are
-those of Table 4:
+items of Table 9 are
+those of Table 6:
 the 29
 structure-space
 main-set metrics,
@@ -3114,7 +2304,7 @@ measured against the
 design's own model.
 AME and the ligand
 clearance are in the
-Supplement (S22) and
+Supplement (S21) and
 not among the ranked
 items, as in 2.1.2.
 
@@ -3147,8 +2337,8 @@ the correlation is
 also computed with
 the sequence length
 partialled out of
-both sides (S23,
-S22): with the ranks
+both sides (S22,
+S21): with the ranks
 \(r_x\), \(r_y\) and
 \(r_z\) of the item,
 of the activity and
@@ -3165,7 +2355,7 @@ correlation,
 \begin{equation*}e_x = r_x - \frac{r_z^{\top} r_x}{r_z^{\top} r_z}\, r_z, \qquad e_y = r_y - \frac{r_z^{\top} r_y}{r_z^{\top} r_z}\, r_z, \qquad \rho_{xy\cdot z} = \mathrm{corr}(e_x, e_y). \tag{15}\end{equation*}
 
 A \(\rho\) is in
-bold in Table 7 when
+bold in Table 9 when
 its 90\% interval
 excludes 0, and
 about 10\% of
@@ -3216,7 +2406,7 @@ with probability
 of a random item
 does with
 probability 0.044
-(S21). The
+(S20). The
 correlation of every
 structure-space
 metric and
@@ -3224,40 +2414,17 @@ comparator, with and
 without the sequence
 length partialled
 out, is in Table
-S23, and the
+S22, and the
 enrichment at keep
 fractions of 5, 10,
 25 and 50\% in both
 directions is in
-Table S24
+Table S23
 (structure-space
 metrics) and Table
-S25
+S24
 (prediction-based
 metrics).
-
-\textbf{Limits.}
-
-\begin{itemize}
-\tightlist
-\item
-  16 active designs
-  across the plates,
-  in 8 backbone
-  clusters, so
-  intervals resample
-  designs and the
-  effective number
-  of independent
-  actives is smaller
-  than 16.
-\item
-  The analysis is
-  descriptive: an
-  interval that
-  excludes 0 is
-  reported as such.
-\end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -3267,8 +2434,7 @@ test: do the metrics
 respond more to a
 catalytic lesion
 than to a matched
-control? → Results
-3.4}
+control?}
 
 \textbf{Experiment.}
 We damage the
@@ -3289,21 +2455,13 @@ damage is made at a
 matched
 non-catalytic site
 of the same protein.
-Two kinds of lesion
-are applied, each
-with its own
-datasets and table:
-the catalytic lesion
-(the chemistry
-ladder, 2.4.1, Table
-8) and the
-second-shell lesion
-(2.4.2, Table 9).
-
-\textbf{Illustration.}
-In a serine protease
-the catalytic triad
-is Asp, His and Ser.
+We call each such
+deliberate change a
+\emph{lesion}. In a
+serine protease, for
+example, the
+catalytic triad is
+Asp, His and Ser.
 The \emph{Ala step}
 builds a structure
 in which those three
@@ -3323,7 +2481,19 @@ is \emph{specific}
 if it changes
 clearly more in the
 first structure than
-in the second.
+in the second. Two
+kinds of lesion are
+applied, each with
+its own datasets and
+table: the catalytic
+lesion (the
+chemistry ladder,
+2.4.1; results in
+3.4.1, Table 10) and
+the second-shell
+lesion (2.4.2;
+results in 3.4.2,
+Table 11).
 
 \textbf{Change.}
 Every change is made
@@ -3372,7 +2542,7 @@ which is the same
 lesion as the Gly
 step, and asks
 whether the metric
-notices. Table S26
+notices. Table S25
 gives the result of
 the detection floor
 and of the other
@@ -3459,7 +2629,7 @@ questions.
   (the loosest tier
   needed for each
   lesion test is in
-  Table S27). Only
+  Table S26). Only
   comparisons where
   both arms change
   the same number of
@@ -3469,7 +2639,7 @@ questions.
   numbers of
   residues changed
   in the two arms is
-  in Table S28). For
+  in Table S27). For
   the re-predicted
   ladder each
   substitution is
@@ -3544,17 +2714,43 @@ excludes zero.
 
 \subsubsection{2.4.1
 Detecting catalytic
-lesion → Results
-3.4.1}
+lesion}
 
 \textbf{Dataset.}
 The datasets of this
-test are:
+test are listed in
+Table 4:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2407}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4259}}@{}}
+\caption*{\textbf{Table
+4. Datasets of the
+catalytic lesion
+test.} The sets on
+which the catalytic
+lesion is scored in
+Results 3.4.1, the
+sets added to them
+and the sets that
+are excluded or used
+for sensitivity
+analyses.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dataset
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Cases
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+How it was built,
+and what it is used
+for
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Dataset
@@ -3632,7 +2828,7 @@ main-set metrics;
 the main set alone
 is kept beside the
 pooled score (Table
-S29) \\
+S28) \\
 \textbf{Prediction-based
 evaluation set} &
 \textbf{59 natural
@@ -3659,8 +2855,8 @@ the control of a
 design is
 constructed, so
 designs are not
-pooled (Tables S30
-and S31) \\
+pooled (Tables S29
+and S30) \\
 Shortened-motif set
 & the 143 enzymes
 with at most 3
@@ -3668,7 +2864,7 @@ catalytic residues
 kept & a sensitivity
 analysis of the
 specificity ratio
-(S32) \\
+(S31) \\
 \end{longtable}
 
 \textbf{Why this
@@ -3724,7 +2920,7 @@ enzymes changes the
 mean R of a metric
 by at most 0.06,
 median 0.02, Table
-S29). The
+S28). The
 prediction-based arm
 uses the natural
 enzymes of the
@@ -3738,12 +2934,13 @@ without one.
 \textbf{Metrics
 scored.} The 29
 structure-space
-metrics (Box 2) are
-computed on every
-structure. The four
+metrics (Table 1)
+are computed on
+every structure. The
+four
 prediction-based
 main-set metrics
-(Box 2, defined in
+(Table 1, defined in
 2.2) are computed on
 each re-predicted
 complex. The seed
@@ -3752,9 +2949,9 @@ is estimated from a
 replicate with a
 second seed on 30
 natural pairs (Table
-S33). The 35 ranked
-items of Table 8 are
-the 29
+S32). The 35 ranked
+items of Table 10
+are the 29
 structure-space and
 4 prediction-based
 main-set metrics and
@@ -3763,7 +2960,7 @@ the 2 reference rows
 supplementary
 comparators and the
 per-step flags are
-in Table S29.
+in Table S28.
 
 \textbf{Ranking
 criteria.} The
@@ -3866,7 +3063,7 @@ each item,
 \(\lvert S_m\rvert\)
 out of the steps
 with a value, is in
-Table S29.
+Table S28.
 
 \emph{Interval.} A
 95\% percentile
@@ -3925,7 +3122,7 @@ level for reading
 the ranking
 \cite{westfall1993}.
 A mean above it is
-in bold in Table 8.
+in bold in Table 10.
 
 \emph{Onsets and
 grouping.} The
@@ -3964,7 +3161,7 @@ systems),
 
 with ``Never'' if
 there is none. Rows
-of Table 8 are
+of Table 10 are
 grouped by
 \(s_{\mathrm{det}}\)
 (the first column),
@@ -3984,7 +3181,7 @@ rule
 (structure-space
 metrics only;
 reported in Table
-S29); the ratio and
+S28); the ratio and
 the rule are
 
 \begin{equation*}\mathrm{SR}_{m,s} \;=\; \frac{\operatorname{median}_i \lvert\Delta^{\mathrm{cat}}_{i}\rvert}{\operatorname{median}_i \lvert\Delta^{\mathrm{ctl}}_{i}\rvert}, \tag{22}\end{equation*}
@@ -4029,21 +3226,21 @@ non-specific, blind
 or invariant) of
 every eligible
 metric at every step
-are in Table S34,
+are in Table S33,
 and those of the
 whole-protein and
 sequence-only
 comparators in Table
-S35; the 97 cells
+S34; the 97 cells
 that survive the
 controls are listed
-in Table S36; and
+in Table S35; and
 the per-step form of
 R on the 143 main
 enzymes alone, with
 90\% intervals and
 the comparators, is
-in Table S37.
+in Table S36.
 
 \emph{Distance-matched
 R for the
@@ -4091,11 +3288,11 @@ existed, pooled over
 the four steps (68
 to 69 pairs in 21 to
 22 systems in Table
-8). For the original
-control the median
-distance to the
-ligand was 13.4 Å
-against 3.1 Å for
+10). For the
+original control the
+median distance to
+the ligand was 13.4
+Å against 3.1 Å for
 the catalytic
 residue. The
 distance of the
@@ -4103,22 +3300,22 @@ substituted and the
 control residue to
 the ligand for every
 pair is in Table
-S38, the candidate
+S37, the candidate
 controls for the
 pairs that had none
 in the caliper, and
 why one was or was
 not selected, in
-Table S39, and the
+Table S38, and the
 ratio in thirds of
 the distance to the
-ligand in Table S40.
+ligand in Table S39.
 
 \emph{The
 specificity-ratio
 analysis of the
 predictor (Table
-S31).} The earlier
+S30).} The earlier
 analysis reports the
 ratio of the mean
 change at the
@@ -4140,11 +3337,11 @@ isosteric step only;
 caliper-matched
 subset of Eq. (23),
 with all four steps
-pooled (Table S41);
+pooled (Table S40);
 (iii) a regression
 adjustment on all
 pairs and steps
-(Table S42),
+(Table S41),
 
 \begin{equation*}\mathrm{SR} = \frac{\overline{\lvert\Delta\rvert}_{\mathrm{cat}}}{\overline{\lvert\Delta\rvert}_{\mathrm{ctl}}}, \qquad \log\big(\lvert\Delta\rvert + \varepsilon\big) = \beta_0 + \beta_{\mathrm{arm}}\,\mathbf{1}(\text{catalytic}) + \beta_d\, d_{\mathrm{lig}} + \beta_s\, \mathrm{relSASA} + \text{error}, \tag{24}\end{equation*}
 
@@ -4199,132 +3396,16 @@ metrics is carried
 through; equivalence
 to 1 is judged
 against a ±25\% band
-(S43). The
+(S42). The
 re-predicted ladder
 at each step, for
 all metrics, natural
 and de novo, is in
-Table S44.
-
-\textbf{Limits.}
-
-\begin{itemize}
-\tightlist
-\item
-  The
-  structure-space
-  match is on
-  burial, packing
-  and local
-  environment, not
-  on distance to the
-  catalytic site;
-  its quality is
-  reported in Tables
-  S27 and S28.
-\item
-  The effective
-  number of
-  independent
-  metrics is smaller
-  than the count
-  (participation
-  ratio 7.9 for the
-  metrics' native
-  values and 10.5
-  for their
-  isosteric
-  responses, out of
-  29; Table S45).
-\item
-  Two supplementary
-  designs show how
-  far the
-  structure-space
-  result depends on
-  the control: the
-  same experiment
-  without packing
-  matching and
-  arm-count gating,
-  and the 30 de novo
-  designs with a
-  constructed
-  control (Table
-  S32; the burial of
-  the constructed
-  control is
-  compared with that
-  of the catalytic
-  residues in Table
-  S46).
-\item
-  The pilot enzymes
-  pooled here have
-  controls matched
-  on residue type
-  and burial only;
-  the score of the
-  main set alone is
-  in Table S29.
-\item
-  Experiments that
-  could not be made
-  are listed in
-  Table S47: a
-  deformation
-  experiment (most
-  apparent specific
-  cells tracked the
-  clash burden
-  present before
-  repacking),
-  oxyanion-hole
-  removal (the step
-  that had been run
-  located no bound
-  ligand in any of
-  the 143 structures
-  and removed a
-  proxy residue
-  instead, so it did
-  not test the named
-  change) and metal
-  removal (no cell
-  could be scored on
-  any metric). The
-  PLACER ensemble
-  metrics on the
-  isosteric step are
-  not interpretable,
-  because the
-  control arm is
-  covered less than
-  the catalytic arm,
-  and are in Table
-  S48.
-\item
-  Ladder: one seed
-  per prediction (a
-  replicate with a
-  second seed on 30
-  natural pairs
-  estimates the seed
-  noise); the
-  distance-matched
-  subset is a
-  subpopulation,
-  because 213 of 312
-  pairs have no
-  in-caliper
-  candidate anywhere
-  in their protein.
-\end{itemize}
+Table S43.
 
 \subsubsection{2.4.2
 Detecting second
-shell lesion →
-Results 3.4.2}
+shell lesion}
 
 \textbf{Dataset.}
 The 143 main enzymes
@@ -4384,7 +3465,7 @@ catalytic). The 8
 supplementary
 comparators and the
 per-dose flags are
-in Table S49.
+in Table S44.
 
 \textbf{Ranking
 criteria.} The doses
@@ -4427,7 +3508,7 @@ enzymes, raw values
 are reported, and no
 best-of-\(M\)
 threshold is used.
-Table 9 ranks the
+Table 11 ranks the
 items within each
 detection group by
 raw \(\bar R_m\) and
@@ -4438,47 +3519,6 @@ which it responds
 and at which the
 control response is
 above its noise.
-
-\textbf{Limits.}
-
-\begin{itemize}
-\tightlist
-\item
-  Because both arms
-  are scored over
-  the catalytic
-  residues, removing
-  second-shell
-  residues around
-  those residues
-  moves a
-  catalytic-scoped
-  item more than
-  removing residues
-  elsewhere whatever
-  the item knows
-  about catalysis; a
-  high raw R on this
-  test measures
-  location.
-\item
-  No item responds
-  with a control
-  response above its
-  noise at any dose,
-  so no rank on this
-  test is
-  interpretable
-  (Table 9 carries
-  no reference
-  level).
-\item
-  The pilot enzymes
-  pooled here have
-  controls matched
-  on residue type
-  and burial only.
-\end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -4507,7 +3547,7 @@ whether the metric
 was applicable and
 why; the full
 per-metric tables
-behind Tables 3--9;
+behind Tables 5--11;
 and the experiments
 that could not be
 made. All tables are
@@ -4551,7 +3591,7 @@ distinct metrics in
 the main set of 33
 (29 structure-space,
 4 prediction-based;
-Box 2 of the
+Table 1 of the
 Methods), and
 intervals are 95\%
 bootstrap intervals
@@ -4671,7 +3711,7 @@ pairs (median 0.63,
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2047}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1102}}@{}}
 \caption*{\textbf{Table
-3. Separation of
+5. Separation of
 real dead from
 active enzymes on
 the 21-pair
@@ -4715,8 +3755,8 @@ items (AUROC 0.50 to
 0.52) and all 158
 metrics scored on
 these pairs are in
-Table S12. Source:
-main/T3\_dead\_vs\_active.csv.}\tabularnewline
+Table S11. Source:
+main/T5\_dead\_vs\_active.csv.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Rank
@@ -4966,32 +4006,32 @@ metric scored on the
 all, with the
 best-of-158
 threshold: Table
-S12. The wider set
+S11. The wider set
 of 49 pairs (136
 metrics) with the
 AUROC against the
 same-state null:
-Table S8. The
+Table S7. The
 definitions of the
 six pair sets and
 where each is used:
-Table S10. The 28
+Table S9. The 28
 pairs re-predicted
 with Chai-1,
 restated with the
 definedness gate:
-Table S9. The check
+Table S8. The check
 of the
 substrate-trapping
 mutants against the
 literature (26 of 30
 not confirmed dead),
 a tier that was
-retired: Table S11.
+retired: Table S10.
 The reference rows
 in full, with
 intervals: Table
-S13.
+S12.
 
 \subsubsection{3.1.2
 Discriminate de novo
@@ -5085,7 +4125,7 @@ design's own model
 from AME against a
 deposited structure)
 and is given in
-Table S14.
+Table S13.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0709}}
@@ -5095,7 +4135,7 @@ Table S14.
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1969}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1811}}@{}}
 \caption*{\textbf{Table
-4. Separation of
+6. Separation of
 active from no
 active designs on
 the 192-design
@@ -5147,8 +4187,8 @@ ranking). Items 31
 to 36 and all 128
 metrics scored on
 the designs are in
-Table S14. Source:
-main/T4\_plated\_designs\_auroc.csv.}\tabularnewline
+Table S13. Source:
+main/T6\_plated\_designs\_auroc.csv.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Rank
@@ -5402,9 +4442,9 @@ metric scored on the
 all), with the
 best-of-128
 threshold: Table
-S14. The reference
+S13. The reference
 rows in full: Table
-S13. The descriptive
+S12. The descriptive
 ranking of the
 metrics among the 16
 active designs is in
@@ -5464,7 +4504,7 @@ structure and the
 predictor dropped
 it; the analysis on
 all 59 is in Table
-S1). One n, 55
+S14). One n, 55
 enzymes, applies to
 every row (Methods
 2.2).
@@ -5541,7 +4581,7 @@ enzyme (median 0.56,
   >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0573}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0828}}@{}}
 \caption*{\textbf{Table
-5. The substrate
+7. The substrate
 swap on the
 55-enzyme evaluation
 set, 30 scored
@@ -5596,7 +4636,7 @@ several rows, one
 per summary.
 Reference rows are
 in italic. Source:
-main/T5\_substrate\_swap.csv.}\tabularnewline
+main/T7\_substrate\_swap.csv.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Rank
@@ -5996,7 +5036,7 @@ the Chai-1 combined
 score, with the
 paired change in
 units of seed noise:
-Table S1. The same
+Table S14. The same
 comparison
 stratified by the
 difference in ligand
@@ -6008,7 +5048,7 @@ the current Chai-1
 engine against the
 earlier predictions
 on a re-run shard:
-Table S16.
+Table S45.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -6188,7 +5228,7 @@ draws, lies above 0.
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2063}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1270}}@{}}
 \caption*{\textbf{Table
-6. BglB variants:
+8. BglB variants:
 top 30 of 41 ranked
 items on the
 432-variant
@@ -6243,8 +5283,8 @@ BglB data 248. Items
 31 to 41, and all
 114 quantities
 analysed, are in
-Table S17. Source:
-main/T6\_bglb\_variants.csv.}\tabularnewline
+Table S16. Source:
+main/T8\_bglb\_variants.csv.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Rank
@@ -6521,7 +5561,7 @@ against
 wild-type-like)
 beside each rank
 correlation: Table
-S17. The 84
+S16. The 84
 structure-space and
 comparator metrics
 with the signed,
@@ -6529,17 +5569,17 @@ direction-free and
 magnitude AUROC and
 the comparison with
 every baseline:
-Table S18. The 28
+Table S17. The 28
 prediction-based
-metrics: Table S20.
+metrics: Table S19.
 The main analysis
 and its ten
 sensitivity
-analyses: Table S19.
+analyses: Table S18.
 The five declared
 baselines and the
 reference rows in
-full: Table S13.
+full: Table S12.
 
 \subsubsection{3.3.2
 Ranking de novo
@@ -6564,7 +5604,7 @@ clusters (Methods
 \textbf{Ranking
 criteria.} The 36
 items are those of
-Table 4. Each is
+Table 6. Each is
 ranked by the size
 of the Spearman
 correlation ρ
@@ -6603,7 +5643,7 @@ descriptive (Methods
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1377}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1159}}@{}}
 \caption*{\textbf{Table
-7. Plated designs:
+9. Plated designs:
 top 30 of 36 ranked
 items on the 16
 designs that have a
@@ -6640,12 +5680,12 @@ analysis. Items 31
 to 36, and all 106
 metrics with a
 correlation, are in
-Table S22; the
+Table S21; the
 hits-per-plate
 analysis of the 192
 designs is in Table
-S21. Source:
-main/T7\_plated\_designs.csv.}\tabularnewline
+S20. Source:
+main/T9\_plated\_designs.csv.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Rank
@@ -6936,14 +5976,14 @@ correlation with
 kcat/KM of all 106
 metrics that have
 one, with the length
-control: Table S22.
+control: Table S21.
 The correlations of
 the structure-space
 metrics and
 comparators, with
 and without the
 length control:
-Table S23. The hits
+Table S22. The hits
 per plate of all 128
 metrics when each
 fills a 96-well
@@ -6951,15 +5991,15 @@ plate from the
 quarter of the 192
 designs that it
 ranks highest or
-lowest: Table S21.
+lowest: Table S20.
 The enrichment at
 keep fractions of 5,
 10, 25 and 50\% in
 both directions:
-Table S24 (102
+Table S23 (102
 structure-space
 metrics) and Table
-S25 (29
+S24 (29
 prediction-based
 metrics).
 
@@ -7065,7 +6105,7 @@ of the ladder, whose
 control is
 constructed, are
 analysed separately
-(Tables S30 and S31)
+(Tables S29 and S30)
 (Methods 2.4.1).
 
 \textbf{Ranking
@@ -7174,10 +6214,10 @@ the ligand, the
 catalytic residue
 3.1 Å (the distances
 for every pair are
-in Table S38 and the
+in Table S37 and the
 caliper-matched
 subsets in Table
-S41). The number of
+S40). The number of
 steps counted for
 each metric and the
 smallest step at
@@ -7191,7 +6231,7 @@ response is above
 the noise and both
 arms changed equal
 numbers of residues)
-are in Table S29.
+are in Table S28.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1007}}
@@ -7201,7 +6241,7 @@ are in Table S29.
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1727}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1871}}@{}}
 \caption*{\textbf{Table
-8. Catalytic lesion
+10. Catalytic lesion
 (chemistry ladder):
 the 35 ranked items
 grouped by the
@@ -7270,9 +6310,9 @@ number of steps
 counted, the onset
 of specificity and
 all per-step flags
-are in Table S29.
+are in Table S28.
 Source:
-main/T8\_specificity\_catalytic\_lesion.csv.}\tabularnewline
+main/T10\_specificity\_catalytic\_lesion.csv.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Detected from
@@ -7588,7 +6628,7 @@ detail.}
   at each step, and
   the mean R of the
   143 main enzymes
-  alone: Table S29.
+  alone: Table S28.
   The counts of
   eligible,
   responding and
@@ -7599,7 +6639,7 @@ detail.}
   panel statistic
   and the four
   sensitivity sets:
-  Table S30.
+  Table S29.
 \item
   \emph{Specificity
   ratio.} The ratio,
@@ -7607,31 +6647,31 @@ detail.}
   the verdict of
   every eligible
   metric at every
-  step: Table S34
+  step: Table S33
   (comparators:
-  Table S35); the 97
+  Table S34); the 97
   cells that survive
   the controls:
-  Table S36; R per
+  Table S35; R per
   step on the 143
   main enzymes with
   90\% intervals:
-  Table S37; the
+  Table S36; the
   robustness to
   motif size,
   packing matching
   and count gating:
-  Table S32; the
+  Table S31; the
   panel statistic
   against the
   earlier
   whole-panel
   analysis: Table
-  S43; the effective
+  S42; the effective
   number of
   independent
   metrics: Table
-  S45.
+  S46.
 \item
   \emph{Controls and
   floors.} The
@@ -7640,48 +6680,48 @@ detail.}
   the balance of
   residues changed
   in the two arms:
-  Tables S27 and
-  S28; the burial of
+  Tables S26 and
+  S27; the burial of
   the constructed
   control in the de
   novo designs:
-  Table S46; the
+  Table S47; the
   sanity floors:
-  Table S26.
+  Table S25.
 \item
   \emph{Predictor
   ladder.} Every
   metric at every
-  step: Table S44;
+  step: Table S43;
   the three controls
   and the
   pre-specified
-  rule: Table S31;
+  rule: Table S30;
   the distance of
   each pair to the
-  ligand: Table S38;
+  ligand: Table S37;
   the ratio in
   distance strata:
-  Table S40; the
+  Table S39; the
   caliper-matched
   subsets: Table
-  S41; the
+  S40; the
   regression
   adjustment: Table
-  S42; the 54 pairs
+  S41; the 54 pairs
   given a new
   distance-matched
   control: Table
-  S39; the seed
-  noise: Table S33.
+  S38; the seed
+  noise: Table S32.
 \item
   \emph{Not made.}
   Experiments that
   could not be made
   or were retired:
-  Table S47; PLACER
+  Table S48; PLACER
   on the isosteric
-  step: Table S48.
+  step: Table S49.
 \end{itemize}
 
 \subsubsection{3.4.2
@@ -7732,7 +6772,7 @@ criteria.} The 29
 structure-space
 main-set metrics are
 ranked as in Table
-8, with R at the
+10, with R at the
 three doses (1, 2
 and 4 residues
 removed) and its
@@ -7769,7 +6809,7 @@ the metric's noise.
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1631}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1560}}@{}}
 \caption*{\textbf{Table
-9. Second-shell
+11. Second-shell
 lesion: the 29
 structure-space
 main-set metrics
@@ -7819,9 +6859,9 @@ the metric's noise.
 The 8 supplementary
 comparators and the
 per-dose flags are
-in Table S49.
+in Table S44.
 Source:
-main/T9\_specificity\_second\_shell\_lesion.csv.}\tabularnewline
+main/T11\_specificity\_second\_shell\_lesion.csv.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Detected from
@@ -8100,15 +7140,15 @@ comparators and the
 response and
 control-noise flags
 at each dose: Table
-S49. The specificity
+S44. The specificity
 ratio and verdict at
-each dose: Table S34
+each dose: Table S33
 (comparators: Table
-S35). The counts of
+S34). The counts of
 eligible, responding
 and specific metrics
 by family and dose:
-Table S30.
+Table S29.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 

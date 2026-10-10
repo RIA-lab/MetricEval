@@ -119,13 +119,19 @@ supplementary tables
 (\protect\hyperlink{S1}{S1}
 to
 \protect\hyperlink{S49}{S49})
-and the nine
-main-text tables (T1
-to T9) of the paper.
-It does not reprint
-them. Every table is
+and the seven data
+tables of the
+Results (T5 to T11)
+of the paper. It
+does not reprint
+them. Every one of
+these tables is
 released as a CSV
-file; each entry
+file (Tables 1 to 4,
+in the Methods, are
+descriptive and are
+not released as
+files); each entry
 below gives the
 path, the number of
 rows and columns,
@@ -145,7 +151,7 @@ first cite them.
 \begin{verbatim}
 README.md          what is released, what was changed, licence
 INDEX.csv          one row per table: id, file, title, rows, columns, licence flag, sha256
-main/              T1 ... T9     Tables 1 to 9 of the paper
+main/              T5 ... T11    Tables 5 to 11 of the paper
 supplementary/     S1 ... S49    supplementary tables, one CSV per table
 \end{verbatim}
 
@@ -185,7 +191,7 @@ by the tables}
 \textbf{Shared
 provenance columns.}
 The result tables
-(T3 to T9 and the
+(T5 to T11 and the
 supplementary tables
 whose entry says so)
 carry the same block
@@ -255,8 +261,8 @@ reference row),
 
 \textbf{Applicability
 status} (in
-\protect\hyperlink{S4}{S4},
-\protect\hyperlink{S5}{S5}
+\protect\hyperlink{S3}{S3},
+\protect\hyperlink{S4}{S4}
 and the
 \texttt{applicability\_status}
 columns).
@@ -331,6 +337,50 @@ and counts-floor
 labels for cells
 with too few units.
 
+\textbf{Why some
+metrics are not in
+the main set.} A
+metric with no
+residue-set input
+(whole-protein
+energies, sequence
+composition,
+whole-prediction
+confidence) cannot
+respond
+\emph{specifically}
+to catalytic
+residues, and a
+metric whose input
+cannot reach the
+changed quantity
+cannot register the
+lesion at all
+(sequence
+composition under a
+rotamer change, for
+example); such
+metrics are kept as
+comparators. One
+further quantity
+passes these tests
+but is kept out of
+the main set: the
+Chai-1 combined
+score, which Chai-1
+uses to rank its own
+models and which
+equals 0.2 × pTM +
+0.8 × ipTM − 100 ×
+(inter-chain clash
+flag), so that it is
+a rescaled ipTM and
+not an independent
+metric. It is still
+scored, and its role
+and reason are in
+\protect\hyperlink{S1}{S1}.
+
 \textbf{Names that
 recur.}
 \texttt{canonical\_key}
@@ -347,7 +397,7 @@ reported metrics;
 \texttt{reference}
 or a supplement role
 (see
-\protect\hyperlink{S2}{S2});
+\protect\hyperlink{S1}{S1});
 \texttt{source} is
 structure-space,
 prediction-based,
@@ -395,7 +445,7 @@ correlation.
 Tables that refer to
 a test use the names
 of
-\protect\hyperlink{S7}{S7},
+\protect\hyperlink{S6}{S6},
 a name followed by
 its class in square
 brackets, for
@@ -449,120 +499,120 @@ Go to
 Which 33 metrics are
 reported, and why
 the rest are not &
-\protect\hyperlink{S2}{S2},
-\protect\hyperlink{S3}{S3};
+\protect\hyperlink{S1}{S1},
+\protect\hyperlink{S2}{S2};
 then
-\protect\hyperlink{S4}{S4}
+\protect\hyperlink{S3}{S3}
 and
-\protect\hyperlink{S5}{S5}
+\protect\hyperlink{S4}{S4}
 for the reason in
 each test \\
 What a metric reads,
 and over which
 residues it is
 scored &
-\protect\hyperlink{S3}{S3} \\
+\protect\hyperlink{S2}{S2} \\
 The 30 tests, with
 comparator, control
 type and role &
-\protect\hyperlink{S7}{S7} \\
+\protect\hyperlink{S6}{S6} \\
 The specificity
 ratio of one metric
 at one lesion step &
-\protect\hyperlink{S34}{S34}
+\protect\hyperlink{S33}{S33}
 (comparators:
-\protect\hyperlink{S35}{S35}) \\
+\protect\hyperlink{S34}{S34}) \\
 Whether the controls
 were good &
-\protect\hyperlink{S27}{S27},
-\protect\hyperlink{S28}{S28}
+\protect\hyperlink{S26}{S26},
+\protect\hyperlink{S27}{S27}
 (structure space);
-\protect\hyperlink{S38}{S38},
+\protect\hyperlink{S37}{S37},
+\protect\hyperlink{S39}{S39},
 \protect\hyperlink{S40}{S40},
 \protect\hyperlink{S41}{S41},
-\protect\hyperlink{S42}{S42},
-\protect\hyperlink{S39}{S39}
+\protect\hyperlink{S38}{S38}
 (predictor
 ladder) \\
 How fragile the
 structure-space
 specificity result
 is &
-\protect\hyperlink{S32}{S32},
-\protect\hyperlink{S43}{S43},
-\protect\hyperlink{S30}{S30} \\
+\protect\hyperlink{S31}{S31},
+\protect\hyperlink{S42}{S42},
+\protect\hyperlink{S29}{S29} \\
 How a metric
 responds to the
 substrate swap, and
 the role of ligand
-size & Table 5,
-\protect\hyperlink{S1}{S1},
+size & Table 7,
+\protect\hyperlink{S14}{S14},
 \protect\hyperlink{S15}{S15} \\
 The distance control
 for the interface
-terms & Table 8,
-\protect\hyperlink{S31}{S31},
-\protect\hyperlink{S38}{S38},
+terms & Table 10,
+\protect\hyperlink{S30}{S30},
+\protect\hyperlink{S37}{S37},
+\protect\hyperlink{S39}{S39},
 \protect\hyperlink{S40}{S40},
-\protect\hyperlink{S41}{S41},
-\protect\hyperlink{S42}{S42} \\
+\protect\hyperlink{S41}{S41} \\
 Every metric on the
 21-pair evaluation
 set (complete Table
-3) &
-\protect\hyperlink{S12}{S12} \\
+5) &
+\protect\hyperlink{S11}{S11} \\
 Every metric on the
 192 plated designs,
 active against no
 active (complete
-Table 4) &
-\protect\hyperlink{S14}{S14} \\
+Table 6) &
+\protect\hyperlink{S13}{S13} \\
 Every quantity
 analysed on the 432
 BglB variants
-(complete Table 6) &
-\protect\hyperlink{S17}{S17} \\
+(complete Table 8) &
+\protect\hyperlink{S16}{S16} \\
 Every metric on the
 16 plated designs
 with a measured
 activity (complete
-Table 7) &
-\protect\hyperlink{S22}{S22} \\
+Table 9) &
+\protect\hyperlink{S21}{S21} \\
 Hits per plate when
 a metric fills a
 96-well plate &
-\protect\hyperlink{S21}{S21} \\
+\protect\hyperlink{S20}{S20} \\
 The wider set of 49
 pairs, the 28
 re-predicted pairs,
 the pair-set
 definitions &
+\protect\hyperlink{S7}{S7},
 \protect\hyperlink{S8}{S8},
-\protect\hyperlink{S9}{S9},
-\protect\hyperlink{S10}{S10} \\
+\protect\hyperlink{S9}{S9} \\
 BglB: every metric,
 prediction-based
 metrics, sensitivity
 analyses &
-\protect\hyperlink{S18}{S18},
-\protect\hyperlink{S20}{S20},
-\protect\hyperlink{S19}{S19} \\
+\protect\hyperlink{S17}{S17},
+\protect\hyperlink{S19}{S19},
+\protect\hyperlink{S18}{S18} \\
 Plated designs:
 enrichment and
 ordering for every
 metric &
+\protect\hyperlink{S23}{S23},
 \protect\hyperlink{S24}{S24},
-\protect\hyperlink{S25}{S25},
-\protect\hyperlink{S23}{S23} \\
+\protect\hyperlink{S22}{S22} \\
 The reference rows
 (resolution, length,
 tyrosine fraction,
 distance) &
-\protect\hyperlink{S13}{S13} \\
+\protect\hyperlink{S12}{S12} \\
 Experiments that
 could not be made &
-\protect\hyperlink{S47}{S47},
-\protect\hyperlink{S48}{S48} \\
+\protect\hyperlink{S48}{S48},
+\protect\hyperlink{S49}{S49} \\
 \end{longtable}
 
 }
@@ -595,21 +645,12 @@ Rows × cols
 \bottomrule\noalign{}
 \endlastfoot
 \protect\hyperlink{S1}{S1}
-& Substrate swap on
-all systems: all 33
-prediction-based
-quantities, natural
-enzymes and de novo
-designs & Substrate
-discrimination (3.2)
-& 242 × 17 \\
-\protect\hyperlink{S2}{S2}
 & Main metric set:
 the role of every
 distinct metric, and
 why & Metric audit &
 191 × 16 \\
-\protect\hyperlink{S3}{S3}
+\protect\hyperlink{S2}{S2}
 & Metric contracts:
 what each named
 quantity reads, over
@@ -617,33 +658,33 @@ which residues, and
 where it is valid &
 Metric audit & 216 ×
 19 \\
-\protect\hyperlink{S4}{S4}
+\protect\hyperlink{S3}{S3}
 & Applicability of
 every metric in
 every test (long
 format) & Metric
 audit & 6,480 ×
 11 \\
-\protect\hyperlink{S5}{S5}
+\protect\hyperlink{S4}{S4}
 & Applicability by
 class of metric and
 test & Metric audit
 & 340 × 5 \\
-\protect\hyperlink{S6}{S6}
+\protect\hyperlink{S5}{S5}
 & Counts restated on
 the eligible metrics
 (denominators before
 and after the audit)
 & Metric audit & 58
 × 14 \\
-\protect\hyperlink{S7}{S7}
+\protect\hyperlink{S6}{S6}
 & Test inventory:
 the 30 tests, with
 comparator, control
 type, role and
 caveats & Metric
 audit & 30 × 14 \\
-\protect\hyperlink{S8}{S8}
+\protect\hyperlink{S7}{S7}
 & Wider set of 49
 zymogen-mature
 pairs: all 136
@@ -652,7 +693,7 @@ the same-state null
 & Activity
 discrimination (3.1)
 & 136 × 25 \\
-\protect\hyperlink{S9}{S9}
+\protect\hyperlink{S8}{S8}
 & Zymogen pairs
 re-predicted with
 Chai-1, restated
@@ -660,12 +701,12 @@ with the definedness
 gate & Activity
 discrimination (3.1)
 & 33 × 22 \\
-\protect\hyperlink{S10}{S10}
+\protect\hyperlink{S9}{S9}
 & Definitions of the
 pair sets & Activity
 discrimination (3.1)
 & 6 × 4 \\
-\protect\hyperlink{S11}{S11}
+\protect\hyperlink{S10}{S10}
 & Substrate-trapping
 mutants checked
 against the
@@ -673,31 +714,40 @@ literature (tier
 retired) & Activity
 discrimination (3.1)
 & 6 × 4 \\
-\protect\hyperlink{S12}{S12}
+\protect\hyperlink{S11}{S11}
 & Zymogen-mature
 evaluation set: all
 158 metrics ranked
 by AUROC (complete
-Table 3) & Activity
+Table 5) & Activity
 discrimination (3.1)
 & 158 × 27 \\
-\protect\hyperlink{S13}{S13}
+\protect\hyperlink{S12}{S12}
 & Reference rows in
 full, across the
 activity tests &
 Activity
 discrimination (3.1)
 & 35 × 9 \\
-\protect\hyperlink{S14}{S14}
+\protect\hyperlink{S13}{S13}
 & Plated designs:
 all 128 metrics
 ranked by the AUROC
 of active against no
 active designs
-(complete Table 4) &
+(complete Table 6) &
 Activity
 discrimination (3.1)
 & 128 × 29 \\
+\protect\hyperlink{S14}{S14}
+& Substrate swap on
+all systems: all 33
+prediction-based
+quantities, natural
+enzymes and de novo
+designs & Substrate
+discrimination (3.2)
+& 242 × 17 \\
 \protect\hyperlink{S15}{S15}
 & Substrate swap
 stratified by ligand
@@ -706,41 +756,33 @@ Substrate
 discrimination (3.2)
 & 1,136 × 27 \\
 \protect\hyperlink{S16}{S16}
-& Drift of the
-current Chai-1
-engine against the
-earlier predictions
-& Substrate
-discrimination (3.2)
-& 176 × 5 \\
-\protect\hyperlink{S17}{S17}
 & BglB: every
 analysed quantity
 ranked by rank
 correlation with the
 measured impairment
-(complete Table 6) &
+(complete Table 8) &
 Activity ranking
 (3.3) & 114 × 35 \\
-\protect\hyperlink{S18}{S18}
+\protect\hyperlink{S17}{S17}
 & BglB: all 84
 structure-space and
 comparator metrics &
 Activity ranking
 (3.3) & 84 × 29 \\
-\protect\hyperlink{S19}{S19}
+\protect\hyperlink{S18}{S18}
 & BglB: sensitivity
 analyses & Activity
 ranking (3.3) & 11 ×
 22 \\
-\protect\hyperlink{S20}{S20}
+\protect\hyperlink{S19}{S19}
 & BglB:
 prediction-based
 metrics (Chai-1 with
 the assay substrate)
 & Activity ranking
 (3.3) & 28 × 29 \\
-\protect\hyperlink{S21}{S21}
+\protect\hyperlink{S20}{S20}
 & Plated designs:
 hits per 96-well
 plate for every
@@ -748,17 +790,17 @@ metric (filter-style
 analysis) & Activity
 ranking (3.3) & 128
 × 37 \\
-\protect\hyperlink{S22}{S22}
+\protect\hyperlink{S21}{S21}
 & Plated designs:
 every metric ranked
 by correlation with
 kcat/KM among the 16
 designs that have a
 value (complete
-Table 7) & Activity
+Table 9) & Activity
 ranking (3.3) & 106
 × 29 \\
-\protect\hyperlink{S23}{S23}
+\protect\hyperlink{S22}{S22}
 & Plated designs:
 ordering among the
 16 active designs,
@@ -767,7 +809,7 @@ metrics and
 comparators &
 Activity ranking
 (3.3) & 81 × 23 \\
-\protect\hyperlink{S24}{S24}
+\protect\hyperlink{S23}{S23}
 & Plated designs:
 enrichment at every
 keep fraction,
@@ -775,41 +817,41 @@ structure-space
 metrics & Activity
 ranking (3.3) & 816
 × 27 \\
-\protect\hyperlink{S25}{S25}
+\protect\hyperlink{S24}{S24}
 & Plated designs:
 enrichment for
 prediction-based
 metrics & Activity
 ranking (3.3) & 232
 × 27 \\
-\protect\hyperlink{S26}{S26}
+\protect\hyperlink{S25}{S25}
 & Sanity floors by
 class of metric &
 Detection ability
 (3.4) & 53 × 8 \\
-\protect\hyperlink{S27}{S27}
+\protect\hyperlink{S26}{S26}
 & Control matching:
 the loosest tier
 needed & Detection
 ability (3.4) & 81 ×
 6 \\
-\protect\hyperlink{S28}{S28}
+\protect\hyperlink{S27}{S27}
 & Control matching:
 balance of residues
 changed in the two
 arms & Detection
 ability (3.4) & 15 ×
 9 \\
-\protect\hyperlink{S29}{S29}
+\protect\hyperlink{S28}{S28}
 & Catalytic lesion:
 every metric scored
-(Table 8 plus
+(Table 10 plus
 supplementary
 comparators and
 per-step flags) &
 Detection ability
 (3.4) & 43 × 73 \\
-\protect\hyperlink{S30}{S30}
+\protect\hyperlink{S29}{S29}
 & Structure-space
 specificity by
 metric family and
@@ -818,7 +860,7 @@ the panel statistic
 and sensitivity sets
 & Detection ability
 (3.4) & 20 × 27 \\
-\protect\hyperlink{S31}{S31}
+\protect\hyperlink{S30}{S30}
 & Re-predicted
 catalytic lesion:
 the prediction-based
@@ -828,7 +870,7 @@ and the
 pre-specified rule &
 Detection ability
 (3.4) & 6 × 23 \\
-\protect\hyperlink{S32}{S32}
+\protect\hyperlink{S31}{S31}
 & Sensitivity of the
 specificity-ratio
 counts to motif
@@ -837,19 +879,19 @@ matching and count
 gating & Detection
 ability (3.4) & 20 ×
 7 \\
-\protect\hyperlink{S33}{S33}
+\protect\hyperlink{S32}{S32}
 & Re-predicted
 ladder: seed-noise
 context & Detection
 ability (3.4) & 56 ×
 12 \\
-\protect\hyperlink{S34}{S34}
+\protect\hyperlink{S33}{S33}
 & Specificity ratio
 of every eligible
 metric at every step
 & Detection ability
 (3.4) & 256 × 29 \\
-\protect\hyperlink{S35}{S35}
+\protect\hyperlink{S34}{S34}
 & Specificity ratio
 of whole-protein and
 sequence-only
@@ -857,19 +899,19 @@ comparators at every
 step & Detection
 ability (3.4) & 308
 × 29 \\
-\protect\hyperlink{S36}{S36}
+\protect\hyperlink{S35}{S35}
 & The specific cells
 that survive the
 controls & Detection
 ability (3.4) & 97 ×
 10 \\
-\protect\hyperlink{S37}{S37}
+\protect\hyperlink{S36}{S36}
 & Rank statistic R
 per lesion step on
 the 143 main enzymes
 & Detection ability
 (3.4) & 313 × 14 \\
-\protect\hyperlink{S38}{S38}
+\protect\hyperlink{S37}{S37}
 & Re-predicted
 ladder: distance of
 the substituted and
@@ -877,7 +919,7 @@ control residues to
 the ligand &
 Detection ability
 (3.4) & 312 × 34 \\
-\protect\hyperlink{S39}{S39}
+\protect\hyperlink{S38}{S38}
 & Re-predicted
 ladder: candidates
 for a new
@@ -885,7 +927,7 @@ distance-matched
 control & Detection
 ability (3.4) & 291
 × 17 \\
-\protect\hyperlink{S40}{S40}
+\protect\hyperlink{S39}{S39}
 & Re-predicted
 ladder: specificity
 ratio in strata of
@@ -893,7 +935,7 @@ the distance to the
 ligand & Detection
 ability (3.4) & 203
 × 27 \\
-\protect\hyperlink{S41}{S41}
+\protect\hyperlink{S40}{S40}
 & Re-predicted
 ladder:
 caliper-matched
@@ -901,62 +943,70 @@ subsets and the rule
 labels & Detection
 ability (3.4) & 348
 × 25 \\
-\protect\hyperlink{S42}{S42}
+\protect\hyperlink{S41}{S41}
 & Re-predicted
 ladder:
 regression-adjusted
 ratios & Detection
 ability (3.4) & 116
 × 28 \\
-\protect\hyperlink{S43}{S43}
+\protect\hyperlink{S42}{S42}
 & Panel equivalence
 statistic: earlier
 whole panel against
 the main-set metrics
 & Detection ability
 (3.4) & 6 × 10 \\
-\protect\hyperlink{S44}{S44}
+\protect\hyperlink{S43}{S43}
 & Re-predicted
 ladder: specificity
 ratio per step for
 all metrics &
 Detection ability
 (3.4) & 231 × 16 \\
+\protect\hyperlink{S44}{S44}
+& Second-shell
+lesion: every metric
+scored (Table 11
+plus supplementary
+comparators and
+per-dose flags) &
+Detection ability
+(3.4) & 37 × 59 \\
 \protect\hyperlink{S45}{S45}
+& Drift of the
+current Chai-1
+engine against the
+earlier predictions
+& Substrate
+discrimination (3.2)
+& 176 × 5 \\
+\protect\hyperlink{S46}{S46}
 & Effective
 dimensionality of
 the panel &
 Detection ability
 (3.4) & 4 × 10 \\
-\protect\hyperlink{S46}{S46}
+\protect\hyperlink{S47}{S47}
 & De novo designs:
 burial equivalence
 of the created-site
 control & Detection
 ability (3.4) & 5 ×
 11 \\
-\protect\hyperlink{S47}{S47}
+\protect\hyperlink{S48}{S48}
 & Experiments that
 could not be made or
 were retired &
 Detection ability
 (3.4) & 9 × 4 \\
-\protect\hyperlink{S48}{S48}
+\protect\hyperlink{S49}{S49}
 & PLACER ensemble
 metrics on the
 isosteric step (not
 interpretable) &
 Detection ability
 (3.4) & 50 × 12 \\
-\protect\hyperlink{S49}{S49}
-& Second-shell
-lesion: every metric
-scored (Table 9 plus
-supplementary
-comparators and
-per-dose flags) &
-Detection ability
-(3.4) & 37 × 59 \\
 \end{longtable}
 
 }
@@ -967,273 +1017,25 @@ tables}
 
 \hypertarget{S1}{%
 \subsubsection{Table
-S1. Substrate swap
-on all systems: all
-33 prediction-based
-quantities, natural
-enzymes and de novo
-designs}\label{S1}}
-
-\begin{shaded}\small
-
-\textbf{File.}
-\texttt{supplementary/S1\_substrate\_swap\_per\_metric.csv}
-· 242 rows × 17
-columns · public
-
-\textbf{Supports.}
-Results 3.2; the
-all-system analysis
-behind Table 5.
-\textbf{Cited in.}
-Methods 2, 2.2;
-Results 3.2.
-
-\textbf{A row is}
-one prediction-based
-quantity under one
-wrong-ligand
-condition, for one
-source (natural
-enzymes or de novo
-designs).
-
-\end{shaded}
-
-The substrate swap
-before the 55-enzyme
-evaluation set was
-fixed: all 59
-natural enzymes
-(cognate value
-averaged over five
-seeds) and all 30 de
-novo designs, for
-every one of the 33
-prediction-based
-quantities that were
-scored, including
-the Chai-1 combined
-score (a rescaled
-ipTM) that Table 5
-leaves out. For each
-quantity and each
-wrong ligand (same
-enzyme class,
-different class,
-decoy; apo for the
-quantities that are
-defined without a
-ligand) it gives the
-mean under the
-cognate and under
-the other condition,
-the paired change,
-the change in units
-of seed noise, and
-the direction-free
-AUROC with its
-interval.
-
-\textbf{Key
-columns.}
-
-{\small
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2909}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7091}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Column
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Meaning
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\texttt{source} &
-natural or denovo \\
-\texttt{metric\_name}
-/
-\texttt{canonical\_key}
-/
-\texttt{input\_class}
-& the quantity, the
-distinct metric it
-belongs to and its
-class \\
-\texttt{ame\_flavour}
-& crystal =
-active-site accuracy
-against the
-deposited structure;
-self\_design =
-against the design's
-own model (never
-pooled) \\
-\texttt{in\_main\_set}
-& 1 for the four
-main-set metrics
-(each appears
-several times: mean,
-maximum and spread
-over the five
-predicted models are
-separate rows) \\
-\texttt{condition} &
-same\_ec, diff\_ec,
-decoy or apo \\
-\texttt{n\_systems}
-& systems with a
-value (59 natural,
-30 de novo) \\
-\texttt{mean\_cognate}
-/
-\texttt{mean\_condition}
-/
-\texttt{mean\_delta}
-& mean value under
-the cognate ligand,
-under the condition,
-and the paired
-difference \\
-\texttt{median\_delta\_over\_sigma}
-/
-\texttt{frac\_beyond\_1sigma}
-& median change in
-units of the
-seed-to-seed
-standard deviation,
-and the share of
-systems that move by
-more than one \\
-\texttt{auroc} /
-\texttt{auroc\_lo} /
-\texttt{auroc\_hi} &
-direction-free AUROC
-of cognate against
-the condition, 95\%
-interval over
-systems \\
-\end{longtable}
-
-}
-
-\textbf{Excerpt}
-(first 3 rows where
-source = natural,
-condition =
-diff\_ec,
-in\_main\_set = 1).
-
-{\footnotesize
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{source}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{metric\_name}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{condition}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{n\_systems}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{mean\_cognate}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{mean\_condition}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{auroc}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\texttt{natural} &
-\texttt{ame\_crystal\_clash\_max}
-& \texttt{diff\_ec}
-& \texttt{58} &
-\texttt{3.2826} &
-\texttt{3.6103} &
-\texttt{0.6564} \\
-\texttt{natural} &
-\texttt{ame\_crystal\_rmsd\_max}
-& \texttt{diff\_ec}
-& \texttt{59} &
-\texttt{1.4469} &
-\texttt{1.5572} &
-\texttt{0.5395} \\
-\texttt{natural} &
-\texttt{ame\_crystal\_rmsd\_mean}
-& \texttt{diff\_ec}
-& \texttt{59} &
-\texttt{1.2516} &
-\texttt{1.2895} &
-\texttt{0.5306} \\
-\end{longtable}
-
-}
-
-\textbf{Notes.}
-
-\begin{itemize}
-\tightlist
-\item
-  n is 59 natural
-  enzymes here and
-  55 in Table 5,
-  whose evaluation
-  set drops four
-  enzymes whose
-  ligand could not
-  be built.
-\item
-  Per-metric results
-  of this table are
-  descriptive; the
-  ranking and the
-  best-of-30
-  threshold are in
-  Table 5.
-\end{itemize}
-
-\hypertarget{S2}{%
-\subsubsection{Table
-S2. Main metric set:
+S1. Main metric set:
 the role of every
 distinct metric, and
-why}\label{S2}}
+why}\label{S1}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S2\_main\_metric\_set.csv}
+\texttt{supplementary/S1\_main\_metric\_set.csv}
 · 191 rows × 16
 columns · public
 
 \textbf{Supports.}
-Methods, Box 2 and
+Methods, Table 1 and
 `Which metrics are
 reported'; the main
 set of 33 metrics
-used in Tables 3 to
-9. \textbf{Cited
+used in Tables 5 to
+11. \textbf{Cited
 in.} Methods 2;
 Discussion.
 
@@ -1449,25 +1251,25 @@ role = main).
   analyses.
 \end{itemize}
 
-\hypertarget{S3}{%
+\hypertarget{S2}{%
 \subsubsection{Table
-S3. Metric
+S2. Metric
 contracts: what each
 named quantity
 reads, over which
 residues, and where
 it is
-valid}\label{S3}}
+valid}\label{S2}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S3\_metric\_contracts.csv}
+\texttt{supplementary/S2\_metric\_contracts.csv}
 · 216 rows × 19
 columns · public
 
 \textbf{Supports.}
-Methods, Box 2 and
+Methods, Table 1 and
 `Which metrics are
 reported'.
 \textbf{Cited in.}
@@ -1662,17 +1464,17 @@ struct\_site).
 
 }
 
-\hypertarget{S4}{%
+\hypertarget{S3}{%
 \subsubsection{Table
-S4. Applicability of
+S3. Applicability of
 every metric in
 every test (long
-format)}\label{S4}}
+format)}\label{S3}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S4\_applicability.csv}
+\texttt{supplementary/S3\_applicability.csv}
 · 6,480 rows × 11
 columns · public
 
@@ -1751,7 +1553,7 @@ its class \\
 \texttt{test\_class}
 & the test (its name
 and class as in
-\protect\hyperlink{S7}{S7})
+\protect\hyperlink{S6}{S6})
 and the class alone,
 for example `dead
 against active,
@@ -1832,7 +1634,7 @@ status = OK).
   only: with 6,480
   rows it is not
   printed.
-  \protect\hyperlink{S26}{S26}
+  \protect\hyperlink{S25}{S25}
   is its summary by
   class of metric.
 \item
@@ -1854,23 +1656,23 @@ status = OK).
   analysis was
   carried out
   (results in
-  \protect\hyperlink{S41}{S41}
+  \protect\hyperlink{S40}{S40}
   and
-  \protect\hyperlink{S42}{S42})
+  \protect\hyperlink{S41}{S41})
   but its cells keep
   the label NOT-RUN.
 \end{itemize}
 
-\hypertarget{S5}{%
+\hypertarget{S4}{%
 \subsubsection{Table
-S5. Applicability by
+S4. Applicability by
 class of metric and
-test}\label{S5}}
+test}\label{S4}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S5\_applicability\_by\_class.csv}
+\texttt{supplementary/S4\_applicability\_by\_class.csv}
 · 340 rows × 5
 columns · public
 
@@ -1879,7 +1681,7 @@ Methods, `Which
 metrics are
 reported' (summary
 of
-\protect\hyperlink{S4}{S4}).
+\protect\hyperlink{S3}{S3}).
 \textbf{Cited in.}
 Methods 2.
 
@@ -1891,7 +1693,7 @@ status (340 rows).
 \end{shaded}
 
 A summary of
-\protect\hyperlink{S4}{S4}:
+\protect\hyperlink{S3}{S3}:
 for each input class
 and test, how many
 metrics receive each
@@ -1989,19 +1791,19 @@ status = OK).
 
 }
 
-\hypertarget{S6}{%
+\hypertarget{S5}{%
 \subsubsection{Table
-S6. Counts restated
+S5. Counts restated
 on the eligible
 metrics
 (denominators before
 and after the
-audit)}\label{S6}}
+audit)}\label{S5}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S6\_denominator\_restatement.csv}
+\texttt{supplementary/S5\_denominator\_restatement.csv}
 · 58 rows × 14
 columns · public
 
@@ -2175,28 +1977,28 @@ and a note \\
 
 }
 
-\hypertarget{S7}{%
+\hypertarget{S6}{%
 \subsubsection{Table
-S7. Test inventory:
+S6. Test inventory:
 the 30 tests, with
 comparator, control
 type, role and
-caveats}\label{S7}}
+caveats}\label{S6}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S7\_test\_inventory.csv}
+\texttt{supplementary/S6\_test\_inventory.csv}
 · 30 rows × 14
 columns · public
 
 \textbf{Supports.}
-Methods, Tables 1
-and 2; the key to
-the test names in
-\protect\hyperlink{S4}{S4}
+Methods 2.1 to 2.4;
+the key to the test
+names in
+\protect\hyperlink{S3}{S3}
 and
-\protect\hyperlink{S5}{S5}.
+\protect\hyperlink{S4}{S4}.
 \textbf{Cited in.}
 Methods 2;
 Discussion.
@@ -2226,9 +2028,9 @@ retired,
 not\_measurable or
 dup) and the
 caveats.
-\protect\hyperlink{S4}{S4}
+\protect\hyperlink{S3}{S3}
 and
-\protect\hyperlink{S5}{S5}
+\protect\hyperlink{S4}{S4}
 use the test names
 of this table.
 
@@ -2353,19 +2155,19 @@ test \\
 
 }
 
-\hypertarget{S8}{%
+\hypertarget{S7}{%
 \subsubsection{Table
-S8. Wider set of 49
+S7. Wider set of 49
 zymogen-mature
 pairs: all 136
 scored metrics, with
 the same-state
-null}\label{S8}}
+null}\label{S7}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S8\_zymogen\_all\_metrics.csv}
+\texttt{supplementary/S7\_zymogen\_all\_metrics.csv}
 · 136 rows × 25
 columns · public
 
@@ -2374,7 +2176,8 @@ Results 3.1.1 (wider
 set); Methods 2.1.1.
 \textbf{Cited in.}
 Methods 2.1.1;
-Results 3.1.1.
+Results 3.1.1;
+Discussion.
 
 \textbf{A row is}
 one scored metric
@@ -2541,28 +2344,28 @@ repeated above.
   metrics were
   scored on the 28
   re-predicted pairs
-  (\protect\hyperlink{S9}{S9}).
+  (\protect\hyperlink{S8}{S8}).
 \item
   Results are
   descriptive of a
   wider set; the
   evaluation set is
   the 21 pairs of
-  \protect\hyperlink{S37}{S37}.
+  \protect\hyperlink{S36}{S36}.
 \end{itemize}
 
-\hypertarget{S9}{%
+\hypertarget{S8}{%
 \subsubsection{Table
-S9. Zymogen pairs
+S8. Zymogen pairs
 re-predicted with
 Chai-1, restated
 with the definedness
-gate}\label{S9}}
+gate}\label{S8}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S9\_zymogen\_re\_predicted\_restated.csv}
+\texttt{supplementary/S8\_zymogen\_re\_predicted\_restated.csv}
 · 33 rows × 22
 columns · public
 
@@ -2722,16 +2525,16 @@ applicability\_status
   evaluation set.
 \end{itemize}
 
-\hypertarget{S10}{%
+\hypertarget{S9}{%
 \subsubsection{Table
-S10. Definitions of
+S9. Definitions of
 the pair
-sets}\label{S10}}
+sets}\label{S9}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S10\_pair\_set\_definitions.csv}
+\texttt{supplementary/S9\_pair\_set\_definitions.csv}
 · 6 rows × 4 columns
 · public
 
@@ -2824,27 +2627,27 @@ it \\
 \texttt{candidate\ list} \\
 \texttt{scored\ pairs\ (wider\ set)}
 & \texttt{49} &
-\texttt{S8\ (49\ =\ max\ n\_pairs)} \\
+\texttt{S7\ (49\ =\ max\ n\_pairs)} \\
 \texttt{pairs\ with\ PLACER}
 & \texttt{45} &
-\texttt{S48} \\
+\texttt{S49} \\
 \end{longtable}
 
 }
 
-\hypertarget{S11}{%
+\hypertarget{S10}{%
 \subsubsection{Table
-S11.
+S10.
 Substrate-trapping
 mutants checked
 against the
 literature (tier
-retired)}\label{S11}}
+retired)}\label{S10}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S11\_trapping\_verification.csv}
+\texttt{supplementary/S10\_trapping\_verification.csv}
 · 6 rows × 4 columns
 · public
 
@@ -2965,26 +2768,26 @@ mislabelling rate \\
 
 }
 
-\hypertarget{S12}{%
+\hypertarget{S11}{%
 \subsubsection{Table
-S12. Zymogen-mature
+S11. Zymogen-mature
 evaluation set: all
 158 metrics ranked
 by AUROC (complete
 Table
-3)}\label{S12}}
+5)}\label{S11}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S12\_zymogen\_21pair\_all\_metrics.csv}
+\texttt{supplementary/S11\_zymogen\_21pair\_all\_metrics.csv}
 · 158 rows × 27
 columns · public
 
 \textbf{Supports.}
 Results 3.1.1; the
 complete version of
-Table 3.
+Table 5.
 \textbf{Cited in.}
 Methods 2.1.1;
 Results 3.1.1.
@@ -3046,11 +2849,11 @@ Meaning
 \bottomrule\noalign{}
 \endlastfoot
 \texttt{rank} /
-\texttt{rank\_in\_table\_3}
+\texttt{rank\_in\_table\_5}
 & rank among all 158
 and rank among the
 39 items of Table
-3 \\
+5 \\
 \texttt{metric\_name}
 /
 \texttt{canonical\_key}
@@ -3164,17 +2967,17 @@ repeated above.
 
 }
 
-\hypertarget{S13}{%
+\hypertarget{S12}{%
 \subsubsection{Table
-S13. Reference rows
+S12. Reference rows
 in full, across the
 activity
-tests}\label{S13}}
+tests}\label{S12}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S13\_reference\_rows.csv}
+\texttt{supplementary/S12\_reference\_rows.csv}
 · 35 rows × 9
 columns · D2DCure
 aggregate (licence
@@ -3185,8 +2988,8 @@ rows)
 
 \textbf{Supports.}
 Results 3.1 and 3.3;
-Tables 3, 4, 6 and
-7; Methods 2.1 and
+Tables 5, 6, 8 and
+9; Methods 2.1 and
 2.3. \textbf{Cited
 in.} Methods 2.1.1,
 2.3.1; Results
@@ -3354,27 +3157,27 @@ pre-directed)).
   per-variant rows.
 \end{itemize}
 
-\hypertarget{S14}{%
+\hypertarget{S13}{%
 \subsubsection{Table
-S14. Plated designs:
+S13. Plated designs:
 all 128 metrics
 ranked by the AUROC
 of active against no
 active designs
 (complete Table
-4)}\label{S14}}
+6)}\label{S13}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S14\_plates\_all\_metrics\_auroc.csv}
+\texttt{supplementary/S13\_plates\_all\_metrics\_auroc.csv}
 · 128 rows × 29
 columns · public
 
 \textbf{Supports.}
 Results 3.1.2; the
 complete version of
-Table 4.
+Table 6.
 \textbf{Cited in.}
 Methods 2.1.2;
 Results 3.1.2.
@@ -3434,14 +3237,14 @@ Meaning
 \bottomrule\noalign{}
 \endlastfoot
 \texttt{rank} /
-\texttt{rank\_in\_table\_4}
+\texttt{rank\_in\_table\_6}
 /
-\texttt{in\_table\_4}
+\texttt{in\_table\_6}
 & rank among 128,
 rank among the 36
-items of Table 4 and
+items of Table 6 and
 membership of Table
-4 \\
+6 \\
 \texttt{metric\_name}
 /
 \texttt{canonical\_key}
@@ -3558,6 +3361,254 @@ repeated above.
   threshold
   understates the
   chance range.
+\end{itemize}
+
+\hypertarget{S14}{%
+\subsubsection{Table
+S14. Substrate swap
+on all systems: all
+33 prediction-based
+quantities, natural
+enzymes and de novo
+designs}\label{S14}}
+
+\begin{shaded}\small
+
+\textbf{File.}
+\texttt{supplementary/S14\_substrate\_swap\_per\_metric.csv}
+· 242 rows × 17
+columns · public
+
+\textbf{Supports.}
+Results 3.2; the
+all-system analysis
+behind Table 7.
+\textbf{Cited in.}
+Methods 2.2; Results
+3.2.
+
+\textbf{A row is}
+one prediction-based
+quantity under one
+wrong-ligand
+condition, for one
+source (natural
+enzymes or de novo
+designs).
+
+\end{shaded}
+
+The substrate swap
+before the 55-enzyme
+evaluation set was
+fixed: all 59
+natural enzymes
+(cognate value
+averaged over five
+seeds) and all 30 de
+novo designs, for
+every one of the 33
+prediction-based
+quantities that were
+scored, including
+the Chai-1 combined
+score (a rescaled
+ipTM) that Table 7
+leaves out. For each
+quantity and each
+wrong ligand (same
+enzyme class,
+different class,
+decoy; apo for the
+quantities that are
+defined without a
+ligand) it gives the
+mean under the
+cognate and under
+the other condition,
+the paired change,
+the change in units
+of seed noise, and
+the direction-free
+AUROC with its
+interval.
+
+\textbf{Key
+columns.}
+
+{\small
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2909}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7091}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Column
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{source} &
+natural or denovo \\
+\texttt{metric\_name}
+/
+\texttt{canonical\_key}
+/
+\texttt{input\_class}
+& the quantity, the
+distinct metric it
+belongs to and its
+class \\
+\texttt{ame\_flavour}
+& crystal =
+active-site accuracy
+against the
+deposited structure;
+self\_design =
+against the design's
+own model (never
+pooled) \\
+\texttt{in\_main\_set}
+& 1 for the four
+main-set metrics
+(each appears
+several times: mean,
+maximum and spread
+over the five
+predicted models are
+separate rows) \\
+\texttt{condition} &
+same\_ec, diff\_ec,
+decoy or apo \\
+\texttt{n\_systems}
+& systems with a
+value (59 natural,
+30 de novo) \\
+\texttt{mean\_cognate}
+/
+\texttt{mean\_condition}
+/
+\texttt{mean\_delta}
+& mean value under
+the cognate ligand,
+under the condition,
+and the paired
+difference \\
+\texttt{median\_delta\_over\_sigma}
+/
+\texttt{frac\_beyond\_1sigma}
+& median change in
+units of the
+seed-to-seed
+standard deviation,
+and the share of
+systems that move by
+more than one \\
+\texttt{auroc} /
+\texttt{auroc\_lo} /
+\texttt{auroc\_hi} &
+direction-free AUROC
+of cognate against
+the condition, 95\%
+interval over
+systems \\
+\end{longtable}
+
+}
+
+\textbf{Excerpt}
+(first 3 rows where
+source = natural,
+condition =
+diff\_ec,
+in\_main\_set = 1).
+
+{\footnotesize
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{source}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{metric\_name}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{condition}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{n\_systems}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{mean\_cognate}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{mean\_condition}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{auroc}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{natural} &
+\texttt{ame\_crystal\_clash\_max}
+& \texttt{diff\_ec}
+& \texttt{58} &
+\texttt{3.2826} &
+\texttt{3.6103} &
+\texttt{0.6564} \\
+\texttt{natural} &
+\texttt{ame\_crystal\_rmsd\_max}
+& \texttt{diff\_ec}
+& \texttt{59} &
+\texttt{1.4469} &
+\texttt{1.5572} &
+\texttt{0.5395} \\
+\texttt{natural} &
+\texttt{ame\_crystal\_rmsd\_mean}
+& \texttt{diff\_ec}
+& \texttt{59} &
+\texttt{1.2516} &
+\texttt{1.2895} &
+\texttt{0.5306} \\
+\end{longtable}
+
+}
+
+\textbf{Notes.}
+
+\begin{itemize}
+\tightlist
+\item
+  n is 59 natural
+  enzymes here and
+  55 in Table 7,
+  whose evaluation
+  set drops four
+  enzymes whose
+  ligand could not
+  be built.
+\item
+  Per-metric results
+  of this table are
+  descriptive; the
+  ranking and the
+  best-of-30
+  threshold are in
+  Table 7.
 \end{itemize}
 
 \hypertarget{S15}{%
@@ -3781,162 +3832,18 @@ size).
 
 \hypertarget{S16}{%
 \subsubsection{Table
-S16. Drift of the
-current Chai-1
-engine against the
-earlier
-predictions}\label{S16}}
-
-\begin{shaded}\small
-
-\textbf{File.}
-\texttt{supplementary/S16\_engine\_drift\_check.csv}
-· 176 rows × 5
-columns · public
-
-\textbf{Supports.}
-Methods 2.2
-`Limits'; Results
-3.2. \textbf{Cited
-in.} Methods 2.2;
-Results 3.2.
-
-\textbf{A row is}
-one metric on one
-re-run prediction
-(176 rows).
-
-\end{shaded}
-
-A drift check: four
-predictions (two
-cognate predictions
-of the substrate
-swap and two
-predictions of the
-catalytic-lesion
-ladder) were re-run
-with the current
-Chai-1 engine, and
-every metric is
-compared with its
-stored value. Most
-differences are
-small (median
-absolute difference
-0.0007) but the
-largest is 0.91,
-which is why Chai-1
-results are reported
-with seed noise and
-are not claimed to
-be bitwise
-reproducible.
-
-\textbf{Key
-columns.}
-
-{\small
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2909}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7091}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Column
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Meaning
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\texttt{prediction}
-& the prediction
-that was re-run
-(system, condition
-and seed) \\
-\texttt{metric\_name}
-& the metric \\
-\texttt{stored} /
-\texttt{rerun} /
-\texttt{abs\_diff} &
-stored value, value
-of the re-run and
-their absolute
-difference \\
-\end{longtable}
-
-}
-
-\textbf{Excerpt}
-(first 3 rows).
-
-{\footnotesize
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{prediction}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{metric\_name}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{stored}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{rerun}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{abs\_diff}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\texttt{M0112\_3dfr\_a1\_\_cognate\_\_s101}
-&
-\texttt{ame\_crystal\_clash\_max}
-& \texttt{2.722} &
-\texttt{2.7284} &
-\texttt{0.0064} \\
-\texttt{M0112\_3dfr\_a1\_\_cognate\_\_s101}
-&
-\texttt{ame\_crystal\_pass}
-& \texttt{1.0} &
-\texttt{1.0} &
-\texttt{0.0} \\
-\texttt{M0112\_3dfr\_a1\_\_cognate\_\_s101}
-&
-\texttt{ame\_crystal\_rmsd\_max}
-& \texttt{0.8037} &
-\texttt{0.8055} &
-\texttt{0.0018} \\
-\end{longtable}
-
-}
-
-\hypertarget{S17}{%
-\subsubsection{Table
-S17. BglB: every
+S16. BglB: every
 analysed quantity
 ranked by rank
 correlation with the
 measured impairment
 (complete Table
-6)}\label{S17}}
+8)}\label{S16}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S17\_bglb\_all\_quantities\_ranked.csv}
+\texttt{supplementary/S16\_bglb\_all\_quantities\_ranked.csv}
 · 114 rows × 35
 columns · D2DCure
 aggregate (licence
@@ -3948,7 +3855,7 @@ rows)
 \textbf{Supports.}
 Results 3.3.1; the
 complete version of
-Table 6.
+Table 8.
 \textbf{Cited in.}
 Methods 2.3, 2.3.1;
 Results 3.3.1.
@@ -4021,14 +3928,14 @@ Meaning
 \bottomrule\noalign{}
 \endlastfoot
 \texttt{rank} /
-\texttt{rank\_in\_table\_6}
+\texttt{rank\_in\_table\_8}
 /
-\texttt{in\_table\_6}
+\texttt{in\_table\_8}
 & rank among 114,
 rank among the 41
-items of Table 6 and
+items of Table 8 and
 membership of Table
-6 \\
+8 \\
 \texttt{metric\_name}
 /
 \texttt{canonical\_key}
@@ -4163,17 +4070,17 @@ repeated above.
   per-variant rows.
 \end{itemize}
 
-\hypertarget{S18}{%
+\hypertarget{S17}{%
 \subsubsection{Table
-S18. BglB: all 84
+S17. BglB: all 84
 structure-space and
 comparator
-metrics}\label{S18}}
+metrics}\label{S17}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S18\_bglb\_all\_metrics.csv}
+\texttt{supplementary/S17\_bglb\_all\_metrics.csv}
 · 84 rows × 29
 columns · D2DCure
 aggregate (licence
@@ -4351,16 +4258,16 @@ in\_main\_set = 1).
   per-variant rows.
 \end{itemize}
 
-\hypertarget{S19}{%
+\hypertarget{S18}{%
 \subsubsection{Table
-S19. BglB:
+S18. BglB:
 sensitivity
-analyses}\label{S19}}
+analyses}\label{S18}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S19\_bglb\_sensitivities.csv}
+\texttt{supplementary/S18\_bglb\_sensitivities.csv}
 · 11 rows × 22
 columns · D2DCure
 aggregate (licence
@@ -4554,18 +4461,18 @@ repeated above.
   per-variant rows.
 \end{itemize}
 
-\hypertarget{S20}{%
+\hypertarget{S19}{%
 \subsubsection{Table
-S20. BglB:
+S19. BglB:
 prediction-based
 metrics (Chai-1 with
 the assay
-substrate)}\label{S20}}
+substrate)}\label{S19}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S20\_bglb\_prediction\_based\_all\_metrics.csv}
+\texttt{supplementary/S19\_bglb\_prediction\_based\_all\_metrics.csv}
 · 28 rows × 29
 columns · D2DCure
 aggregate (licence
@@ -4591,7 +4498,7 @@ all).
 \end{shaded}
 
 The same columns as
-\protect\hyperlink{S18}{S18}
+\protect\hyperlink{S17}{S17}
 for the metrics
 computed from Chai-1
 predictions of each
@@ -4727,18 +4634,18 @@ in\_main\_set = 1).
   per-variant rows.
 \end{itemize}
 
-\hypertarget{S21}{%
+\hypertarget{S20}{%
 \subsubsection{Table
-S21. Plated designs:
+S20. Plated designs:
 hits per 96-well
 plate for every
 metric (filter-style
-analysis)}\label{S21}}
+analysis)}\label{S20}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S21\_plates\_hits\_per\_plate\_ranked.csv}
+\texttt{supplementary/S20\_plates\_hits\_per\_plate\_ranked.csv}
 · 128 rows × 37
 columns · public
 
@@ -4803,7 +4710,7 @@ Meaning
 \texttt{ranked\_item}
 & rank among 128,
 rank among the 36
-items of Table 7 and
+items of Table 9 and
 whether the metric
 is one of them \\
 \texttt{metric\_name}
@@ -4935,28 +4842,28 @@ repeated above.
   test.
 \end{itemize}
 
-\hypertarget{S22}{%
+\hypertarget{S21}{%
 \subsubsection{Table
-S22. Plated designs:
+S21. Plated designs:
 every metric ranked
 by correlation with
 kcat/KM among the 16
 designs that have a
 value (complete
 Table
-7)}\label{S22}}
+9)}\label{S21}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S22\_plates\_all\_metrics\_ranked.csv}
+\texttt{supplementary/S21\_plates\_all\_metrics\_ranked.csv}
 · 106 rows × 29
 columns · public
 
 \textbf{Supports.}
 Results 3.3.2; the
 complete version of
-Table 7.
+Table 9.
 \textbf{Cited in.}
 Methods 2.3.2;
 Results 3.3.2.
@@ -5007,14 +4914,14 @@ Meaning
 \bottomrule\noalign{}
 \endlastfoot
 \texttt{rank} /
-\texttt{rank\_in\_table\_7}
+\texttt{rank\_in\_table\_9}
 /
-\texttt{in\_table\_7}
+\texttt{in\_table\_9}
 & rank among 106,
 rank among the 36
-items of Table 7 and
+items of Table 9 and
 membership of Table
-7 \\
+9 \\
 \texttt{metric\_name}
 /
 \texttt{canonical\_key}
@@ -5130,19 +5037,19 @@ repeated above.
   that excludes 0.
 \end{itemize}
 
-\hypertarget{S23}{%
+\hypertarget{S22}{%
 \subsubsection{Table
-S23. Plated designs:
+S22. Plated designs:
 ordering among the
 16 active designs,
 structure-space
 metrics and
-comparators}\label{S23}}
+comparators}\label{S22}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S23\_plates\_ordering.csv}
+\texttt{supplementary/S22\_plates\_ordering.csv}
 · 81 rows × 23
 columns · public
 
@@ -5285,18 +5192,18 @@ in\_main\_set = 1).
 
 }
 
-\hypertarget{S24}{%
+\hypertarget{S23}{%
 \subsubsection{Table
-S24. Plated designs:
+S23. Plated designs:
 enrichment at every
 keep fraction,
 structure-space
-metrics}\label{S24}}
+metrics}\label{S23}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S24\_plates\_enrichment.csv}
+\texttt{supplementary/S23\_plates\_enrichment.csv}
 · 816 rows × 27
 columns · public
 
@@ -5470,17 +5377,17 @@ keep\_fraction =
   816 rows.
 \end{itemize}
 
-\hypertarget{S25}{%
+\hypertarget{S24}{%
 \subsubsection{Table
-S25. Plated designs:
+S24. Plated designs:
 enrichment for
 prediction-based
-metrics}\label{S25}}
+metrics}\label{S24}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S25\_plates\_prediction\_based\_enrichment.csv}
+\texttt{supplementary/S24\_plates\_prediction\_based\_enrichment.csv}
 · 232 rows × 27
 columns · public
 
@@ -5501,7 +5408,7 @@ rows).
 \end{shaded}
 
 The same as
-\protect\hyperlink{S24}{S24}
+\protect\hyperlink{S23}{S23}
 for the 29
 prediction-based
 metrics (Chai-1 with
@@ -5542,7 +5449,7 @@ Meaning
 / \texttt{n\_kept} /
 \texttt{n\_active\_kept}
 & as in
-\protect\hyperlink{S24}{S24} \\
+\protect\hyperlink{S23}{S23} \\
 \texttt{expected\_hits\_per\_plate}
 /
 \texttt{hits\_lo90}
@@ -5627,16 +5534,16 @@ high).
   designs).
 \end{itemize}
 
-\hypertarget{S26}{%
+\hypertarget{S25}{%
 \subsubsection{Table
-S26. Sanity floors
+S25. Sanity floors
 by class of
-metric}\label{S26}}
+metric}\label{S25}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S26\_sanity\_floor\_by\_input\_class.csv}
+\texttt{supplementary/S25\_sanity\_floor\_by\_input\_class.csv}
 · 53 rows × 8
 columns · public
 
@@ -5792,26 +5699,26 @@ cat\_to\_gly).
 
 }
 
-\hypertarget{S27}{%
+\hypertarget{S26}{%
 \subsubsection{Table
-S27. Control
+S26. Control
 matching: the
 loosest tier
-needed}\label{S27}}
+needed}\label{S26}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S27\_control\_match\_tiers.csv}
+\texttt{supplementary/S26\_control\_match\_tiers.csv}
 · 81 rows × 6
 columns · public
 
 \textbf{Supports.}
 Methods 2.4; Results
 3.4.1. \textbf{Cited
-in.} Methods 2.4,
-2.4.1; Results
-3.4.1.
+in.} Methods 2.4;
+Results 3.4.1;
+Discussion.
 
 \textbf{A row is}
 one analysis, lesion
@@ -5939,27 +5846,27 @@ catalytic lesion).
 
 }
 
-\hypertarget{S28}{%
+\hypertarget{S27}{%
 \subsubsection{Table
-S28. Control
+S27. Control
 matching: balance of
 residues changed in
 the two
-arms}\label{S28}}
+arms}\label{S27}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S28\_control\_arm\_balance.csv}
+\texttt{supplementary/S27\_control\_arm\_balance.csv}
 · 15 rows × 9
 columns · public
 
 \textbf{Supports.}
 Methods 2.4; Results
 3.4.1. \textbf{Cited
-in.} Methods 2.4,
-2.4.1; Results
-3.4.1.
+in.} Methods 2.4;
+Results 3.4.1;
+Discussion.
 
 \textbf{A row is}
 one analysis and
@@ -6088,27 +5995,27 @@ with no control \\
 
 }
 
-\hypertarget{S29}{%
+\hypertarget{S28}{%
 \subsubsection{Table
-S29. Catalytic
+S28. Catalytic
 lesion: every metric
-scored (Table 8 plus
-supplementary
+scored (Table 10
+plus supplementary
 comparators and
 per-step
-flags)}\label{S29}}
+flags)}\label{S28}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S29\_catalytic\_lesion\_all\_metrics\_ranked.csv}
+\texttt{supplementary/S28\_catalytic\_lesion\_all\_metrics\_ranked.csv}
 · 43 rows × 73
 columns · public
 
 \textbf{Supports.}
 Results 3.4.1; the
 complete version of
-Table 8.
+Table 10.
 \textbf{Cited in.}
 Methods 2.4.1;
 Results 3.4.1;
@@ -6121,7 +6028,7 @@ ladder (43 in all).
 
 \end{shaded}
 
-Table 8 with the 8
+Table 10 with the 8
 supplementary
 comparators and
 every flag that
@@ -6192,13 +6099,13 @@ Meaning
 /
 \texttt{rank\_in\_group}
 / \texttt{rank} /
-\texttt{rank\_in\_table\_8}
+\texttt{rank\_in\_table\_10}
 & group by first
 detected step, rank
 in the group,
 overall rank and
 rank among the 35
-items of Table 8 \\
+items of Table 10 \\
 \texttt{metric\_name}
 /
 \texttt{canonical\_key}
@@ -6328,28 +6235,28 @@ repeated above.
 \item
   Descriptive of a
   pooled set.
-  \protect\hyperlink{S30}{S30}
+  \protect\hyperlink{S29}{S29}
   and
-  \protect\hyperlink{S31}{S31}
+  \protect\hyperlink{S30}{S30}
   hold the
   specificity-ratio
   analysis.
 \end{itemize}
 
-\hypertarget{S30}{%
+\hypertarget{S29}{%
 \subsubsection{Table
-S30. Structure-space
+S29. Structure-space
 specificity by
 metric family and
 lesion step, with
 the panel statistic
 and sensitivity
-sets}\label{S30}}
+sets}\label{S29}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S30\_specificity\_by\_family\_and\_step.csv}
+\texttt{supplementary/S29\_specificity\_by\_family\_and\_step.csv}
 · 20 rows × 27
 columns · public
 
@@ -6534,21 +6441,21 @@ catalytic lesion).
 
 }
 
-\hypertarget{S31}{%
+\hypertarget{S30}{%
 \subsubsection{Table
-S31. Re-predicted
+S30. Re-predicted
 catalytic lesion:
 the prediction-based
 metrics under three
 successive controls
 and the
 pre-specified
-rule}\label{S31}}
+rule}\label{S30}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S31\_predictor\_ladder\_three\_controls.csv}
+\texttt{supplementary/S30\_predictor\_ladder\_three\_controls.csv}
 · 6 rows × 23
 columns · public
 
@@ -6732,30 +6639,31 @@ repeated above.
 
 }
 
-\hypertarget{S32}{%
+\hypertarget{S31}{%
 \subsubsection{Table
-S32. Sensitivity of
+S31. Sensitivity of
 the
 specificity-ratio
 counts to motif
 size, packing
 matching and count
-gating}\label{S32}}
+gating}\label{S31}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S32\_motif\_packing\_sensitivity.csv}
+\texttt{supplementary/S31\_motif\_packing\_sensitivity.csv}
 · 20 rows × 7
 columns · public
 
 \textbf{Supports.}
 Results 3.4.1;
-Methods 2.4.1
-`Limits'.
+Discussion
+(limitations).
 \textbf{Cited in.}
 Methods 2.4.1;
-Results 3.4.1.
+Results 3.4.1;
+Discussion.
 
 \textbf{A row is}
 one analysis and one
@@ -6875,16 +6783,16 @@ cells \\
 
 }
 
-\hypertarget{S33}{%
+\hypertarget{S32}{%
 \subsubsection{Table
-S33. Re-predicted
+S32. Re-predicted
 ladder: seed-noise
-context}\label{S33}}
+context}\label{S32}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S33\_replicate\_noise\_context.csv}
+\texttt{supplementary/S32\_replicate\_noise\_context.csv}
 · 56 rows × 12
 columns · public
 
@@ -7031,18 +6939,18 @@ all\_pairs).
 
 }
 
-\hypertarget{S34}{%
+\hypertarget{S33}{%
 \subsubsection{Table
-S34. Specificity
+S33. Specificity
 ratio of every
 eligible metric at
 every
-step}\label{S34}}
+step}\label{S33}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S34\_eligible\_metrics.csv}
+\texttt{supplementary/S33\_eligible\_metrics.csv}
 · 256 rows × 29
 columns · public
 
@@ -7221,19 +7129,19 @@ level = ala).
 
 }
 
-\hypertarget{S35}{%
+\hypertarget{S34}{%
 \subsubsection{Table
-S35. Specificity
+S34. Specificity
 ratio of
 whole-protein and
 sequence-only
 comparators at every
-step}\label{S35}}
+step}\label{S34}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S35\_global\_comparators.csv}
+\texttt{supplementary/S34\_global\_comparators.csv}
 · 308 rows × 29
 columns · public
 
@@ -7254,7 +7162,7 @@ rows).
 \end{shaded}
 
 The same cells as
-\protect\hyperlink{S34}{S34}
+\protect\hyperlink{S33}{S33}
 for the
 whole-protein and
 sequence-only
@@ -7297,12 +7205,12 @@ Meaning
 / \texttt{level} /
 \texttt{n\_systems}
 & as in
-\protect\hyperlink{S34}{S34} \\
+\protect\hyperlink{S33}{S33} \\
 delta\_\emph{,
 sr\_}, responds,
 specific, verdict &
 as in
-\protect\hyperlink{S34}{S34} \\
+\protect\hyperlink{S33}{S33} \\
 \end{longtable}
 
 }
@@ -7372,17 +7280,17 @@ level = ala).
 
 }
 
-\hypertarget{S36}{%
+\hypertarget{S35}{%
 \subsubsection{Table
-S36. The specific
+S35. The specific
 cells that survive
 the
-controls}\label{S36}}
+controls}\label{S35}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S36\_survivors\_by\_status.csv}
+\texttt{supplementary/S35\_survivors\_by\_status.csv}
 · 97 rows × 10
 columns · public
 
@@ -7540,17 +7448,17 @@ in\_main\_set = 1).
 
 }
 
-\hypertarget{S37}{%
+\hypertarget{S36}{%
 \subsubsection{Table
-S37. Rank statistic
+S36. Rank statistic
 R per lesion step on
 the 143 main
-enzymes}\label{S37}}
+enzymes}\label{S36}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S37\_ranking\_statistic\_by\_lesion\_step.csv}
+\texttt{supplementary/S36\_ranking\_statistic\_by\_lesion\_step.csv}
 · 313 rows × 14
 columns · public
 
@@ -7582,8 +7490,9 @@ including
 comparators. This is
 the per-step form of
 R on the main
-enzymes; Table 8 and
-\protect\hyperlink{S29}{S29}
+enzymes; Table 10
+and
+\protect\hyperlink{S28}{S28}
 report the pooled
 analysis on 195
 enzymes with 95\%
@@ -7709,19 +7618,19 @@ lesion\_step = ala).
 
 }
 
-\hypertarget{S38}{%
+\hypertarget{S37}{%
 \subsubsection{Table
-S38. Re-predicted
+S37. Re-predicted
 ladder: distance of
 the substituted and
 control residues to
 the
-ligand}\label{S38}}
+ligand}\label{S37}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S38\_ladder\_pair\_distances.csv}
+\texttt{supplementary/S37\_ladder\_pair\_distances.csv}
 · 312 rows × 34
 columns · public
 
@@ -7759,7 +7668,7 @@ catalytic residue,
 and whether the pair
 falls in each of the
 calipers used in
-\protect\hyperlink{S41}{S41}.
+\protect\hyperlink{S40}{S40}.
 
 \textbf{Key
 columns.}
@@ -7913,18 +7822,18 @@ ok).
   312 rows.
 \end{itemize}
 
-\hypertarget{S39}{%
+\hypertarget{S38}{%
 \subsubsection{Table
-S39. Re-predicted
+S38. Re-predicted
 ladder: candidates
 for a new
 distance-matched
-control}\label{S39}}
+control}\label{S38}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S39\_new\_distance\_matched\_controls.csv}
+\texttt{supplementary/S38\_new\_distance\_matched\_controls.csv}
 · 291 rows × 17
 columns · public
 
@@ -8089,18 +7998,18 @@ selected = 1).
 
 }
 
-\hypertarget{S40}{%
+\hypertarget{S39}{%
 \subsubsection{Table
-S40. Re-predicted
+S39. Re-predicted
 ladder: specificity
 ratio in strata of
 the distance to the
-ligand}\label{S40}}
+ligand}\label{S39}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S40\_ladder\_distance\_strata.csv}
+\texttt{supplementary/S39\_ladder\_distance\_strata.csv}
 · 203 rows × 27
 columns · public
 
@@ -8263,18 +8172,18 @@ chai\_iptm\_mean).
 
 }
 
-\hypertarget{S41}{%
+\hypertarget{S40}{%
 \subsubsection{Table
-S41. Re-predicted
+S40. Re-predicted
 ladder:
 caliper-matched
 subsets and the rule
-labels}\label{S41}}
+labels}\label{S40}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S41\_ladder\_matched\_subsets.csv}
+\texttt{supplementary/S40\_ladder\_matched\_subsets.csv}
 · 348 rows × 25
 columns · public
 
@@ -8305,7 +8214,7 @@ within the caliper),
 original\_plus\_new\_controls
 (with the new
 controls added, the
-subset of Table 8)
+subset of Table 10)
 and the sensitivity
 sets
 distance\_in\_prediction,
@@ -8441,17 +8350,17 @@ chai\_iptm\_mean).
 
 }
 
-\hypertarget{S42}{%
+\hypertarget{S41}{%
 \subsubsection{Table
-S42. Re-predicted
+S41. Re-predicted
 ladder:
 regression-adjusted
-ratios}\label{S42}}
+ratios}\label{S41}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S42\_ladder\_regression\_adjusted.csv}
+\texttt{supplementary/S41\_ladder\_regression\_adjusted.csv}
 · 116 rows × 28
 columns · public
 
@@ -8595,19 +8504,19 @@ chai\_iptm\_mean).
 
 }
 
-\hypertarget{S43}{%
+\hypertarget{S42}{%
 \subsubsection{Table
-S43. Panel
+S42. Panel
 equivalence
 statistic: earlier
 whole panel against
 the main-set
-metrics}\label{S43}}
+metrics}\label{S42}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S43\_equivalence\_earlier\_vs\_main\_panel.csv}
+\texttt{supplementary/S42\_equivalence\_earlier\_vs\_main\_panel.csv}
 · 6 rows × 10
 columns · public
 
@@ -8750,18 +8659,18 @@ remarks \\
 
 }
 
-\hypertarget{S44}{%
+\hypertarget{S43}{%
 \subsubsection{Table
-S44. Re-predicted
+S43. Re-predicted
 ladder: specificity
 ratio per step for
 all
-metrics}\label{S44}}
+metrics}\label{S43}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S44\_ladder\_re\_predicted\_per\_level.csv}
+\texttt{supplementary/S43\_ladder\_re\_predicted\_per\_level.csv}
 · 231 rows × 16
 columns · public
 
@@ -8917,26 +8826,363 @@ chai\_iptm).
 
 }
 
-\hypertarget{S45}{%
+\hypertarget{S44}{%
 \subsubsection{Table
-S45. Effective
-dimensionality of
-the
-panel}\label{S45}}
+S44. Second-shell
+lesion: every metric
+scored (Table 11
+plus supplementary
+comparators and
+per-dose
+flags)}\label{S44}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S45\_effective\_dimensionality.csv}
+\texttt{supplementary/S44\_second\_shell\_lesion\_all\_metrics\_ranked.csv}
+· 37 rows × 59
+columns · public
+
+\textbf{Supports.}
+Results 3.4.2; the
+complete version of
+Table 11.
+\textbf{Cited in.}
+Methods 2.4.2;
+Results 3.4.2.
+
+\textbf{A row is}
+one metric scored on
+second-shell removal
+(37 in all).
+
+\end{shaded}
+
+Table 11 with the 8
+supplementary
+comparators and the
+flags at each dose
+(1, 2 and 4 residues
+removed): R with
+interval, the number
+of informative
+proteins, and
+whether the metric
+responds, whether
+the control response
+is above its noise
+and whether it is
+specific. No step
+counts for any
+metric, so no rank
+on this test is
+interpretable and no
+reference level is
+computed.
+
+\textbf{Key
+columns.}
+
+{\small
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2909}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7091}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Column
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{detection\_group}
+/
+\texttt{rank\_in\_group}
+/ \texttt{rank} /
+\texttt{rank\_in\_table\_11}
+& group by first
+dose detected, rank
+in the group,
+overall rank and
+rank among the 29
+items of Table 11 \\
+\texttt{metric\_name}
+/
+\texttt{canonical\_key}
+/ \texttt{source} /
+\texttt{input\_class}
+/ \texttt{role} /
+\texttt{in\_ranked\_set}
+& the metric and its
+role \\
+\texttt{n\_steps} /
+\texttt{n\_steps\_interpretable}
+& doses with a value
+and counted (0 for
+every metric) \\
+r\_second\_shell\_ /
+\_lo / \emph{hi /
+n\_second\_shell} &
+R, interval and
+informative proteins
+at dose 1, 2 and
+4 \\
+\texttt{responds\_}
+/
+\texttt{control\_above\_noise\_}
+/
+specific\_second\_shell\_
+& per-dose flags \\
+\texttt{r\_mean\_all\_steps}
+/
+\texttt{first\_step\_detected}
+/
+\texttt{first\_step\_specific}
+& mean R over all
+doses and the
+onsets \\
+\end{longtable}
+
+}
+
+The shared block of
+12 provenance
+columns (see
+Conventions) is also
+present and is not
+repeated above.
+
+\textbf{Excerpt}
+(first 3 rows).
+
+{\footnotesize
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{detection\_group}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{rank\_in\_group}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{metric\_name}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{r\_mean\_all\_steps}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{n\_steps\_interpretable}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{second\_shell\_4}
+& \texttt{1} &
+\texttt{propka\_catalytic\_shift\_mean}
+& \texttt{0.7005} &
+\texttt{0} \\
+\texttt{second\_shell\_4}
+& \texttt{2} &
+\texttt{propka\_catalytic\_pka\_mean}
+& \texttt{0.6915} &
+\texttt{0} \\
+\texttt{never} &
+\texttt{1} &
+\texttt{catalytic\_frac\_buried}
+& \texttt{0.781} &
+\texttt{0} \\
+\end{longtable}
+
+}
+
+\textbf{Notes.}
+
+\begin{itemize}
+\tightlist
+\item
+  Because both arms
+  are scored over
+  the catalytic
+  residues, a high
+  raw R on this test
+  measures location.
+\end{itemize}
+
+\hypertarget{S45}{%
+\subsubsection{Table
+S45. Drift of the
+current Chai-1
+engine against the
+earlier
+predictions}\label{S45}}
+
+\begin{shaded}\small
+
+\textbf{File.}
+\texttt{supplementary/S45\_engine\_drift\_check.csv}
+· 176 rows × 5
+columns · public
+
+\textbf{Supports.}
+Results 3.2;
+Discussion
+(limitations).
+\textbf{Cited in.}
+Results 3.2.
+
+\textbf{A row is}
+one metric on one
+re-run prediction
+(176 rows).
+
+\end{shaded}
+
+A drift check: four
+predictions (two
+cognate predictions
+of the substrate
+swap and two
+predictions of the
+catalytic-lesion
+ladder) were re-run
+with the current
+Chai-1 engine, and
+every metric is
+compared with its
+stored value. Most
+differences are
+small (median
+absolute difference
+0.0007) but the
+largest is 0.91,
+which is why Chai-1
+results are reported
+with seed noise and
+are not claimed to
+be bitwise
+reproducible.
+
+\textbf{Key
+columns.}
+
+{\small
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2909}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7091}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Column
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{prediction}
+& the prediction
+that was re-run
+(system, condition
+and seed) \\
+\texttt{metric\_name}
+& the metric \\
+\texttt{stored} /
+\texttt{rerun} /
+\texttt{abs\_diff} &
+stored value, value
+of the re-run and
+their absolute
+difference \\
+\end{longtable}
+
+}
+
+\textbf{Excerpt}
+(first 3 rows).
+
+{\footnotesize
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{prediction}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{metric\_name}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{stored}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{rerun}
+\end{minipage} &
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{abs\_diff}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{M0112\_3dfr\_a1\_\_cognate\_\_s101}
+&
+\texttt{ame\_crystal\_clash\_max}
+& \texttt{2.722} &
+\texttt{2.7284} &
+\texttt{0.0064} \\
+\texttt{M0112\_3dfr\_a1\_\_cognate\_\_s101}
+&
+\texttt{ame\_crystal\_pass}
+& \texttt{1.0} &
+\texttt{1.0} &
+\texttt{0.0} \\
+\texttt{M0112\_3dfr\_a1\_\_cognate\_\_s101}
+&
+\texttt{ame\_crystal\_rmsd\_max}
+& \texttt{0.8037} &
+\texttt{0.8055} &
+\texttt{0.0018} \\
+\end{longtable}
+
+}
+
+\hypertarget{S46}{%
+\subsubsection{Table
+S46. Effective
+dimensionality of
+the
+panel}\label{S46}}
+
+\begin{shaded}\small
+
+\textbf{File.}
+\texttt{supplementary/S46\_effective\_dimensionality.csv}
 · 4 rows × 10
 columns · public
 
 \textbf{Supports.}
-Methods 2.4.1
-`Limits'.
+Discussion
+(limitations).
 \textbf{Cited in.}
-Methods 2.4.1;
-Results 3.4.1.
+Results 3.4.1;
+Discussion.
 
 \textbf{A row is}
 one set of metrics
@@ -9061,27 +9307,28 @@ metrics \\
 
 }
 
-\hypertarget{S46}{%
+\hypertarget{S47}{%
 \subsubsection{Table
-S46. De novo
+S47. De novo
 designs: burial
 equivalence of the
 created-site
-control}\label{S46}}
+control}\label{S47}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S46\_denovo\_created\_control.csv}
+\texttt{supplementary/S47\_denovo\_created\_control.csv}
 · 5 rows × 11
 columns · public
 
 \textbf{Supports.}
-Methods 2.4.1
-`Limits'; Results
-3.4.1. \textbf{Cited
-in.} Methods 2.4.1;
-Results 3.4.1.
+Results 3.4.1;
+Discussion
+(limitations).
+\textbf{Cited in.}
+Results 3.4.1;
+Discussion.
 
 \textbf{A row is}
 one burial metric (5
@@ -9209,26 +9456,24 @@ the arms differ \\
 
 }
 
-\hypertarget{S47}{%
+\hypertarget{S48}{%
 \subsubsection{Table
-S47. Experiments
+S48. Experiments
 that could not be
 made or were
-retired}\label{S47}}
+retired}\label{S48}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S47\_not\_measurable.csv}
+\texttt{supplementary/S48\_not\_measurable.csv}
 · 9 rows × 4 columns
 · public
 
 \textbf{Supports.}
-Methods 2.4.1
-`Limits';
-Discussion.
+Discussion
+(limitations).
 \textbf{Cited in.}
-Methods 2.4.1;
 Results 3.4.1.
 
 \textbf{A row is}
@@ -9340,25 +9585,25 @@ be made \\
 
 }
 
-\hypertarget{S48}{%
+\hypertarget{S49}{%
 \subsubsection{Table
-S48. PLACER ensemble
+S49. PLACER ensemble
 metrics on the
 isosteric step (not
-interpretable)}\label{S48}}
+interpretable)}\label{S49}}
 
 \begin{shaded}\small
 
 \textbf{File.}
-\texttt{supplementary/S48\_placer\_isosteric.csv}
+\texttt{supplementary/S49\_placer\_isosteric.csv}
 · 50 rows × 12
 columns · public
 
 \textbf{Supports.}
-Methods 2.4.1
-`Limits'; Results
-3.4.1. \textbf{Cited
-in.} Methods 2.4.1;
+Results 3.4.1;
+Discussion
+(limitations).
+\textbf{Cited in.}
 Results 3.4.1.
 
 \textbf{A row is}
@@ -9498,208 +9743,22 @@ or X-CONFOUND) \\
 
 }
 
-\hypertarget{S49}{%
-\subsubsection{Table
-S49. Second-shell
-lesion: every metric
-scored (Table 9 plus
-supplementary
-comparators and
-per-dose
-flags)}\label{S49}}
-
-\begin{shaded}\small
-
-\textbf{File.}
-\texttt{supplementary/S49\_second\_shell\_lesion\_all\_metrics\_ranked.csv}
-· 37 rows × 59
-columns · public
-
-\textbf{Supports.}
-Results 3.4.2; the
-complete version of
-Table 9.
-\textbf{Cited in.}
-Methods 2.4.2;
-Results 3.4.2.
-
-\textbf{A row is}
-one metric scored on
-second-shell removal
-(37 in all).
-
-\end{shaded}
-
-Table 9 with the 8
-supplementary
-comparators and the
-flags at each dose
-(1, 2 and 4 residues
-removed): R with
-interval, the number
-of informative
-proteins, and
-whether the metric
-responds, whether
-the control response
-is above its noise
-and whether it is
-specific. No step
-counts for any
-metric, so no rank
-on this test is
-interpretable and no
-reference level is
-computed.
-
-\textbf{Key
-columns.}
-
-{\small
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2909}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7091}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Column
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-Meaning
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\texttt{detection\_group}
-/
-\texttt{rank\_in\_group}
-/ \texttt{rank} /
-\texttt{rank\_in\_table\_9}
-& group by first
-dose detected, rank
-in the group,
-overall rank and
-rank among the 29
-items of Table 9 \\
-\texttt{metric\_name}
-/
-\texttt{canonical\_key}
-/ \texttt{source} /
-\texttt{input\_class}
-/ \texttt{role} /
-\texttt{in\_ranked\_set}
-& the metric and its
-role \\
-\texttt{n\_steps} /
-\texttt{n\_steps\_interpretable}
-& doses with a value
-and counted (0 for
-every metric) \\
-r\_second\_shell\_ /
-\_lo / \emph{hi /
-n\_second\_shell} &
-R, interval and
-informative proteins
-at dose 1, 2 and
-4 \\
-\texttt{responds\_}
-/
-\texttt{control\_above\_noise\_}
-/
-specific\_second\_shell\_
-& per-dose flags \\
-\texttt{r\_mean\_all\_steps}
-/
-\texttt{first\_step\_detected}
-/
-\texttt{first\_step\_specific}
-& mean R over all
-doses and the
-onsets \\
-\end{longtable}
-
-}
-
-The shared block of
-12 provenance
-columns (see
-Conventions) is also
-present and is not
-repeated above.
-
-\textbf{Excerpt}
-(first 3 rows).
-
-{\footnotesize
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{detection\_group}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{rank\_in\_group}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{metric\_name}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{r\_mean\_all\_steps}
-\end{minipage} &
-\begin{minipage}[b]{\linewidth}\raggedright
-\texttt{n\_steps\_interpretable}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\texttt{second\_shell\_4}
-& \texttt{1} &
-\texttt{propka\_catalytic\_shift\_mean}
-& \texttt{0.7005} &
-\texttt{0} \\
-\texttt{second\_shell\_4}
-& \texttt{2} &
-\texttt{propka\_catalytic\_pka\_mean}
-& \texttt{0.6915} &
-\texttt{0} \\
-\texttt{never} &
-\texttt{1} &
-\texttt{catalytic\_frac\_buried}
-& \texttt{0.781} &
-\texttt{0} \\
-\end{longtable}
-
-}
-
-\textbf{Notes.}
-
-\begin{itemize}
-\tightlist
-\item
-  Because both arms
-  are scored over
-  the catalytic
-  residues, a high
-  raw R on this test
-  measures location.
-\end{itemize}
-
 \section{Appendix A.
 Main-text tables}
 
-The nine tables of
-the paper, with the
+The seven data
+tables of the
+Results (Tables 5 to
+11), with the
 supplementary tables
 that hold the
 complete version or
-more detail.
+more detail. Tables
+1 to 4 of the
+Methods are
+descriptive and are
+not released as
+files.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.0862}}
@@ -9723,56 +9782,47 @@ More detail in
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\textbf{T1} &
-\texttt{main/T1\_study\_map.csv}
-& 12 × 17 &
-\protect\hyperlink{S7}{S7} \\
-\textbf{T2} &
-\texttt{main/T2\_datasets.csv}
-& 11 × 11 &
-\protect\hyperlink{S7}{S7},
-\protect\hyperlink{S10}{S10} \\
-\textbf{T3} &
-\texttt{main/T3\_dead\_vs\_active.csv}
-& 30 × 26 &
-\protect\hyperlink{S12}{S12},
-\protect\hyperlink{S8}{S8},
-\protect\hyperlink{S9}{S9} \\
-\textbf{T4} &
-\texttt{main/T4\_plated\_designs\_auroc.csv}
-& 30 × 28 &
-\protect\hyperlink{S14}{S14} \\
 \textbf{T5} &
-\texttt{main/T5\_substrate\_swap.csv}
-& 30 × 32 &
-\protect\hyperlink{S1}{S1},
-\protect\hyperlink{S15}{S15} \\
+\texttt{main/T5\_dead\_vs\_active.csv}
+& 30 × 26 &
+\protect\hyperlink{S11}{S11},
+\protect\hyperlink{S7}{S7},
+\protect\hyperlink{S8}{S8} \\
 \textbf{T6} &
-\texttt{main/T6\_bglb\_variants.csv}
+\texttt{main/T6\_plated\_designs\_auroc.csv}
+& 30 × 28 &
+\protect\hyperlink{S13}{S13} \\
+\textbf{T7} &
+\texttt{main/T7\_substrate\_swap.csv}
+& 30 × 32 &
+\protect\hyperlink{S14}{S14},
+\protect\hyperlink{S15}{S15} \\
+\textbf{T8} &
+\texttt{main/T8\_bglb\_variants.csv}
 & 30 × 27 &
+\protect\hyperlink{S16}{S16},
 \protect\hyperlink{S17}{S17},
 \protect\hyperlink{S18}{S18},
-\protect\hyperlink{S19}{S19},
-\protect\hyperlink{S20}{S20} \\
-\textbf{T7} &
-\texttt{main/T7\_plated\_designs.csv}
-& 30 × 26 &
-\protect\hyperlink{S22}{S22},
-\protect\hyperlink{S21}{S21},
-\protect\hyperlink{S24}{S24},
-\protect\hyperlink{S23}{S23},
-\protect\hyperlink{S25}{S25} \\
-\textbf{T8} &
-\texttt{main/T8\_specificity\_catalytic\_lesion.csv}
-& 35 × 36 &
-\protect\hyperlink{S29}{S29},
-\protect\hyperlink{S30}{S30},
-\protect\hyperlink{S31}{S31} \\
+\protect\hyperlink{S19}{S19} \\
 \textbf{T9} &
-\texttt{main/T9\_specificity\_second\_shell\_lesion.csv}
-& 29 × 30 &
-\protect\hyperlink{S49}{S49},
+\texttt{main/T9\_plated\_designs.csv}
+& 30 × 26 &
+\protect\hyperlink{S21}{S21},
+\protect\hyperlink{S20}{S20},
+\protect\hyperlink{S23}{S23},
+\protect\hyperlink{S22}{S22},
+\protect\hyperlink{S24}{S24} \\
+\textbf{T10} &
+\texttt{main/T10\_specificity\_catalytic\_lesion.csv}
+& 35 × 36 &
+\protect\hyperlink{S28}{S28},
+\protect\hyperlink{S29}{S29},
 \protect\hyperlink{S30}{S30} \\
+\textbf{T11} &
+\texttt{main/T11\_specificity\_second\_shell\_lesion.csv}
+& 29 × 30 &
+\protect\hyperlink{S44}{S44},
+\protect\hyperlink{S29}{S29} \\
 \end{longtable}
 
 \section{Appendix B.
@@ -9786,21 +9836,21 @@ Notes on the data}
   natural enzymes in
   the substrate
   swap:
-  \protect\hyperlink{S1}{S1}
+  \protect\hyperlink{S14}{S14}
   uses all 59
   natural enzymes,
-  Table 5 uses the
+  Table 7 uses the
   evaluation set of
   55.
 \item
   Two forms of the
   rank statistic R:
-  \protect\hyperlink{S37}{S37}
+  \protect\hyperlink{S36}{S36}
   is R on the 143
   main enzymes with
   90\% intervals;
-  Table 8 and
-  \protect\hyperlink{S29}{S29}
+  Table 10 and
+  \protect\hyperlink{S28}{S28}
   are the pooled
   analysis on 195
   enzymes with 95\%
@@ -9817,15 +9867,15 @@ Notes on the data}
   ligand-distance-matched
   controls, the
   cells of
-  \protect\hyperlink{S4}{S4}
+  \protect\hyperlink{S3}{S3}
   keep the label
   NOT-RUN although
   the analysis was
   carried out
   (results in
-  \protect\hyperlink{S41}{S41}
+  \protect\hyperlink{S40}{S40}
   and
-  \protect\hyperlink{S42}{S42}).
+  \protect\hyperlink{S41}{S41}).
 \end{itemize}
 
 \end{document}

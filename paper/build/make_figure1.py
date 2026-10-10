@@ -2,7 +2,8 @@
 """Redraw Figure 1 (the study map) as paper/fig1_study_map.png.
 
 HTML -> headless Chromium screenshot. The text of the four boxes is the same as
-in the Methods tables (Tables 1 and 2); edit BOXES here and rerun.
+in the Methods sections 2.1 to 2.4; edit BOXES here and rerun. The figure is not used in the
+paper at present (the study map was removed from section 2).
 
     python3 make_figure1.py
 """
